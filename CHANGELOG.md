@@ -5,7 +5,7 @@ All changes to Beautify including new features, updates, and removals are docume
 ## [v0.0.1] - 2026-07-14
 
 ### Distribution Files
-- **Compiled CSS**: `dist/beautify.min.css` — compiled production file
+- **Compiled CSS**: `dist/beautify.css` — compiled production file
 - **Examples**: `examples/index.html` directory with HTML demo files for all components
 
 > Note: The `src/` directory contains commercial source CSS files and is **not** included in the published npm package. It is available for purchase separately.

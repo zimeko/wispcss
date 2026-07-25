@@ -5,6 +5,8 @@
 
 A pure CSS component and utility library built on the Tailwind CSS v4 compiler. Fully documented with inline comments, AI-friendly. It provides styled HTML native elements and a comprehensive set of utility classes for UI layout, without requiring any JavaScript.
 
+Explore **[100 Component Demos](examples/index.html)** →
+
 ---
 
 ## Overview

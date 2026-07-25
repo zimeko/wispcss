@@ -4,6 +4,8 @@
 
 基于 Tailwind CSS v4 编译器的纯 CSS 组件与工具库。注释全面，AI 友好支持。无需 JavaScript，即可为 HTML 原生节点提供样式美化，并附带全面的 utility class 用于 UI 布局。
 
+立即查看 **[100个组件演示](examples/index.html)** →
+
 ---
 
 ## 概述
