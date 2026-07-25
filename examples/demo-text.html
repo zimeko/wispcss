@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Text - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Typography / Multi-language Text</h1>
+  <p>Beautify uses a system UI font stack optimized for multi-language rendering. The following paragraphs demonstrate how each language appears with the default font settings.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Font stack prioritizes system UI fonts for each platform (macOS, Windows, Linux, Android, iOS).</li>
+      <li>Language-specific rendering is controlled via the <code>lang</code> attribute on the HTML element or container.</li>
+      <li>Chinese (<code>lang="zh"</code>) uses <code>text-emphasis</code> dot underlines for <code>&lt;em></code> instead of italics. <code>&lt;cite></code> gets dashed underline, <code>&lt;dfn></code> uses bold.</li>
+      <li>RTL languages (Arabic, Hebrew, Persian) are supported via <code>dir="rtl"</code> with direction factor CSS variables.</li>
+    </ul>
+  </div>
+
+  <h2 id="inline-semantics-comparison">Inline semantics comparison</h2>
+  <div class="section">
+    <div>
+      <h3>English (no language-specific override)</h3>
+      <p><em>Emphasis</em> — italic style (default browser).</p>
+      <p><cite>Citation</cite> — italic style (default browser).</p>
+      <p><dfn>Definition</dfn> — italic style (default browser).</p>
+    </div>
+    <div lang="zh-CN">
+      <h3>Chinese (lang="zh")</h3>
+      <p><em>着重号</em> — text-emphasis dots under characters.</p>
+      <p><cite>书名号引用</cite> — dashed underline.</p>
+      <p><dfn>定义术语</dfn> — bold style.</p>
+    </div>
+    <div lang="ja">
+      <h3>Japanese (lang="ja")</h3>
+      <p><em>強調</em> — text-emphasis dots above characters.</p>
+      <p><cite>引用</cite> — dashed underline.</p>
+      <p><dfn>定義</dfn> — bold style.</p>
+    </div>
+  </div>
+
+  <h2 id="english">English</h2>
+  <div class="section">
+    <p>Typography plays a crucial role in user interface design. A well-chosen typeface improves readability, establishes visual hierarchy, and creates a consistent brand personality across digital platforms. System UI fonts are often preferred because they provide excellent rendering performance and match the native operating system's visual style.</p>
+  </div>
+
+  <h2 lang="zh-CN">Simplified Chinese (简体中文)</h2>
+  <div class="section">
+    <p lang="zh-CN">字体在界面设计中不仅影响美观程度，更直接关系到信息的传达效率。合适的中文字体能够让长时间阅读变得更加轻松，同时在不同分辨率和不同设备上保持清晰锐利的显示效果。现代系统字体通常针对屏幕显示进行了专门优化，因此在网页和应用界面中具有更好的表现。</p>
+  </div>
+
+  <h2 lang="zh-TW">Traditional Chinese (繁體中文)</h2>
+  <div class="section">
+    <p lang="zh-TW">在數位產品設計中，字體選擇會直接影響閱讀體驗與介面質感。繁體中文字形結構較為複雜，因此需要專門優化的字體來呈現細節，才能在高解析度螢幕上維持清晰與平衡。良好的字重配置與行距控制，能讓長篇內容閱讀更加舒適。</p>
+  </div>
+
+  <h2 lang="ja">Japanese (日本語)</h2>
+  <div class="section">
+    <p lang="ja">タイポグラフィはユーザーインターフェース設計において重要な役割を果たします。適切なフォントを選択することで、可読性が向上し、情報の階層構造が明確になります。また、長時間の閲覧でも目の疲れを軽減する効果があります。</p>
+  </div>
+
+  <h2 lang="ko">Korean (한국어)</h2>
+  <div class="section">
+    <p lang="ko">타이포그래피는 사용자 인터페이스 디자인에서 중요한 역할을 합니다. 적절한 글꼴을 선택하면 가독성이 향상되고 정보의 계층 구조가 더 명확해집니다. 또한 장시간 화면을 볼 때 눈의 피로를 줄이는 데에도 도움이 됩니다.</p>
+  </div>
+
+  <h2 lang="th">Thai (ภาษาไทย)</h2>
+  <div class="section">
+    <p lang="th">การพิมพ์มีบทบาทสำคัญในการออกแบบส่วนติดต่อผู้ใช้ การเลือกแบบอักษรที่เหมาะสมช่วยเพิ่มความสามารถในการอ่าน สร้างลำดับชั้นของข้อมูลที่ชัดเจน และสร้างบุคลิกภาพของแบรนด์ที่สอดคล้องกันบนแพลตฟอร์มดิจิทัลต่างๆ แบบอักษรของระบบมักได้รับความนิยมเนื่องจากให้ประสิทธิภาพการแสดงผลที่ยอดเยี่ยมและเข้ากับสไตล์ภาพของระบบปฏิบัติการดั้งเดิม</p>
+  </div>
+
+  <h2 lang="hi">Hindi (हिन्दी)</h2>
+  <div class="section">
+    <p lang="hi">टाइपोग्राफी उपयोगकर्ता इंटरफ़ेस डिज़ाइन में महत्वपूर्ण भूमिका निभाती है। एक अच्छी तरह से चुनी गई टाइपफ़ेस पठनीयता में सुधार करती है, दृश्य पदानुक्रम स्थापित करती है, और डिजिटल प्लेटफ़ॉर्म पर एक सुसंगत ब्रांड व्यक्तित्व बनाती है। सिस्टम UI फ़ॉन्ट को अक्सर प्राथमिकता दी जाती है क्योंकि वे उत्कृष्ट रेंडरिंग प्रदर्शन प्रदान करते हैं और मूल ऑपरेटिंग सिस्टम की दृश्य शैली से मेल खाते हैं।</p>
+  </div>
+
+  <h2 lang="ar" dir="rtl">Arabic (العربية)</h2>
+  <div class="section">
+    <p lang="ar" dir="rtl">تلعب الطباعة دورًا أساسيًا في تصميم واجهات المستخدم، حيث تؤثر بشكل مباشر على سهولة القراءة وجمالية العرض. اختيار الخط المناسب يساعد على تقديم المحتوى بطريقة واضحة ومنظمة، خصوصًا عند عرض نصوص طويلة على الشاشات الرقمية.</p>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

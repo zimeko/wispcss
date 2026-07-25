@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Dropmenu - Beautify Demo</title>
+  <style>
+    .demo-area {
+      min-height: 320px;
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Dropmenu Component</h1>
+  <p>Pure CSS dropdown menu built with <code>ul + li + hover</code> structure. Supports multi-level nesting, click toggle (checkbox), inline/list modes, multiple positions, submenu directions, ghost variant, and RTL.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base class: <code>.dropmenu</code>. Structure: <code>dropmenu > label/span/host > ul > li > ul (submenu)</code>.</li>
+      <li>Hover expands by default. Use <code>label > input[type=checkbox]</code> for click toggle.</li>
+      <li>Modes: <code>.dropmenu-inline</code> (inline expansion), <code>.dropmenu-list</code> (always expanded).</li>
+      <li>Visual: <code>.dropmenu-ghost</code> for ghost button style. Use <code>data-role="divider"</code> on <code>li</code> for separators.</li>
+      <li>Use <code>data-role="host"</code> on trigger for arrow indicator. Use <code>data-expanded="true"</code>, <code>data-selected="true"</code>, <code>data-disabled="true"</code> on <code>li > div</code> for states.</li>
+      <li>Multi-level nesting: <code>li > ul > li > ul ...</code>. Submenus auto-position to the right (default growth).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Hover (default)</h3>
+      <div class="dropmenu">
+        <span>Dropdown</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">User Management</a></div></li>
+          <li>
+            <div><a href="###">Content</a></div>
+            <ul class="reset-ul">
+              <li><div><a href="###">Sports</a></div></li>
+              <li>
+                <div><a href="###">Politics</a></div>
+                <ul class="reset-ul">
+                  <li><div><a href="###">Add</a></div></li>
+                  <li><div><a href="###">Delete</a></div></li>
+                  <li><div><a href="###">Edit</a></div></li>
+                </ul>
+              </li>
+              <li><div><a href="###">Entertainment</a></div></li>
+            </ul>
+          </li>
+          <li><div><a href="###">Permissions</a></div></li>
+          <li><div><a href="###">Settings</a></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h3>With arrow (data-role="host")</h3>
+      <div class="dropmenu">
+        <span data-role="host">Dropdown</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">User Management</a></div></li>
+          <li><div><a href="###">Content</a></div></li>
+          <li><div><a href="###">Permissions</a></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h3>Inline mode (.dropmenu-inline)</h3>
+      <div class="dropmenu dropmenu-inline">
+        <span>Dropdown</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">User Management</a></div></li>
+          <li>
+            <div><a href="###">Content</a></div>
+            <ul class="reset-ul">
+              <li><div><a href="###">Sports</a></div></li>
+              <li><div><a href="###">Politics</a></div></li>
+            </ul>
+          </li>
+          <li><div><a href="###">Permissions</a></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h3>List mode (.dropmenu-list)</h3>
+      <div class="dropmenu dropmenu-list">
+        <span>Dropdown</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">User Management</a></div></li>
+          <li>
+            <div><a href="###">Content</a></div>
+            <ul class="reset-ul">
+              <li><div><a href="###">Sports</a></div></li>
+              <li><div><a href="###">Politics</a></div></li>
+            </ul>
+          </li>
+          <li><div><a href="###">Permissions</a></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h3>Click toggle (checkbox)</h3>
+      <div class="dropmenu dropmenu-end-top dropmenu-downward-center">
+        <label>Dropdown <input type="checkbox"></label>
+        <ul class="reset-ul">
+          <li><div><a href="###">User Management</a></div></li>
+          <li>
+            <label><a>Content</a><input type="checkbox"></label>
+            <ul class="reset-ul">
+              <li><div><a href="###">Sports</a></div></li>
+              <li>
+                <label><a>Politics</a><input type="checkbox"></label>
+                <ul class="reset-ul">
+                  <li><div><span data-role="indent"></span><a href="###">Add</a></div></li>
+                  <li><div><span data-role="indent"></span><a href="###">Delete</a></div></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><div><a href="###">Permissions</a></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="ghost">Ghost variant</h2>
+  <div class="section">
+    <div>
+      <h3>Hover ghost</h3>
+      <div class="dropmenu dropmenu-ghost">
+        <span>Dropdown</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">User Management</a></div></li>
+          <li>
+            <div><a href="###">Content</a></div>
+            <ul class="reset-ul">
+              <li><div><a href="###">Sports</a></div></li>
+              <li><div><a href="###">Politics</a></div></li>
+            </ul>
+          </li>
+          <li data-role="divider"><div><a href="###">Permissions</a></div></li>
+          <li><div><a href="###">Settings</a></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h3>Ghost inline</h3>
+      <div class="dropmenu dropmenu-inline dropmenu-ghost">
+        <span>Dropdown</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">User Management</a></div></li>
+          <li><div><a href="###">Content</a></div></li>
+          <li data-role="divider"><div><a href="###">Permissions</a></div></li>
+          <li><div><a href="###">Settings</a></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h3>Ghost click toggle</h3>
+      <div class="dropmenu dropmenu-end-top dropmenu-downward-center dropmenu-ghost">
+        <label>Dropdown <input type="checkbox"></label>
+        <ul class="reset-ul">
+          <li><div><a href="###">User Management</a></div></li>
+          <li>
+            <label><a>Content</a><input type="checkbox"></label>
+            <ul class="reset-ul">
+              <li><div><a href="###">Sports</a></div></li>
+              <li><div><a href="###">Politics</a></div></li>
+            </ul>
+          </li>
+          <li data-role="divider"><div><a href="###">Permissions</a></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="combined-menus">Combined menus</h2>
+  <div class="section">
+    <div>
+      <h3>Multiple dropdowns</h3>
+      <div class="dropmenu">
+        <span>News</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">Sports</a></div></li>
+          <li><div><a href="###">Politics</a></div></li>
+          <li><div><a href="###">Entertainment</a></div></li>
+        </ul>
+      </div>
+      <div class="dropmenu">
+        <span>Config</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">Menu Config</a></div></li>
+          <li><div><a href="###">Permissions</a></div></li>
+          <li><div><a href="###">Settings</a></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h3>Radio group toggle</h3>
+      <div class="dropmenu">
+        <label>News<input type="radio" name="config"></label>
+        <ul class="reset-ul">
+          <li><div><a href="###">Sports</a></div></li>
+          <li><div><a href="###">Politics</a></div></li>
+        </ul>
+      </div>
+      <div class="dropmenu">
+        <label>Config<input type="radio" name="config"></label>
+        <ul class="reset-ul">
+          <li><div><a href="###">Menu Config</a></div></li>
+          <li><div><a href="###">Permissions</a></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="popup-positions">Popup positions</h2>
+  <div class="section">
+    <div>
+      <h3>Bottom</h3>
+      <div class="dropmenu dropmenu-bottom"><span>Center</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+      <div class="dropmenu dropmenu-bottom-start"><span>Start</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+      <div class="dropmenu dropmenu-bottom-end"><span>End</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+    </div>
+    <div>
+      <h3>Top</h3>
+      <div class="dropmenu dropmenu-top"><span>Center</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+      <div class="dropmenu dropmenu-top-start"><span>Start</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+      <div class="dropmenu dropmenu-top-end"><span>End</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+    </div>
+    <div>
+      <h3>End (right)</h3>
+      <div class="dropmenu dropmenu-end"><span>Center</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+      <div class="dropmenu dropmenu-end-top"><span>Top</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+      <div class="dropmenu dropmenu-end-bottom"><span>Bottom</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+    </div>
+    <div>
+      <h3>Start (left)</h3>
+      <div class="dropmenu dropmenu-start"><span>Center</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+      <div class="dropmenu dropmenu-start-top"><span>Top</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+      <div class="dropmenu dropmenu-start-bottom"><span>Bottom</span>
+        <ul class="reset-ul"><li><div><a href="###">Item</a></div></li><li><div><a href="###">Item</a></div></li></ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="submenu">Submenu growth directions</h2>
+  <div class="section">
+    <div>
+      <h3>Default (right-down)</h3>
+      <div class="dropmenu dropmenu-bottom-start">
+        <span>Menu</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">User</a></div></li>
+          <li>
+            <div><a href="###">Content</a></div>
+            <ul class="reset-ul">
+              <li><div><a href="###">Sports</a></div></li>
+              <li><div><a href="###">Politics</a></div></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3>Left-down (.dropmenu-downward-start)</h3>
+      <div class="dropmenu dropmenu-bottom-start dropmenu-downward-start">
+        <span>Menu</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">User</a></div></li>
+          <li>
+            <div><a href="###">Content</a></div>
+            <ul class="reset-ul">
+              <li><div><a href="###">Sports</a></div></li>
+              <li><div><a href="###">Politics</a></div></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3>Vertical (.dropmenu-upright)</h3>
+      <div class="dropmenu dropmenu-bottom-start dropmenu-upright">
+        <span>Menu</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">User</a></div></li>
+          <li>
+            <div><a href="###">Content</a></div>
+            <ul class="reset-ul">
+              <li><div><span data-role="indent"></span><a href="###">Sports</a></div></li>
+              <li><div><span data-role="indent"></span><a href="###">Politics</a></div></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="states">States</h2>
+  <div class="section">
+    <div>
+      <h3>Expanded (data-expanded="true")</h3>
+      <div class="dropmenu">
+        <span data-expanded="true">Dropdown</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">User</a></div></li>
+          <li>
+            <div data-expanded="true"><a href="###">Content</a></div>
+            <ul class="reset-ul">
+              <li><div><a href="###">Sports</a></div></li>
+              <li><div><a href="###">Politics</a></div></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3>Selected (data-selected="true")</h3>
+      <div class="dropmenu">
+        <span>Dropdown</span>
+        <ul class="reset-ul">
+          <li><div data-selected="true"><a href="###">User (selected)</a></div></li>
+          <li><div><a href="###">Content</a></div></li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3>Disabled (data-disabled="true")</h3>
+      <div class="dropmenu dropmenu-bottom-start">
+        <span>Dropdown</span>
+        <ul class="reset-ul">
+          <li><div><a href="###">User</a></div></li>
+          <li><div data-disabled="true"><a href="###">Content (disabled)</a></div></li>
+          <li><div><a href="###">Permissions</a></div></li>
+          <li><div data-disabled="true"><a href="###">Settings (disabled)</a></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Select - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Select Component</h1>
+  <p>The <code>select</code> element uses the same <code>input-*</code> utility classes as text inputs. All variants, colors, sizes, shapes, and width modifiers work.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>All <code>input-*</code> utilities apply to <code>select</code> — variants, colors, sizes, shapes, and widths.</li>
+      <li><code>input-pill</code> does NOT work with <code>select[multiple]</code>.</li>
+      <li>Prefer compound variant colors like <code>input-subtle-primary</code> over <code>input-subtle input-primary</code> — smaller CSS output.</li>
+      <li>Multi-select height: use <code>--input-count</code> (number of rows) or <code>max-height</code> CSS property.</li>
+    </ul>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <select><option>Option 1</option><option>Option 2</option><optgroup label="Group"><option>A</option><option>B</option></optgroup></select>
+      <select disabled><option>Disabled</option></select>
+    </div>
+    <div>
+      <h3>.input-subtle</h3>
+      <select class="input-subtle"><option>Option 1</option><option>Option 2</option></select>
+      <select class="input-subtle" disabled><option>Disabled</option></select>
+    </div>
+    <div>
+      <h3>.input-ghost</h3>
+      <select class="input-ghost"><option>Option 1</option><option>Option 2</option></select>
+      <select class="input-ghost" disabled><option>Disabled</option></select>
+    </div>
+    <div>
+      <h3>.input-underline</h3>
+      <select class="input-underline"><option>Option 1</option><option>Option 2</option></select>
+      <select class="input-underline" disabled><option>Disabled</option></select>
+    </div>
+    <div>
+      <h3>.input-outline</h3>
+      <select class="input-outline"><option>Option 1</option><option>Option 2</option></select>
+      <select class="input-outline" disabled><option>Disabled</option></select>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors (primary)</h2>
+  <div class="section">
+    <p>Each color shown with all 5 variants: default, subtle, muted, ghost, underline, outline.</p>
+    <div>
+      <h3>Primary</h3>
+      <select class="input-primary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-primary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-primary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-primary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-primary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-primary"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <select class="input-secondary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-secondary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-secondary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-secondary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-secondary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-secondary"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <select class="input-tertiary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-tertiary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-tertiary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-tertiary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-tertiary"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-tertiary"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <select class="input-success"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-success"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-success"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-success"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-success"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-success"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <select class="input-error"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-error"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-error"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-error"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-error"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-error"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <select class="input-info"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-info"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-info"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-info"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-info"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-info"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <select class="input-highlight"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-highlight"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-highlight"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-highlight"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-highlight"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-highlight"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <select class="input-warning"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-warning"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-warning"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-warning"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-warning"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-warning"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <select class="input-caution"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-caution"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-caution"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-caution"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-caution"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-caution"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <select class="input-ink"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-ink"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-ink"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-ink"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-ink"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-ink"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <select class="input-title"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-title"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-title"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-title"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-title"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-title"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <select class="input-description"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-description"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-description"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-description"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-description"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-description"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <select class="input-caption"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-caption"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-caption"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-caption"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-caption"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-caption"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <select class="input-disabled"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-subtle-disabled"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-muted-disabled"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-ghost-disabled"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-underline-disabled"><option>Opt 1</option><option>Opt 2</option></select>
+      <select class="input-outline-disabled"><option>Opt 1</option><option>Opt 2</option></select>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Tailwind + raw colors</h3>
+      <select class="input-teal-500"><option>teal-500</option><option>Opt 2</option></select>
+      <select class="input-subtle-teal-500"><option>subtle-teal</option><option>Opt 2</option></select>
+      <select class="input-ghost-teal-500"><option>ghost-teal</option><option>Opt 2</option></select>
+      <select class="input-underline-teal-500"><option>underline-teal</option><option>Opt 2</option></select>
+      <select class="input-outline-teal-500"><option>outline-teal</option><option>Opt 2</option></select>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (input-4 ~ input-15)</h2>
+  <div class="section">
+    <div>
+      <h3>16px (input-4)</h3>
+      <select class="input-4"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>20px (input-5)</h3>
+      <select class="input-5"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>24px (input-6)</h3>
+      <select class="input-6"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>28px (input-7)</h3>
+      <select class="input-7"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>32px (input-8, default)</h3>
+      <select class="input-8"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>36px (input-9)</h3>
+      <select class="input-9"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>40px (input-10)</h3>
+      <select class="input-10"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>44px (input-11)</h3>
+      <select class="input-11"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>48px (input-12)</h3>
+      <select class="input-12"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>52px (input-13)</h3>
+      <select class="input-13"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>56px (input-14)</h3>
+      <select class="input-14"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>60px (input-15)</h3>
+      <select class="input-15"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>input-pill</h3>
+      <select class="input-pill"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>input-rounded</h3>
+      <select class="input-rounded"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>input-fluid</h3>
+      <select class="input-fluid"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>input-square</h3>
+      <select class="input-square"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+  </div>
+
+  <h2 id="width-modifiers">Width modifiers</h2>
+  <div class="section">
+    <div>
+      <h3>input-scale (fixed 400px)</h3>
+      <select class="input-scale"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>input-scale-2 (2x / 800px)</h3>
+      <select class="input-scale-2"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>input-full (100%)</h3>
+      <select class="input-full"><option>Option 1</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>input-inline (content-width)</h3>
+      <select class="input-inline"><option>Short</option><option>Option 2</option></select>
+      <select class="input-inline"><option>Medium option text</option><option>Option 2</option></select>
+      <select class="input-inline"><option>Very long option label text here</option><option>Option 2</option></select>
+    </div>
+    <div>
+      <h3>input-inline + colors</h3>
+      <select class="input-inline input-subtle"><option>Subtle</option><option>Opt</option></select>
+      <select class="input-inline input-ghost"><option>Ghost</option><option>Opt</option></select>
+      <select class="input-inline input-underline"><option>Underline</option><option>Opt</option></select>
+      <select class="input-inline input-outline"><option>Outline</option><option>Opt</option></select>
+      <select class="input-inline input-subtle-primary"><option>Primary</option><option>Opt</option></select>
+    </div>
+  </div>
+
+  <h2 id="multi-select-multiple">Multi-select (multiple)</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <select multiple size="4"><option>Option 1</option><option>Option 2</option><option>Option 3</option><option>Option 4</option><option>Option 5</option></select>
+    </div>
+    <div>
+      <h3>With variant</h3>
+      <select class="input-subtle" multiple size="4"><option>Option 1</option><option>Option 2</option><option>Option 3</option><option>Option 4</option><option>Option 5</option></select>
+      <select class="input-outline-primary" multiple size="4"><option>Option 1</option><option>Option 2</option><option>Option 3</option><option>Option 4</option><option>Option 5</option></select>
+    </div>
+    <div>
+      <h3>Height control via --input-count</h3>
+      <select class="input-outline" multiple style="--input-count: 3"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+      <select class="input-outline" multiple style="--input-count: 5"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+    </div>
+    <div>
+      <h3>Height control via max-height</h3>
+      <select class="input-outline" multiple style="max-height: 100px"><option>Option 1</option><option>Option 2</option><option>Option 3</option><option>Option 4</option><option>Option 5</option><option>Option 6</option><option>Option 7</option><option>Option 8</option><option>Option 9</option><option>Option 10</option></select>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

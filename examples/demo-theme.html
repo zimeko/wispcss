@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <title>Theme - Beautify Demo</title>
+  <style>
+    .theme-bar { position: sticky; top: 0; z-index: 100; background: oklch(from var(--color-stage) l c h /0.5);border-bottom: 1px solid var(--color-title-bd); padding: 10px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; backdrop-filter: blur(8px); }
+    .theme-tab { padding: 3px 12px; border-radius: 20px; border: 1px solid var(--color-title-bd); background: transparent; font-size: 0.8rem; cursor: pointer; color: var(--color-title); }
+    .theme-tab:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .theme-tab.active { background: var(--color-primary); color: var(--color-primary-contrast); border-color: var(--color-primary); }
+    .demo-box { display: inline-flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 4px; }
+    .swatch-item { border-radius: 8px; padding: 12px; text-align: center; font-size: 0.8rem; font-weight: 500; border: 1px solid var(--color-title-bd); }
+  </style>
+</head>
+
+<body class="bg-primary-bg">
+  <div class="theme-bar">
+    <span style="font-size:0.85rem;font-weight:600;margin-right:4px;">Theme:</span>
+    <button class="theme-tab active" data-theme="">Default</button>
+    <button class="theme-tab" data-theme="theme-forest">Forest</button>
+    <button class="theme-tab" data-theme="theme-ocean">Ocean</button>
+    <button class="theme-tab" data-theme="theme-sunset">Sunset</button>
+    <button class="theme-tab" data-theme="theme-lavender">Lavender</button>
+    <button class="theme-tab" data-theme="theme-noir">Noir</button>
+    <button class="theme-tab" data-theme="theme-cyber">Cyber</button>
+    <button class="theme-tab" data-theme="theme-sakura">Sakura</button>
+    <button class="theme-tab" data-theme="theme-morandi">Morandi</button>
+    <button class="theme-tab" data-theme="theme-peach">Peach</button>
+    <button class="theme-tab" data-theme="theme-terracotta">Terracotta</button>
+    <button class="theme-tab" data-theme="theme-glacier">Glacier</button>
+    <button class="theme-tab" data-theme="theme-amber">Amber</button>
+    <button class="theme-tab" data-theme="theme-minimal">Minimal</button>
+    <button class="theme-tab" data-theme="theme-twilight">Twilight</button>
+    <button class="theme-tab" data-theme="theme-neon">Neon</button>
+    <button class="theme-tab" data-theme="theme-aurora">Aurora</button>
+    <button class="theme-tab" data-theme="theme-midnight">Midnight</button>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:24px 16px;">
+    <h1>Theme Preview</h1>
+    <p style="margin-bottom:24px;">Click a theme tab above to preview global color changes.</p>
+
+    <h2>Notes</h2>
+    <div style="margin-bottom:20px;padding:16px;border-radius:12px;box-shadow:var(--shadow-base);">
+      <ul>
+        <li>Apply any theme class to any element — <code>&lt;html class="theme-forest"></code>, <code>&lt;div class="theme-neon dark"></code>. All descendants inherit the theme colors.</li>
+        <li>Combine with <code>dark</code> class for dark mode: <code>&lt;div class="theme-sakura dark"></code>.</li>
+        <li>Available themes: <code>theme-forest</code>, <code>theme-ocean</code>, <code>theme-sunset</code>, <code>theme-lavender</code>, <code>theme-noir</code>, <code>theme-cyber</code>, <code>theme-sakura</code>, <code>theme-morandi</code>, <code>theme-peach</code>, <code>theme-terracotta</code>, <code>theme-glacier</code>, <code>theme-amber</code>, <code>theme-minimal</code>, <code>theme-twilight</code>, <code>theme-neon</code>, <code>theme-aurora</code>, <code>theme-midnight</code>.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom:20px;padding:16px;border-radius:12px;box-shadow:var(--shadow-base);">
+      <h2 style="margin-bottom:12px;">Color swatches</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;">
+        <div class="swatch-item" style="background:var(--color-primary);color:var(--color-primary-contrast)">primary</div>
+        <div class="swatch-item" style="background:var(--color-secondary);color:var(--color-secondary-contrast)">secondary</div>
+        <div class="swatch-item" style="background:var(--color-tertiary);color:var(--color-tertiary-contrast)">tertiary</div>
+        <div class="swatch-item" style="background:var(--color-warning);color:var(--color-warning-contrast)">warning</div>
+        <div class="swatch-item" style="background:var(--color-caution);color:var(--color-caution-contrast)">caution</div>
+        <div class="swatch-item" style="background:var(--color-highlight);color:var(--color-highlight-contrast)">highlight</div>
+        <div class="swatch-item" style="background:var(--color-info);color:var(--color-info-contrast)">info</div>
+        <div class="swatch-item" style="background:var(--color-success);color:var(--color-success-contrast)">success</div>
+        <div class="swatch-item" style="background:var(--color-error);color:var(--color-error-contrast)">error</div>
+        <div class="swatch-item" style="background:var(--color-ink);color:var(--color-ink-contrast)">ink</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px;padding:16px;border-radius:12px;box-shadow:var(--shadow-base);">
+      <h2 style="margin-bottom:12px;">Buttons</h2>
+      <div class="demo-box">
+        <button class="btn-subtle-primary">Subtle</button>
+        <button class="btn-vivid-primary">Vivid</button>
+        <button class="btn-ghost-primary">Ghost</button>
+        <button class="btn-outline-primary">Outline</button>
+        <button class="btn-muted-primary">Muted</button>
+        <button class="btn-primary">Solid</button>
+        <button class="btn-success">Success</button>
+        <button class="btn-warning">Warning</button>
+        <button class="btn-error">Error</button>
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px;padding:16px;border-radius:12px;box-shadow:var(--shadow-base);">
+      <h2 style="margin-bottom:12px;">Callout & Alarm & Badge</h2>
+      <div class="callout callout-solid-info" style="margin-bottom:8px;"><span class="icon icon-info"></span><span>callout-info</span></div>
+      <div class="callout callout-solid-success" style="margin-bottom:8px;"><span class="icon icon-check"></span><span>callout-success</span></div>
+      <div class="callout callout-solid-warning" style="margin-bottom:8px;"><span class="icon icon-warning"></span><span>callout-warning</span></div>
+      <div class="callout callout-solid-error" style="margin-bottom:8px;"><span class="icon icon-close"></span><span>callout-error</span></div>
+      <div class="alarm alarm-info" style="margin-bottom:8px;"><span>alarm-info</span></div>
+      <div class="alarm alarm-success" style="margin-bottom:8px;"><span>alarm-success</span></div>
+      <div class="alarm alarm-warning" style="margin-bottom:8px;"><span>alarm-warning</span></div>
+      <div class="alarm alarm-error" style="margin-bottom:8px;"><span>alarm-error</span></div>
+      <div class="demo-box" style="margin-top:8px;">
+        <span class="badge badge-primary">Primary</span>
+        <span class="badge badge-success">Success</span>
+        <span class="badge badge-warning">Warning</span>
+        <span class="badge badge-error">Error</span>
+        <span class="badge badge-info">Info</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px;padding:16px;border-radius:12px;box-shadow:var(--shadow-base);">
+      <h2 style="margin-bottom:12px;">Tag & Status & Link</h2>
+      <div class="demo-box">
+        <span class="tag tag-primary">Primary</span>
+        <span class="tag tag-success">Success</span>
+        <span class="tag tag-warning">Warning</span>
+        <span class="tag tag-error">Error</span>
+        <span class="tag tag-info">Info</span>
+      </div>
+      <div class="demo-box" style="margin-top:8px;">
+        <span class="status status-success"><span>Online</span></span>
+        <span class="status status-warning"><span>Away</span></span>
+        <span class="status status-error"><span>Offline</span></span>
+      </div>
+      <div class="demo-box" style="margin-top:8px;">
+        <a href="###" class="link link-primary">Primary link</a>
+        <a href="###" class="link link-success">Success link</a>
+        <a href="###" class="link link-underline">Underline link</a>
+      </div>
+    </div>
+
+
+      <div style="margin-bottom:20px;padding:16px;border-radius:12px;box-shadow:var(--shadow-base);">
+    <h2 style="margin-bottom:12px;">Creating custom themes</h2>
+    <p style="margin-bottom:8px;">Define your own theme using Tailwind's <code>@utility</code> syntax in any CSS file. Follow the same pattern as the built-in themes:</p>
+    <pre >/* Custom ocean theme */
+@utility theme-ocean {
+    --color-primary-base: #0a5fb4;
+    --color-secondary-base: #0f9baa;
+    --color-tertiary-base: #4fd1c5;
+    --color-warning-base: #f0883e;
+    --color-caution-base: #e8b64a;
+    --color-highlight-base: #cfe066;
+    --color-info-base: #2196d8;
+    --color-success-base: #2e9e6b;
+    --color-error-base: #e15a4d;
+    --color-ink-base: #0b1c2c;
+
+    @apply light;
+}</pre>
+    <p style="margin-top:8px;"><strong>Note:</strong> Custom themes do not need <code>@apply dark;</code> — dark mode is handled automatically by the system. In dark mode, color saturation decreases automatically. Text color derives from <code>--color-ink-base</code>: in light mode it equals the ink color; in dark mode the text inverts to white automatically. </p>
+      <p>For details on color variables, see <a class="link" href="./demo-color.html">demo-color.html</a>.</p>
+  </div>
+
+
+  </div>
+
+
+  <script>
+    const tabs = document.querySelectorAll('.theme-tab');
+    const html = document.documentElement;
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        html.className = tab.dataset.theme + (html.classList.contains('dark') ? ' dark' : '');
+      });
+    });
+  </script>
+  <script src="./demo-utils.js"></script>
+</body>
+
+

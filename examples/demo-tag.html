@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Tag - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Tag Component</h1>
+  <p>Tag / chip component with border, background, and hover states. Supports variants, shapes, sizes, and dynamic colors.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.tag</code>. Variants: <code>tag-subtle</code> (light bg), <code>tag-ghost</code> (transparent), <code>tag-muted</code> (border only), <code>tag-plain</code> (text only).</li>
+      <li>States: <code>tag-selected</code> (highlight border), <code>tag-compact</code> (smaller padding).</li>
+      <li>Prefer compound variant+color classes like <code>tag-subtle-primary</code> over <code>tag-subtle tag-primary</code>.</li>
+      <li>Shapes: <code>tag-rounded</code>, <code>tag-square</code>, <code>tag-fluid</code>, <code>tag-pill</code>. Sizes: <code>tag-4</code> (16px) to <code>tag-15</code> (60px).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default tags</h3>
+      <span class="tag">Default</span>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+    </div>
+    <div>
+      <h3>Selected state (tag-selected)</h3>
+      <span class="tag tag-selected">Selected</span>
+      <span class="tag tag-primary tag-selected">Primary</span>
+    </div>
+    <div>
+      <h3>Compact (tag-compact)</h3>
+      <span class="tag tag-compact">Compact</span>
+      <span class="tag tag-compact">v1.0</span>
+      <span class="tag tag-compact">beta</span>
+    </div>
+    <div>
+      <h3>Interactive (a tag)</h3>
+      <a class="tag" href="###">Clickable tag</a>
+      <a class="tag tag-selected" href="###">Selected link</a>
+    </div>
+    <div>
+      <h3>With close button</h3>
+      <span class="tag">Tag <span style="cursor:pointer">&times;</span></span>
+      <span class="tag tag-primary">Primary <span style="cursor:pointer">&times;</span></span>
+    </div>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default (border)</h3>
+      <span class="tag">Default</span>
+      <span class="tag tag-primary">Primary</span>
+      <span class="tag tag-success">Success</span>
+      <span class="tag tag-error">Error</span>
+    </div>
+    <div>
+      <h3>tag-subtle (light bg)</h3>
+      <span class="tag tag-subtle">Subtle</span>
+      <span class="tag tag-primary tag-subtle">Primary</span>
+      <span class="tag tag-success tag-subtle">Success</span>
+      <span class="tag tag-error tag-subtle">Error</span>
+    </div>
+    <div>
+      <h3>tag-ghost (transparent)</h3>
+      <span class="tag tag-ghost">Ghost</span>
+      <span class="tag tag-primary tag-ghost">Primary</span>
+      <span class="tag tag-success tag-ghost">Success</span>
+      <span class="tag tag-error tag-ghost">Error</span>
+    </div>
+    <div>
+      <h3>tag-muted (border only)</h3>
+      <span class="tag tag-muted">Muted</span>
+      <span class="tag tag-primary tag-muted">Primary</span>
+      <span class="tag tag-success tag-muted">Success</span>
+    </div>
+    <div>
+      <h3>tag-plain (text only)</h3>
+      <span class="tag tag-plain">Plain</span>
+      <span class="tag tag-primary tag-plain">Primary</span>
+      <span class="tag tag-success tag-plain">Success</span>
+    </div>
+  </div>
+
+  <h2 id="compound-shortcuts">Compound shortcuts</h2>
+  <div class="section">
+    <div>
+      <h3>tag-subtle-*</h3>
+      <span class="tag tag-subtle-primary tag-8">Primary</span>
+      <span class="tag tag-subtle-success tag-8">Success</span>
+      <span class="tag tag-subtle-error tag-8">Error</span>
+      <span class="tag tag-subtle-info tag-8">Info</span>
+    </div>
+    <div>
+      <h3>tag-ghost-*</h3>
+      <span class="tag tag-ghost-primary tag-8">Primary</span>
+      <span class="tag tag-ghost-success tag-8">Success</span>
+      <span class="tag tag-ghost-error tag-8">Error</span>
+    </div>
+    <div>
+      <h3>tag-muted-*</h3>
+      <span class="tag tag-muted-primary tag-8">Primary</span>
+      <span class="tag tag-muted-success tag-8">Success</span>
+      <span class="tag tag-muted-error tag-8">Error</span>
+    </div>
+    <div>
+      <h3>tag-plain-*</h3>
+      <span class="tag tag-plain-primary tag-8">Primary</span>
+      <span class="tag tag-plain-success tag-8">Success</span>
+      <span class="tag tag-plain-error tag-8">Error</span>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>tag-rounded</h3>
+      <span class="tag tag-primary tag-rounded">Rounded</span>
+      <span class="tag tag-success tag-rounded">Success</span>
+    </div>
+    <div>
+      <h3>tag-square</h3>
+      <span class="tag tag-primary tag-square">Square</span>
+      <span class="tag tag-success tag-square">Success</span>
+    </div>
+    <div>
+      <h3>tag-fluid</h3>
+      <span class="tag tag-primary tag-fluid">Fluid</span>
+      <span class="tag tag-success tag-fluid">Success</span>
+    </div>
+    <div>
+      <h3>tag-pill</h3>
+      <span class="tag tag-primary tag-pill">Circle</span>
+      <span class="tag tag-success tag-pill">Success</span>
+      <span class="tag tag-error tag-pill">Error</span>
+      <span class="tag tag-primary tag-pill tag-7">Small</span>
+      <span class="tag tag-success tag-pill tag-9">Medium</span>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>16px (tag-4)</h3>
+      <span class="tag tag-primary tag-4">4</span>
+      <span class="tag tag-success tag-4">Success</span>
+      <span class="tag tag-primary tag-4 tag-subtle">Sub</span>
+      <span class="tag tag-primary tag-4 tag-pill">O</span>
+    </div>
+    <div>
+      <h3>20px (tag-5)</h3>
+      <span class="tag tag-primary tag-5">5</span>
+      <span class="tag tag-primary tag-5 tag-subtle">Sub</span>
+      <span class="tag tag-primary tag-5 tag-pill">O</span>
+    </div>
+    <div>
+      <h3>24px (tag-6)</h3>
+      <span class="tag tag-primary tag-6">6</span>
+      <span class="tag tag-primary tag-6 tag-subtle">Sub</span>
+      <span class="tag tag-primary tag-6 tag-pill">O</span>
+    </div>
+    <div>
+      <h3>28px (tag-7)</h3>
+      <span class="tag tag-primary tag-7">7</span>
+      <span class="tag tag-primary tag-7 tag-subtle">Sub</span>
+      <span class="tag tag-primary tag-7 tag-pill">O</span>
+    </div>
+    <div>
+      <h3>32px (tag-8, default)</h3>
+      <span class="tag tag-primary tag-8">8</span>
+      <span class="tag tag-primary tag-8 tag-subtle">Sub</span>
+      <span class="tag tag-primary tag-8 tag-pill">O</span>
+    </div>
+    <div>
+      <h3>36px (tag-9)</h3>
+      <span class="tag tag-primary tag-9">9</span>
+      <span class="tag tag-primary tag-9 tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>40px (tag-10)</h3>
+      <span class="tag tag-primary tag-10">10</span>
+      <span class="tag tag-primary tag-10 tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>44px (tag-11)</h3>
+      <span class="tag tag-primary tag-11">11</span>
+    </div>
+    <div>
+      <h3>48px (tag-12)</h3>
+      <span class="tag tag-primary tag-12">12</span>
+    </div>
+    <div>
+      <h3>52px (tag-13)</h3>
+      <span class="tag tag-primary tag-13">13</span>
+    </div>
+    <div>
+      <h3>56px (tag-14)</h3>
+      <span class="tag tag-primary tag-14">14</span>
+    </div>
+    <div>
+      <h3>60px (tag-15)</h3>
+      <span class="tag tag-primary tag-15">15</span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <p>Each color shown in 4 variants: default / subtle / ghost / plain.</p>
+    <div>
+      <h3>Primary</h3>
+      <span class="tag tag-primary">Primary</span>
+      <span class="tag tag-primary tag-subtle">Sub</span>
+      <span class="tag tag-primary tag-ghost">Ghost</span>
+      <span class="tag tag-primary tag-plain">Plain</span>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <span class="tag tag-secondary">Secondary</span>
+      <span class="tag tag-secondary tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <span class="tag tag-tertiary">Tertiary</span>
+      <span class="tag tag-tertiary tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="tag tag-success">Success</span>
+      <span class="tag tag-success tag-subtle">Sub</span>
+      <span class="tag tag-success tag-ghost">Ghost</span>
+      <span class="tag tag-success tag-plain">Plain</span>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <span class="tag tag-error">Error</span>
+      <span class="tag tag-error tag-subtle">Sub</span>
+      <span class="tag tag-error tag-ghost">Ghost</span>
+      <span class="tag tag-error tag-plain">Plain</span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="tag tag-info">Info</span>
+      <span class="tag tag-info tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="tag tag-highlight">Highlight</span>
+      <span class="tag tag-highlight tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <span class="tag tag-warning">Warning</span>
+      <span class="tag tag-warning tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <span class="tag tag-caution">Caution</span>
+      <span class="tag tag-caution tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <span class="tag tag-ink">Ink</span>
+      <span class="tag tag-ink tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <span class="tag tag-title">Title</span>
+      <span class="tag tag-title tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <span class="tag tag-description">Description</span>
+      <span class="tag tag-description tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <span class="tag tag-caption">Caption</span>
+      <span class="tag tag-caption tag-subtle">Sub</span>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <span class="tag tag-disabled">Disabled</span>
+      <span class="tag tag-disabled tag-subtle">Sub</span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Tailwind colors</h3>
+      <span class="tag tag-green-100">green-100</span>
+      <span class="tag tag-green-500">green-500</span>
+      <span class="tag tag-green-800">green-800</span>
+      <span class="tag tag-green-500 tag-subtle">sub</span>
+      <span class="tag tag-green-500 tag-ghost">ghost</span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

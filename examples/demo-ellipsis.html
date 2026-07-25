@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Ellipsis - Beautify Demo</title>
+  <style>
+    .demo-box {
+      width: 300px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px dashed var(--color-title-bd);
+      background: var(--color-title-bg-hover);
+    }
+    @media (max-width: 768px) { .demo-box { width: 100%; } }
+  </style>
+</head>
+
+<body>
+  <h1>Ellipsis Component</h1>
+  <p>Text truncation utilities: single-line, multi-line, fadeout, reserved height, and cancel truncation.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Single line: <code>.ellipsis</code> or <code>.ellipsis-1</code>.</li>
+      <li>Multi-line: <code>.ellipsis-2</code> ~ <code>.ellipsis-10</code> (2 to 10 lines).</li>
+      <li>Fadeout: <code>.ellipsis-fadeout</code> — bottom gradient mask for soft visual fade. Combine with multi-line classes.</li>
+      <li>Reserve height: <code>.ellipsis-reserve</code> — keeps fixed height even when content is shorter than the limit.</li>
+      <li>Cancel: <code>.ellipsis-none</code> — removes truncation for "expand full text" scenarios.</li>
+    </ul>
+  </div>
+
+  <h2 id="single-line">Single line</h2>
+  <div class="section">
+    <div>
+      <h3>.ellipsis</h3>
+      <div class="demo-box">
+        <div class="ellipsis">This is a long text that will be truncated with an ellipsis because its length exceeds the container width.</div>
+      </div>
+    </div>
+    <div>
+      <h3>.ellipsis-1 (alias)</h3>
+      <div class="demo-box">
+        <div class="ellipsis-1">Same single-line truncation, different class name. Works identically to .ellipsis.</div>
+      </div>
+    </div>
+    <div>
+      <h3>Real-world: file name + path</h3>
+      <div class="demo-box">
+        <div><strong>File:</strong> <span class="ellipsis" style="display:inline-block;max-width:200px;vertical-align:bottom;">2026_Q1_Financial_Report_Final_Approved.pdf</span></div>
+        <div><strong>Path:</strong> <span class="ellipsis" style="display:inline-block;max-width:200px;vertical-align:bottom;">/documents/finance/2026/Q1/reports/final/</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="multi-line">Multi-line (.ellipsis-2 ~ .ellipsis-10)</h2>
+  <div class="section">
+    <div>
+      <h3>2 lines</h3>
+      <div class="demo-box">
+        <div class="ellipsis-2">This is a two-line truncation demo. When text exceeds two lines, the rest is cut off and an ellipsis is shown. This keeps the layout tidy and is very useful for card summaries and article lists.</div>
+      </div>
+    </div>
+    <div>
+      <h3>3 lines</h3>
+      <div class="demo-box">
+        <div class="ellipsis-3">Three-line truncation demo. Shows more content than two lines, suitable for longer previews. Ideal for blog excerpts, product descriptions, and news snippets where more context is needed.</div>
+      </div>
+    </div>
+    <div>
+      <h3>4 lines</h3>
+      <div class="demo-box">
+        <div class="ellipsis-4">Four-line truncation demo. Provides substantial preview content. Good for blog articles, longer descriptions, or any scenario where you want to show a meaningful amount of text before the cut-off.</div>
+      </div>
+    </div>
+    <div>
+      <h3>8 lines (example)</h3>
+      <div class="demo-box">
+        <div class="ellipsis-8">Eight-line truncation demo. The ellipsis component supports 2 to 10 lines, accommodating various layout needs. Choose the right line count to balance information display and space usage. For very long previews, 8 lines or more can be effective. This text is long enough to demonstrate the truncation at this line count.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="fadeout">Fadeout (.ellipsis-fadeout)</h2>
+  <div class="section">
+    <div>
+      <h3>With 4 lines</h3>
+      <div class="demo-box">
+        <div class="ellipsis-4 ellipsis-fadeout">Soft gradient fadeout mask at the bottom. Unlike the standard ellipsis, this creates a natural fading effect that looks more elegant. Combine with multi-line classes for both truncation and visual fade. Ideal for modern UI designs where a softer visual treatment is desired.</div>
+      </div>
+    </div>
+    <div>
+      <h3>With 3 lines</h3>
+      <div class="demo-box">
+        <div class="ellipsis-3 ellipsis-fadeout">Three-line fadeout effect. The text appears to fade out naturally at the bottom, creating a smoother visual experience compared to a hard ellipsis cut-off.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="reserve">Reserve height (.ellipsis-reserve)</h2>
+  <div class="section">
+    <div>
+      <h3>Short content with reserved height</h3>
+      <div class="demo-box">
+        <div class="ellipsis-4 ellipsis-reserve">Short text that doesn't fill 4 lines.</div>
+      </div>
+    </div>
+    <div>
+      <h3>Short content without reserve (collapsed)</h3>
+      <div class="demo-box">
+        <div class="ellipsis-4">Short text — height collapses to actual content.</div>
+      </div>
+    </div>
+    <div>
+      <h3>Reserve + fadeout</h3>
+      <div class="demo-box">
+        <div class="ellipsis-4 ellipsis-reserve ellipsis-fadeout">Even with short content, the container keeps 4-line height with fadeout effect. Useful for consistent card layouts.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="cancel">Cancel (.ellipsis-none)</h2>
+  <div class="section">
+    <div>
+      <h3>Truncated</h3>
+      <div class="demo-box">
+        <div class="ellipsis-2">This text is truncated at 2 lines. When text exceeds the limit, the rest is cut off and an ellipsis is shown.</div>
+      </div>
+    </div>
+    <div>
+      <h3>With .ellipsis-none (full text)</h3>
+      <div class="demo-box">
+        <div class="ellipsis-2 ellipsis-none">This text also has ellipsis-2 but with ellipsis-none the truncation is cancelled. The full text is displayed, undoing the multi-line clamp. Useful for "expand full text" interactions.</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Breadcrumb - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Breadcrumb Component</h1>
+  <p>Breadcrumb navigation with variants, custom separators, and semantic data attributes.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use class <code>.breadcrumb</code> on a <code>&lt;nav></code> or <code>&lt;div></code> container.</li>
+      <li>Labels use <code>data-role="label"</code>, separators use <code>data-role="hyphen"</code>, and optional prefix uses <code>data-role="header"</code>.</li>
+      <li>Mark the current page with <code>data-selected="true"</code>.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default breadcrumb</h3>
+      <nav class="breadcrumb">
+        <a href="###" data-role="label">Home</a>
+        <span data-role="hyphen">/</span>
+        <a href="###" data-role="label">Products</a>
+        <span data-role="hyphen">/</span>
+        <span data-role="label" data-selected="true">Product detail</span>
+      </nav>
+    </div>
+    <div>
+      <h3>With header prefix</h3>
+      <nav class="breadcrumb">
+        <span data-role="header">📍</span>
+        <a href="###" data-role="label">Home</a>
+        <span data-role="hyphen">/</span>
+        <a href="###" data-role="label">Products</a>
+        <span data-role="hyphen">/</span>
+        <span data-role="label" data-selected="true">Product detail</span>
+      </nav>
+    </div>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default (<code>.breadcrumb</code>)</h3>
+      <nav class="breadcrumb">
+        <a href="###" data-role="label">Home</a>
+        <span data-role="hyphen">/</span>
+        <a href="###" data-role="label">Products</a>
+        <span data-role="hyphen">/</span>
+        <span data-role="label" data-selected="true">Product detail</span>
+      </nav>
+    </div>
+    <div>
+      <h3>Subtle (<code>.breadcrumb-subtle</code>)</h3>
+      <nav class="breadcrumb breadcrumb-subtle">
+        <a href="###" data-role="label">Home</a>
+        <span data-role="hyphen" class="text-lg">›</span>
+        <a href="###" data-role="label">Products</a>
+        <span data-role="hyphen" class="text-lg">›</span>
+        <span data-role="label" data-selected="true">Product detail</span>
+      </nav>
+    </div>
+    <div>
+      <h3>Ghost (<code>.breadcrumb-ghost</code>)</h3>
+      <nav class="breadcrumb breadcrumb-ghost">
+        <a href="###" data-role="label">Home</a>
+        <span data-role="hyphen">/</span>
+        <a href="###" data-role="label">Products</a>
+        <span data-role="hyphen">/</span>
+        <span data-role="label" data-selected="true">Product detail</span>
+      </nav>
+    </div>
+    <div>
+      <h3>Muted (<code>.breadcrumb-muted</code>)</h3>
+      <nav class="breadcrumb breadcrumb-muted">
+        <a href="###" data-role="label">Home</a>
+        <span data-role="hyphen">/</span>
+        <a href="###" data-role="label">Products</a>
+        <span data-role="hyphen">/</span>
+        <span data-role="label" data-selected="true">Product detail</span>
+      </nav>
+    </div>
+  </div>
+
+  <h2 id="separators">Separators</h2>
+  <div class="section">
+    <div>
+      <h3>Slash (<code>/</code>)</h3>
+      <nav class="breadcrumb">
+        <a href="###" data-role="label">Home</a>
+        <span data-role="hyphen">/</span>
+        <a href="###" data-role="label">Products</a>
+        <span data-role="hyphen">/</span>
+        <span data-role="label" data-selected="true">Detail</span>
+      </nav>
+    </div>
+    <div>
+      <h3>Greater-than (<code>›</code>)</h3>
+      <nav class="breadcrumb">
+        <a href="###" data-role="label">Home</a>
+        <span data-role="hyphen" class="text-lg">›</span>
+        <a href="###" data-role="label">Products</a>
+        <span data-role="hyphen" class="text-lg">›</span>
+        <span data-role="label" data-selected="true">Detail</span>
+      </nav>
+    </div>
+    <div>
+      <h3>Arrow (<code>→</code>)</h3>
+      <nav class="breadcrumb">
+        <a href="###" data-role="label">Home</a>
+        <span data-role="hyphen">→</span>
+        <a href="###" data-role="label">Products</a>
+        <span data-role="hyphen">→</span>
+        <span data-role="label" data-selected="true">Detail</span>
+      </nav>
+    </div>
+    <div>
+      <h3>Icon separator</h3>
+      <nav class="breadcrumb">
+        <a href="###" data-role="label">Home</a>
+        <span data-role="hyphen" class="icon icon-chevron-end"></span>
+        <a href="###" data-role="label">Products</a>
+        <span data-role="hyphen" class="icon icon-chevron-end"></span>
+        <span data-role="label" data-selected="true">Detail</span>
+      </nav>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>E-commerce</h3>
+      <nav class="breadcrumb breadcrumb-subtle">
+        <a href="###" data-role="label">Home</a>
+        <span data-role="hyphen" class="text-lg">›</span>
+        <a href="###" data-role="label">Electronics</a>
+        <span data-role="hyphen" class="text-lg">›</span>
+        <a href="###" data-role="label">Phones</a>
+        <span data-role="hyphen" class="text-lg">›</span>
+        <span data-role="label" data-selected="true">iPhone 15</span>
+      </nav>
+    </div>
+    <div>
+      <h3>Documentation</h3>
+      <nav class="breadcrumb breadcrumb-muted">
+        <a href="###" data-role="label">Docs</a>
+        <span data-role="hyphen">/</span>
+        <a href="###" data-role="label">Components</a>
+        <span data-role="hyphen">/</span>
+        <span data-role="label" data-selected="true">Breadcrumb</span>
+      </nav>
+    </div>
+    <div>
+      <h3>Admin panel</h3>
+      <nav class="breadcrumb breadcrumb-ghost">
+        <a href="###" data-role="label">Dashboard</a>
+        <span data-role="hyphen">/</span>
+        <a href="###" data-role="label">Users</a>
+        <span data-role="hyphen">/</span>
+        <a href="###" data-role="label">Roles</a>
+        <span data-role="hyphen">/</span>
+        <span data-role="label" data-selected="true">Edit role</span>
+      </nav>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Bookmark - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Bookmark Component</h1>
+  <p>Tab-switching utility with directional placement, layout structures, shape profiles, dynamic colors, and size presets. Selected item uses <code>data-selected="true"</code> or a nested <code>&lt;input type="radio" checked></code>.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Requires <code>.bookmark</code> base class on the container.</li>
+      <li>Mark selected item with <code>data-selected="true"</code> or nested <code>&lt;input type="radio" checked></code>.</li>
+      <li>Layouts: <code>bookmark-flex</code>, <code>bookmark-grid</code>, <code>bookmark-gapped</code>, <code>bookmark-flush</code>.</li>
+      <li>Directions: <code>bookmark-top</code>, <code>bookmark-start</code>, <code>bookmark-end</code> (default: bottom).</li>
+      <li>Shapes: <code>bookmark-rounded</code>, <code>bookmark-fluid</code>, <code>bookmark-pill</code>.</li>
+      <li>Dark variant: add <code>bookmark-inverted</code> for solid fill on selected item.</li>
+      <li>Sizes: <code>bookmark-4</code> ~ <code>bookmark-15</code> (<code>bookmark-8</code> is default).</li>
+      <li>Custom color via Tailwind palette: <code>bookmark-green-500</code>, or raw: <code>bookmark-[#ff0000]</code>.</li>
+      <li>Disabled item: add <code>data-disabled="true"</code> to a child.</li>
+    </ul>
+   
+  </div>
+
+  <h2 id="default-selection">Default & selection</h2>
+  <div class="section">
+    <span class="bookmark">
+      <span data-selected="true">Home</span>
+      <span>Products</span>
+      <span>Services</span>
+      <span>About</span>
+    </span>
+    <p></p>
+    <span class="bookmark">
+      <label>Home <input type="radio" name="demo-a" checked></label>
+      <label>Products <input type="radio" name="demo-a"></label>
+      <label>Services <input type="radio" name="demo-a"></label>
+    </span>
+  </div>
+
+  <h2 id="layout">Layouts</h2>
+  <div class="section">
+    <h3>Default (inline)</h3>
+    <span class="bookmark"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+
+    <h3>bookmark-flex (fluid + gaps)</h3>
+    <span class="bookmark bookmark-flex"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+
+    <h3>bookmark-grid (equal width)</h3>
+    <span class="bookmark bookmark-grid"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+
+    <h3>bookmark-gapped (track background + gaps)</h3>
+    <div style="border-radius:10px;border:1px solid #ccc;">
+      <span class="bookmark bookmark-gapped"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+      <p>Content area</p>
+    </div>
+
+    <h3>bookmark-flush (seamless edge)</h3>
+    <div style="border-radius:10px;border:1px solid #ccc;">
+      <span class="bookmark bookmark-flush"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+      <p>Content area</p>
+    </div>
+  </div>
+
+  <h2 id="direction">Directions</h2>
+  <div class="section">
+    <h3>Default (bottom)</h3>
+    <span class="bookmark"><span data-selected="true">A</span><span>B</span></span>
+
+    <h3>bookmark-top</h3>
+    <span class="bookmark bookmark-top"><span data-selected="true">A</span><span>B</span></span>
+
+    <h3>bookmark-start (vertical)</h3>
+    <span class="bookmark bookmark-start"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+
+    <h3>bookmark-end (vertical)</h3>
+    <span class="bookmark bookmark-end"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <h3>Default (square)</h3>
+    <span class="bookmark"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+
+    <h3>bookmark-rounded</h3>
+    <span class="bookmark bookmark-rounded"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+
+    <h3>bookmark-fluid</h3>
+    <span class="bookmark bookmark-fluid"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+
+    <h3>bookmark-pill (pill)</h3>
+    <span class="bookmark bookmark-pill"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+  </div>
+
+  <h2 id="dark">Dark variant (bookmark-inverted)</h2>
+  <div class="section">
+    <h3>Default + inverted</h3>
+    <span class="bookmark bookmark-inverted"><span data-selected="true">Home</span><span>Products</span><span>Services</span></span>
+
+    <h3>Flex + inverted</h3>
+    <span class="bookmark bookmark-flex bookmark-inverted"><span data-selected="true">Home</span><span>Products</span></span>
+
+    <h3>Grid + inverted</h3>
+    <span class="bookmark bookmark-grid bookmark-inverted"><span data-selected="true">Home</span><span>Products</span></span>
+
+    <h3>Gapped + inverted</h3>
+    <div style="border-radius:10px;border:1px solid #ccc;">
+      <span class="bookmark bookmark-gapped bookmark-inverted"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+      <p>Content</p>
+    </div>
+
+    <h3>Flush + inverted</h3>
+    <div style="border-radius:10px;border:1px solid #ccc;">
+      <span class="bookmark bookmark-flush bookmark-inverted"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+      <p>Content</p>
+    </div>
+  </div>
+
+  <h2 id="colors-default-style">Colors — default style</h2>
+  <div class="section">
+    <p><span class="bookmark bookmark-primary"><span data-selected="true">primary</span><span>item</span></span>
+    <span class="bookmark bookmark-secondary"><span data-selected="true">secondary</span><span>item</span></span>
+    <span class="bookmark bookmark-tertiary"><span data-selected="true">tertiary</span><span>item</span></span>
+    <span class="bookmark bookmark-success"><span data-selected="true">success</span><span>item</span></span>
+    <span class="bookmark bookmark-error"><span data-selected="true">error</span><span>item</span></span>
+    <span class="bookmark bookmark-info"><span data-selected="true">info</span><span>item</span></span>
+    <span class="bookmark bookmark-warning"><span data-selected="true">warning</span><span>item</span></span>
+    <span class="bookmark bookmark-caution"><span data-selected="true">caution</span><span>item</span></span>
+    <span class="bookmark bookmark-highlight"><span data-selected="true">highlight</span><span>item</span></span>
+    <span class="bookmark bookmark-ink"><span data-selected="true">ink</span><span>item</span></span>
+    <span class="bookmark bookmark-title"><span data-selected="true">title</span><span>item</span></span>
+    <span class="bookmark bookmark-description"><span data-selected="true">desc</span><span>item</span></span>
+    <span class="bookmark bookmark-caption"><span data-selected="true">caption</span><span>item</span></span>
+    <span class="bookmark bookmark-disabled"><span data-selected="true">disabled</span><span>item</span></span></p>
+  </div>
+
+  <h2 id="colors-inverted-dark-style">Colors — inverted (dark) style</h2>
+  <div class="section">
+    <p><span class="bookmark bookmark-inverted bookmark-primary"><span data-selected="true">primary</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-secondary"><span data-selected="true">secondary</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-tertiary"><span data-selected="true">tertiary</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-success"><span data-selected="true">success</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-error"><span data-selected="true">error</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-info"><span data-selected="true">info</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-warning"><span data-selected="true">warning</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-caution"><span data-selected="true">caution</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-highlight"><span data-selected="true">highlight</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-ink"><span data-selected="true">ink</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-title"><span data-selected="true">title</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-description"><span data-selected="true">desc</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-caption"><span data-selected="true">caption</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-disabled"><span data-selected="true">disabled</span><span>item</span></span></p>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+   <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+  <div class="section">
+    <p><span class="bookmark bookmark-green-500"><span data-selected="true">green-500</span><span>item</span></span>
+    <span class="bookmark bookmark-green-100"><span data-selected="true">green-100</span><span>item</span></span>
+    <span class="bookmark bookmark-green-800"><span data-selected="true">green-800</span><span>item</span></span>
+    <span class="bookmark bookmark-[#ff0000]"><span data-selected="true">[#ff0000]</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-green-500"><span data-selected="true">inv green</span><span>item</span></span>
+    <span class="bookmark bookmark-inverted bookmark-[#ff0000]"><span data-selected="true">inv red</span><span>item</span></span></p>
+  </div>
+
+  <h2 id="sizes">Sizes (bookmark-4 ~ bookmark-15)</h2>
+  <div class="section">
+    <p><span class="bookmark bookmark-primary bookmark-4"><span data-selected="true">4</span><span>item</span></span>
+      <span class="bookmark bookmark-primary bookmark-5"><span data-selected="true">5</span><span>item</span></span>
+    <span class="bookmark bookmark-primary bookmark-6"><span data-selected="true">6</span><span>item</span></span>
+    <span class="bookmark bookmark-primary bookmark-7"><span data-selected="true">7</span><span>item</span></span>
+    <span class="bookmark bookmark-primary bookmark-8"><span data-selected="true">8</span><span>item</span></span>
+    <span class="bookmark bookmark-primary bookmark-9"><span data-selected="true">9</span><span>item</span></span>
+    <span class="bookmark bookmark-primary bookmark-10"><span data-selected="true">10</span><span>item</span></span>
+    <span class="bookmark bookmark-primary bookmark-11"><span data-selected="true">11</span><span>item</span></span>
+    <span class="bookmark bookmark-primary bookmark-12"><span data-selected="true">12</span><span>item</span></span>
+    <span class="bookmark bookmark-primary bookmark-13"><span data-selected="true">13</span><span>item</span></span>
+    <span class="bookmark bookmark-primary bookmark-14"><span data-selected="true">14</span><span>item</span></span>
+    <span class="bookmark bookmark-primary bookmark-15"><span data-selected="true">15</span><span>item</span></span></p>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <h3>Tab switch (default + rounded + color)</h3>
+    <span class="bookmark bookmark-primary bookmark-rounded">
+      <span data-selected="true">Favorites</span>
+      <span>Files</span>
+      <span>Team</span>
+      <span>Settings</span>
+    </span>
+
+    <h3>Nav menu (grid + inverted)</h3>
+    <span class="bookmark bookmark-primary bookmark-grid bookmark-inverted">
+      <span data-selected="true">Home</span>
+      <span>Products</span>
+      <span>Services</span>
+      <span>About</span>
+    </span>
+
+    <h3>Sidebar (gapped + rounded)</h3>
+    <div style="border-radius:10px;border:1px solid #ccc;">
+      <span class="bookmark bookmark-primary bookmark-gapped bookmark-rounded">
+        <span data-selected="true">Dashboard</span>
+        <span>Analytics</span>
+        <span>Users</span>
+        <span>Settings</span>
+      </span>
+      <p>Content area</p>
+    </div>
+
+    <h3>Status toggle (success / highlight)</h3>
+    <span class="bookmark bookmark-success bookmark-rounded"><span data-selected="true">Pass</span><span>Pending</span><span>Fail</span></span>
+    <span class="bookmark bookmark-highlight bookmark-rounded"><span data-selected="true">Warning</span><span>Info</span><span>Error</span></span>
+
+    <h3>Flush + circle + inverted</h3>
+    <div style="border-radius:10px;border:1px solid #ccc;">
+      <span class="bookmark bookmark-primary bookmark-flush bookmark-inverted bookmark-pill">
+        <span data-selected="true">Home</span>
+        <span>Products</span>
+        <span>Services</span>
+        <span>About</span>
+      </span>
+      <p>Content area</p>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

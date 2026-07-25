@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Emphasis - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Emphasis Component</h1>
+  <p>East Asian emphasis marks for <code>&lt;em></code> tags. Supports position (bottom/top), style variants (dot,
+    double-circle, triangle, sesame), open/filled, and dynamic colors.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Works automatically on <code>&lt;em&gt;</code> tags for languages without italic tradition (e.g.,
+        <code>lang="zh"</code>, <code>lang="ja"</code>, <code>lang="ko"</code>, <code>lang="hi"</code>,
+        <code>lang="th"</code>, <code>lang="ar"</code>).</li>
+      <li>Manual classes: <code>.emphasis-bottom</code> (force below), <code>.emphasis-top</code> (force above).</li>
+      <li>Style variants: <code>.emphasis-dot</code>, <code>.emphasis-double-circle</code>,
+        <code>.emphasis-triangle</code>, <code>.emphasis-sesame</code>.</li>
+      <li>Fill: <code>.emphasis-open</code> for hollow outlines. Combine with style variants.</li>
+      <li>Color: <code>emphasis-*</code> dynamic utilities (e.g. <code>emphasis-error</code>,
+        <code>emphasis-green-500</code>).</li>
+    </ul>
+  </div>
+
+  <h2 id="auto-detection">Language auto-detection</h2>
+  <div class="section">
+    <div>
+      <h3>Chinese (zh)</h3>
+      <p lang="zh">This text uses <em>emphasis tag</em>. In horizontal Chinese, it appears as bold by default.</p>
+    </div>
+    <div>
+      <h3>Japanese (ja)</h3>
+      <p lang="ja">Here <em>bouten (emphasis)</em> is used. In horizontal Japanese, marks appear <em>above</em> the
+        text.</p>
+    </div>
+    <div>
+      <h3>Korean (ko)</h3>
+      <p lang="ko">This sentence uses an <em>emphasis tag</em>. In horizontal writing, it is typically displayed in
+        bold.</p>
+    </div>
+    <div>
+      <h3>Arabic (ar)</h3>
+      <p lang="ar" dir="rtl">This text uses the <em>emphasis tag</em>. In horizontal formatting, it is usually displayed
+        in bold.</p>
+    </div>
+    <div>
+      <h3>Hindi (hi)</h3>
+      <p lang="hi">This text uses an <em>emphasis tag</em>. In horizontal writing, it is typically displayed in bold.
+      </p>
+    </div>
+  </div>
+
+  <h2 id="manual-classes">Manual classes</h2>
+  <div class="section">
+    <div>
+      <h3>.emphasis-bottom</h3>
+      <p><span class="emphasis-bottom">Force emphasis marks below text.</span></p>
+    </div>
+    <div>
+      <h3>.emphasis-top</h3>
+      <p><span class="emphasis-top">Force emphasis marks above text.</span></p>
+    </div>
+  </div>
+
+  <h2 id="style-variants">Style variants</h2>
+  <div class="section">
+    <div>
+      <h3>.emphasis-dot</h3>
+      <p><span class="emphasis-bottom emphasis-dot">Dot emphasis marks</span></p>
+    </div>
+    <div>
+      <h3>.emphasis-double-circle</h3>
+      <p><span class="emphasis-bottom emphasis-double-circle">Double circle emphasis marks</span></p>
+    </div>
+    <div>
+      <h3>.emphasis-triangle</h3>
+      <p><span class="emphasis-bottom emphasis-triangle">Triangle emphasis marks</span></p>
+    </div>
+    <div>
+      <h3>.emphasis-sesame</h3>
+      <p><span class="emphasis-bottom emphasis-sesame">Sesame dot emphasis marks</span></p>
+    </div>
+  </div>
+
+  <h2 id="hollow">Open (hollow) fill</h2>
+  <div class="section">
+    <div>
+      <h3>.emphasis-open + .emphasis-dot</h3>
+      <p><span class="emphasis-bottom emphasis-open emphasis-dot">Hollow dot marks</span></p>
+    </div>
+    <div>
+      <h3>.emphasis-open + .emphasis-double-circle</h3>
+      <p><span class="emphasis-bottom emphasis-open emphasis-double-circle">Hollow double circle marks</span></p>
+    </div>
+    <div>
+      <h3>.emphasis-open + .emphasis-triangle</h3>
+      <p><span class="emphasis-bottom emphasis-open emphasis-triangle">Hollow triangle marks</span></p>
+    </div>
+    <div>
+      <h3>.emphasis-open + .emphasis-sesame</h3>
+      <p><span class="emphasis-bottom emphasis-open emphasis-sesame">Hollow sesame marks</span></p>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div>
+      <h3>Theme color</h3>
+      <p><span class="emphasis-bottom emphasis-error">Error color emphasis</span></p>
+    </div>
+    <div>
+      <h3>Tailwind built-in</h3>
+      <p><span class="emphasis-top emphasis-green-500">Green-500 top emphasis</span></p>
+      <p><span class="emphasis-bottom emphasis-blue-600 emphasis-dot">Blue-600 dot emphasis</span></p>
+      <p><span class="emphasis-bottom emphasis-amber-500 emphasis-triangle">Amber-500 triangle emphasis</span></p>
+    </div>
+    <div>
+      <h3>Raw color</h3>
+      <p><span class="emphasis-bottom emphasis-[#ff0000] emphasis-triangle">Red (#ff0000) triangle emphasis</span></p>
+    </div>
+  </div>
+
+  <h2 id="comparison">Comparison with Western emphasis</h2>
+  <div class="section">
+    <p><strong>English (default):</strong> This is a <em>standard italic emphasis</em> in English. (Western languages
+      not matching East Asian code remain as default italic.)</p>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

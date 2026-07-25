@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <style>
+    .bg-demo-box {
+  width: 400px;
+  height: 200px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bg-demo-box-inner {
+  width: 100%;
+  height: 100%;
+}
+  </style>
+  <title>Background - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Background</h1>
+  <p>Geometric textures, watercolor gradients, misty blends, dark aurora, and subtle whisper backgrounds.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Geometric textures use theme color variables (<code>var(--color-title-*)</code>) and auto-switch in dark/light
+        mode.</li>
+      <li>All geometric utilities have dynamic variants: append a color token or size number, e.g.
+        <code>bg-polka-red</code>, <code>bg-polka-2</code>, <code>bg-polka-green-500</code>.</li>
+      <li>Gradient utilities (<code>bg-tint</code>, <code>bg-blend</code>, <code>bg-aurora</code>,
+        <code>bg-whisper</code>) support dynamic colors.</li>
+      <li>Multiple color formats are supported:</li>
+    </ul>
+
+  </div>
+
+  <h2 id="geometric">Geometric textures</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <h3>Dot & mesh</h3>
+    <div class="bg-demo-box bg-polka"></div>
+    <code>bg-polka</code> &mdash; large polka dots (24px spacing)
+
+    <h3>Micro noise</h3>
+    <div class="bg-demo-box bg-noise"></div>
+    <code>bg-noise</code> &mdash; 1px micro dots (3px spacing)
+
+    <h3>Diagonal hatch</h3>
+    <div class="bg-demo-box bg-hatch"></div>
+    <code>bg-hatch</code> &mdash; -45&deg; 1px diagonal lines
+
+    <h3>Horizontal hatch</h3>
+    <div class="bg-demo-box bg-hatch-h"></div>
+    <code>bg-hatch-h</code> &mdash; 1px horizontal lines
+
+    <h3>Vertical hatch</h3>
+    <div class="bg-demo-box bg-hatch-v"></div>
+    <code>bg-hatch-v</code> &mdash; 1px vertical lines
+
+    <h3>Crosshatch</h3>
+    <div class="bg-demo-box bg-crosshatch"></div>
+    <code>bg-crosshatch</code> &mdash; &plusmn;45&deg; crossed 0.7px lines
+
+    <h3>Diagonal stripes</h3>
+    <div class="bg-demo-box bg-stripes"></div>
+    <code>bg-stripes</code> &mdash; 8px wide diagonal zebra stripes
+
+    <h3>Horizontal stripes</h3>
+    <div class="bg-demo-box bg-stripes-h"></div>
+    <code>bg-stripes-h</code> &mdash; 8px horizontal stripes
+
+    <h3>Vertical stripes</h3>
+    <div class="bg-demo-box bg-stripes-v"></div>
+    <code>bg-stripes-v</code> &mdash; 8px vertical stripes
+
+    <h3>Blueprint grid</h3>
+    <div class="bg-demo-box bg-blueprint"></div>
+    <code>bg-blueprint</code> &mdash; 20px minor + 100px major nested grid
+
+    <h3>Marble</h3>
+    <div class="bg-demo-box bg-marble"></div>
+    <code>bg-marble</code> &mdash; 60&deg;/120&deg; crossing lines simulating marble veining
+
+    <h3>Grid</h3>
+    <div class="bg-demo-box bg-grid"></div>
+    <code>bg-grid</code> &mdash; 24px standard grid lines
+
+    <h3>Houndstooth</h3>
+    <div class="bg-demo-box bg-houndstooth"></div>
+    <code>bg-houndstooth</code> &mdash; classic 45&deg; woven houndstooth
+
+    <h3>Circles</h3>
+    <div class="bg-demo-box bg-circles"></div>
+    <code>bg-circles</code> &mdash; centered nested concentric rings
+
+    <h3>Chessboard</h3>
+    <div class="bg-demo-box bg-chessboard"></div>
+    <code>bg-chessboard</code> &mdash; checkered pattern (also used for transparent canvas)
+
+    <h3>Sunburst</h3>
+    <div class="bg-demo-box bg-sunburst"></div>
+    <code>bg-sunburst</code> &mdash; radial ray pattern from center
+  </div>
+
+  <h2 id="whisper">Whisper (ultra-subtle gradients)</h2>
+  <div class="section">
+    <p>Low-opacity radial spot gradients using <code>bg-whisper-*</code>. Supports dynamic colors and position
+      modifiers.</p>
+
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+
+    <h3>Default duotone</h3>
+    <div class="bg-demo-box bg-whisper-blue-500"></div>
+    <code>bg-whisper-blue-500</code> &mdash; default top-left + bottom-right spots
+
+    <h3>Between (split-screen)</h3>
+    <div class="bg-demo-box bg-whisper-blue-500 bg-whisper-between"></div>
+    <code>bg-whisper-blue-500 bg-whisper-between</code> &mdash; spots shifted to left/right edges
+
+    <h3>Center (focused glow)</h3>
+    <div class="bg-demo-box bg-whisper-blue-500 bg-whisper-center"></div>
+    <code>bg-whisper-blue-500 bg-whisper-center</code> &mdash; first spot centered
+
+    <h3>Mono (single color)</h3>
+    <div class="bg-demo-box bg-whisper-orange-500 bg-whisper-mono"></div>
+    <code>bg-whisper-orange-500 bg-whisper-mono</code> &mdash; only first spot visible
+
+    <h3>Duotone (complementary)</h3>
+    <div class="bg-demo-box bg-whisper-pink-500 bg-whisper-duotone"></div>
+    <code>bg-whisper-pink-500 bg-whisper-duotone</code> &mdash; 180&deg; hue shift
+
+    <h3>Tritone (analogous)</h3>
+    <div class="bg-demo-box bg-whisper-orange-500 bg-whisper-tritone"></div>
+    <code>bg-whisper-orange-500 bg-whisper-tritone</code> &mdash; 90&deg; hue shift each spot
+
+    <h3>Custom CSS variables</h3>
+    <div class="bg-demo-box bg-whisper-red-500" style="--bg-2:blue"></div>
+    <code>bg-whisper-red-500</code> with <code>style="--bg-2:blue"</code>
+    <div class="bg-demo-box bg-whisper-red-500" style="--bg-1-a:0.6"></div>
+    <code>bg-whisper-red-500</code> with <code>style="--bg-1-a:0.6"</code>
+    <div class="bg-demo-box bg-whisper-indigo-500" style="--bg-2:var(--color-sky-500)"></div>
+    <code>bg-whisper-indigo-500</code> with <code>style="--bg-2:var(--color-sky-500)"</code>
+    <div class="bg-demo-box bg-whisper-orange-500" style="--bg-angle:-80"></div>
+    <code>bg-whisper-orange-500</code> with <code>style="--bg-angle:-80"</code>
+    <div class="bg-demo-box bg-whisper-orange-500 bg-whisper-center" style="--bg-angle:-80"></div>
+    <code>bg-whisper-orange-500 bg-whisper-center</code> with <code>style="--bg-angle:-80"</code>
+  </div>
+
+  <h2 id="tint">Tint (watercolor gradients)</h2>
+  <div class="section">
+    <p>Soft three-radial-spot watercolor backgrounds using <code>bg-tint</code> series. Supports dynamic color
+      customization.</p>
+
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+
+    <h3>Default (primary theme)</h3>
+    <div class="bg-demo-box bg-tint"></div>
+    <code>bg-tint</code> &mdash; uses <code>--color-primary</code>
+
+    <h3>Green-500</h3>
+    <div class="bg-demo-box bg-tint-green-500"></div>
+    <code>bg-tint-green-500</code>
+
+    <h3>Custom red</h3>
+    <div class="bg-demo-box bg-tint-[#ff0000]"></div>
+    <code>bg-tint-[#ff0000]</code> &mdash; arbitrary hex value
+  </div>
+
+  <h2 id="blend">Blend (misty watercolor)</h2>
+  <div class="section">
+    <p>High-opacity radial spot misty blend backgrounds using <code>bg-blend</code> series. Supports dynamic color
+      customization.</p>
+
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+
+    <h3>Default (primary theme)</h3>
+    <div class="bg-demo-box bg-blend"></div>
+    <code>bg-blend</code>
+
+    <h3>Error</h3>
+    <div class="bg-demo-box bg-blend-error"></div>
+    <code>bg-blend-error</code>
+
+    <h3>Success</h3>
+    <div class="bg-demo-box bg-blend-success"></div>
+    <code>bg-blend-success</code>
+
+    <h3>Custom purple</h3>
+    <div class="bg-demo-box bg-blend-[#7100ff]"></div>
+    <code>bg-blend-[#7100ff]</code>
+
+    <h3>Custom blue</h3>
+    <div class="bg-demo-box bg-blend-[#0017ff]"></div>
+    <code>bg-blend-[#0017ff]</code>
+  </div>
+
+  <h2 id="aurora">Aurora (dark gradient)</h2>
+  <div class="section">
+    <p>Corner-placed radial spot dark aurora gradients using <code>bg-aurora</code> series. Spot size and opacity
+      auto-adjust in dark mode.</p>
+
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+
+    <h3>Default (primary theme)</h3>
+    <div class="bg-demo-box bg-aurora"></div>
+    <code>bg-aurora</code>
+
+    <h3>Error</h3>
+    <div class="bg-demo-box bg-aurora-error"></div>
+    <code>bg-aurora-error</code>
+
+    <h3>Success</h3>
+    <div class="bg-demo-box bg-aurora-success"></div>
+    <code>bg-aurora-success</code>
+
+    <h3>Custom purple</h3>
+    <div class="bg-demo-box bg-aurora-[#7100ff]"></div>
+    <code>bg-aurora-[#7100ff]</code>
+
+    <h3>Custom blue</h3>
+    <div class="bg-demo-box bg-aurora-[#0017ff]"></div>
+    <code>bg-aurora-[#0017ff]</code>
+  </div>
+
+  <h2 id="layered">Layered backgrounds</h2>
+  <div class="section">
+    <p>Combine a geometric texture on the outer container and a gradient with <code>bg-transparent</code> on the inner
+      container to blend them together.</p>
+
+    <div class="bg-demo-box bg-grid">
+      <div class="bg-demo-box-inner bg-blend bg-transparent"></div>
+    </div>
+    <code>&lt;div class="bg-grid"&gt;&lt;div class="bg-blend bg-transparent"&gt;&lt;/div&gt;&lt;/div&gt;</code>
+
+    <div class="bg-demo-box bg-circles">
+      <div class="bg-demo-box-inner bg-tint bg-transparent"></div>
+    </div>
+    <code>&lt;div class="bg-circles"&gt;&lt;div class="bg-tint bg-transparent"&gt;&lt;/div&gt;&lt;/div&gt;</code>
+
+    <div class="bg-demo-box bg-stripes">
+      <div class="bg-demo-box-inner bg-aurora bg-transparent"></div>
+    </div>
+    <code>&lt;div class="bg-stripes"&gt;&lt;div class="bg-aurora bg-transparent"&gt;&lt;/div&gt;&lt;/div&gt;</code>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

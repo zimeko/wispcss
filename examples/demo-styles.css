@@ -1,0 +1,14 @@
+/*global*/
+body {
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: 2rem;
+
+  >* {
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Shell - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Shell Component</h1>
+  <p>A decorative wrapper around <code>&lt;input></code> that provides border, focus ring, hover, disabled, invalid states, and supports prefix/suffix icons/text.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.shell</code>. Wraps an <code>&lt;input></code> with visual styling while keeping input functionality.</li>
+      <li>Variants: <code>shell-subtle</code>, <code>shell-ghost</code>, <code>shell-underline</code>, <code>shell-outline</code> (default).</li>
+      <li>Prefer compound variant+color classes like <code>shell-outline-primary</code> over <code>shell-outline shell-primary</code>.</li>
+      <li>Floating placeholder: add <code>[data-role="placeholder"]</code> and <code>input[placeholder=" "]</code>. Minimum size <code>shell-10</code> recommended.</li>
+      <li>Sizes: <code>shell-4</code> ~ <code>shell-15</code>. Width: <code>shell-scale</code>, <code>shell-ratio</code>, <code>shell-full</code>. Layout: <code>shell-v</code> (vertical).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default shell</h3>
+      <section class="shell">name: <input /></section>
+      <section class="shell">name: <input required placeholder="Required" /></section>
+    </div>
+    <div>
+      <h3>With suffix text / icons</h3>
+      <section class="shell">name: <input /> Forgot?</section>
+      <section class="shell"><span class="icon icon-check"></span><input placeholder="Search..." /><kbd class="kbd-4">&#8984;K</kbd></section>
+    </div>
+  </div>
+
+  <h2 id="floating-placeholder">Floating placeholder</h2>
+  <div class="section">
+    <div>
+      <h3>Basic floating</h3>
+      <section class="shell shell-10"><span data-role="placeholder">Username</span><input placeholder=" " /></section>
+      <section class="shell shell-12"><span data-role="placeholder">Email</span><input placeholder=" " value="user@example.com" /></section>
+    </div>
+    <div>
+      <h3>Sizes</h3>
+      <section class="shell shell-9"><span data-role="placeholder">9 (tight)</span><input placeholder=" " /></section>
+      <section class="shell shell-10"><span data-role="placeholder">10 (min)</span><input placeholder=" " /></section>
+      <section class="shell shell-12"><span data-role="placeholder">12 (comfort)</span><input placeholder=" " /></section>
+      <section class="shell shell-14"><span data-role="placeholder">14 (large)</span><input placeholder=" " /></section>
+    </div>
+    <div>
+      <h3>Floating + variant colors</h3>
+      <section class="shell shell-outline-primary shell-10"><span data-role="placeholder">Username</span><input placeholder=" " /></section>
+      <section class="shell shell-outline-success shell-11"><span data-role="placeholder">Email</span><input placeholder=" " /></section>
+      <section class="shell shell-outline-error shell-12"><span data-role="placeholder">Password</span><input placeholder=" " required /></section>
+      <section class="shell shell-subtle-info shell-10"><span data-role="placeholder">Search</span><input placeholder=" " /></section>
+      <section class="shell shell-ghost-primary shell-10"><span data-role="placeholder">Username</span><input placeholder=" " /></section>
+      <section class="shell shell-underline-primary shell-10"><span data-role="placeholder">Name</span><input placeholder=" " /></section>
+      <section class="shell shell-muted-info shell-10"><span data-role="placeholder">Phone</span><input placeholder=" " /></section>
+    </div>
+    <div>
+      <h3>Floating + suffix elements</h3>
+      <section class="shell shell-outline-primary shell-11"><span data-role="placeholder">Search</span><input placeholder=" " /><span class="icon icon-check"></span></section>
+      <section class="shell shell-outline-secondary shell-11"><span data-role="placeholder">Search articles</span><input placeholder=" " /><kbd class="kbd-4">&#8984;K</kbd></section>
+      <section class="shell shell-outline-success shell-11"><span data-role="placeholder">Invite code</span><input placeholder=" " /><button class="btn btn-success btn-6">Verify</button></section>
+    </div>
+    <div>
+      <h3>Floating + full width</h3>
+      <section class="shell shell-full shell-outline-primary shell-12"><span data-role="placeholder">Search articles, users and tags...</span><input placeholder=" " /><kbd class="kbd-4">&#8984;K</kbd></section>
+    </div>
+    <div>
+      <h3>Floating + custom colors</h3>
+      <section class="shell shell-outline-blue-500 shell-11"><span data-role="placeholder">Blue</span><input placeholder=" " /></section>
+      <section class="shell shell-subtle-pink-400 shell-11"><span data-role="placeholder">Pink</span><input placeholder=" " /></section>
+    </div>
+  </div>
+
+  <h2 id="variants">Visual variants</h2>
+  <div class="section">
+    <div>
+      <h3>shell-subtle</h3>
+      <section class="shell shell-subtle">name: <input placeholder="Subtle" /></section>
+      <section class="shell shell-subtle-primary">name: <input placeholder="Subtle + primary" /></section>
+    </div>
+    <div>
+      <h3>shell-muted</h3>
+      <section class="shell shell-muted">name: <input placeholder="Muted" /></section>
+      <section class="shell shell-muted-info">name: <input placeholder="Muted + info" /></section>
+    </div>
+    <div>
+      <h3>shell-outline</h3>
+      <section class="shell shell-outline">name: <input placeholder="Outline" /></section>
+      <section class="shell shell-outline-primary">name: <input placeholder="Outline + primary" /></section>
+    </div>
+    <div>
+      <h3>shell-ghost</h3>
+      <section class="shell shell-ghost">name: <input placeholder="Ghost" /></section>
+      <section class="shell shell-ghost-primary">name: <input placeholder="Ghost + primary" /></section>
+    </div>
+    <div>
+      <h3>shell-underline</h3>
+      <section class="shell shell-underline">name: <input placeholder="Underline" /></section>
+      <section class="shell shell-underline-primary">name: <input placeholder="Underline + primary" /></section>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors (outline variant)</h2>
+  <div class="section">
+    <div>
+      <h3>Primary / Secondary / Tertiary</h3>
+      <section class="shell shell-primary">name: <input /></section>
+      <section class="shell shell-secondary">name: <input /></section>
+      <section class="shell shell-tertiary">name: <input /></section>
+    </div>
+    <div>
+      <h3>Success / Error / Info</h3>
+      <section class="shell shell-success">name: <input /></section>
+      <section class="shell shell-error">name: <input /></section>
+      <section class="shell shell-info">name: <input /></section>
+    </div>
+    <div>
+      <h3>Highlight / Warning / Caution</h3>
+      <section class="shell shell-highlight">name: <input /></section>
+      <section class="shell shell-warning">name: <input /></section>
+      <section class="shell shell-caution">name: <input /></section>
+    </div>
+    <div>
+      <h3>Ink / Title / Description / Caption / Disabled</h3>
+      <section class="shell shell-ink">name: <input /></section>
+      <section class="shell shell-title">name: <input /></section>
+      <section class="shell shell-description">name: <input /></section>
+      <section class="shell shell-caption">name: <input /></section>
+      <section class="shell shell-disabled">name: <input /></section>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors + variant compounds</h2>
+  <div class="section">
+    <div>
+      <h3>shell-outline-*</h3>
+      <section class="shell shell-outline-primary">name: <input /></section>
+      <section class="shell shell-outline-success">email: <input /></section>
+      <section class="shell shell-outline-error">password: <input /></section>
+    </div>
+    <div>
+      <h3>shell-muted-*</h3>
+      <section class="shell shell-muted-primary">name: <input /></section>
+      <section class="shell shell-muted-success">email: <input /></section>
+      <section class="shell shell-muted-error">password: <input /></section>
+      <section class="shell shell-muted-warning">code: <input /></section>
+      <section class="shell shell-muted-info">search: <input /></section>
+      <section class="shell shell-muted-highlight">highlight: <input /></section>
+    </div>
+    <div>
+      <h3>shell-subtle-*</h3>
+      <section class="shell shell-subtle-primary">name: <input /></section>
+      <section class="shell shell-subtle-success">email: <input /></section>
+      <section class="shell shell-subtle-error">password: <input /></section>
+      <section class="shell shell-subtle-warning">code: <input /></section>
+      <section class="shell shell-subtle-info">search: <input /></section>
+      <section class="shell shell-subtle-highlight">highlight: <input /></section>
+    </div>
+    <div>
+      <h3>shell-ghost-*</h3>
+      <section class="shell shell-ghost-primary">name: <input /></section>
+      <section class="shell shell-ghost-success">email: <input /></section>
+      <section class="shell shell-ghost-error">password: <input /></section>
+      <section class="shell shell-ghost-warning">code: <input /></section>
+      <section class="shell shell-ghost-info">search: <input /></section>
+      <section class="shell shell-ghost-highlight">highlight: <input /></section>
+    </div>
+    <div>
+      <h3>shell-underline-*</h3>
+      <section class="shell shell-underline-primary">name: <input /></section>
+      <section class="shell shell-underline-success">email: <input /></section>
+      <section class="shell shell-underline-error">password: <input /></section>
+      <section class="shell shell-underline-warning">code: <input /></section>
+      <section class="shell shell-underline-info">search: <input /></section>
+      <section class="shell shell-underline-highlight">highlight: <input /></section>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Outline variant</h3>
+      <section class="shell shell-blue-500">name: <input /></section>
+      <section class="shell shell-teal-500">name: <input /></section>
+    </div>
+    <div>
+      <h3>Subtle variant</h3>
+      <section class="shell shell-subtle-blue-200">name: <input /></section>
+      <section class="shell shell-subtle-blue-500">name: <input /></section>
+    </div>
+    <div>
+      <h3>Muted variant</h3>
+      <section class="shell shell-muted-blue-200">name: <input /></section>
+      <section class="shell shell-muted-blue-500">name: <input /></section>
+    </div>
+    <div>
+      <h3>Ghost variant</h3>
+      <section class="shell shell-ghost-blue-200">name: <input /></section>
+      <section class="shell shell-ghost-blue-500">name: <input /></section>
+    </div>
+    <div>
+      <h3>Underline variant</h3>
+      <section class="shell shell-underline-blue-200">name: <input /></section>
+      <section class="shell shell-underline-blue-500">name: <input /></section>
+    </div>
+  </div>
+
+  <h2 id="vertical-layout-shell-v">Vertical layout (shell-v)</h2>
+  <div class="section">
+    <div>
+      <h3>shell-v</h3>
+      <section class="shell-v">name: <input /><span>Forgot?</span></section>
+    </div>
+    <div>
+      <h3>shell-v + colors</h3>
+      <section class="shell-v shell-primary">Email: <input placeholder="your@email.com" /><span class="icon icon-check"></span></section>
+      <section class="shell-v shell-error">Password: <input type="password" /><span style="color:var(--color-error);">Invalid</span></section>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (shell-4 ~ shell-15)</h2>
+  <div class="section">
+    <div>
+      <h3>16px (shell-4)</h3>
+      <section class="shell shell-4">name: <input /></section>
+    </div>
+    <div>
+      <h3>20px (shell-5)</h3>
+      <section class="shell shell-5">name: <input /></section>
+    </div>
+    <div>
+      <h3>24px (shell-6)</h3>
+      <section class="shell shell-6">name: <input /></section>
+    </div>
+    <div>
+      <h3>28px (shell-7)</h3>
+      <section class="shell shell-7">name: <input /></section>
+    </div>
+    <div>
+      <h3>32px (shell-8, default)</h3>
+      <section class="shell shell-8">name: <input /></section>
+    </div>
+    <div>
+      <h3>36px (shell-9)</h3>
+      <section class="shell shell-9">name: <input /></section>
+    </div>
+    <div>
+      <h3>40px (shell-10)</h3>
+      <section class="shell shell-10">name: <input /></section>
+    </div>
+    <div>
+      <h3>44px (shell-11)</h3>
+      <section class="shell shell-11">name: <input /></section>
+    </div>
+    <div>
+      <h3>48px (shell-12)</h3>
+      <section class="shell shell-12">name: <input /></section>
+    </div>
+    <div>
+      <h3>52px (shell-13)</h3>
+      <section class="shell shell-13">name: <input /></section>
+    </div>
+    <div>
+      <h3>56px (shell-14)</h3>
+      <section class="shell shell-14">name: <input /></section>
+    </div>
+    <div>
+      <h3>60px (shell-15)</h3>
+      <section class="shell shell-15">name: <input /></section>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>shell-pill</h3>
+      <section class="shell shell-pill">name: <input /></section>
+      <section class="shell shell-pill shell-primary">name: <input /></section>
+    </div>
+    <div>
+      <h3>shell-rounded</h3>
+      <section class="shell shell-rounded">name: <input /></section>
+      <section class="shell shell-rounded shell-primary">name: <input /></section>
+    </div>
+    <div>
+      <h3>shell-square</h3>
+      <section class="shell shell-square">name: <input /></section>
+      <section class="shell shell-square shell-primary">name: <input /></section>
+    </div>
+    <div>
+      <h3>shell-fluid</h3>
+      <section class="shell shell-fluid">name: <input /></section>
+      <section class="shell shell-fluid shell-primary">name: <input /></section>
+    </div>
+  </div>
+
+  <h2 id="width-modifiers">Width modifiers</h2>
+  <div class="section">
+    <div>
+      <h3>shell-scale (fixed)</h3>
+      <section class="shell shell-scale">name: <input /></section>
+    </div>
+    <div>
+      <h3>shell-scale-2 (2x)</h3>
+      <section class="shell shell-scale-2">name: <input /></section>
+    </div>
+    <div>
+      <h3>shell-ratio (1:1)</h3>
+      <section class="shell shell-ratio"><input /></section>
+    </div>
+    <div>
+      <h3>shell-ratio-2 (2:1)</h3>
+      <section class="shell shell-ratio-2"><input /></section>
+    </div>
+    <div>
+      <h3>shell-full (100%)</h3>
+      <section class="shell shell-full">name: <input /></section>
+      <section class="shell shell-full shell-primary">name: <input /></section>
+    </div>
+  </div>
+
+  <h2 id="states">State</h2>
+  <div class="section">
+    <div>
+      <h3>Readonly</h3>
+      <section class="shell">name: <input readonly value="Readonly text" /></section>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <section class="shell">name: <input disabled value="Disabled" /></section>
+    </div>
+  </div>
+
+  <h2 id="combinations">Combinations</h2>
+  <div class="section">
+    <div>
+      <h3>Search with icon + shortcut</h3>
+      <section class="shell shell-primary"><span class="icon icon-check"></span><input placeholder="Search articles, users..." /><kbd class="kbd-4">&#8984;K</kbd></section>
+    </div>
+    <div>
+      <h3>With action button</h3>
+      <section class="shell"><input placeholder="Invite code" /><button class="btn btn-primary btn-5">Verify</button></section>
+    </div>
+    <div>
+      <h3>Vertical + icon + button</h3>
+      <section class="shell-v shell-success"><span class="icon icon-check"></span><input value="https://example.com" /><button class="btn btn-success btn-5">Copy</button></section>
+    </div>
+    <div>
+      <h3>Variant comparison (primary)</h3>
+      <section class="shell shell-subtle-primary">name: <input placeholder="Subtle" /></section>
+      <section class="shell shell-ghost-primary">name: <input placeholder="Ghost" /></section>
+      <section class="shell shell-underline-primary">name: <input placeholder="Underline" /></section>
+      <section class="shell shell-muted-primary">name: <input placeholder="Muted" /></section>
+    </div>
+  </div>
+
+  <p style="margin-top: 2rem;">For <code>input</code> (type=text) or <code>textarea</code> utilities, see <a class="link" href="./demo-input.html">demo-input.html</a>.</p>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+

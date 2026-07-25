@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Stats - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Stats Component</h1>
+  <p>Numeric statistics display with label, prefix, suffix, and description text. Uses <code>data-role</code> attributes to structure the display.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.stats</code> (vertical) or <code>.stats-h</code> (horizontal). They are mutually exclusive utilities.</li>
+      <li>Structure: <code>[data-role="main"]</code> wraps the core value, <code>[data-role="label"]</code> for the number, <code>[data-role="prefix"]</code> / <code>[data-role="suffix"]</code> for units, <code>[data-role="tips"]</code> for description.</li>
+      <li><code>.stats-between</code> adds space-between layout — works with both <code>stats</code> and <code>stats-h</code>.</li>
+      <li>Sizes: <code>stats-4</code> ~ <code>stats-15</code> control the label font size.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Vertical (stats)</h3>
+      <div class="stats">
+        <div data-role="main"><span data-role="label">824</span><span data-role="suffix">people</span></div>
+        <div data-role="tips">Doctoral students</div>
+      </div>
+    </div>
+    <div>
+      <h3>With prefix</h3>
+      <div class="stats">
+        <div data-role="main"><span data-role="prefix">$</span><span data-role="label">12,800</span><span data-role="suffix">/mo</span></div>
+        <div data-role="tips">Average income</div>
+      </div>
+    </div>
+    <div>
+      <h3>With badge</h3>
+      <div class="stats">
+        <div data-role="main"><span data-role="label">99<span class="badge">4</span></span><span data-role="suffix">msgs</span></div>
+        <div data-role="tips">Unread messages</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="layout">Layout</h2>
+  <div class="section">
+    <div>
+      <h3>Vertical (stats, default)</h3>
+      <div class="stats">
+        <div data-role="main"><span data-role="label">12,800</span><span data-role="suffix">users</span></div>
+        <div data-role="tips">Daily active</div>
+      </div>
+    </div>
+    <div>
+      <h3>Horizontal (stats-h)</h3>
+      <div class="stats-h stats-6">
+        <div data-role="main"><span data-role="label">12,800</span><span data-role="suffix">users</span></div>
+        <div data-role="tips">Daily active</div>
+      </div>
+    </div>
+    <div>
+      <h3>stats-between (space-between)</h3>
+      <div class="stats-h stats-between stats-6" style="width:100%;border:1px solid #ebebeb;padding:16px;">
+        <div data-role="main"><span data-role="label">12,800</span><span data-role="suffix">users</span></div>
+        <div data-role="tips">Daily active</div>
+      </div>
+      <p></p>
+      <div class="stats-v stats-between stats-6" style="height:120px;border:1px solid #ebebeb;padding:16px;">
+        <div data-role="main"><span data-role="label">12,800</span><span data-role="suffix">users</span></div>
+        <div data-role="tips">Daily active</div>
+      </div>
+
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>16px (stats-4)</h3>
+      <div class="stats stats-4"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-4</div></div>
+    </div>
+    <div>
+      <h3>20px (stats-5)</h3>
+      <div class="stats stats-5"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-5</div></div>
+    </div>
+    <div>
+      <h3>24px (stats-6)</h3>
+      <div class="stats stats-6"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-6</div></div>
+    </div>
+    <div>
+      <h3>28px (stats-7)</h3>
+      <div class="stats stats-7"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-7</div></div>
+    </div>
+    <div>
+      <h3>32px (stats-8, default)</h3>
+      <div class="stats stats-8"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-8</div></div>
+    </div>
+    <div>
+      <h3>36px (stats-9)</h3>
+      <div class="stats stats-9"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-9</div></div>
+    </div>
+    <div>
+      <h3>40px (stats-10)</h3>
+      <div class="stats stats-10"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-10</div></div>
+    </div>
+    <div>
+      <h3>44px (stats-11)</h3>
+      <div class="stats stats-11"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-11</div></div>
+    </div>
+    <div>
+      <h3>48px (stats-12)</h3>
+      <div class="stats stats-12"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-12</div></div>
+    </div>
+    <div>
+      <h3>52px (stats-13)</h3>
+      <div class="stats stats-13"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-13</div></div>
+    </div>
+    <div>
+      <h3>56px (stats-14)</h3>
+      <div class="stats stats-14"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-14</div></div>
+    </div>
+    <div>
+      <h3>60px (stats-15)</h3>
+      <div class="stats stats-15"><div data-role="main"><span data-role="label">5,280</span><span data-role="suffix">p</span></div><div data-role="tips">stats-15</div></div>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Dashboard (vertical grid)</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <div class="stats stats-8"><div data-role="main"><span data-role="label">12,800</span><span data-role="suffix">users</span></div><div data-role="tips">Daily active</div></div>
+        <div class="stats stats-8"><div data-role="main"><span data-role="prefix">$</span><span data-role="label">3.2</span><span data-role="suffix">K</span></div><div data-role="tips">Daily revenue</div></div>
+        <div class="stats stats-8"><div data-role="main"><span data-role="label">98.6</span><span data-role="suffix">%</span></div><div data-role="tips">Satisfaction</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Horizontal dashboard</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <div class="stats-h stats-7"><div data-role="main"><span data-role="label">824</span><span data-role="suffix">posts</span></div><div data-role="tips">Articles</div></div>
+        <div class="stats-h stats-7"><div data-role="main"><span data-role="label">2,156</span><span data-role="suffix">cmts</span></div><div data-role="tips">Comments</div></div>
+        <div class="stats-h stats-7"><div data-role="main"><span data-role="label">36</span><span data-role="suffix">K</span></div><div data-role="tips">Likes</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>With badges</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <div class="stats stats-7"><div data-role="main"><span data-role="label">99<span class="badge badge-error badge-2xs">+3</span></span><span data-role="suffix">msgs</span></div><div data-role="tips">Unread</div></div>
+        <div class="stats stats-7"><div data-role="main"><span data-role="label">5<span class="badge badge-warning badge-2xs">!</span></span><span data-role="suffix">tasks</span></div><div data-role="tips">Pending</div></div>
+        <div class="stats stats-7"><div data-role="main"><span data-role="label">128<span class="badge badge-primary badge-2xs">new</span></span><span data-role="suffix">users</span></div><div data-role="tips">New signups</div></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

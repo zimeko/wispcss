@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Swatch - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Swatch Component</h1>
+  <p>Color swatch that mimics <code>&lt;input type="color"></code> appearance with inner color preview. Supports variants, shapes, sizes, and dynamic colors.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.swatch</code>. Use with <code>&lt;span></code> or <code>&lt;input type="color"></code>.</li>
+      <li>Variants: <code>swatch-outline</code> (thick border), <code>swatch-plain</code> (no border, filled), <code>swatch-muted</code> (subtle border, default).</li>
+      <li>Shapes: <code>swatch-circle / swatch-pill</code>, <code>swatch-rounded</code>, <code>swatch-square</code>, <code>swatch-fluid</code>.</li>
+      <li>Sizes: <code>swatch-4</code> ~ <code>swatch-15</code>. Compound shortcuts: <code>swatch-muted-*</code>, <code>swatch-outline-*</code>, <code>swatch-plain-*</code>.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default swatches</h3>
+      <span class="swatch swatch-rounded swatch-10"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-primary"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-success"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-error"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-info"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-transparent"></span>
+    </div>
+    <div>
+      <h3>With input[type=color]</h3>
+      <input type="color" class="swatch-10 swatch-circle" value="#4f46e5" />
+      <input type="color" class="swatch-10 swatch-circle swatch-outline" value="#059669" />
+      <input type="color" class="swatch-10 swatch-circle swatch-plain" value="#dc2626" />
+    </div>
+    <div>
+      <h3>With icons</h3>
+      <span class="swatch swatch-outline swatch-10 swatch-circle swatch-success"><span class="icon icon-check"></span></span>
+      <span class="swatch swatch-outline swatch-10 swatch-circle swatch-error"><span class="icon icon-close"></span></span>
+      <span class="swatch swatch-outline swatch-10 swatch-circle swatch-info"><span class="icon icon-info"></span></span>
+    </div>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default (muted style)</h3>
+      <span class="swatch swatch-rounded swatch-10 swatch-primary"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-success"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-error"></span>
+    </div>
+    <div>
+      <h3>swatch-outline</h3>
+      <span class="swatch swatch-outline swatch-rounded swatch-10 swatch-primary"></span>
+      <span class="swatch swatch-outline swatch-rounded swatch-10 swatch-success"></span>
+      <span class="swatch swatch-outline swatch-rounded swatch-10 swatch-error"></span>
+    </div>
+    <div>
+      <h3>swatch-plain</h3>
+      <span class="swatch swatch-plain swatch-rounded swatch-10 swatch-primary"></span>
+      <span class="swatch swatch-plain swatch-rounded swatch-10 swatch-success"></span>
+      <span class="swatch swatch-plain swatch-rounded swatch-10 swatch-error"></span>
+    </div>
+  </div>
+
+  <h2 id="compound-shortcuts">Compound shortcuts</h2>
+  <div class="section">
+    <div>
+      <h3>swatch-muted-*</h3>
+      <span class="swatch swatch-muted-primary swatch-rounded swatch-10"></span>
+      <span class="swatch swatch-muted-success swatch-rounded swatch-10"></span>
+      <span class="swatch swatch-muted-error swatch-rounded swatch-10"></span>
+      <span class="swatch swatch-muted-info swatch-rounded swatch-10"></span>
+    </div>
+    <div>
+      <h3>swatch-outline-*</h3>
+      <span class="swatch swatch-outline-primary swatch-rounded swatch-10"></span>
+      <span class="swatch swatch-outline-success swatch-rounded swatch-10"></span>
+      <span class="swatch swatch-outline-error swatch-rounded swatch-10"></span>
+      <span class="swatch swatch-outline-info swatch-rounded swatch-10"></span>
+    </div>
+    <div>
+      <h3>swatch-plain-*</h3>
+      <span class="swatch swatch-plain-primary swatch-rounded swatch-10"></span>
+      <span class="swatch swatch-plain-success swatch-rounded swatch-10"></span>
+      <span class="swatch swatch-plain-error swatch-rounded swatch-10"></span>
+      <span class="swatch swatch-plain-info swatch-rounded swatch-10"></span>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes (swatch-circle === swatch-pill)</h2>
+  <div class="section">
+    <div>
+      <span class="swatch swatch-rounded swatch-10 swatch-primary">R</span>
+      <span class="swatch swatch-circle swatch-10 swatch-success">C</span>
+      <span class="swatch swatch-square swatch-10 swatch-error">S</span>
+      <span class="swatch swatch-fluid swatch-10 swatch-info">F</span>
+    </div>
+    <div>
+      <h3>Shapes + outline</h3>
+      <span class="swatch swatch-outline swatch-rounded swatch-10 swatch-primary">R</span>
+      <span class="swatch swatch-outline swatch-circle swatch-10 swatch-success">C</span>
+      <span class="swatch swatch-outline swatch-square swatch-10 swatch-error">S</span>
+      <span class="swatch swatch-outline swatch-fluid swatch-10 swatch-info">F</span>
+    </div>
+    <div>
+      <h3>Shapes + plain</h3>
+      <span class="swatch swatch-plain swatch-rounded swatch-10 swatch-primary"></span>
+      <span class="swatch swatch-plain swatch-circle swatch-10 swatch-success"></span>
+      <span class="swatch swatch-plain swatch-square swatch-10 swatch-error"></span>
+      <span class="swatch swatch-plain swatch-fluid swatch-10 swatch-info"></span>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>swatch-4 ~ swatch-15</h3>
+      <span class="swatch swatch-rounded swatch-4 swatch-primary">4</span>
+      <span class="swatch swatch-rounded swatch-5 swatch-primary">5</span>
+      <span class="swatch swatch-rounded swatch-6 swatch-primary">6</span>
+      <span class="swatch swatch-rounded swatch-7 swatch-primary">7</span>
+      <span class="swatch swatch-rounded swatch-8 swatch-primary">8</span>
+      <span class="swatch swatch-rounded swatch-9 swatch-primary">9</span>
+      <span class="swatch swatch-rounded swatch-10 swatch-primary">10</span>
+      <span class="swatch swatch-rounded swatch-11 swatch-primary">11</span>
+      <span class="swatch swatch-rounded swatch-12 swatch-primary">12</span>
+      <span class="swatch swatch-rounded swatch-13 swatch-primary">13</span>
+      <span class="swatch swatch-rounded swatch-14 swatch-primary">14</span>
+      <span class="swatch swatch-rounded swatch-15 swatch-primary">15</span>
+    </div>
+    <div>
+      <h3>Size + plain (circle)</h3>
+      <span class="swatch swatch-plain swatch-circle swatch-8 swatch-success"></span>
+      <span class="swatch swatch-plain swatch-circle swatch-10 swatch-success"></span>
+      <span class="swatch swatch-plain swatch-circle swatch-12 swatch-success"></span>
+      <span class="swatch swatch-plain swatch-circle swatch-15 swatch-success"></span>
+    </div>
+    <div>
+      <h3>Size + outline (circle)</h3>
+      <span class="swatch swatch-outline swatch-circle swatch-8 swatch-error"></span>
+      <span class="swatch swatch-outline swatch-circle swatch-10 swatch-error"></span>
+      <span class="swatch swatch-outline swatch-circle swatch-12 swatch-error"></span>
+      <span class="swatch swatch-outline swatch-circle swatch-15 swatch-error"></span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary / Secondary / Tertiary</h3>
+      <span class="swatch swatch-rounded swatch-10 swatch-primary"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-secondary"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-tertiary"></span>
+    </div>
+    <div>
+      <h3>Success / Error / Info</h3>
+      <span class="swatch swatch-rounded swatch-10 swatch-success"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-error"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-info"></span>
+    </div>
+    <div>
+      <h3>Highlight / Warning / Caution</h3>
+      <span class="swatch swatch-rounded swatch-10 swatch-highlight"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-warning"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-caution"></span>
+    </div>
+    <div>
+      <h3>Ink / Title / Description / Caption / Disabled</h3>
+      <span class="swatch swatch-rounded swatch-10 swatch-ink"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-title"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-description"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-caption"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-disabled"></span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Tailwind colors</h3>
+      <span class="swatch swatch-rounded swatch-10 swatch-green-200"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-green-600"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-blue-600"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-red-600"></span>
+      <span class="swatch swatch-rounded swatch-10 swatch-purple-600"></span>
+    </div>
+    <div>
+      <h3>Tailwind + plain square</h3>
+      <span class="swatch swatch-plain swatch-square swatch-10 swatch-green-600"></span>
+      <span class="swatch swatch-plain swatch-square swatch-10 swatch-blue-600"></span>
+      <span class="swatch swatch-plain swatch-square swatch-10 swatch-red-600"></span>
+      <span class="swatch swatch-plain swatch-square swatch-10 swatch-purple-600"></span>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Color picker palette</h3>
+      <span class="swatch swatch-plain swatch-circle swatch-10 swatch-primary" title="primary"></span>
+      <span class="swatch swatch-plain swatch-circle swatch-10 swatch-success" title="success"></span>
+      <span class="swatch swatch-plain swatch-circle swatch-10 swatch-error" title="error"></span>
+      <span class="swatch swatch-plain swatch-circle swatch-10 swatch-info" title="info"></span>
+      <span class="swatch swatch-plain swatch-circle swatch-10 swatch-warning" title="warning"></span>
+      <span class="swatch swatch-plain swatch-circle swatch-10 swatch-highlight" title="highlight"></span>
+      <span class="swatch swatch-plain swatch-circle swatch-10 swatch-ink" title="neutral"></span>
+    </div>
+    <div>
+      <h3>Outline palette</h3>
+      <span class="swatch swatch-outline swatch-circle swatch-10 swatch-primary"></span>
+      <span class="swatch swatch-outline swatch-circle swatch-10 swatch-success"></span>
+      <span class="swatch swatch-outline swatch-circle swatch-10 swatch-error"></span>
+      <span class="swatch swatch-outline swatch-circle swatch-10 swatch-info"></span>
+      <span class="swatch swatch-outline swatch-circle swatch-10 swatch-warning"></span>
+      <span class="swatch swatch-outline swatch-circle swatch-10 swatch-highlight"></span>
+    </div>
+    <div>
+      <h3>Selected state with check icon</h3>
+      <span class="swatch swatch-outline swatch-12 swatch-circle swatch-primary"><span class="icon icon-check"></span></span>
+      <span class="swatch swatch-outline swatch-12 swatch-circle swatch-success"><span class="icon icon-check"></span></span>
+      <span class="swatch swatch-outline swatch-12 swatch-circle swatch-error"><span class="icon icon-check"></span></span>
+    </div>
+    <div>
+      <h3>Label swatches</h3>
+      <span class="swatch swatch-rounded swatch-10 swatch-primary">P</span>
+      <span class="swatch swatch-rounded swatch-10 swatch-success">S</span>
+      <span class="swatch swatch-rounded swatch-10 swatch-error">E</span>
+      <span class="swatch swatch-rounded swatch-10 swatch-info">I</span>
+      <span class="swatch swatch-outline swatch-rounded swatch-10 swatch-primary">P</span>
+      <span class="swatch swatch-outline swatch-rounded swatch-10 swatch-success">S</span>
+      <span class="swatch swatch-outline swatch-rounded swatch-10 swatch-error">E</span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

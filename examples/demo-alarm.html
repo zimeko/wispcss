@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Alarm - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Alarm Component</h1>
+  <p>Notification badge with pulsing double-wave animation. Supports dot, text, images, and icons.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Always wrap text or other content inside a child <code>&lt;span></code> (e.g. <code>&lt;span class="alarm">&lt;span>1&lt;/span>&lt;/span></code>) — this ensures the glow overlay does not obscure the content.</li>
+      <li><code>alarm-md</code> is equivalent to the default <code>alarm</code> wave behavior.</li>
+      <li>Empty <code>&lt;span class="alarm"></span></code> renders as a notification dot.</li>
+    </ul>
+  </div>
+
+  <h2 id="base">Base</h2>
+  <div class="section">
+    <div>
+      <h3>Dot (empty)</h3>
+      <span class="alarm"></span>
+    </div>
+    <div>
+      <h3>Text badge</h3>
+      <span class="alarm"><span>1</span></span>
+      <span class="alarm"><span>99+</span></span>
+      <span class="alarm"><span>New</span></span>
+    </div>
+    <div>
+      <h3>Multi-line</h3>
+      <span class="alarm"><span>Alert!<br/>3h left</span></span>
+    </div>
+    <div>
+      <h3>SVG icon</h3>
+      <span class="alarm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+      </span>
+      <span class="alarm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </span>
+    </div>
+    <div>
+      <h3>Image</h3>
+      <span class="alarm">
+        <img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"/>
+      </span>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (pulse range)</h2>
+  <div class="section">
+    <div>
+      <h3>alarm-sm (wave-1 / wave-2)</h3>
+      <span class="alarm alarm-sm"><span>sm</span></span>
+      <span class="alarm alarm-sm alarm-primary"><span>P</span></span>
+      <span class="alarm alarm-sm alarm-success"><span>✓</span></span>
+    </div>
+    <div>
+      <h3>alarm-md (wave-2 / wave-4, default)</h3>
+      <span class="alarm alarm-md"><span>md</span></span>
+      <span class="alarm alarm-md alarm-primary"><span>P</span></span>
+      <span class="alarm alarm-md alarm-success"><span>✓</span></span>
+    </div>
+    <div>
+      <h3>alarm-lg (wave-3 / wave-5)</h3>
+      <span class="alarm alarm-lg"><span>lg</span></span>
+      <span class="alarm alarm-lg alarm-primary"><span>P</span></span>
+      <span class="alarm alarm-lg alarm-success"><span>✓</span></span>
+    </div>
+    <div>
+      <h3>alarm-xl (wave-3 / wave-6)</h3>
+      <span class="alarm alarm-xl"><span>xl</span></span>
+      <span class="alarm alarm-xl alarm-primary"><span>P</span></span>
+      <span class="alarm alarm-xl alarm-success"><span>✓</span></span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Default (error, no color class)</h3>
+      <span class="alarm"><span>!</span></span>
+    </div>
+    <div>
+      <h3>Primary</h3>
+      <span class="alarm alarm-primary"><span>P</span></span>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <span class="alarm alarm-secondary"><span>S</span></span>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <span class="alarm alarm-tertiary"><span>T</span></span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="alarm alarm-success"><span>✓</span></span>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <span class="alarm alarm-error"><span>✕</span></span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="alarm alarm-info"><span>i</span></span>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <span class="alarm alarm-warning"><span>!</span></span>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <span class="alarm alarm-caution"><span>⚠</span></span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="alarm alarm-highlight"><span>★</span></span>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <span class="alarm alarm-ink"><span>N</span></span>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <span class="alarm alarm-title"><span>T</span></span>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <span class="alarm alarm-description"><span>D</span></span>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <span class="alarm alarm-caption"><span>C</span></span>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <span class="alarm alarm-disabled"><span>—</span></span>
+    </div>
+    <div>
+      <h3>Black</h3>
+      <span class="alarm alarm-black"><span>B</span></span>
+    </div>
+    <div>
+      <h3>White (on dark bg)</h3>
+      <span style="display:inline-block; background:#333; padding:8px; border-radius:8px;">
+        <span class="alarm alarm-white"><span>W</span></span>
+      </span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Tailwind palettes & raw values</h3>
+      <span class="alarm alarm-red-100"><span>red-100</span></span>
+      <span class="alarm alarm-green-500"><span>green-500</span></span>
+      <span class="alarm alarm-red-800"><span>red-800</span></span>
+      <span class="alarm alarm-[#12ffab]"><span>#12ffab</span></span>
+      <span class="alarm alarm-indigo-500"><span>indigo-500</span></span>
+    </div>
+  </div>
+
+  <h2 id="combination">Color + size combination</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <span class="alarm alarm-primary alarm-sm"><span>sm</span></span>
+      <span class="alarm alarm-primary alarm-md"><span>md</span></span>
+      <span class="alarm alarm-primary alarm-lg"><span>lg</span></span>
+      <span class="alarm alarm-primary alarm-xl"><span>xl</span></span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="alarm alarm-success alarm-sm"><span>sm</span></span>
+      <span class="alarm alarm-success alarm-md"><span>md</span></span>
+      <span class="alarm alarm-success alarm-lg"><span>lg</span></span>
+      <span class="alarm alarm-success alarm-xl"><span>xl</span></span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="alarm alarm-highlight alarm-sm"><span>sm</span></span>
+      <span class="alarm alarm-highlight alarm-md"><span>md</span></span>
+      <span class="alarm alarm-highlight alarm-lg"><span>lg</span></span>
+      <span class="alarm alarm-highlight alarm-xl"><span>xl</span></span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="alarm alarm-info alarm-sm"><span>sm</span></span>
+      <span class="alarm alarm-info alarm-md"><span>md</span></span>
+      <span class="alarm alarm-info alarm-lg"><span>lg</span></span>
+      <span class="alarm alarm-info alarm-xl"><span>xl</span></span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>File - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>File Component</h1>
+  <p><code>input[type=file]</code> styling. Same input utility classes apply — supports variants, theme colors, sizes, radius, and width.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li><code>input[type=file]</code> uses the same utility classes as <code>input[type=text]</code> — all variants, colors, sizes, radius, and width utilities work identically.</li>
+      <li>Prefer combined utilities like <code>input-subtle-primary</code> over separate <code>input-subtle input-primary</code> — smaller CSS output.</li>
+      <li>Disabled state is built-in: just add <code>disabled</code> attribute.</li>
+    </ul>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <input type="file">
+      <input type="file" disabled>
+    </div>
+    <div>
+      <h3>.input-subtle</h3>
+      <input type="file" class="input-subtle">
+      <input type="file" class="input-subtle" disabled>
+    </div>
+    <div>
+      <h3>.input-ghost</h3>
+      <input type="file" class="input-ghost">
+      <input type="file" class="input-ghost" disabled>
+    </div>
+    <div>
+      <h3>.input-underline</h3>
+      <input type="file" class="input-underline">
+      <input type="file" class="input-underline" disabled>
+    </div>
+    <div>
+      <h3>.input-outline</h3>
+      <input type="file" class="input-outline">
+      <input type="file" class="input-outline" disabled>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <input type="file" class="input-primary">
+      <input type="file" class="input-subtle-primary">
+      <input type="file" class="input-muted-primary">
+      <input type="file" class="input-ghost-primary">
+      <input type="file" class="input-underline-primary">
+      <input type="file" class="input-outline-primary">
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <input type="file" class="input-secondary">
+      <input type="file" class="input-subtle-secondary">
+      <input type="file" class="input-muted-secondary">
+      <input type="file" class="input-ghost-secondary">
+      <input type="file" class="input-underline-secondary">
+      <input type="file" class="input-outline-secondary">
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <input type="file" class="input-tertiary">
+      <input type="file" class="input-subtle-tertiary">
+      <input type="file" class="input-muted-tertiary">
+      <input type="file" class="input-ghost-tertiary">
+      <input type="file" class="input-underline-tertiary">
+      <input type="file" class="input-outline-tertiary">
+    </div>
+  </div>
+
+  <h2 id="status-colors">Status colors</h2>
+  <div class="section">
+    <div>
+      <h3>Success</h3>
+      <input type="file" class="input-success">
+      <input type="file" class="input-subtle-success">
+    </div>
+    <div>
+      <h3>Error</h3>
+      <input type="file" class="input-error">
+      <input type="file" class="input-subtle-error">
+    </div>
+    <div>
+      <h3>Info</h3>
+      <input type="file" class="input-info">
+      <input type="file" class="input-subtle-info">
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <input type="file" class="input-warning">
+      <input type="file" class="input-subtle-warning">
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <input type="file" class="input-caution">
+      <input type="file" class="input-subtle-caution">
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <input type="file" class="input-highlight">
+      <input type="file" class="input-subtle-highlight">
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div>
+      <input type="file" class="input-teal-500">
+      <input type="file" class="input-fuchsia-800">
+      <input type="file" class="input-subtle-teal-500">
+      <input type="file" class="input-ghost-teal-500">
+      <input type="file" class="input-underline-teal-500">
+      <input type="file" class="input-outline-teal-500">
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>Small (input-4 ~ input-7)</h3>
+      <input type="file" class="input-4">
+      <input type="file" class="input-5">
+      <input type="file" class="input-6">
+      <input type="file" class="input-7">
+    </div>
+    <div>
+      <h3>Medium (input-8 ~ input-10)</h3>
+      <input type="file" class="input-8">
+      <input type="file" class="input-9">
+      <input type="file" class="input-10">
+    </div>
+    <div>
+      <h3>Large (input-11 ~ input-15)</h3>
+      <input type="file" class="input-11">
+      <input type="file" class="input-12">
+      <input type="file" class="input-13">
+      <input type="file" class="input-14">
+      <input type="file" class="input-15">
+    </div>
+  </div>
+
+  <h2 id="radius">Radius</h2>
+  <div class="section">
+    <div>
+      <h3>.input-pill</h3>
+      <input type="file" class="input-pill">
+      <input type="file" class="input-primary input-pill">
+    </div>
+    <div>
+      <h3>.input-rounded</h3>
+      <input type="file" class="input-rounded">
+      <input type="file" class="input-secondary input-rounded">
+    </div>
+    <div>
+      <h3>.input-fluid</h3>
+      <input type="file" class="input-fluid">
+      <input type="file" class="input-tertiary input-fluid">
+    </div>
+    <div>
+      <h3>.input-square</h3>
+      <input type="file" class="input-square">
+      <input type="file" class="input-primary input-square">
+    </div>
+  </div>
+
+  <h2 id="width">Width</h2>
+  <div class="section">
+    <div>
+      <h3>.input-scale</h3>
+      <input type="file" class="input-scale">
+    </div>
+    <div>
+      <h3>.input-scale-2</h3>
+      <input type="file" class="input-scale-2">
+    </div>
+    <div>
+      <h3>.input-full</h3>
+      <input type="file" class="input-full">
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

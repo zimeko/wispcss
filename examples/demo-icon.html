@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Icon - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Icon Component</h1>
+  <p>Vector icons implemented with CSS mask-image. Color via <code>text-*</code> or <code>icon-*</code> utilities. Supports multiple icon families, sizes, and custom colors.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base class: <code>.icon</code>. Shape class: <code>icon-*</code> (e.g. <code>icon-check</code>).</li>
+      <li>Icon color follows <code>currentColor</code> by default. Use <code>text-*</code> utilities or inline <code>style="color:..."</code> to set color.</li>
+      <li>Sizes via <code>icon-*</code> dynamic utilities (e.g. <code>icon-6</code>, <code>icon-10</code>, <code>icon-20</code>, <code>icon-[28px]</code>).</li>
+      <li>More icons will be added in future releases.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default icons</h3>
+      <span class="icon icon-check"></span>
+      <span class="icon icon-close"></span>
+      <span class="icon icon-info"></span>
+      <span class="icon icon-warning"></span>
+      <span class="icon icon-chevron-start"></span>
+    </div>
+    <div>
+      <h3>With color (text-*)</h3>
+      <span class="icon icon-check-pill-fill text-success"></span>
+      <span class="icon icon-close-circle-fill text-error"></span>
+      <span class="icon icon-info-circle-fill text-info"></span>
+      <span class="icon icon-warning-triangle-fill text-warning"></span>
+    </div>
+    <div>
+      <h3>Icon + text</h3>
+      <span class="icon icon-check-pill-fill text-success"></span> Success
+      <span class="icon icon-close-circle-fill text-error"></span> Error
+      <span class="icon icon-info-circle-fill text-info"></span> Info
+      <span class="icon icon-warning-triangle-fill text-warning"></span> Warning
+    </div>
+  </div>
+
+  <h2 id="icon-families">Icon families</h2>
+  <div class="section">
+    <div>
+      <h3>Check</h3>
+      <span class="icon icon-check icon-2xl text-success"></span> check
+      <span class="icon icon-check-pill icon-2xl text-success"></span> check-pill
+      <span class="icon icon-check-pill-fill icon-2xl text-success"></span> check-pill-fill
+    </div>
+    <div>
+      <h3>Close</h3>
+      <span class="icon icon-close icon-2xl text-error"></span> close
+      <span class="icon icon-close-circle icon-2xl text-error"></span> close-circle
+      <span class="icon icon-close-circle-fill icon-2xl text-error"></span> close-circle-fill
+    </div>
+    <div>
+      <h3>Warning / triangle</h3>
+      <span class="icon icon-warning icon-2xl text-warning"></span> warning
+      <span class="icon icon-warning-triangle icon-2xl text-warning"></span> warning-triangle
+      <span class="icon icon-warning-triangle-fill icon-2xl text-warning"></span> warning-triangle-fill
+    </div>
+    <div>
+      <h3>Question / help</h3>
+      <span class="icon icon-warning icon-2xl text-help"></span> warning
+      <span class="icon icon-warning-circle icon-2xl text-help"></span> warning-circle
+      <span class="icon icon-warning-circle-fill icon-2xl text-help"></span> warning-circle-fill
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="icon icon-info icon-2xl text-info"></span> info
+      <span class="icon icon-info-circle icon-2xl text-info"></span> info-circle
+      <span class="icon icon-info-circle-fill icon-2xl text-info"></span> info-circle-fill
+    </div>
+    <div>
+      <h3>Chevron down</h3>
+      <span class="icon icon-chevron-down icon-2xl"></span> chevron-down
+      <span class="icon icon-chevron-down-circle icon-2xl"></span> chevron-down-circle
+      <span class="icon icon-chevron-down-circle-fill icon-2xl"></span> chevron-down-circle-fill
+    </div>
+    <div>
+      <h3>Plus</h3>
+      <span class="icon icon-plus icon-2xl"></span> plus
+      <span class="icon icon-plus-circle icon-2xl"></span> plus-circle
+      <span class="icon icon-plus-circle-fill icon-2xl"></span> plus-circle-fill
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>Custom via icon-*</h3>
+      <span class="icon icon-check-pill-fill icon-6"></span>
+      <span class="icon icon-check-pill-fill icon-10"></span>
+      <span class="icon icon-check-pill-fill icon-[28px]"></span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <span class="icon icon-info-circle-fill icon-3xl"></span> default
+      <span class="icon icon-info-circle-fill icon-3xl text-primary"></span> primary
+      <span class="icon icon-info-circle-fill icon-3xl text-secondary"></span> secondary
+      <span class="icon icon-info-circle-fill icon-3xl text-tertiary"></span> tertiary
+      <span class="icon icon-check-pill-fill icon-3xl text-success"></span> success
+      <span class="icon icon-close-circle-fill icon-3xl text-error"></span> error
+      <span class="icon icon-info-circle-fill icon-3xl text-info"></span> info
+      <span class="icon icon-warning-triangle-fill icon-3xl text-warning"></span> warning
+      <span class="icon icon-warning-circle-fill icon-3xl text-help"></span> help
+      <span class="icon icon-info-circle-fill icon-3xl text-ink"></span> ink
+      <span class="icon icon-info-circle-fill icon-3xl text-title"></span> title
+      <span class="icon icon-info-circle-fill icon-3xl text-description"></span> description
+      <span class="icon icon-info-circle-fill icon-3xl text-caption"></span> caption
+      <span class="icon icon-info-circle-fill icon-3xl text-disabled"></span> disabled
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Icon color follows the text color — use <code>style="color:..."</code> or <code>text-*</code> utilities.</p>
+    <div>
+      <span class="icon icon-check-pill-fill" style="color:blue"></span>
+      <span class="icon icon-check-pill-fill text-success"></span>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Status indicators</h3>
+      <span class="icon icon-check-pill-fill icon-sm text-success"></span> Upload successful
+      <span class="icon icon-close-circle-fill icon-sm text-error"></span> Upload failed
+      <span class="icon icon-warning-triangle-fill icon-sm text-warning"></span> Disk space low
+      <span class="icon icon-info-circle-fill icon-sm text-info"></span> Update available
+    </div>
+    <div>
+      <h3>Button icons</h3>
+      <span class="icon icon-check icon-4xs"></span> Save
+      <span class="icon icon-close icon-4xs"></span> Delete
+      <span class="icon icon-info-circle icon-4xs text-info"></span> Details
+    </div>
+    <div>
+      <h3>Form validation</h3>
+      <span class="icon icon-check-pill-fill icon-sm text-success"></span> Username available
+      <span class="icon icon-close-circle-fill icon-sm text-error"></span> Password too weak
+      <span class="icon icon-info-circle-fill icon-sm text-info"></span> Email format OK
+      <span class="icon icon-warning-triangle-fill icon-sm text-warning"></span> Code expiring
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

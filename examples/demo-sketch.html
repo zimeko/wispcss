@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Sketch - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Sketch Component</h1>
+  <p>Hand-drawn sketch style elements using irregular border-radius and SVG mask decorations. Includes frames, underlines, highlights, dividers, strikethrough, circling marks, and wrong/cross marks.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Frames: <code>sketch-frame</code> / <code>sketch-frame1</code> ~ <code>sketch-frame20</code>. Uses irregular border-radius. Combine with <code>border-*</code> classes for color.</li>
+      <li>Underline: <code>sketch-underline</code>. Thickness: <code>sketch-underline-1px</code>. Color: <code>sketch-underline-*</code> (e.g. <code>sketch-underline-primary</code>).</li>
+      <li>Highlight: <code>sketch-mark</code>. Color: <code>sketch-mark-*</code>.</li>
+      <li>Divider: <code>sketch-divider/sketch-divider-h</code> (horizontal), <code>sketch-divider-v</code> (vertical). Color: <code>sketch-divider-*</code>.</li>
+      <li>Strikethrough: <code>sketch-through</code>. Circle: <code>sketch-circling</code>. Cross: <code>sketch-wrong</code>. Each supports <code>sketch-wrong-1px</code> (thin) and <code>sketch-wrong-*</code> (color).</li>
+    </ul>
+  </div>
+
+  <h2 id="frames">Frames</h2>
+  <div class="section">
+    <div>
+      <h3>sketch-frame (default)</h3>
+      <div class="sketch-frame border-2 border-black p-4 text-sm">Default sketch frame</div>
+    </div>
+    <div>
+      <h3>Regular frames (sketch-frame1 ~ 10)</h3>
+      <div class="sketch-frame1 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">1</div>
+      <div class="sketch-frame2 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">2</div>
+      <div class="sketch-frame3 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">3</div>
+      <div class="sketch-frame4 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">4</div>
+      <div class="sketch-frame5 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">5</div>
+      <div class="sketch-frame6 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">6</div>
+      <div class="sketch-frame7 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">7</div>
+      <div class="sketch-frame8 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">8</div>
+      <div class="sketch-frame9 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">9</div>
+      <div class="sketch-frame10 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">10</div>
+    </div>
+    <div>
+      <h3>Irregular frames (sketch-frame11 ~ 20)</h3>
+      <div class="sketch-frame11 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">11</div>
+      <div class="sketch-frame12 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">12</div>
+      <div class="sketch-frame13 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">13</div>
+      <div class="sketch-frame14 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">14</div>
+      <div class="sketch-frame15 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">15</div>
+      <div class="sketch-frame16 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">16</div>
+      <div class="sketch-frame17 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">17</div>
+      <div class="sketch-frame18 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">18</div>
+      <div class="sketch-frame19 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">19</div>
+      <div class="sketch-frame20 border-2 border-black p-4 text-sm" style="display:inline-block;margin:4px;">20</div>
+    </div>
+    <div>
+      <h3>Frame colors</h3>
+      <div class="sketch-frame3 border-2 border-primary p-4 text-sm text-primary" style="display:inline-block;margin:4px;">primary</div>
+      <div class="sketch-frame5 border-2 border-secondary p-4 text-sm text-secondary" style="display:inline-block;margin:4px;">secondary</div>
+      <div class="sketch-frame7 border-2 border-success p-4 text-sm text-success" style="display:inline-block;margin:4px;">success</div>
+      <div class="sketch-frame9 border-2 border-error p-4 text-sm text-error" style="display:inline-block;margin:4px;">error</div>
+      <div class="sketch-frame3 border-2 border-red-500 p-4 text-sm text-red-600" style="display:inline-block;margin:4px;">red</div>
+      <div class="sketch-frame5 border-2 border-blue-500 p-4 text-sm text-blue-600" style="display:inline-block;margin:4px;">blue</div>
+    </div>
+  </div>
+
+  <h2 id="underline">Underline</h2>
+  <div class="section">
+    <div>
+      <h3>sketch-underline (default)</h3>
+      <span class="sketch-underline text-xl font-bold">Hand-drawn underline</span>
+    </div>
+    <div>
+      <h3>sketch-underline-1px (thin)</h3>
+      <span class="sketch-underline sketch-underline-1px text-xl font-bold">1px thin underline</span>
+    </div>
+    <div>
+      <h3>Colored underline</h3>
+      <span class="sketch-underline sketch-underline-primary text-xl font-bold mr-6">primary</span>
+      <span class="sketch-underline sketch-underline-success text-xl font-bold mr-6">success</span>
+      <span class="sketch-underline sketch-underline-error text-xl font-bold">error</span>
+    </div>
+    <div>
+      <h3>Different font sizes</h3>
+      <span class="sketch-underline sketch-underline-primary text-2xl font-bold" style="display:block;">Large text</span>
+      <span class="sketch-underline sketch-underline-success text-lg font-bold" style="display:block;">Medium text</span>
+      <span class="sketch-underline sketch-underline-error text-sm">Small text</span>
+    </div>
+  </div>
+
+  <h2 id="highlight-sketch-mark">Highlight (sketch-mark)</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <span class="sketch-mark text-lg font-bold px-1">Hand-drawn highlight</span>
+    </div>
+    <div>
+      <h3>Colored highlight</h3>
+      <span class="sketch-mark sketch-mark-warning text-lg font-bold px-1 mr-4">warning</span>
+      <span class="sketch-mark sketch-mark-success text-lg font-bold px-1 mr-4">success</span>
+      <span class="sketch-mark sketch-mark-error text-lg font-bold px-1">error</span>
+    </div>
+  </div>
+
+  <h2 id="strikethrough-sketch-through">Strikethrough (sketch-through)</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <span class="sketch-through text-lg font-bold">Hand-drawn strikethrough</span>
+    </div>
+    <div>
+      <h3>sketch-through-1px (thin)</h3>
+      <span class="sketch-through sketch-through-1px text-lg font-bold">1px thin strikethrough</span>
+    </div>
+    <div>
+      <h3>Colored strikethrough</h3>
+      <span class="sketch-through sketch-through-error text-lg font-bold mr-6">error</span>
+      <span class="sketch-through sketch-through-primary text-lg font-bold mr-6">primary</span>
+      <span class="sketch-through sketch-through-success text-lg font-bold">success</span>
+    </div>
+    <div>
+      <h3>Different font sizes</h3>
+      <span class="sketch-through sketch-through-error text-2xl font-bold" style="display:block;">Large</span>
+      <span class="sketch-through sketch-through-primary text-lg font-bold" style="display:block;">Medium</span>
+      <span class="sketch-through sketch-through-success text-sm">Small</span>
+    </div>
+  </div>
+
+  <h2 id="circle-mark-sketch-circling">Circle mark (sketch-circling)</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <span class="sketch-circling text-lg font-bold">Hand-drawn circle</span>
+    </div>
+    <div>
+      <h3>sketch-circling-1px (thin)</h3>
+      <span class="sketch-circling sketch-circling-1px text-lg font-bold">1px thin circle</span>
+    </div>
+    <div>
+      <h3>Colored circle</h3>
+      <span class="sketch-circling sketch-circling-error text-lg font-bold mr-6">error</span>
+      <span class="sketch-circling sketch-circling-primary text-lg font-bold mr-6">primary</span>
+      <span class="sketch-circling sketch-circling-warning text-lg font-bold">warning</span>
+    </div>
+  </div>
+
+  <h2 id="wrong-cross-sketch-wrong">Wrong cross (sketch-wrong)</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <span class="sketch-wrong text-lg font-bold">Hand-drawn cross</span>
+    </div>
+    <div>
+      <h3>sketch-wrong-1px (thin)</h3>
+      <span class="sketch-wrong sketch-wrong-1px text-lg font-bold">1px thin cross</span>
+    </div>
+    <div>
+      <h3>Colored cross</h3>
+      <span class="sketch-wrong sketch-wrong-error text-lg font-bold mr-6">error</span>
+      <span class="sketch-wrong sketch-wrong-primary text-lg font-bold mr-6">primary</span>
+      <span class="sketch-wrong sketch-wrong-warning text-lg font-bold">warning</span>
+    </div>
+  </div>
+
+  <h2 id="divider">Divider</h2>
+  <div class="section">
+    <div>
+      <h3>sketch-divider (horizontal)</h3>
+      <span class="text-sm">Above</span>
+      <div class="sketch-divider my-2"></div>
+      <span class="text-sm">Below</span>
+    </div>
+    <div>
+      <h3>sketch-divider-1px (thin)</h3>
+      <span class="text-sm">Above</span>
+      <div class="sketch-divider sketch-divider-1px my-2"></div>
+      <span class="text-sm">Below</span>
+    </div>
+    <div>
+      <h3>Colored divider</h3>
+      <div class="sketch-divider sketch-divider-primary"></div>
+      <div class="sketch-divider sketch-divider-success"></div>
+      <div class="sketch-divider sketch-divider-error"></div>
+    </div>
+    <div>
+      <h3>sketch-divider-v (vertical)</h3>
+      <div style="height:80px;display:flex;gap:16px;align-items:center;">
+        <span>Left</span>
+        <div class="sketch-divider-v h-full"></div>
+        <span>Center</span>
+        <div class="sketch-divider-v sketch-divider-primary h-full"></div>
+        <span>Right</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="combination-example">Combination example</h2>
+  <div class="section">
+    <div class="sketch-frame5 border-2 border-primary p-6" style="max-width:500px;">
+      <h3 class="sketch-underline sketch-underline-primary text-xl font-bold mb-4">Sketch Card</h3>
+      <p class="text-sm mb-3">A card with a sketch frame, <span class="sketch-mark sketch-mark-warning font-bold">highlighted</span> text, and a divider.</p>
+      <div class="sketch-divider sketch-divider-primary my-3"></div>
+      <p class="text-sm">&#8212; Sketch style demo</p>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

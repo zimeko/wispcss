@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+    <link rel="stylesheet" href="./demo-styles.css">
+    <title>Pagination - Beautify Demo</title>
+</head>
+
+<body>
+    <h1>Pagination Component</h1>
+    <p>Page navigation, size selector, goto input, and flexible layout. Uses <code>data-role</code> attributes to
+        structure navigation elements like pages, previous/next, first/last, ellipsis, total count, goto, and size
+        selector.</p>
+
+    <h2>Notes</h2>
+    <div class="section">
+        <ul>
+            <li>Base class: <code>.pagination</code>. All child elements use <code>data-role</code> attributes (e.g.
+                <code>data-role="page"</code>, <code>data-role="previous"</code>, <code>data-role="next"</code>).
+            </li>
+            <li>Use <code>data-selected="true"</code> for the current page and <code>data-disabled="true"</code> for
+                disabled controls.</li>
+            <li>Wrap page numbers in <code>&lt;div data-role="pages"></code> for grouped display with collapsed borders.
+            </li>
+            <li>Size presets: <code>pagination-4</code> (16px) to <code>pagination-15</code> (60px) — default is
+                <code>pagination-8</code> (32px).
+            </li>
+        </ul>
+    </div>
+
+    <h2 id="basic">Basic usage</h2>
+    <div class="section">
+        <div>
+            <h3>Default pagination</h3>
+            <div class="pagination">
+                <a data-role="total">142 items</a>
+                <a href="###" data-role="first">First</a>
+                <a href="###" data-role="previous">Prev</a>
+
+                <a href="###" data-role="page">1</a>
+                <a data-selected="true" data-role="page">2</a>
+                <a href="###" data-role="page">3</a>
+                <span data-role="ellipsis">...</span>
+                <a href="###" data-role="page">9</a>
+                <a href="###" data-role="page">10</a>
+
+                <a href="###" data-role="next">Next</a>
+                <a href="###" data-role="last">Last</a>
+            </div>
+            <h3>Default pagination with group</h3>
+            <div class="pagination">
+                <a data-role="total">142 items</a>
+                <a href="###" data-role="first">First</a>
+                <a href="###" data-role="previous">Prev</a>
+                <div data-role="pages">
+                    <a href="###" data-role="page">1</a>
+                    <a data-selected="true" data-role="page">2</a>
+                    <a href="###" data-role="page">3</a>
+                    <span data-role="ellipsis">...</span>
+                    <a href="###" data-role="page">9</a>
+                    <a href="###" data-role="page">10</a>
+                </div>
+                <a href="###" data-role="next">Next</a>
+                <a href="###" data-role="last">Last</a>
+            </div>
+        </div>
+        <div>
+            <h3>Plain (no borders)</h3>
+            <div class="pagination pagination-plain">
+                <a data-role="total">142 items</a>
+                <a href="###" data-role="first">First</a>
+                <a href="###" data-role="previous">Prev</a>
+                <div data-role="pages">
+                    <a href="###" data-role="page">1</a>
+                    <a data-selected="true" data-role="page">2</a>
+                    <a href="###" data-role="page">3</a>
+                    <span data-role="ellipsis">...</span>
+                    <a href="###" data-role="page">9</a>
+                    <a href="###" data-role="page">10</a>
+                </div>
+                <a href="###" data-role="next">Next</a>
+                <a href="###" data-role="last">Last</a>
+            </div>
+        </div>
+        <div>
+            <h3>Disabled state</h3>
+            <div class="pagination">
+                <a data-role="total">142 items</a>
+                <a data-disabled="true" href="###" data-role="first">First</a>
+                <a data-disabled="true" href="###" data-role="previous">Prev</a>
+                <div data-role="pages">
+                    <a data-selected="true" data-role="page">1</a>
+                    <a href="###" data-role="page">2</a>
+                    <a href="###" data-role="page">3</a>
+                </div>
+                <a href="###" data-role="next">Next</a>
+                <a href="###" data-role="last">Last</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="elements">All elements</h2>
+    <div class="section">
+        <div class="pagination">
+            <a data-role="total">142 items</a>
+            <span data-role="size">Per page <input type="text" value="15"></span>
+            <span data-role="goto">Go to <select>
+                    <option selected="">8</option>
+                    <option>9</option>
+                </select></span>
+            <a data-disabled="true" href="###" data-role="first">First</a>
+            <a data-disabled="true" href="###" data-role="previous">Prev</a>
+            <div data-role="pages">
+                <a data-selected="true" data-role="page">1</a>
+                <a href="###" data-role="page">2</a>
+                <a href="###" data-role="ellipsis">...</a>
+                <a href="###" data-role="page">8</a>
+            </div>
+            <a href="###" data-role="next">Next</a>
+            <a href="###" data-role="last">Last</a>
+        </div>
+        <div class="pagination">
+            <div role="other">Other nodes</div>
+            <div role="main">
+                <a data-role="total">142 items</a>
+                <span data-role="size">Per page <input type="text" value="15"></span>
+                <span data-role="goto">Go to <select>
+                        <option selected="">8</option>
+                        <option>9</option>
+                    </select></span>
+                <a data-disabled="true" href="###" data-role="first">First</a>
+                <a data-disabled="true" href="###" data-role="previous">Prev</a>
+                <div data-role="pages">
+                    <a data-selected="true" data-role="page">1</a>
+                    <a href="###" data-role="ellipsis">...</a>
+                    <a href="###" data-role="page">8</a>
+                </div>
+                <a href="###" data-role="next">Next</a>
+                <a href="###" data-role="last">Last</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="shapes">Shapes</h2>
+    <div class="section">
+        <div>
+            <h3>Default (small radius)</h3>
+            <div class="pagination">
+                <a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div>
+                <a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>pagination-rounded</h3>
+            <div class="pagination pagination-rounded">
+                <a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div>
+                <a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>pagination-pill</h3>
+            <div class="pagination pagination-pill">
+                <a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div>
+                <a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>pagination-square</h3>
+            <div class="pagination pagination-square">
+                <a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div>
+                <a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>pagination-fluid</h3>
+            <div class="pagination pagination-fluid">
+                <a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div>
+                <a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Plain + pill</h3>
+            <div class="pagination pagination-plain pagination-pill">
+                <a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div>
+                <a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="sizes">Sizes (pagination-4 ~ pagination-15)</h2>
+    <div class="section">
+        <div>
+            <h3>16px (pagination-4)</h3>
+            <div class="pagination pagination-4"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>20px (pagination-5)</h3>
+            <div class="pagination pagination-5"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>24px (pagination-6)</h3>
+            <div class="pagination pagination-6"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>28px (pagination-7)</h3>
+            <div class="pagination pagination-7"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>32px (pagination-8, default)</h3>
+            <div class="pagination pagination-8"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>36px (pagination-9)</h3>
+            <div class="pagination pagination-9"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>40px (pagination-10)</h3>
+            <div class="pagination pagination-10"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>44px (pagination-11)</h3>
+            <div class="pagination pagination-11"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>48px (pagination-12)</h3>
+            <div class="pagination pagination-12"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>52px (pagination-13)</h3>
+            <div class="pagination pagination-13"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>56px (pagination-14)</h3>
+            <div class="pagination pagination-14"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>60px (pagination-15)</h3>
+            <div class="pagination pagination-15"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div><a href="###"
+                    data-role="next">Next</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="layout-alignment">Layout alignment</h2>
+    <div class="section">
+        <div>
+            <h3>Center (default)</h3>
+            <div class="pagination">
+                <a data-role="total">142 items</a>
+                <a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                        data-role="page">2</a><a href="###" data-role="page">3</a></div>
+                <a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>pagination-start (pages left, others right)</h3>
+            <div class="pagination pagination-start">
+                <a data-role="total">142 items</a>
+                <div data-role="main">
+                    <a href="###" data-role="previous">Prev</a>
+                    <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                            data-role="page">2</a><a href="###" data-role="page">3</a><a href="###"
+                            data-role="page">4</a><a href="###" data-role="page">5</a></div>
+                    <a href="###" data-role="next">Next</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>pagination-end (pages right, others left)</h3>
+            <div class="pagination pagination-end">
+                <a data-role="total">142 items</a>
+                <div data-role="main">
+                    <a href="###" data-role="previous">Prev</a>
+                    <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                            data-role="page">2</a><a href="###" data-role="page">3</a><a href="###"
+                            data-role="page">4</a><a href="###" data-role="page">5</a></div>
+                    <a href="###" data-role="next">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="theme-colors">Theme colors</h2>
+    <div class="section">
+        <div>
+            <h3>Primary</h3>
+            <div class="pagination pagination-primary"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Secondary</h3>
+            <div class="pagination pagination-secondary"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Tertiary</h3>
+            <div class="pagination pagination-tertiary"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Success</h3>
+            <div class="pagination pagination-success"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Error</h3>
+            <div class="pagination pagination-error"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Info</h3>
+            <div class="pagination pagination-info"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Highlight</h3>
+            <div class="pagination pagination-highlight"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Warning</h3>
+            <div class="pagination pagination-warning"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Caution</h3>
+            <div class="pagination pagination-caution"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Ink</h3>
+            <div class="pagination pagination-ink"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Title</h3>
+            <div class="pagination pagination-title"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Description</h3>
+            <div class="pagination pagination-description"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Caption</h3>
+            <div class="pagination pagination-caption"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Disabled</h3>
+            <div class="pagination pagination-disabled"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="custom-colors">Custom colors</h2>
+    <p>Multiple color formats are supported:</p>
+    <ul>
+        <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+        <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+        <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+        <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div class="section">
+        <div>
+            <h3>Tailwind colors</h3>
+            <div class="pagination pagination-green-500"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+            <div class="pagination pagination-indigo-500"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+        <div>
+            <h3>Raw / named colors</h3>
+            <div class="pagination pagination-[#ff0000]"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+            <div class="pagination pagination-[blue]"><a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><a href="###" data-role="page">4</a><a
+                        href="###" data-role="page">5</a></div><a href="###" data-role="next">Next</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="feature-pagination-turning">Feature: pagination-turning</h2>
+    <div class="section">
+        <p>Adds padding to prevent layout collapse when content is cleared during page turning.</p>
+        <div class="pagination pagination-turning">
+            <a href="###" data-role="previous">Prev</a>
+            <div data-role="pages"><a data-selected="true" data-role="page">1</a><a href="###" data-role="page">2</a><a
+                    href="###" data-role="page">3</a></div>
+            <a href="###" data-role="next">Next</a>
+        </div>
+    </div>
+
+    <h2 id="combinations">Combinations</h2>
+    <div class="section">
+        <div>
+            <h3>Plain + pill + primary</h3>
+            <div class="pagination pagination-plain pagination-pill pagination-primary">
+                <a data-role="total">142 items</a>
+                <a href="###" data-role="first">First</a>
+                <a href="###" data-role="previous">Prev</a>
+                <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                        data-role="page">2</a><a href="###" data-role="page">3</a><span
+                        data-role="ellipsis">...</span><a href="###" data-role="page">9</a><a href="###"
+                        data-role="page">10</a></div>
+                <a href="###" data-role="next">Next</a>
+                <a href="###" data-role="last">Last</a>
+            </div>
+        </div>
+        <div>
+            <h3>Rounded + success + start</h3>
+            <div class="pagination pagination-rounded pagination-success pagination-start">
+                <a data-role="total">88 items</a>
+                <div data-role="main">
+                    <a href="###" data-role="previous">Prev</a>
+                    <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                            data-role="page">2</a><a href="###" data-role="page">3</a><a href="###"
+                            data-role="page">4</a><a href="###" data-role="page">5</a></div>
+                    <a href="###" data-role="next">Next</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Plain + error + end</h3>
+            <div class="pagination pagination-plain pagination-error pagination-end">
+                <a data-role="total">256 items</a>
+                <div data-role="main">
+                    <a href="###" data-role="previous">Prev</a>
+                    <div data-role="pages"><a href="###" data-role="page">1</a><a data-selected="true"
+                            data-role="page">2</a><a href="###" data-role="page">3</a><a href="###"
+                            data-role="page">4</a><a href="###" data-role="page">5</a></div>
+                    <a href="###" data-role="next">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./demo-utils.js"></script>
+</body>
+
+</html>

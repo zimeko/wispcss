@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Reset - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Reset Utilities</h1>
+  <p>The <code>.reset-*</code> classes restore native browser appearance for elements that custom styles are applied to. Compare default Beautify styles (left) with reset styles (right) below.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li><code>.reset-ul</code> — removes custom bullet dots and indentation from <code>&lt;ul></code>, restores browser default list style.</li>
+      <li><code>.reset-ol</code> — same as <code>.reset-ul</code> but for <code>&lt;ol></code> (ordered lists).</li>
+      <li><code>.reset-dl</code> — removes top/bottom borders, decorative dots, bold title style from <code>&lt;dl></code>, returns plain text definition list.</li>
+      <li><code>.reset-heading</code> — removes margins from <code>&lt;h1></code> ~ <code>&lt;h6></code>.</li>
+    </ul>
+  </div>
+
+  <h2 id="ul-ol-list-reset">ul / ol list reset</h2>
+  <div class="section">
+    <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 280px; padding: 12px; border: 1px dashed #ddd; border-radius: 6px;">
+        <h3>Default (Beautify style)</h3>
+        <ul>
+          <li>Item A<ul><li>Nested A<ul><li>Deep nested</li></ul></li></ul></li>
+          <li>Item B</li>
+          <li>Item C</li>
+        </ul>
+        <ol>
+          <li>First step<ol><li>Sub step</li></ol></li>
+          <li>Second step</li>
+        </ol>
+      </div>
+      <div style="flex: 1; min-width: 280px; padding: 12px; border: 1px dashed #ddd; border-radius: 6px;">
+        <h3>.reset-ul / .reset-ol</h3>
+        <ul class="reset-ul">
+          <li>Item A<ul class="reset-ul"><li>Nested A<ul class="reset-ul"><li>Deep nested</li></ul></li></ul></li>
+          <li>Item B</li>
+          <li>Item C</li>
+        </ul>
+        <ol class="reset-ol">
+          <li>First step<ol class="reset-ol"><li>Sub step</li></ol></li>
+          <li>Second step</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="dl-reset">dl reset</h2>
+  <div class="section">
+    <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 280px; padding: 12px; border: 1px dashed #ddd; border-radius: 6px;">
+        <h3>Default (Beautify style)</h3>
+        <dl>
+          <dt>Beijing</dt><dd>21.8M</dd>
+          <dt>Shanghai</dt><dd>24.7M</dd>
+          <dt>Guangzhou</dt><dd>18.7M</dd>
+        </dl>
+      </div>
+      <div style="flex: 1; min-width: 280px; padding: 12px; border: 1px dashed #ddd; border-radius: 6px;">
+        <h3>.reset-dl</h3>
+        <dl class="reset-dl">
+          <dt>Beijing</dt><dd>21.8M</dd>
+          <dt>Shanghai</dt><dd>24.7M</dd>
+          <dt>Guangzhou</dt><dd>18.7M</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="heading-reset">Heading reset</h2>
+  <div class="section">
+    <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 280px; padding: 12px; border: 1px dashed #ddd; border-radius: 6px;">
+        <h3>Default (Beautify style)</h3>
+        <h1>h1 Heading</h1>
+        <h2 id="h2-heading">h2 Heading</h2>
+        <h3>h3 Heading</h3>
+        <h4>h4 Heading</h4>
+        <h5>h5 Heading</h5>
+        <h6>h6 Heading</h6>
+      </div>
+      <div style="flex: 1; min-width: 280px; padding: 12px; border: 1px dashed #ddd; border-radius: 6px;">
+        <h3>.reset-heading</h3>
+        <h1 class="reset-heading">h1 Heading (no margin)</h1>
+        <h2 class="reset-heading">h2 Heading (no margin)</h2>
+        <h3 class="reset-heading">h3 Heading (no margin)</h3>
+        <h4 class="reset-heading">h4 Heading (no margin)</h4>
+        <h5 class="reset-heading">h5 Heading (no margin)</h5>
+        <h6 class="reset-heading">h6 Heading (no margin)</h6>
+      </div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

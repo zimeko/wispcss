@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Dialog - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Dialog Component</h1>
+  <p>Native <code>&lt;dialog></code> component. Supports <code>:target</code> (anchor), <code>show()</code> and
+    <code>showModal()</code> open methods. Structure: <code>dialog > [data-role="header"] > [data-role="title"]</code> +
+    <code>[data-role="tools"]</code> + <code>[data-role="body"]</code> + <code>[data-role="footer"]</code>.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use native <code>&lt;dialog></code> element — accessible and semantic.</li>
+      <li>Three open methods: <code>:target</code> (anchor link), <code>dialog.show()</code> (no backdrop),
+        <code>dialog.showModal()</code> (with backdrop).</li>
+      <li>Required slots: <code>data-role="header"</code> / <code>data-role="title"</code>,
+        <code>data-role="tools"</code>, <code>data-role="body"</code>, <code>data-role="footer"</code>.</li>
+      <li>Anchor links use <code>&lt;a href="#dialogId"></code> to open and <code>&lt;a href="##"></code> to close.</li>
+    </ul>
+  </div>
+
+  <!-- Trigger buttons -->
+  <h2 id="open-methods">Open methods</h2>
+  <div class="section">
+    <div>
+      <h3>:target anchor</h3>
+      <a href="#standardModal" class="btn btn-primary">Open standard dialog</a>
+    </div>
+    <div>
+      <h3>JS show() — no backdrop</h3>
+      <button class="btn btn-primary" onclick="document.getElementById('jsModal').show()">Open via JS</button>
+    </div>
+    <div>
+      <h3>JS showModal() — with backdrop</h3>
+      <button class="btn btn-primary" onclick="document.getElementById('modalModal').showModal()">Open modal</button>
+    </div>
+  </div>
+
+  <h2 id="basic-dialogs">Basic dialogs</h2>
+  <div class="section">
+    <div>
+      <h3>Standard dialog</h3>
+      <p>Header, body, footer structure.</p>
+      <a href="#standardModal" class="btn btn-primary">Open</a>
+    </div>
+    <div>
+      <h3>Simple dialog</h3>
+      <p>Body only, no header/footer.</p>
+      <a href="#simpleModal" class="btn btn-primary">Open</a>
+    </div>
+    <div>
+      <h3>Long content</h3>
+      <p>Scrollable content.</p>
+      <a href="#longModal" class="btn btn-primary">Open</a>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <a href="#primaryModal" class="btn btn-primary">Open</a>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <a href="#successModal" class="btn btn-success">Open</a>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <a href="#warningModal" class="btn btn-warning">Open</a>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <a href="#errorModal" class="btn btn-error">Open</a>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Confirm dialog</h3>
+      <a href="#confirmModal" class="btn btn-error">Delete confirm</a>
+    </div>
+    <div>
+      <h3>Form dialog</h3>
+      <a href="#formModal" class="btn btn-primary">Login</a>
+    </div>
+    <div>
+      <h3>Info prompt</h3>
+      <a href="#infoModal" class="btn btn-success">Success</a>
+    </div>
+  </div>
+
+  <!-- ===== Standard dialog ===== -->
+  <dialog id="standardModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <header data-role="header">
+      <h4 data-role="title">Dialog Title</h4>
+    </header>
+    <div data-role="body">
+      <p>Standard dialog with full header, body, and footer.</p>
+      <p>Close via top-right X, footer button, or ESC key.</p>
+      <p><a href="##" class="link">Close</a></p>
+    </div>
+    <footer data-role="footer">
+      <button onclick="document.getElementById('standardModal').close()">Close</button>
+      <button class="btn-primary">OK</button>
+    </footer>
+  </dialog>
+
+  <!-- ===== Simple dialog ===== -->
+  <dialog id="simpleModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <div data-role="body">
+      <p>Simple dialog with body only.</p>
+      <p><a href="##" class="link">Close</a></p>
+    </div>
+  </dialog>
+
+  <!-- ===== Long content dialog ===== -->
+  <dialog id="longModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <header data-role="header">
+      <h4 data-role="title">Long Content</h4>
+    </header>
+    <div data-role="body">
+      <p>Demonstrating scrollable content inside a dialog.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua.</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+      <p><a href="##" class="link">Close</a></p>
+    </div>
+    <footer data-role="footer">
+      <button onclick="document.getElementById('longModal').close()">Close</button>
+    </footer>
+  </dialog>
+
+  <!-- ===== Primary dialog ===== -->
+  <dialog id="primaryModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <header data-role="header">
+      <h4 data-role="title">Primary Dialog</h4>
+    </header>
+    <div data-role="body">
+      <p>Primary theme dialog.</p>
+      <p><a href="##" class="link">Close</a></p>
+    </div>
+    <footer data-role="footer">
+      <button onclick="document.getElementById('primaryModal').close()">Cancel</button>
+      <button class="btn-primary">OK</button>
+    </footer>
+  </dialog>
+
+  <!-- ===== Success dialog ===== -->
+  <dialog id="successModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <header data-role="header">
+      <h4 data-role="title">Operation Successful</h4>
+    </header>
+    <div data-role="body">
+      <p>Operation completed successfully!</p>
+      <p><a href="##" class="link">Close</a></p>
+    </div>
+    <footer data-role="footer">
+      <button onclick="document.getElementById('successModal').close()">Close</button>
+      <button class="btn-success">Continue</button>
+    </footer>
+  </dialog>
+
+  <!-- ===== Warning dialog ===== -->
+  <dialog id="warningModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <header data-role="header">
+      <h4 data-role="title">Warning</h4>
+    </header>
+    <div data-role="body">
+      <p>This operation may have risks. Are you sure?</p>
+      <p><a href="##" class="link">Close</a></p>
+    </div>
+    <footer data-role="footer">
+      <button onclick="document.getElementById('warningModal').close()">Cancel</button>
+      <button class="btn-warning">Continue</button>
+    </footer>
+  </dialog>
+
+  <!-- ===== Error dialog ===== -->
+  <dialog id="errorModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <header data-role="header">
+      <h4 data-role="title">Error</h4>
+    </header>
+    <div data-role="body">
+      <p>Operation failed. Please try again later.</p>
+      <p><a href="##" class="link">Close</a></p>
+    </div>
+    <footer data-role="footer">
+      <button onclick="document.getElementById('errorModal').close()">Close</button>
+      <button class="btn-error">Retry</button>
+    </footer>
+  </dialog>
+
+  <!-- ===== Confirm dialog ===== -->
+  <dialog id="confirmModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <header data-role="header">
+      <h4 data-role="title">Confirm Deletion</h4>
+    </header>
+    <div data-role="body">
+      <p>Are you sure you want to delete this record? This action cannot be undone.</p>
+      <p><a href="##" class="link">Cancel</a></p>
+    </div>
+    <footer data-role="footer">
+      <button onclick="document.getElementById('confirmModal').close()">Cancel</button>
+      <button class="btn-error">Delete</button>
+    </footer>
+  </dialog>
+
+  <!-- ===== Form dialog ===== -->
+  <dialog id="formModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <header data-role="header">
+      <h4 data-role="title">Login</h4>
+    </header>
+    <div data-role="body">
+      <section class="shell">
+        Username:
+        <input>
+      </section>
+      <section class="shell">
+        Password:
+        <input type="password">
+      </section>
+      <p><a href="##" class="link">Close</a></p>
+    </div>
+    <footer data-role="footer">
+      <button onclick="document.getElementById('formModal').close()">Cancel</button>
+      <button class="btn-primary">Login</button>
+    </footer>
+  </dialog>
+
+  <!-- ===== Info dialog ===== -->
+  <dialog id="infoModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <header data-role="header">
+      <h4 data-role="title">Success</h4>
+    </header>
+    <div data-role="body">
+      <p>Your operation completed successfully!</p>
+      <p><a href="##" class="link">Close</a></p>
+    </div>
+    <footer data-role="footer">
+      <button onclick="document.getElementById('infoModal').close()">Close</button>
+      <button class="btn-success">OK</button>
+    </footer>
+  </dialog>
+
+  <!-- ===== JS dialog (show) ===== -->
+  <dialog id="jsModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <header data-role="header">
+      <h4 data-role="title">JS show() Dialog</h4>
+    </header>
+    <div data-role="body">
+      <p>Opened via <code>dialog.show()</code> — no backdrop.</p>
+      <p><a href="##" class="link">Close</a></p>
+    </div>
+    <footer data-role="footer">
+      <button onclick="document.getElementById('jsModal').close()">Close</button>
+      <button class="btn-primary">OK</button>
+    </footer>
+  </dialog>
+
+  <!-- ===== JS modal dialog (showModal) ===== -->
+  <dialog id="modalModal">
+    <span class="tools" data-role="tools">
+      <a href="##" data-risk="neutral"><span class="icon icon-close"></span></a>
+    </span>
+    <header data-role="header">
+      <h4 data-role="title">showModal() Dialog</h4>
+    </header>
+    <div data-role="body">
+      <p>Opened via <code>dialog.showModal()</code> — with backdrop overlay.</p>
+      <p><a href="##" class="link">Close</a></p>
+    </div>
+    <footer data-role="footer">
+      <button onclick="document.getElementById('modalModal').close()">Close</button>
+      <button class="btn-primary">OK</button>
+    </footer>
+  </dialog>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

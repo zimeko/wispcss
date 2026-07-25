@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Lamp - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Lamp Component</h1>
+  <p>Tab menu toggle with indicator bar. Structure: <code>.lamp > *</code>. Selected item via <code>data-selected="true"</code> or <code>input[type=radio]:checked</code>. Supports 4 directions, theme colors, full-width and sizes.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base class: <code>.lamp</code>. Children are tab items. Mark selected with <code>data-selected="true"</code> or wrap in <code>label > input[type=radio]</code>.</li>
+      <li>For items with icons, wrap text in <code>&lt;span class="lamp-label"></code>.</li>
+      <li>Directions: default (bottom), <code>.lamp-top</code>, <code>.lamp-start</code> (left, vertical), <code>.lamp-end</code> (right, vertical).</li>
+      <li>Width: <code>.lamp-full</code> for equal-width children.</li>
+      <li>Sizes: <code>lamp-4</code> ~ <code>lamp-15</code>.</li>
+      <li>Color: <code>lamp-*</code> dynamic utilities (e.g. <code>lamp-primary</code>, <code>lamp-error</code>, <code>lamp-blue-500</code>).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <span class="lamp">
+        <span data-selected="true">Home</span>
+        <span>Products</span>
+        <span>Services</span>
+        <span>About</span>
+      </span>
+    </div>
+    <div>
+      <h3>With icons</h3>
+      <span class="lamp">
+        <span data-selected="true">🏠 <span class="lamp-label">Home</span></span>
+        <span>📦 <span class="lamp-label">Products</span></span>
+        <span>📞 <span class="lamp-label">Contact</span></span>
+      </span>
+    </div>
+    <div>
+      <h3>Full width (.lamp-full)</h3>
+      <span class="lamp lamp-full">
+        <span data-selected="true">Home</span>
+        <span>Products</span>
+        <span>Services</span>
+        <span>About</span>
+      </span>
+    </div>
+  </div>
+
+  <h2 id="selection-methods">Selection methods</h2>
+  <div class="section">
+    <div>
+      <h3>data-selected="true"</h3>
+      <span class="lamp">
+        <span data-selected="true">Home</span>
+        <span>Products</span>
+        <span>Services</span>
+      </span>
+    </div>
+    <div>
+      <h3>Radio (type=radio)</h3>
+      <span class="lamp">
+        <label>Home <input type="radio" name="demo" checked></label>
+        <label>Products <input type="radio" name="demo"></label>
+        <label>Services <input type="radio" name="demo"></label>
+      </span>
+    </div>
+  </div>
+
+  <h2 id="direction">Directions</h2>
+  <div class="section">
+    <div>
+      <h3>Bottom (default)</h3>
+      <span class="lamp">
+        <span data-selected="true">Home</span>
+        <span>Products</span>
+        <span>Services</span>
+      </span>
+    </div>
+    <div>
+      <h3>Top (.lamp-top)</h3>
+      <span class="lamp lamp-top">
+        <span data-selected="true">Home</span>
+        <span>Products</span>
+        <span>Services</span>
+      </span>
+    </div>
+    <div>
+      <h3>Start (left, vertical)</h3>
+      <span class="lamp lamp-start">
+        <span data-selected="true">Home</span>
+        <span>Products</span>
+        <span>Services</span>
+      </span>
+    </div>
+    <div>
+      <h3>End (right, vertical)</h3>
+      <span class="lamp lamp-end">
+        <span data-selected="true">Home</span>
+        <span>Products</span>
+        <span>Services</span>
+      </span>
+    </div>
+  </div>
+
+  <h2 id="all-theme-colors">All theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <span class="lamp lamp-primary"><span data-selected="true">Primary</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <span class="lamp lamp-secondary"><span data-selected="true">Secondary</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <span class="lamp lamp-tertiary"><span data-selected="true">Tertiary</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="lamp lamp-success"><span data-selected="true">Success</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <span class="lamp lamp-error"><span data-selected="true">Error</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="lamp lamp-info"><span data-selected="true">Info</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <span class="lamp lamp-warning"><span data-selected="true">Warning</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <span class="lamp lamp-caution"><span data-selected="true">Caution</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="lamp lamp-highlight"><span data-selected="true">Highlight</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <span class="lamp lamp-ink"><span data-selected="true">Ink</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <span class="lamp lamp-title"><span data-selected="true">Title</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <span class="lamp lamp-description"><span data-selected="true">Description</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <span class="lamp lamp-caption"><span data-selected="true">Caption</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <span class="lamp lamp-disabled"><span data-selected="true">Disabled</span><span>Option</span></span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div>
+      <span class="lamp lamp-blue-200"><span data-selected="true">blue-200</span><span>Option</span></span>
+      <span class="lamp lamp-blue-500"><span data-selected="true">blue-500</span><span>Option</span></span>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (lamp-4 ~ lamp-15)</h2>
+  <div class="section">
+    <div>
+      <span class="lamp lamp-primary lamp-4"><span data-selected="true">4</span><span>Item</span></span>
+      <span class="lamp lamp-primary lamp-5"><span data-selected="true">5</span><span>Item</span></span>
+      <span class="lamp lamp-primary lamp-6"><span data-selected="true">6</span><span>Item</span></span>
+      <span class="lamp lamp-primary lamp-7"><span data-selected="true">7</span><span>Item</span></span>
+      <span class="lamp lamp-primary lamp-8"><span data-selected="true">8</span><span>Item</span></span>
+      <span class="lamp lamp-primary lamp-9"><span data-selected="true">9</span><span>Item</span></span>
+      <span class="lamp lamp-primary lamp-10"><span data-selected="true">10</span><span>Item</span></span>
+      <span class="lamp lamp-primary lamp-11"><span data-selected="true">11</span><span>Item</span></span>
+      <span class="lamp lamp-primary lamp-12"><span data-selected="true">12</span><span>Item</span></span>
+      <span class="lamp lamp-primary lamp-13"><span data-selected="true">13</span><span>Item</span></span>
+      <span class="lamp lamp-primary lamp-14"><span data-selected="true">14</span><span>Item</span></span>
+      <span class="lamp lamp-primary lamp-15"><span data-selected="true">15</span><span>Item</span></span>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Tab switch</h3>
+      <span class="lamp lamp-primary">
+        <span data-selected="true">⭐ Favorites</span>
+        <span>📁 Files</span>
+        <span>👥 Team</span>
+        <span>⚙️ Settings</span>
+      </span>
+    </div>
+    <div>
+      <h3>Navigation menu (top + full)</h3>
+      <span class="lamp lamp-primary lamp-top lamp-full">
+        <span data-selected="true">Home</span>
+        <span>Products</span>
+        <span>Services</span>
+        <span>About</span>
+      </span>
+    </div>
+    <div>
+      <h3>Sidebar (start)</h3>
+      <span class="lamp lamp-primary lamp-start">
+        <span data-selected="true">🏠 Home</span>
+        <span>📊 Data</span>
+        <span>👥 Users</span>
+      </span>
+    </div>
+    <div>
+      <h3>Status switch</h3>
+      <span class="lamp lamp-success lamp-top">
+        <span data-selected="true">Pass</span>
+        <span>Fail</span>
+        <span>Skip</span>
+      </span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

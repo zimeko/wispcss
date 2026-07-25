@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>OTP - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>OTP Component</h1>
+  <p>One-Time Password / PIN input container. Wrap multiple <code>input</code> elements inside <code>.otp</code> to create auto-sized square inputs with centered monospace text.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li><code>.otp</code> uses <code>inline-flex</code> layout — inputs sit in a single row.</li>
+      <li>Each <code>input</code> becomes a square whose size is driven by the <code>input-*</code> class (e.g. <code>input-10</code> → 40×40px).</li>
+      <li>OTP inherits input variant utilities: <code>input-subtle</code>, <code>input-ghost</code>, <code>input-underline</code>, <code>input-outline</code>, <code>input-rounded</code>.</li>
+      <li>For production use, pair with a JS script for auto-focus, arrow-key navigation, and Backspace-to-clear.</li>
+    </ul>
+  </div>
+
+  <h2 id="sizes">Sizes (input-6 ~ input-15)</h2>
+  <div class="section">
+    <div>
+      <h3>24px (input-6)</h3>
+      <div class="otp"><input class="input-6"/><input class="input-6"/><input class="input-6"/><input class="input-6"/></div>
+    </div>
+    <div>
+      <h3>28px (input-7)</h3>
+      <div class="otp"><input class="input-7"/><input class="input-7"/><input class="input-7"/><input class="input-7"/></div>
+    </div>
+    <div>
+      <h3>32px (input-8, default)</h3>
+      <div class="otp"><input class="input-8"/><input class="input-8"/><input class="input-8"/><input class="input-8"/></div>
+    </div>
+    <div>
+      <h3>36px (input-9)</h3>
+      <div class="otp"><input class="input-9"/><input class="input-9"/><input class="input-9"/><input class="input-9"/></div>
+    </div>
+    <div>
+      <h3>40px (input-10)</h3>
+      <div class="otp"><input class="input-10"/><input class="input-10"/><input class="input-10"/><input class="input-10"/></div>
+    </div>
+    <div>
+      <h3>44px (input-11)</h3>
+      <div class="otp"><input class="input-11"/><input class="input-11"/><input class="input-11"/><input class="input-11"/></div>
+    </div>
+    <div>
+      <h3>48px (input-12)</h3>
+      <div class="otp"><input class="input-12"/><input class="input-12"/><input class="input-12"/><input class="input-12"/></div>
+    </div>
+    <div>
+      <h3>52px (input-13)</h3>
+      <div class="otp"><input class="input-13"/><input class="input-13"/><input class="input-13"/><input class="input-13"/></div>
+    </div>
+    <div>
+      <h3>56px (input-14)</h3>
+      <div class="otp"><input class="input-14"/><input class="input-14"/><input class="input-14"/><input class="input-14"/></div>
+    </div>
+    <div>
+      <h3>60px (input-15)</h3>
+      <div class="otp"><input class="input-15"/><input class="input-15"/><input class="input-15"/><input class="input-15"/></div>
+    </div>
+  </div>
+
+  <h2 id="input-style-variants">Input style variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default border</h3>
+      <div class="otp"><input class="input-10"/><input class="input-10"/><input class="input-10"/><input class="input-10"/></div>
+    </div>
+    <div>
+      <h3>input-subtle (soft background)</h3>
+      <div class="otp"><input class="input-subtle input-10" placeholder="*"/><input class="input-subtle input-10" placeholder="*"/><input class="input-subtle input-10" placeholder="*"/><input class="input-subtle input-10" placeholder="*"/></div>
+    </div>
+    <div>
+      <h3>input-ghost (transparent)</h3>
+      <div class="otp"><input class="input-ghost input-10" placeholder="*"/><input class="input-ghost input-10" placeholder="*"/><input class="input-ghost input-10" placeholder="*"/><input class="input-ghost input-10" placeholder="*"/></div>
+    </div>
+    <div>
+      <h3>input-underline (bottom line)</h3>
+      <div class="otp"><input class="input-underline input-10" placeholder="*"/><input class="input-underline input-10" placeholder="*"/><input class="input-underline input-10" placeholder="*"/><input class="input-underline input-10" placeholder="*"/></div>
+    </div>
+    <div>
+      <h3>input-outline (thick border)</h3>
+      <div class="otp"><input class="input-outline input-10"/><input class="input-outline input-10"/><input class="input-outline input-10"/><input class="input-outline input-10"/></div>
+    </div>
+    <div>
+      <h3>input-rounded (round corners)</h3>
+      <div class="otp"><input class="input-rounded input-10"/><input class="input-rounded input-10"/><input class="input-rounded input-10"/><input class="input-rounded input-10"/></div>
+    </div>
+  </div>
+
+  <h2 id="group-otp-group">Group (otp-group)</h2>
+  <div class="section">
+    <div>
+      <h3>Default border group</h3>
+      <div class="otp otp-group"><input class="input-10"/><input class="input-10"/><input class="input-10"/><input class="input-10"/></div>
+    </div>
+    <div>
+      <h3>Subtle group</h3>
+      <div class="otp otp-group"><input class="input-subtle input-10" placeholder="*"/><input class="input-subtle input-10" placeholder="*"/><input class="input-subtle input-10" placeholder="*"/><input class="input-subtle input-10" placeholder="*"/></div>
+    </div>
+    <div>
+      <h3>Ghost group</h3>
+      <div class="otp otp-group"><input class="input-ghost input-10" placeholder="*"/><input class="input-ghost input-10" placeholder="*"/><input class="input-ghost input-10" placeholder="*"/><input class="input-ghost input-10" placeholder="*"/></div>
+    </div>
+    <div>
+      <h3>Underline group</h3>
+      <div class="otp otp-group"><input class="input-underline input-10" placeholder="*"/><input class="input-underline input-10" placeholder="*"/><input class="input-underline input-10" placeholder="*"/><input class="input-underline input-10" placeholder="*"/></div>
+    </div>
+    <div>
+      <h3>Outline group</h3>
+      <div class="otp otp-group"><input class="input-outline input-10"/><input class="input-outline input-10"/><input class="input-outline input-10"/><input class="input-outline input-10"/></div>
+    </div>
+  </div>
+
+  <h2 id="gutter-modifiers">Gutter modifiers</h2>
+  <div class="section">
+    <div>
+      <h3>otp-gutter (default: spacing(2))</h3>
+      <div class="otp otp-gutter"><input class="input-12"/><input class="input-12"/><input class="input-12"/><input class="input-12"/></div>
+    </div>
+    <div>
+      <h3>otp-gutter-1 (spacing(1))</h3>
+      <div class="otp otp-gutter-1"><input class="input-12"/><input class="input-12"/><input class="input-12"/><input class="input-12"/></div>
+    </div>
+    <div>
+      <h3>otp-gutter-6 (spacing(6))</h3>
+      <div class="otp otp-gutter-6"><input class="input-12"/><input class="input-12"/><input class="input-12"/><input class="input-12"/></div>
+    </div>
+    <div>
+      <h3>otp-gutter-[60px] (custom)</h3>
+      <div class="otp otp-gutter-[60px]"><input class="input-12"/><input class="input-12"/><input class="input-12"/><input class="input-12"/></div>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <div class="otp"><input class="input-primary input-10"/><input class="input-primary input-10"/><input class="input-primary input-10"/><input class="input-primary input-10"/></div>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <div class="otp"><input class="input-secondary input-10"/><input class="input-secondary input-10"/><input class="input-secondary input-10"/><input class="input-secondary input-10"/></div>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <div class="otp"><input class="input-tertiary input-10"/><input class="input-tertiary input-10"/><input class="input-tertiary input-10"/><input class="input-tertiary input-10"/></div>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <div class="otp"><input class="input-success input-10"/><input class="input-success input-10"/><input class="input-success input-10"/><input class="input-success input-10"/></div>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <div class="otp"><input class="input-error input-10"/><input class="input-error input-10"/><input class="input-error input-10"/><input class="input-error input-10"/></div>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <div class="otp"><input class="input-info input-10"/><input class="input-info input-10"/><input class="input-info input-10"/><input class="input-info input-10"/></div>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <div class="otp"><input class="input-highlight input-10"/><input class="input-highlight input-10"/><input class="input-highlight input-10"/><input class="input-highlight input-10"/></div>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <div class="otp"><input class="input-warning input-10"/><input class="input-warning input-10"/><input class="input-warning input-10"/><input class="input-warning input-10"/></div>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <div class="otp"><input class="input-caution input-10"/><input class="input-caution input-10"/><input class="input-caution input-10"/><input class="input-caution input-10"/></div>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <div class="otp"><input class="input-ink input-10"/><input class="input-ink input-10"/><input class="input-ink input-10"/><input class="input-ink input-10"/></div>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <div class="otp"><input class="input-title input-10"/><input class="input-title input-10"/><input class="input-title input-10"/><input class="input-title input-10"/></div>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <div class="otp"><input class="input-description input-10"/><input class="input-description input-10"/><input class="input-description input-10"/><input class="input-description input-10"/></div>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <div class="otp"><input class="input-caption input-10"/><input class="input-caption input-10"/><input class="input-caption input-10"/><input class="input-caption input-10"/></div>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <div class="otp"><input class="input-disabled input-10"/><input class="input-disabled input-10"/><input class="input-disabled input-10"/><input class="input-disabled input-10"/></div>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Tailwind colors</h3>
+      <div class="otp"><input class="input-indigo-500 input-10"/><input class="input-indigo-500 input-10"/><input class="input-indigo-500 input-10"/><input class="input-indigo-500 input-10"/></div>
+      <div class="otp"><input class="input-green-500 input-10"/><input class="input-green-500 input-10"/><input class="input-green-500 input-10"/><input class="input-green-500 input-10"/></div>
+    </div>
+    <div>
+      <h3>Raw / named colors</h3>
+      <div class="otp"><input class="input-[#ff0000] input-10"/><input class="input-[#ff0000] input-10"/><input class="input-[#ff0000] input-10"/><input class="input-[#ff0000] input-10"/></div>
+      <div class="otp"><input class="input-[blue] input-10"/><input class="input-[blue] input-10"/><input class="input-[blue] input-10"/><input class="input-[blue] input-10"/></div>
+    </div>
+  </div>
+
+  <h2 id="digit-count">Digit count</h2>
+  <div class="section">
+    <div>
+      <h3>4 digits</h3>
+      <div class="otp"><input class="input-12"/><input class="input-12"/><input class="input-12"/><input class="input-12"/></div>
+    </div>
+    <div>
+      <h3>6 digits</h3>
+      <div class="otp"><input class="input-12"/><input class="input-12"/><input class="input-12"/><input class="input-12"/><input class="input-12"/><input class="input-12"/></div>
+    </div>
+    <div>
+      <h3>6 digits (underline)</h3>
+      <div class="otp"><input class="input-underline input-12" placeholder="*"/><input class="input-underline input-12" placeholder="*"/><input class="input-underline input-12" placeholder="*"/><input class="input-underline input-12" placeholder="*"/><input class="input-underline input-12" placeholder="*"/><input class="input-underline input-12" placeholder="*"/></div>
+    </div>
+  </div>
+
+  <h2 id="interactive-js">Interactive JS</h2>
+  <div class="section">
+    <p>Try typing digits, using arrow keys, or pressing Backspace.</p>
+    <div class="otp" data-otp>
+      <input class="input-12" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+      <input class="input-12" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+      <input class="input-12" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+      <input class="input-12" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+      <input class="input-12" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+      <input class="input-12" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+  <script>
+    document.querySelectorAll('[data-otp]').forEach(container => {
+      const inputs = [...container.querySelectorAll('input')];
+      inputs.forEach((input, i) => {
+        input.addEventListener('click', () => {
+          input.setSelectionRange(input.value.length, input.value.length);
+        });
+        input.addEventListener('input', () => {
+          if (input.value.length > 1) {
+            input.value = input.value.replace(/\D/g, '').slice(0, 1);
+          }
+          if (input.value && i < inputs.length - 1) inputs[i + 1].focus();
+        });
+        input.addEventListener('keydown', e => {
+          if (e.key === 'Backspace' && !input.value && i > 0) {
+            e.preventDefault();
+            inputs[i - 1].focus();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

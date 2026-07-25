@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Validate - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Validate Component</h1>
+  <p>Form validation feedback using CSS <code>:user-valid</code> / <code>:user-invalid</code> pseudo-classes and the adjacent-sibling combinator (<code>~</code>). Works like Tailwind's <code>peer</code> syntax. Type into the inputs below to trigger validation.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Add <code>.validate</code> to an <code>&lt;input></code> or a wrapper <code>&lt;div></code> containing an input.</li>
+      <li>Place a <code>.validate-*</code> message container as a <strong>sibling</strong> after the validate element.</li>
+      <li>Message classes: <code>validate-invalid</code>, <code>validate-required</code>, <code>validate-out-of-range</code>, <code>validate-user-invalid</code>.</li>
+      <li>Customize messages via CSS variables: <code>--i18n-valid</code>, <code>--i18n-invalid</code>, <code>--i18n-required</code>, <code>--i18n-outofrange</code>, <code>--i18n-wrongemail</code>, <code>--i18n-wrongurl</code>, <code>--i18n-wrongformat</code>.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic-validation">Basic validation</h2>
+  <div class="section">
+    <div>
+      <h3>Pattern match — input 2 digits</h3>
+      <input type="text" pattern="\d{2}" placeholder="2 digits" class="validate">
+      <p class="validate-invalid"></p>
+    </div>
+    <div>
+      <h3>Required</h3>
+      <input type="text" required placeholder="Required field" class="validate">
+      <p class="validate-required"></p>
+    </div>
+    <div>
+      <h3>Range — min=0, max=100</h3>
+      <input type="number" min="0" max="100" placeholder="0~100" class="validate">
+      <p class="validate-out-of-range"></p>
+    </div>
+    <div>
+      <h3>Email type</h3>
+      <input type="email" placeholder="name@example.com" class="validate">
+      <p class="validate-user-invalid"></p>
+    </div>
+    <div>
+      <h3>URL type</h3>
+      <input type="url" placeholder="https://example.com" class="validate">
+      <p class="validate-invalid"></p>
+    </div>
+  </div>
+
+  <h2 id="with-input">With input variant styles</h2>
+  <div class="section">
+    <div>
+      <h3>input-subtle + validate</h3>
+      <input type="text" pattern="\d{3}" placeholder="3 digits" class="input-subtle validate">
+      <p class="validate-invalid"></p>
+    </div>
+    <div>
+      <h3>input-rounded + validate</h3>
+      <input type="email" placeholder="Email" class="input-rounded validate">
+      <p class="validate-user-invalid"></p>
+    </div>
+    <div>
+      <h3>input-underline + validate (required)</h3>
+      <input type="text" required placeholder="Required" class="input-underline validate">
+      <p class="validate-required"></p>
+    </div>
+  </div>
+
+  <h2 id="markup-structures">Two markup structures</h2>
+  <div class="section">
+    <div>
+      <h3>Structure 1: validate on input directly</h3>
+      <input type="text" required placeholder="Required" class="validate">
+      <p class="validate-invalid"></p>
+    </div>
+    <div>
+      <h3>Structure 2: validate on wrapper div</h3>
+      <div class="validate"><input type="text" required placeholder="Required"></div>
+      <p class="validate-invalid"></p>
+    </div>
+  </div>
+
+  <h2 id="custom-messages">Custom messages</h2>
+  <div class="section">
+    <p>When <code>.validate-*</code> container has text content, it overrides the default i18n message.</p>
+    <div>
+      <input type="text" pattern="\d{3}" placeholder="3 digits" class="validate">
+      <p class="validate-invalid">Please enter exactly 3 digits</p>
+    </div>
+    <div>
+      <input type="email" placeholder="Email" class="validate">
+      <p class="validate-user-invalid">Custom email error message</p>
+    </div>
+    <div>
+      <input type="text" required placeholder="Required" class="validate">
+      <p class="validate-required">Name is required</p>
+    </div>
+  </div>
+
+  <h2 id="i18n-variables">i18n variables</h2>
+  <div class="section">
+    <p>Override these CSS variables in <code>:root</code> to customize all validation messages globally:</p>
+    <pre><code>--i18n-valid: "Validation passed";
+--i18n-invalid: "Validation failed";
+--i18n-required: "This field is required";
+--i18n-outofrange: "Value is out of range";
+--i18n-wrongemail: "Please enter a valid email";
+--i18n-wrongurl: "Please enter a valid URL";
+--i18n-wrongformat: "Invalid format";</code></pre>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

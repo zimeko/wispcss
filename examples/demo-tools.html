@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Tools - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Tools Component</h1>
+  <p>Tool button group container. Basic structure: <code>.tools > *</code> — each child is a tool button. Supports risk levels, disabled state, arrow indicators, plain variant, and vertical layout.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.tools</code> (horizontal) or <code>.tools-v</code> (vertical). Children can be <code>&lt;span></code>, <code>&lt;a></code>, or <code>&lt;button></code>.</li>
+      <li>Risk levels via <code>data-risk</code>: <code>low</code>, <code>neutral</code>, <code>medium</code>, <code>high</code>, <code>extreme</code>.</li>
+      <li>Disabled: <code>data-disabled="true"</code>. Arrow: <code>data-more="true"</code>, expanded: <code>data-more="true" data-open="true"</code>.</li>
+      <li>Variant: <code>tools-plain</code> (no padding, text-only). Sizes: <code>tools-4</code> ~ <code>tools-15</code>.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default tools</h3>
+      <span class="tools"><span>Edit</span><span>Copy</span><span>Delete</span><span>Export</span></span>
+    </div>
+    <div>
+      <h3>tools-plain (text only)</h3>
+      <span class="tools tools-plain"><span>Edit</span><span>Copy</span><span>Delete</span><span>Export</span></span>
+    </div>
+    <div>
+      <h3>Custom colors (currentColor)</h3>
+      <span class="tools"><span class="text-primary">Edit</span><span class="text-success">Copy</span><span class="text-red-500">Delete</span></span>
+    </div>
+    <div>
+      <h3>With icons</h3>
+      <span class="tools"><span>&#9998;&#65039; Edit</span><span>&#128203; Copy</span><span>&#128465;&#65039; Delete</span></span>
+    </div>
+    <div>
+      <h3>Icon only</h3>
+      <span class="tools"><span><span class="icon icon-check"></span></span><span><span class="icon icon-plus"></span></span><span><span class="icon icon-close"></span></span></span>
+    </div>
+  </div>
+
+  <h2 id="layout">Layout</h2>
+  <div class="section">
+    <div>
+      <h3>tools / tools-h (horizontal)</h3>
+      <span class="tools"><span>Edit</span><span>Copy</span><span>Delete</span></span>
+    </div>
+    <div>
+      <h3>tools-v (vertical)</h3>
+      <span class="tools-v"><span>Edit</span><span>Copy</span><span>Delete</span></span>
+    </div>
+    <div>
+      <h3>Vertical with risk + arrow</h3>
+      <span class="tools-v"><span>Edit</span><span data-risk="extreme">Delete</span><span data-more="true">More</span></span>
+    </div>
+  </div>
+
+  <h2 id="states">States</h2>
+  <div class="section">
+    <div>
+      <h3>Disabled (data-disabled="true")</h3>
+      <span class="tools"><span data-disabled="true">Edit</span><span data-disabled="true">Copy</span><span data-disabled="true">Delete</span></span>
+    </div>
+    <div>
+      <h3>Mixed (some disabled)</h3>
+      <span class="tools"><span>Edit</span><span>Copy</span><span data-disabled="true">Delete</span><span data-disabled="true">Export</span></span>
+    </div>
+  </div>
+
+  <h2 id="risk-levels-data-risk">Risk levels (data-risk)</h2>
+  <div class="section">
+    <div>
+      <span class="tools">
+        <span data-risk="low">Low</span>
+        <span data-risk="neutral">Neutral</span>
+        <span data-risk="medium">Medium</span>
+        <span data-risk="high">High</span>
+        <span data-risk="extreme">Extreme</span>
+      </span>
+    </div>
+    <div>
+      <h3>All extreme + disabled</h3>
+      <span class="tools"><span data-risk="extreme">Delete</span><span data-risk="extreme">Clear</span><span data-risk="extreme" data-disabled="true">Reset</span></span>
+    </div>
+  </div>
+
+  <h2 id="arrow-indicator-data-more">Arrow indicator (data-more)</h2>
+  <div class="section">
+    <div>
+      <h3>data-more="true" (collapsed arrow)</h3>
+      <span class="tools"><span>Edit</span><span data-more="true">More</span><span data-more="true">Actions</span></span>
+    </div>
+    <div>
+      <h3>data-more="true" + data-open="true" (expanded)</h3>
+      <span class="tools"><span>Edit</span><span data-more="true" data-open="true">More</span></span>
+    </div>
+    <div>
+      <h3>Risk + arrow combined</h3>
+      <span class="tools"><span data-risk="extreme" data-more="true">Delete</span><span data-risk="extreme" data-more="true" data-open="true">Clear</span></span>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>tools-4 ~ tools-8</h3>
+      <span class="tools tools-4"><span>Edit</span><span>4</span></span>
+      <span class="tools tools-5"><span>Edit</span><span>5</span></span>
+      <span class="tools tools-6"><span>Edit</span><span>6</span></span>
+      <span class="tools tools-7"><span>Edit</span><span>7</span></span>
+      <span class="tools tools-8"><span>Edit</span><span>8</span></span>
+    </div>
+    <div>
+      <h3>tools-9 ~ tools-15</h3>
+      <span class="tools tools-9"><span>Edit</span><span>9</span></span>
+      <span class="tools tools-10"><span>Edit</span><span>10</span></span>
+      <span class="tools tools-11"><span>Edit</span><span>11</span></span>
+      <span class="tools tools-12"><span>Edit</span><span>12</span></span>
+      <span class="tools tools-13"><span>Edit</span><span>13</span></span>
+      <span class="tools tools-14"><span>Edit</span><span>14</span></span>
+      <span class="tools tools-15"><span>Edit</span><span>15</span></span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Color System - Beautify Demo</title>
+
+  <style>
+    /* Control panel */
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 2rem;
+      padding: 24px;
+      background: var(--color-title-bg-hover);
+      border-radius: 12px;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .control-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-title-body);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .control-group label .value {
+      font-weight: 400;
+      color: var(--color-caption);
+      font-size: 0.8rem;
+    }
+
+
+    /* Color display cards */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .color-card {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .color-card-header {
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .color-card-header .base-color {
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: var(--color-caption);
+    }
+
+    .color-swatches {
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 8px;
+    }
+
+    .swatch-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 8px;
+      border-radius: 8px;
+      background: var(--color-title-bg-hover);
+    }
+
+    .swatch-label {
+      font-size: 0.72rem;
+      color: var(--color-caption);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .swatch-box {
+      width: 100%;
+      height: 40px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, .08);
+    }
+
+    .swatch-value {
+      font-size: 0.65rem;
+      color: var(--color-caption);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 768px) {
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
+      .color-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Color System</h1>
+  <p>Beautify color system built on OKLCH color space. Adjust controls to preview real-time color changes.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Color system uses OKLCH color space for perceptual uniformity.</li>
+      <li><code>--color-c-factor</code> controls saturation; <code>--light-threshold-*</code> controls contrast text
+        brightness.</li>
+      <li>Each theme color has 13 derived variants (hover, active, contrast, body, surface, fg, bg, bg-hover, bg-active,
+        bd, bd-hover, bd-active).</li>
+      <li>Typically you only need to modify <code>--color-primary-base</code>, <code>--color-secondary-base</code> and
+        <code>--color-tertiary-base</code> to change the theme style with just three colors.
+      </li>
+      <li>Adjust color base values and light parameters below to see real-time updates on cards and buttons.</li>
+    </ul>
+  </div>
+
+  <h2 id="configuration">Configuration</h2>
+  <pre id="config-output"></pre>
+
+  <!-- Controls panel -->
+  <div class="section">
+    <h2 id="controls">Controls</h2>
+    <div class="controls" id="controls">
+      <div class="control-group">
+        <label>--color-c-light <span class="value" id="val-c-light"></span></label>
+        <input type=range id="ctrl-c-light" min="0" max="2" step="0.01">
+      </div>
+      <div class="control-group">
+        <label>--color-c-dark <span class="value" id="val-c-dark"></span></label>
+        <input type=range id="ctrl-c-dark" min="0" max="2" step="0.01">
+      </div>
+      <div class="control-group">
+        <label>--light-threshold-contrast <span class="value" id="val-l-threshold"></span></label>
+        <input type=range id="ctrl-l-threshold" min="0" max="1" step="0.01">
+      </div>
+      <div class="control-group">
+        <label>--light-min <span class="value" id="val-l-min"></span></label>
+        <input type=range id="ctrl-l-min" min="0" max="1" step="0.01">
+      </div>
+      <div class="control-group">
+        <label>--light-max <span class="value" id="val-l-max"></span></label>
+        <input type=range id="ctrl-l-max" min="0" max="1" step="0.01">
+      </div>
+      <div class="control-group">
+        <label>--color-primary-base</label>
+        <input type="color" id="ctrl-primary-base">
+      </div>
+      <div class="control-group">
+        <label>--color-secondary-base</label>
+        <input type="color" id="ctrl-secondary-base">
+      </div>
+      <div class="control-group">
+        <label>--color-tertiary-base</label>
+        <input type="color" id="ctrl-tertiary-base">
+      </div>
+      <div class="control-group">
+        <label>--color-success-base</label>
+        <input type="color" id="ctrl-success-base">
+      </div>
+      <div class="control-group">
+        <label>--color-error-base</label>
+        <input type="color" id="ctrl-error-base">
+      </div>
+      <div class="control-group">
+        <label>--color-info-base</label>
+        <input type="color" id="ctrl-info-base">
+      </div>
+      <div class="control-group">
+        <label>--color-warning-base</label>
+        <input type="color" id="ctrl-warning-base">
+      </div>
+      <div class="control-group">
+        <label>--color-caution-base</label>
+        <input type="color" id="ctrl-caution-base">
+      </div>
+      <div class="control-group">
+        <label>--color-highlight-base</label>
+        <input type="color" id="ctrl-highlight-base">
+      </div>
+      <div class="control-group">
+        <label>--color-title-base</label>
+        <input type="color" id="ctrl-title-base">
+      </div>
+      <div class="control-group">
+        <label>--color-ink-base</label>
+        <input type="color" id="ctrl-ink-base">
+      </div>
+    </div>
+  </div>
+
+  <!-- Color swatches -->
+  <div class="section">
+    <h2 id="color-swatches">Color swatches</h2>
+    <div id="color-display"></div>
+  </div>
+
+  <!-- Button preview -->
+  <div class="section">
+    <h2 id="button-color-preview">Button color preview</h2>
+    <p>Buttons rendered with current color variables. Adjust controls above to see real-time changes.</p>
+
+    <div>
+      <div class="button-group-label">Primary</div>
+      <div class="button-row">
+        <button class="btn-primary">Solid</button>
+        <button class="btn-outline-primary">Outline</button>
+        <button class="btn-muted-primary">Muted</button>
+        <button class="btn-subtle-primary">Subtle</button>
+        <button class="btn-vivid-primary">Vivid</button>
+        <button class="btn-ghost-primary">Ghost</button>
+      </div>
+    </div>
+    <div>
+      <div class="button-group-label">Secondary</div>
+      <div class="button-row">
+        <button class="btn-secondary">Solid</button>
+        <button class="btn-outline-secondary">Outline</button>
+        <button class="btn-muted-secondary">Muted</button>
+        <button class="btn-subtle-secondary">Subtle</button>
+        <button class="btn-vivid-secondary">Vivid</button>
+        <button class="btn-ghost-secondary">Ghost</button>
+      </div>
+    </div>
+    <div>
+      <div class="button-group-label">Tertiary</div>
+      <div class="button-row">
+        <button class="btn-tertiary">Solid</button>
+        <button class="btn-outline-tertiary">Outline</button>
+        <button class="btn-muted-tertiary">Muted</button>
+        <button class="btn-subtle-tertiary">Subtle</button>
+        <button class="btn-vivid-tertiary">Vivid</button>
+        <button class="btn-ghost-tertiary">Ghost</button>
+      </div>
+    </div>
+    <div>
+      <div class="button-group-label">Success</div>
+      <div class="button-row">
+        <button class="btn-success">Solid</button>
+        <button class="btn-outline-success">Outline</button>
+        <button class="btn-muted-success">Muted</button>
+        <button class="btn-subtle-success">Subtle</button>
+        <button class="btn-vivid-success">Vivid</button>
+        <button class="btn-ghost-success">Ghost</button>
+      </div>
+    </div>
+    <div>
+      <div class="button-group-label">Error</div>
+      <div class="button-row">
+        <button class="btn-error">Solid</button>
+        <button class="btn-outline-error">Outline</button>
+        <button class="btn-muted-error">Muted</button>
+        <button class="btn-subtle-error">Subtle</button>
+        <button class="btn-vivid-error">Vivid</button>
+        <button class="btn-ghost-error">Ghost</button>
+      </div>
+    </div>
+    <div>
+      <div class="button-group-label">Info</div>
+      <div class="button-row">
+        <button class="btn-info">Solid</button>
+        <button class="btn-outline-info">Outline</button>
+        <button class="btn-muted-info">Muted</button>
+        <button class="btn-subtle-info">Subtle</button>
+        <button class="btn-vivid-info">Vivid</button>
+        <button class="btn-ghost-info">Ghost</button>
+      </div>
+    </div>
+    <div>
+      <div class="button-group-label">Warning</div>
+      <div class="button-row">
+        <button class="btn-warning">Solid</button>
+        <button class="btn-outline-warning">Outline</button>
+        <button class="btn-muted-warning">Muted</button>
+        <button class="btn-subtle-warning">Subtle</button>
+        <button class="btn-vivid-warning">Vivid</button>
+        <button class="btn-ghost-warning">Ghost</button>
+      </div>
+    </div>
+    <div>
+      <div class="button-group-label">Caution</div>
+      <div class="button-row">
+        <button class="btn-caution">Solid</button>
+        <button class="btn-outline-caution">Outline</button>
+        <button class="btn-muted-caution">Muted</button>
+        <button class="btn-subtle-caution">Subtle</button>
+        <button class="btn-vivid-caution">Vivid</button>
+        <button class="btn-ghost-caution">Ghost</button>
+      </div>
+    </div>
+    <div>
+      <div class="button-group-label">Highlight</div>
+      <div class="button-row">
+        <button class="btn-highlight">Solid</button>
+        <button class="btn-outline-highlight">Outline</button>
+        <button class="btn-muted-highlight">Muted</button>
+        <button class="btn-subtle-highlight">Subtle</button>
+        <button class="btn-vivid-highlight">Vivid</button>
+        <button class="btn-ghost-highlight">Ghost</button>
+      </div>
+    </div>
+    <div>
+      <div class="button-group-label">Title</div>
+      <div class="button-row">
+        <button class="btn-title">Solid</button>
+        <button class="btn-outline-title">Outline</button>
+        <button class="btn-muted-title">Muted</button>
+        <button class="btn-subtle-title">Subtle</button>
+        <button class="btn-vivid-title">Vivid</button>
+        <button class="btn-ghost-title">Ghost</button>
+      </div>
+    </div>
+    <div>
+      <div class="button-group-label">Ink</div>
+      <div class="button-row">
+        <button class="btn-ink">Solid</button>
+        <button class="btn-outline-ink">Outline</button>
+        <button class="btn-muted-ink">Muted</button>
+        <button class="btn-subtle-ink">Subtle</button>
+        <button class="btn-vivid-ink">Vivid</button>
+        <button class="btn-ghost-ink">Ghost</button>
+      </div>
+    </div>
+  </div>
+
+  <p>For preset theme colors, visit <a class="link" href="./demo-theme.html">demo-theme.html</a>.</p>
+
+  <script>
+    // Color configs
+    const colorConfigs = [
+      { name: 'primary', label: 'Primary', base: '#0f67ff' },
+      { name: 'secondary', label: 'Secondary', base: '#6f58dc' },
+      { name: 'tertiary', label: 'Tertiary', base: '#00b8cc' },
+      { name: 'success', label: 'Success', base: '#439e3b' },
+      { name: 'error', label: 'Error', base: '#e04e40' },
+      { name: 'info', label: 'Info', base: '#0097f5' },
+      { name: 'warning', label: 'Warning', base: '#fa8c1c' },
+      { name: 'caution', label: 'Caution', base: '#f4b000' },
+      { name: 'highlight', label: 'Highlight', base: '#f1f100' },
+      { name: 'title', label: 'Title', base: '#0d0d0d' },
+      { name: 'ink', label: 'Ink', base: '#0d0d0d' },
+    ];
+
+    // Variants
+    const variants = [
+      { key: '', label: 'Base' },
+      { key: '-hover', label: 'Hover' },
+      { key: '-active', label: 'Active' },
+      { key: '-contrast', label: 'Contrast' },
+      { key: '-body', label: 'Body' },
+      { key: '-surface', label: 'Surface' },
+      { key: '-fg', label: 'Foreground' },
+      { key: '-bg', label: 'Background' },
+      { key: '-bg-hover', label: 'Bg Hover' },
+      { key: '-bg-active', label: 'Bg Active' },
+      { key: '-bd', label: 'Border' },
+      { key: '-bd-hover', label: 'Border Hover' },
+      { key: '-bd-active', label: 'Border Active' },
+    ];
+
+    const rangeDefaults = [
+      { id: 'ctrl-c-light', valId: 'val-c-light', value: 1 },
+      { id: 'ctrl-c-dark', valId: 'val-c-dark', value: 0.8 },
+      { id: 'ctrl-l-threshold', valId: 'val-l-threshold', value: 0.82 },
+      { id: 'ctrl-l-min', valId: 'val-l-min', value: 0.17 },
+      { id: 'ctrl-l-max', valId: 'val-l-max', value: 1 },
+    ];
+
+    const rangeVars = [
+      { key: '--color-c-light', id: 'ctrl-c-light' },
+      { key: '--color-c-dark', id: 'ctrl-c-dark' },
+      { key: '--light-threshold-contrast', id: 'ctrl-l-threshold' },
+      { key: '--light-min', id: 'ctrl-l-min' },
+      { key: '--light-max', id: 'ctrl-l-max' },
+    ];
+
+    const rangeControls = [
+      { id: 'ctrl-c-light', varName: '--color-c-light', valId: 'val-c-light' },
+      { id: 'ctrl-c-dark', varName: '--color-c-dark', valId: 'val-c-dark' },
+      { id: 'ctrl-l-threshold', varName: '--light-threshold-contrast', valId: 'val-l-threshold' },
+      { id: 'ctrl-l-min', varName: '--light-min', valId: 'val-l-min' },
+      { id: 'ctrl-l-max', varName: '--light-max', valId: 'val-l-max' },
+    ];
+
+    const colorControls = [
+      { id: 'ctrl-primary-base', varName: '--color-primary-base' },
+      { id: 'ctrl-secondary-base', varName: '--color-secondary-base' },
+      { id: 'ctrl-tertiary-base', varName: '--color-tertiary-base' },
+      { id: 'ctrl-success-base', varName: '--color-success-base' },
+      { id: 'ctrl-error-base', varName: '--color-error-base' },
+      { id: 'ctrl-info-base', varName: '--color-info-base' },
+      { id: 'ctrl-warning-base', varName: '--color-warning-base' },
+      { id: 'ctrl-caution-base', varName: '--color-caution-base' },
+      { id: 'ctrl-highlight-base', varName: '--color-highlight-base' },
+      { id: 'ctrl-title-base', varName: '--color-title-base' },
+      { id: 'ctrl-ink-base', varName: '--color-ink-base' },
+    ];
+
+    const colorDisplay = document.getElementById('color-display');
+
+    function buildColorCards() {
+      colorDisplay.innerHTML = '';
+      colorConfigs.forEach(config => {
+        const card = document.createElement('div');
+        card.className = 'color-card';
+        card.id = `card-${config.name}`;
+        const header = document.createElement('div');
+        header.className = 'color-card-header';
+        header.innerHTML = `${config.label} <span class="base-color" id="base-${config.name}">${config.base}</span>`;
+        card.appendChild(header);
+        const swatches = document.createElement('div');
+        swatches.className = 'color-swatches';
+        swatches.id = `swatches-${config.name}`;
+        variants.forEach(v => {
+          const item = document.createElement('div');
+          item.className = 'swatch-item';
+          const box = document.createElement('div');
+          box.className = 'swatch-box';
+          box.id = `box-${config.name}${v.key}`;
+          box.style.background = `var(--color-${config.name}${v.key})`;
+          item.appendChild(box);
+          const label = document.createElement('div');
+          label.className = 'swatch-label';
+          label.textContent = `--color-${config.name}${v.key}`;
+          item.appendChild(label);
+          const val = document.createElement('div');
+          val.className = 'swatch-value';
+          val.id = `val-${config.name}${v.key}`;
+          val.textContent = getComputedStyle(document.documentElement).getPropertyValue(`--color-${config.name}${v.key}`).trim();
+          item.appendChild(val);
+          swatches.appendChild(item);
+        });
+        card.appendChild(swatches);
+        colorDisplay.appendChild(card);
+      });
+    }
+
+    function updateColorValues() {
+      colorConfigs.forEach(config => {
+        variants.forEach(v => {
+          const varName = `--color-${config.name}${v.key}`;
+          const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+          const valEl = document.getElementById(`val-${config.name}${v.key}`);
+          const boxEl = document.getElementById(`box-${config.name}${v.key}`);
+          if (valEl) valEl.textContent = val;
+          if (boxEl) boxEl.style.background = `var(${varName})`;
+        });
+      });
+    }
+
+    function setCSSVariable(name, value) {
+      document.documentElement.style.setProperty(name, value);
+    }
+
+    function updateConfigOutput() {
+      const lines = [];
+
+      rangeVars.forEach(v => {
+        const el = document.getElementById(v.id);
+        lines.push(`${v.key}: ${el.value};`);
+      });
+      colorConfigs.forEach(c => {
+        lines.push(`--color-${c.name}-base: ${c.base};`);
+      });
+      document.getElementById('config-output').textContent = lines.join('\n');
+    }
+
+    function initControlValues() {
+
+      rangeDefaults.forEach(d => {
+        const el = document.getElementById(d.id);
+        const valEl = document.getElementById(d.valId);
+        if (el) el.value = d.value;
+        if (valEl) valEl.textContent = d.value;
+      });
+      colorConfigs.forEach(c => {
+        const el = document.getElementById(`ctrl-${c.name}-base`);
+        if (el) el.value = c.base;
+      });
+    }
+
+    function initControls() {
+
+      rangeControls.forEach(cfg => {
+        const el = document.getElementById(cfg.id);
+        const valEl = document.getElementById(cfg.valId);
+        el.addEventListener('input', () => {
+          const v = el.value;
+          valEl.textContent = v;
+          setCSSVariable(cfg.varName, v);
+          updateColorValues();
+          updateConfigOutput();
+        });
+      });
+
+      colorControls.forEach(cfg => {
+        const el = document.getElementById(cfg.id);
+        el.addEventListener('input', () => {
+          const v = el.value;
+          setCSSVariable(cfg.varName, v);
+          const name = cfg.varName.replace('--color-', '').replace('-base', '');
+          const baseEl = document.getElementById(`base-${name}`);
+          if (baseEl) baseEl.textContent = v;
+          updateColorValues();
+          updateConfigOutput();
+        });
+      });
+    }
+
+    initControlValues();
+    buildColorCards();
+    initControls();
+    updateConfigOutput();
+    setTimeout(updateColorValues, 100);
+  </script>
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

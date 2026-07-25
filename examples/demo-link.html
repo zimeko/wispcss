@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Link - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Link Component</h1>
+  <p>All link color variants, CJK support, and disabled state.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use <code>link</code> class on <code><a></code> tags for styled hyperlinks.</li>
+      <li>Add color class like <code>link-primary</code> to override the default link color.</li>
+      <li>Use <code>link-cjk</code> for better underline offset with CJK characters.</li>
+      <li>Disabled state is supported via the <code>disabled</code> attribute.</li>
+    </ul>
+  </div>
+
+  <h2 id="base-link">Base link</h2>
+  <div class="section">
+    <div>
+      <h3>Without link class</h3>
+      <a href="#">Plain link</a>
+      <a href="#" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>With link class</h3>
+      <a href="#" class="link">Link</a>
+      <a href="#" class="link" disabled>Disabled</a>
+    </div>
+  </div>
+
+  <h2 id="link-cjk">Link CJK</h2>
+  <div class="section">
+    <div>
+      <h3>link (default underline offset)</h3>
+      <a href="#" class="link">Link text</a>
+      <a href="#" class="link link-primary">Primary link</a>
+    </div>
+    <div>
+      <h3>link-cjk (optimized offset for CJK)</h3>
+      <a href="#" class="link link-cjk">链接文字</a>
+      <a href="#" class="link link-primary link-cjk">主要链接</a>
+    </div>
+  </div>
+
+  <h2 id="primary-colors">Primary colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <a href="#" class="link link-primary">Primary</a> <a href="#" class="link link-primary" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <a href="#" class="link link-secondary">Secondary</a> <a href="#" class="link link-secondary" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <a href="#" class="link link-tertiary">Tertiary</a> <a href="#" class="link link-tertiary" disabled>Disabled</a>
+    </div>
+  </div>
+
+  <h2 id="status-colors">Status colors</h2>
+  <div class="section">
+    <div>
+      <h3>Success</h3>
+      <a href="#" class="link link-success">Success</a> <a href="#" class="link link-success" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <a href="#" class="link link-error">Error</a> <a href="#" class="link link-error" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <a href="#" class="link link-info">Info</a> <a href="#" class="link link-info" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <a href="#" class="link link-warning">Warning</a> <a href="#" class="link link-warning" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <a href="#" class="link link-caution">Caution</a> <a href="#" class="link link-caution" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <a href="#" class="link link-highlight">Highlight</a> <a href="#" class="link link-highlight" disabled>Disabled</a>
+    </div>
+  </div>
+
+  <h2 id="neutral-colors">Neutral colors</h2>
+  <div class="section">
+    <div>
+      <h3>Ink</h3>
+      <a href="#" class="link link-ink">Ink</a> <a href="#" class="link link-ink" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <a href="#" class="link link-title">Title</a> <a href="#" class="link link-title" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <a href="#" class="link link-description">Description</a> <a href="#" class="link link-description" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <a href="#" class="link link-caption">Caption</a> <a href="#" class="link link-caption" disabled>Disabled</a>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <a href="#" class="link link-disabled">Disabled</a> <a href="#" class="link link-disabled" disabled>Disabled</a>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Custom link colors</h3>
+      <a href="#" class="link link-green-500">green-500</a> <a href="#" class="link link-green-800">green-800</a>
+      <a href="#" class="link link-green-200">green-200</a>
+      <a href="#" class="link link-[blue]">[blue]</a> <a href="#" class="link link-[#ff0000]">[#ff0000]</a>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

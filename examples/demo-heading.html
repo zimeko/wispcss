@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Heading - Beautify Demo</title>
+  <style>
+    .test { max-width: 420px; }
+  </style>
+</head>
+
+<body>
+  <h1>Heading Component</h1>
+  <p>Typography line-height demo for <code>&lt;h1></code> ~ <code>&lt;h6></code> across multiple languages. Line-height is optimized per script via <code>lang</code> attribute.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Heading line-height is automatically optimized based on the <code>lang</code> attribute.</li>
+      <li>CJK (Chinese/Japanese/Korean) scripts use tighter line-height by default.</li>
+      <li>Arabic and Latin scripts use standard line-height for readability.</li>
+    </ul>
+  </div>
+
+  <p></p><p></p>
+
+  <section lang="zh">
+    <h2 id="chinese-zh">Chinese (zh)</h2>
+    <div class="test">
+      <h1>这是一个用于测试标题换行效果的中文标题示例</h1>
+      <h2 id="这是一个用于测试标题换行效果的中文标题示例">这是一个用于测试标题换行效果的中文标题示例</h2>
+      <h3>这是一个用于测试标题换行效果的中文标题示例</h3>
+      <h4>这是一个用于测试标题换行效果的中文标题示例</h4>
+      <h5>这是一个用于测试标题换行效果的中文标题示例</h5>
+      <h6>这是一个用于测试标题换行效果的中文标题示例</h6>
+    </div>
+  </section>
+<p></p><p></p>
+  <section lang="ja">
+    <h2 id="japanese-ja">Japanese (ja)</h2>
+    <div class="test">
+      <h1>これは見出しの改行表示を確認するための日本語のサンプルです</h1>
+      <h2 id="見出改行表示確認日本語">これは見出しの改行表示を確認するための日本語のサンプルです</h2>
+      <h3>これは見出しの改行表示を確認するための日本語のサンプルです</h3>
+      <h4>これは見出しの改行表示を確認するための日本語のサンプルです</h4>
+      <h5>これは見出しの改行表示を確認するための日本語のサンプルです</h5>
+      <h6>これは見出しの改行表示を確認するための日本語のサンプルです</h6>
+    </div>
+  </section>
+<p></p><p></p>
+  <section lang="ko">
+    <h2 id="korean-ko">Korean (ko)</h2>
+    <div class="test">
+      <h1>이 문장은 제목 줄바꿈 표시를 확인하기 위한 한국어 샘플입니다</h1>
+      <h2>이 문장은 제목 줄바꿈 표시를 확인하기 위한 한국어 샘플입니다</h2>
+      <h3>이 문장은 제목 줄바꿈 표시를 확인하기 위한 한국어 샘플입니다</h3>
+      <h4>이 문장은 제목 줄바꿈 표시를 확인하기 위한 한국어 샘플입니다</h4>
+      <h5>이 문장은 제목 줄바꿈 표시를 확인하기 위한 한국어 샘플입니다</h5>
+      <h6>이 문장은 제목 줄바꿈 표시를 확인하기 위한 한국어 샘플입니다</h6>
+    </div>
+  </section>
+<p></p><p></p>
+  <section lang="ar" dir="rtl">
+    <h2 id="arabic-ar">Arabic (ar)</h2>
+    <div class="test">
+      <h1>هذا نص عربي لاختبار كيفية عرض العناوين عند التفاف السطر في التصميم</h1>
+      <h2>هذا نص عربي لاختبار كيفية عرض العناوين عند التفاف السطر في التصميم</h2>
+      <h3>هذا نص عربي لاختبار كيفية عرض العناوين عند التفاف السطر في التصميم</h3>
+      <h4>هذا نص عربي لاختبار كيفية عرض العناوين عند التفاف السطر في التصميم</h4>
+      <h5>هذا نص عربي لاختبار كيفية عرض العناوين عند التفاف السطر في التصميم</h5>
+      <h6>هذا نص عربي لاختبار كيفية عرض العناوين عند التفاف السطر في التصميم</h6>
+    </div>
+  </section>
+<p></p><p></p>
+  <section lang="en">
+    <h2 id="english-en">English (en)</h2>
+    <div class="test">
+      <h1>This is a sample heading used to test line wrapping behavior in typography systems</h1>
+      <h2 id="this-is-a-sample-heading-used-to-test-line-wrapping-behavior-in-typography-systems">This is a sample heading used to test line wrapping behavior in typography systems</h2>
+      <h3>This is a sample heading used to test line wrapping behavior in typography systems</h3>
+      <h4>This is a sample heading used to test line wrapping behavior in typography systems</h4>
+      <h5>This is a sample heading used to test line wrapping behavior in typography systems</h5>
+      <h6>This is a sample heading used to test line wrapping behavior in typography systems</h6>
+    </div>
+  </section>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

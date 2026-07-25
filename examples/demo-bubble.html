@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <style>
+    .bubble-demo-box{
+      display:inline-block;
+      width:300px;
+      height:160px;
+      margin-block:40px;
+      margin-inline-end:40px;
+    }
+  </style>
+  <title>Bubble - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Bubble Component</h1>
+  <p>Popover bubble container with directional arrows, visual variants, and theme colors.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use class <code>.bubble</code> on a container. Direction classes control arrow placement.</li>
+      <li>Prefer shorthand compound variants like <code>bubble-outline-primary</code> over <code>bubble-outline bubble-primary</code> — smaller CSS output.</li>
+      <li>Set custom radius via <code>--bubble-border-radius</code> on the element.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default bubble</h3>
+      <div class="bubble-demo-box bubble bubble-bottom" >
+        <p class="p-4">Default bubble with bottom arrow</p>
+      </div>
+    </div>
+    <div>
+      <h3>Custom radius</h3>
+      <div class="bubble-demo-box bubble bubble-bottom" style="--bubble-border-radius:12px">
+        <p class="p-4">Rounded bubble (12px)</p>
+      </div>
+    </div>
+    <div>
+      <h3>Rich content</h3>
+      <div class="bubble-demo-box bubble bubble-bottom" >
+        <div class="p-4">
+          <h4 style="margin:0 0 8px 0;font-size:1rem">Title</h4>
+          <p style="margin:0;font-size:0.875rem">Detailed content inside the bubble.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="direction">Direction</h2>
+  <div class="section">
+    <div>
+      <h3>Bottom</h3>
+      <div class="bubble-demo-box bubble bubble-bottom" ><p class="p-4">Bottom</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom-start" ><p class="p-4">Bottom-start</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom-end" ><p class="p-4">Bottom-end</p></div>
+    </div>
+    <div>
+      <h3>Top</h3>
+      <div class="bubble-demo-box bubble bubble-top" ><p class="p-4">Top</p></div>
+      <div class="bubble-demo-box bubble bubble-top-start" ><p class="p-4">Top-start</p></div>
+      <div class="bubble-demo-box bubble bubble-top-end" ><p class="p-4">Top-end</p></div>
+    </div>
+    <div>
+      <h3>Start (left)</h3>
+      <div class="bubble-demo-box bubble bubble-start" ><p class="p-4">Start</p></div>
+      <div class="bubble-demo-box bubble bubble-start-top" ><p class="p-4">Start-top</p></div>
+      <div class="bubble-demo-box bubble bubble-start-bottom" ><p class="p-4">Start-bottom</p></div>
+    </div>
+    <div>
+      <h3>End (right)</h3>
+      <div class="bubble-demo-box bubble bubble-end" ><p class="p-4">End</p></div>
+      <div class="bubble-demo-box bubble bubble-end-top" ><p class="p-4">End-top</p></div>
+      <div class="bubble-demo-box bubble bubble-end-bottom" ><p class="p-4">End-bottom</p></div>
+    </div>
+    <div>
+      <h3>Center (no arrow)</h3>
+      <div class="bubble-demo-box bubble bubble-center"><p class="p-4">Absolute centered, no arrow</p></div>
+    </div>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default (border)</h3>
+      <div class="bubble-demo-box bubble bubble-bottom" ><p class="p-4">Default</p></div>
+    </div>
+    <div>
+      <h3>Outline (<code>.bubble-outline</code>) — high contrast</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-outline" ><p class="p-4">Outline</p></div>
+    </div>
+    <div>
+      <h3>Solid (<code>.bubble-solid</code>) — dark fill</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-solid" ><p class="p-4" style="color:var(--bubble-color)">Solid</p></div>
+    </div>
+    <div>
+      <h3>Subtle (<code>.bubble-subtle</code>) — borderless tint</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-subtle" ><p class="p-4">Subtle</p></div>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors (default style)</h2>
+  <div class="section">
+    <div class="bubble-demo-box bubble bubble-bottom bubble-primary" ><p class="p-4">Primary</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-secondary" ><p class="p-4">Secondary</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-tertiary" ><p class="p-4">Tertiary</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-success" ><p class="p-4">Success</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-error" ><p class="p-4">Error</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-info" ><p class="p-4">Info</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-warning" ><p class="p-4">Warning</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-highlight" ><p class="p-4">Highlight</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-ink" ><p class="p-4">Ink</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-title" ><p class="p-4">Title</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-description" ><p class="p-4">Description</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-caption" ><p class="p-4">Caption</p></div>
+    <div class="bubble-demo-box bubble bubble-bottom bubble-disabled" ><p class="p-4">Disabled</p></div>
+  </div>
+
+  <h2 id="compound-variants">Shorthand compound variants</h2>
+  <div class="section">
+    <div>
+      <h3>Muted (<code>.bubble-muted-*</code>) — light border</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-muted-primary" ><p class="p-4">Primary</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-muted-success" ><p class="p-4">Success</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-muted-error" ><p class="p-4">Error</p></div>
+    </div>
+    <div>
+      <h3>Outline (<code>.bubble-outline-*</code>)</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-outline-primary" ><p class="p-4">Primary</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-outline-success" ><p class="p-4">Success</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-outline-error" ><p class="p-4">Error</p></div>
+    </div>
+    <div>
+      <h3>Solid (<code>.bubble-solid-*</code>)</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-solid-primary" ><p class="p-4" style="color:var(--bubble-color)">Primary</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-solid-success" ><p class="p-4" style="color:var(--bubble-color)">Success</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-solid-error" ><p class="p-4" style="color:var(--bubble-color)">Error</p></div>
+    </div>
+    <div>
+      <h3>Subtle (<code>.bubble-subtle-*</code>) — borderless tint</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-subtle-primary" ><p class="p-4">Primary</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-subtle-success" ><p class="p-4">Success</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-subtle-error" ><p class="p-4">Error</p></div>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Solid with Tailwind colors</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-solid-green-500" ><p class="p-4" style="color:var(--bubble-color)">green-500</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-solid-green-800" ><p class="p-4" style="color:var(--bubble-color)">green-800</p></div>
+    </div>
+    <div>
+      <h3>Outline with Tailwind colors</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-red-500" ><p class="p-4">red-500</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-red-800" ><p class="p-4">red-800</p></div>
+    </div>
+    <div>
+      <h3>Muted with Tailwind colors</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-muted-red-500" ><p class="p-4">red-500</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-muted-red-100" ><p class="p-4">red-100</p></div>
+    </div>
+    <div>
+      <h3>Subtle with Tailwind colors</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-subtle-blue-500" ><p class="p-4">blue-500</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-subtle-blue-100" ><p class="p-4">blue-100</p></div>
+    </div>
+    <div>
+      <h3>Raw color values</h3>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-solid-[blue]" ><p class="p-4" style="color:var(--bubble-color)">[blue]</p></div>
+      <div class="bubble-demo-box bubble bubble-bottom bubble-solid-[#ff0000]" ><p class="p-4" style="color:var(--bubble-color)">[#ff0000]</p></div>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Tooltip</h3>
+      <div class="bubble-demo-box bubble bubble-top bubble-solid" ><p class="p-4" style="color:var(--bubble-color);font-size:0.875rem">This is a tooltip</p></div>
+    </div>
+    <div>
+      <h3>Success notification</h3>
+      <div class="bubble-demo-box bubble bubble-end bubble-success" ><p class="p-4">Operation completed</p></div>
+    </div>
+    <div>
+      <h3>Error notification</h3>
+      <div class="bubble-demo-box bubble bubble-start bubble-error" ><p class="p-4">Operation failed</p></div>
+    </div>
+    <div>
+      <h3>Warning notification</h3>
+      <div class="bubble-demo-box bubble bubble-top bubble-solid-highlight" ><p class="p-4" style="color:var(--bubble-color)">Password expires soon</p></div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

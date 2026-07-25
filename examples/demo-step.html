@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Step - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Step Component</h1>
+  <p>Step / progress indicator with nodes, tracks, labels, and description. Uses <code>data-role</code> attributes (<code>node</code>, <code>track</code>, <code>label</code>, <code>description</code>, <code>header</code>) and <code>data-selected="true"</code> for the current step.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.step</code> , <code>.step-v</code> (horizontal) or <code>.step-v</code> (vertical). <code>data-selected="true"</code> marks current step.</li>
+      <li>Structure per step: <code>[data-role="header"]</code> (time), <code>[data-role="track"]</code> (line + <code>[data-role="node"]</code> dot), <code>[data-role="body"]</code> with <code>label</code> + <code>description</code>.</li>
+      <li>Variants: <code>step-solid</code> (filled dot), <code>step-plain</code> (text-only, no border/background).</li>
+      <li>Layout: <code>step-between</code> (justified ends), <code>step-trim</code> (hide leading/trailing track).</li>
+      <li>States: <code>step-reverse</code> (completed = gray, upcoming = colored), <code>step-pending</code> (waiting state).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default (horizontal)</h3>
+      <div class="step">
+        <div><div data-role="track"><div></div><span data-role="node"></span><div></div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node"></span><div></div></div></div>
+        <div data-selected="true"><div data-role="track"><div></div><span data-role="node"></span><div></div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node"></span><div></div></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>With labels + description</h3>
+      <div class="step">
+        <div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Step 1</div></div></div>
+        <div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">Step 2</div><div data-role="description">Fill details</div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">Step 3</div></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>With timestamps (header)</h3>
+      <div class="step">
+        <div><div data-role="header">2024/5/6</div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Created</div></div></div>
+        <div data-selected="true"><div data-role="header">2024/6/8</div><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">Confirmed</div></div></div>
+        <div><div data-role="header">2024/9/12</div><div data-role="track"><div></div><span data-role="node"><span class="icon icon-check"></span></span><div></div></div><div data-role="body"><div data-role="label">Shipped</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>step-solid (filled dot)</h3>
+      <div class="step step-solid">
+        <div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Step 1</div></div></div>
+        <div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">Step 2</div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">Step 3</div></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>step-plain (text only)</h3>
+      <div class="step step-plain">
+        <div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Step 1</div></div></div>
+        <div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">Step 2</div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">Step 3</div></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>step-between (justified)</h3>
+      <div class="step step-between">
+        <div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Start</div></div></div>
+        <div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">Middle</div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">End</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="reverse-step-reverse">Reverse (step-reverse)</h2>
+  <div class="section">
+    <div>
+      <p>Completed steps become gray, upcoming steps remain colored.</p>
+      <div class="step step-reverse">
+        <div><div data-role="track"><div></div><span data-role="node"></span><div></div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node"></span><div></div></div></div>
+        <div data-selected="true"><div data-role="track"><div></div><span data-role="node"></span><div></div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node"></span><div></div></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Reverse with labels</h3>
+      <div class="step step-reverse">
+        <div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Done</div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">Done</div></div></div>
+        <div data-selected="true"><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">Active</div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node">4</span><div></div></div><div data-role="body"><div data-role="label">Pending</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="vertical-step-v">Vertical (step-v)</h2>
+  <div class="section">
+    <div>
+      <h3>Vertical timeline</h3>
+      <div class="step-v">
+        <div><div data-role="header">2024/5/6</div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Created</div><div data-role="description">Order placed</div></div></div>
+        <div data-selected="true"><div data-role="header">2024/6/8</div><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">Confirmed</div><div data-role="description">Payment received</div></div></div>
+        <div><div data-role="header">2024/9/12</div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">Shipped</div><div data-role="description">Package sent</div></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Vertical + reverse</h3>
+      <div class="step-v step-reverse">
+        <div><div data-role="header">2024/5/6</div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Done</div></div></div>
+        <div><div data-role="header">2024/6/8</div><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">Done</div></div></div>
+        <div data-selected="true"><div data-role="header">2024/9/12</div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">Active</div></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Vertical + solid</h3>
+      <div class="step-v step-solid">
+        <div><div data-role="header">2024/5/6</div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Step 1</div></div></div>
+        <div data-selected="true"><div data-role="header">2024/6/8</div><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">Step 2</div></div></div>
+        <div><div data-role="header">2024/9/12</div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">Step 3</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="trim-step-trim">Trim (step-trim)</h2>
+  <div class="section">
+    <div>
+      <h3>Horizontal trim</h3>
+      <div class="step step-trim">
+        <div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Start</div></div></div>
+        <div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">Middle</div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">End</div></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Vertical trim</h3>
+      <div class="step-v step-trim">
+        <div><div data-role="header">2024/5/6</div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Start</div></div></div>
+        <div data-selected="true"><div data-role="header">2024/6/8</div><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">Middle</div></div></div>
+        <div><div data-role="header">2024/9/12</div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">End</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="pending-step-pending">Pending (step-pending)</h2>
+  <div class="section">
+    <div>
+      <h3>Default pending</h3>
+      <div class="step step-pending">
+        <div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Done</div></div></div>
+        <div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">In progress</div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">Pending</div></div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Solid + pending</h3>
+      <div class="step step-solid step-pending">
+        <div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">Done</div></div></div>
+        <div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">In progress</div></div></div>
+        <div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">Pending</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary / Secondary / Tertiary</h3>
+      <div class="step step-primary" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">primary</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-secondary" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">secondary</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-tertiary"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">tertiary</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+    </div>
+    <div>
+      <h3>Success / Error / Info</h3>
+      <div class="step step-success" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">success</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-error" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">error</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-info"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">info</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+    </div>
+    <div>
+      <h3>Highlight / Warning / Caution / Ink</h3>
+      <div class="step step-highlight" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">highlight</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-warning" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">warning</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-caution" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">caution</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-ink"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">ink</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+    </div>
+    <div>
+      <h3>Title / Description / Caption / Disabled</h3>
+      <div class="step step-title" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">title</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-description" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">description</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-caption" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">caption</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-disabled"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">disabled</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+    </div>
+  </div>
+
+  <h2 id="solid-plus-theme-colors">Solid + theme colors</h2>
+  <div class="section">
+    <div>
+      <div class="step step-solid step-primary" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">primary</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-solid step-success" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">success</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-solid step-error"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">error</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <div class="step step-blue-500" style="margin-bottom:8px;"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">blue-500</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+      <div class="step step-solid step-blue-500"><div><div data-role="track"><div></div><span data-role="node">1</span><div></div></div><div data-role="body"><div data-role="label">solid blue</div></div></div><div data-selected="true"><div data-role="track"><div></div><span data-role="node">2</span><div></div></div><div data-role="body"><div data-role="label">active</div></div></div><div><div data-role="track"><div></div><span data-role="node">3</span><div></div></div><div data-role="body"><div data-role="label">future</div></div></div></div>
+    </div>
+  </div>
+
+  <h2 id="node-with-image">Node with image</h2>
+  <div class="section">
+    <div class="step step-solid step-success">
+      <div><div data-role="track"><div></div><span data-role="node"><img src="https://unpkg.com/@codady/resource/image/avatar02.jpg"></span><div></div></div></div>
+      <div><div data-role="track"><div></div><span data-role="node"><img src="https://unpkg.com/@codady/resource/image/avatar02.jpg"></span><div></div></div></div>
+      <div data-selected="true"><div data-role="track"><div></div><span data-role="node"><img src="https://unpkg.com/@codady/resource/image/avatar02.jpg"></span><div></div></div></div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <style>
+    .aura-demo-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      margin: 0.25rem;
+    }
+
+    .aura-demo-card {
+      padding: 1.25rem;
+      border-radius: 12px;
+      max-width: 240px;
+      display: inline-block;
+      margin: 0.25rem;
+    }
+
+    .aura-demo-card .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .aura-demo-card .card-desc {
+      font-size: 0.75rem;
+      color: var(--color-description);
+    }
+  </style>
+  <title>Aura - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Aura</h1>
+  <p>Conic-gradient animated border edge for containers. Requires a solid background color on the container.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>The container must have a solid background color for the aura edge to be visible.</li>
+      <li><code>aura-*</code> sets both border width (integer) and theme color simultaneously, e.g. <code>aura-3</code>
+        (3px + primary), <code>aura-primary</code> (default 1px + primary color).</li>
+      <li><code>aura-size-*</code> controls border width only, without affecting color.</li>
+      <li>Color scheme utilities (<code>aura-mono-*</code>, <code>aura-duotone</code>, <code>aura-tritone</code>,
+        <code>aura-multi</code>) build upon the base color set by <code>aura-*</code> or <code>aura-mono-*</code>.
+      </li>
+    </ul>
+  </div>
+
+  <h2 id="base">Base</h2>
+  <div class="section">
+    <div>
+      <h3>Default aura (1px, primary color)</h3>
+      <span class="aura aura-demo-box">Default aura</span>
+    </div>
+    <div>
+      <h3>Theme colors</h3>
+      <span class="aura aura-primary aura-demo-box">Primary</span>
+      <span class="aura aura-success aura-demo-box">Success</span>
+      <span class="aura aura-warning aura-demo-box">Warning</span>
+      <span class="aura aura-error aura-demo-box">Error</span>
+      <span class="aura aura-title aura-demo-box">Title</span>
+      <span class="aura aura-description aura-demo-box">Description</span>
+      <span class="aura aura-caption aura-demo-box">Caption</span>
+    </div>
+  </div>
+
+  <h2 id="animation">Animation</h2>
+  <div class="section">
+    <div>
+      <h3>aura-spinner (3s)</h3>
+      <span class="aura aura-primary aura-spinner aura-demo-box">Spin 3s</span>
+    </div>
+    <div>
+      <h3>aura-spinner-* (custom duration)</h3>
+      <p>Multiple time formats are supported:</p>
+      <ul>
+        <li>1. Integer value, e.g. <code>*-100</code> (100ms)</li>
+        <li>2. Bracketed integer, e.g. <code>*-[100]</code> (100ms)</li>
+        <li>3. Bracketed time string, e.g. <code>*-[100ms]</code>, <code>*-[2s]</code></li>
+      </ul>
+      <span class="aura aura-primary aura-spinner-1000 aura-demo-box">1s</span>
+      <span class="aura aura-primary aura-spinner-5000 aura-demo-box">5s</span>
+      <span class="aura aura-primary aura-spinner-[2000ms] aura-demo-box">2s</span>
+    </div>
+  </div>
+
+  <h2 id="color-schemes">Color schemes</h2>
+  <div class="section">
+    <div>
+      <h3>Mono (single color)</h3>
+      <span class="aura aura-mono-primary aura-demo-box">Mono primary</span>
+      <span class="aura aura-mono-error aura-demo-box">Mono error</span>
+      <span class="aura aura-3 aura-mono-primary aura-spinner aura-demo-box">3px + spin</span>
+    </div>
+    <div>
+      <h3>Duotone (base + 120&deg; offset)</h3>
+      <span class="aura aura-3 aura-primary aura-duotone aura-demo-box">Duotone primary</span>
+      <span class="aura aura-3 aura-mono-primary aura-duotone aura-spinner aura-demo-box">Duotone + spin</span>
+    </div>
+    <div>
+      <h3>Duotone custom color</h3>
+      <span class="aura aura-3 aura-duotone-success aura-demo-box">Duotone success</span>
+      <span class="aura aura-3 aura-duotone-error aura-spinner aura-demo-box">Duotone error</span>
+    </div>
+    <div>
+      <h3>Tritone (base + 80&deg; offset &times;2)</h3>
+      <span class="aura aura-3 aura-primary aura-tritone aura-demo-box">Tritone primary</span>
+      <span class="aura aura-3 aura-mono-primary aura-tritone aura-spinner aura-demo-box">Tritone + spin</span>
+    </div>
+    <div>
+      <h3>Tritone custom color</h3>
+      <span class="aura aura-3 aura-tritone-warning aura-demo-box">Tritone warning</span>
+      <span class="aura aura-3 aura-tritone-highlight aura-spinner aura-demo-box">Tritone highlight</span>
+    </div>
+    <div>
+      <h3>Multi (6-color rainbow)</h3>
+      <span class="aura aura-3 aura-primary aura-multi aura-demo-box">Multi primary</span>
+      <span class="aura aura-3 aura-mono-primary aura-multi aura-spinner aura-demo-box">Multi + spin</span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Single custom color</h3>
+      <span class="aura aura-[orange] aura-demo-box">[orange]</span>
+      <span class="aura aura-(color:--color-green-600) aura-demo-box">green-600 var</span>
+    </div>
+    <div>
+      <h3>Multi custom stops</h3>
+      <span class="aura aura-multi-[red,green,blue,red] aura-demo-box">RGB</span>
+      <span class="aura aura-multi-[#ae25be,#32ecdf,#edfa01,#ae25be] aura-demo-box">Custom hex</span>
+    </div>
+  </div>
+
+  <h2 id="sizes">Size</h2>
+  <div class="section">
+    <div>
+      <h3>Size + color combined: aura-*</h3>
+      <span class="aura aura-3 aura-demo-box">3px + primary</span>
+      <span class="aura aura-5 aura-demo-box">5px + primary</span>
+      <span class="aura aura-8 aura-demo-box">8px + primary</span>
+      <span class="aura aura-3 aura-primary aura-duotone aura-demo-box">3px + duotone</span>
+    </div>
+    <div>
+      <h3>Size only: aura-size-*</h3>
+      <span class="aura aura-size-3 aura-demo-box">3px</span>
+      <span class="aura aura-size-5 aura-demo-box">5px</span>
+      <span class="aura aura-size-8 aura-demo-box">8px</span>
+      <span class="aura aura-size-12 aura-demo-box">12px</span>
+      <span class="aura aura-size-16 aura-demo-box">16px</span>
+      <span class="aura aura-size-3 aura-mono-primary aura-spinner aura-demo-box">3px + mono + spin</span>
+    </div>
+  </div>
+
+  <h2 id="card-examples">Card examples</h2>
+  <div class="section">
+    <div class="aura aura-size-3 aura-mono-primary aura-demo-card">
+      <div class="card-title">Primary card</div>
+      <div class="card-desc">Mono primary edge</div>
+    </div>
+    <div class="aura aura-size-3 aura-primary aura-duotone aura-demo-card">
+      <div class="card-title">Duotone card</div>
+      <div class="card-desc">Duotone gradient edge</div>
+    </div>
+    <div class="aura aura-size-3 aura-primary aura-tritone aura-spinner aura-demo-card">
+      <div class="card-title">Tritone card</div>
+      <div class="card-desc">Tritone spinning edge</div>
+    </div>
+    <div class="aura aura-size-3 aura-primary aura-multi aura-spinner-1000 aura-demo-card">
+      <div class="card-title">Multi card</div>
+      <div class="card-desc">Fast multi-color spin</div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

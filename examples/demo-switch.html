@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Switch - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Switch Component</h1>
+  <p>Toggle switch using <code>&lt;label class="switch"></code> + <code>&lt;input type="checkbox"></code>. Supports thumb icons, track labels, indeterminate state, shapes, sizes, and dynamic colors.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.switch</code> on a <code>&lt;label></code> wrapping an <code>&lt;input type="checkbox"></code>.</li>
+      <li>Thumb icons: <code>data-on-thumb</code> / <code>data-off-thumb</code> on the <code>&lt;input></code>.</li>
+      <li>Track labels: <code>data-on-track</code> / <code>data-off-track</code> on the <code>&lt;input></code>.</li>
+      <li>Shapes: default (pill circle), <code>switch-rounded</code>, <code>switch-square</code>. State: <code>switch-indeterminate</code>.</li>
+      <li>Sizes: <code>switch-2xs</code> (14px) to <code>switch-5xl</code> (32px).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <label class="switch"><input type="checkbox" />Default</label>
+      <label class="switch"><input type="checkbox" checked />Checked</label>
+    </div>
+    <div>
+      <h3>Thumb icons (data-on-thumb / data-off-thumb)</h3>
+      <label class="switch"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Agreed</label>
+      <label class="switch"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Agreed</label>
+    </div>
+    <div>
+      <h3>Track labels (data-on-track / data-off-track)</h3>
+      <label class="switch"><input type="checkbox" data-off-track="OFF" data-on-track="ON" />Status</label>
+      <label class="switch"><input type="checkbox" checked data-off-track="OFF" data-on-track="ON" />Status</label>
+    </div>
+    <div>
+      <h3>Combined (icons + track + emoji)</h3>
+      <label class="switch"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" data-off-track="OFF" data-on-track="ON" />Wi-Fi</label>
+      <label class="switch"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" data-off-track="OFF" data-on-track="ON" />Bluetooth</label>
+      <label class="switch"><input type="checkbox" checked data-on-thumb="&#9728;&#65039;" data-off-thumb="&#127769;" /></label>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>Default (pill circle)</h3>
+      <label class="switch"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Circle</label>
+      <label class="switch"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Circle on</label>
+    </div>
+    <div>
+      <h3>switch-rounded</h3>
+      <label class="switch switch-rounded"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Rounded</label>
+      <label class="switch switch-rounded"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Rounded on</label>
+    </div>
+    <div>
+      <h3>switch-square</h3>
+      <label class="switch switch-square"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Square</label>
+      <label class="switch switch-square"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Square on</label>
+    </div>
+  </div>
+
+  <h2 id="indeterminate-switch-indeterminate">Indeterminate (switch-indeterminate)</h2>
+  <div class="section">
+    <div>
+      <h3>Default indeterminate</h3>
+      <label class="switch switch-indeterminate"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Indeterminate</label>
+      <label class="switch switch-indeterminate"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Checked</label>
+    </div>
+    <div>
+      <h3>Indeterminate + colors</h3>
+      <label class="switch switch-indeterminate switch-primary"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Primary</label>
+      <label class="switch switch-indeterminate switch-success"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Success</label>
+      <label class="switch switch-indeterminate switch-highlight"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Highlight</label>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>14px (switch-2xs)</h3>
+      <label class="switch switch-2xs"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />2xs</label>
+    </div>
+    <div>
+      <h3>16px (switch-xs)</h3>
+      <label class="switch switch-xs"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />xs</label>
+    </div>
+    <div>
+      <h3>18px (switch-sm)</h3>
+      <label class="switch switch-sm"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />sm</label>
+    </div>
+    <div>
+      <h3>20px (switch-md, default)</h3>
+      <label class="switch switch-md"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />md</label>
+    </div>
+    <div>
+      <h3>22px (switch-lg)</h3>
+      <label class="switch switch-lg"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />lg</label>
+    </div>
+    <div>
+      <h3>24px (switch-xl)</h3>
+      <label class="switch switch-xl"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />xl</label>
+    </div>
+    <div>
+      <h3>26px (switch-2xl)</h3>
+      <label class="switch switch-2xl"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />2xl</label>
+    </div>
+    <div>
+      <h3>28px (switch-3xl)</h3>
+      <label class="switch switch-3xl"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />3xl</label>
+    </div>
+    <div>
+      <h3>30px (switch-4xl)</h3>
+      <label class="switch switch-4xl"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />4xl</label>
+    </div>
+    <div>
+      <h3>32px (switch-5xl)</h3>
+      <label class="switch switch-5xl"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />5xl</label>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <label class="switch switch-primary"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Primary</label>
+      <label class="switch switch-primary"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <label class="switch switch-secondary"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Secondary</label>
+      <label class="switch switch-secondary"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <label class="switch switch-tertiary"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Tertiary</label>
+      <label class="switch switch-tertiary"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <label class="switch switch-success"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Success</label>
+      <label class="switch switch-success"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <label class="switch switch-error"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Error</label>
+      <label class="switch switch-error"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <label class="switch switch-info"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Info</label>
+      <label class="switch switch-info"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <label class="switch switch-highlight"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Highlight</label>
+      <label class="switch switch-highlight"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <label class="switch switch-warning"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Warning</label>
+      <label class="switch switch-warning"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <label class="switch switch-caution"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Caution</label>
+      <label class="switch switch-caution"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <label class="switch switch-ink"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Ink</label>
+      <label class="switch switch-ink"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <label class="switch switch-title"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Title</label>
+      <label class="switch switch-title"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <label class="switch switch-description"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Description</label>
+      <label class="switch switch-description"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <label class="switch switch-caption"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Caption</label>
+      <label class="switch switch-caption"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <label class="switch switch-disabled"><input type="checkbox" data-on-thumb="&#10003;" data-off-thumb="&#10007;" />Disabled</label>
+      <label class="switch switch-disabled"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />On</label>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <label class="switch switch-blue-500"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />blue-500</label>
+      <label class="switch switch-blue-200"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />blue-200</label>
+      <label class="switch switch-[#ff0000]"><input type="checkbox" checked data-on-thumb="&#10003;" data-off-thumb="&#10007;" />[#ff0000]</label>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Range - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Range Component</h1>
+  <p>The <code>input[type=range]</code> slider uses <code>input-*</code> utility classes for size, color, and width. Shape and variant modifiers do not affect the native range — only color, size, and width change appearance.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>All <code>input-*</code> utilities apply to range, but only <strong>color</strong>, <strong>size (row-height)</strong>, and <strong>width</strong> are effective.</li>
+      <li>Shape classes like <code>input-rounded</code>, <code>input-square</code> and variant classes like <code>input-subtle</code>, <code>input-ghost</code> do not change range appearance — color variants still work identically.</li>
+      <li>Sizes: <code>input-4</code> ~ <code>input-15</code> control thumb and track height.</li>
+      <li>Width: <code>input-ratio</code> (1:1 square), <code>input-ratio-*</code> (custom ratio), <code>input-scale</code> (fixed width), <code>input-scale-*</code> (scaled width), <code>input-full</code> (100%).</li>
+    </ul>
+  </div>
+
+  <h2 id="default-range">Default range</h2>
+  <div class="section">
+    <div>
+      <input type="range" min="0" max="100" value="60">
+      <input type="range" min="0" max="100" value="30" disabled>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (input-4 ~ input-15)</h2>
+  <div class="section">
+    <div>
+      <h3>16px (input-4)</h3>
+      <input type="range" class="input-4" min="0" max="100" value="20">
+    </div>
+    <div>
+      <h3>20px (input-5)</h3>
+      <input type="range" class="input-5" min="0" max="100" value="20">
+    </div>
+    <div>
+      <h3>24px (input-6)</h3>
+      <input type="range" class="input-6" min="0" max="100" value="30">
+    </div>
+    <div>
+      <h3>28px (input-7)</h3>
+      <input type="range" class="input-7" min="0" max="100" value="30">
+    </div>
+    <div>
+      <h3>32px (input-8, default)</h3>
+      <input type="range" class="input-8" min="0" max="100" value="40">
+    </div>
+    <div>
+      <h3>36px (input-9)</h3>
+      <input type="range" class="input-9" min="0" max="100" value="40">
+    </div>
+    <div>
+      <h3>40px (input-10)</h3>
+      <input type="range" class="input-10" min="0" max="100" value="60">
+    </div>
+    <div>
+      <h3>44px (input-11)</h3>
+      <input type="range" class="input-11" min="0" max="100" value="60">
+    </div>
+    <div>
+      <h3>48px (input-12)</h3>
+      <input type="range" class="input-12" min="0" max="100" value="75">
+    </div>
+    <div>
+      <h3>52px (input-13)</h3>
+      <input type="range" class="input-13" min="0" max="100" value="75">
+    </div>
+    <div>
+      <h3>56px (input-14)</h3>
+      <input type="range" class="input-14" min="0" max="100" value="85">
+    </div>
+    <div>
+      <h3>60px (input-15)</h3>
+      <input type="range" class="input-15" min="0" max="100" value="95">
+    </div>
+  </div>
+
+  <h2 id="width-modifiers">Width modifiers</h2>
+  <div class="section">
+    <div>
+      <h3>input-ratio (1:1 square)</h3>
+      <input type="range" class="input-ratio" min="0" max="100" value="50">
+    </div>
+    <div>
+      <h3>input-ratio-2 (2:1)</h3>
+      <input type="range" class="input-ratio-2" min="0" max="100" value="50">
+    </div>
+    <div>
+      <h3>input-ratio-[3] (3:1)</h3>
+      <input type="range" class="input-ratio-[3]" min="0" max="100" value="50">
+    </div>
+    <div>
+      <h3>input-scale (fixed, 400px)</h3>
+      <input type="range" class="input-scale" min="0" max="100" value="50">
+    </div>
+    <div>
+      <h3>input-scale-2 (2x / 800px)</h3>
+      <input type="range" class="input-scale-2" min="0" max="100" value="50">
+    </div>
+    <div>
+      <h3>input-scale-[1.5] (1.5x / 600px)</h3>
+      <input type="range" class="input-scale-[1.5]" min="0" max="100" value="50">
+    </div>
+    <div>
+      <h3>input-full (100%)</h3>
+      <input type="range" class="input-full" min="0" max="100" value="50">
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary / Secondary / Tertiary</h3>
+      <input type="range" class="input-primary" min="0" max="100" value="40">
+      <input type="range" class="input-secondary" min="0" max="100" value="30">
+      <input type="range" class="input-tertiary" min="0" max="100" value="50">
+    </div>
+    <div>
+      <h3>Success / Error / Info</h3>
+      <input type="range" class="input-success" min="0" max="100" value="75">
+      <input type="range" class="input-error" min="0" max="100" value="20">
+      <input type="range" class="input-info" min="0" max="100" value="30">
+    </div>
+    <div>
+      <h3>Highlight / Warning / Caution</h3>
+      <input type="range" class="input-highlight" min="0" max="100" value="35">
+      <input type="range" class="input-warning" min="0" max="100" value="40">
+      <input type="range" class="input-caution" min="0" max="100" value="25">
+    </div>
+    <div>
+      <h3>Ink / Title / Description / Caption / Disabled</h3>
+      <input type="range" class="input-ink" min="0" max="100" value="30">
+      <input type="range" class="input-title" min="0" max="100" value="25">
+      <input type="range" class="input-description" min="0" max="100" value="40">
+      <input type="range" class="input-caption" min="0" max="100" value="20">
+      <input type="range" class="input-disabled" min="0" max="100" value="50">
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Tailwind + raw colors</h3>
+      <input type="range" class="input-teal-500" min="0" max="100" value="30">
+      <input type="range" class="input-fuchsia-800" min="0" max="100" value="50">
+      <input type="range" class="input-[#ff0000]" min="0" max="100" value="70">
+      <input type="range" class="input-[blue]" min="0" max="100" value="90">
+    </div>
+  </div>
+
+  <h2 id="size-plus-color-combinations">Size + color combinations</h2>
+  <div class="section">
+    <div>
+      <h3>Small (input-6)</h3>
+      <input type="range" class="input-primary input-6" min="0" max="100" value="30">
+      <input type="range" class="input-success input-6" min="0" max="100" value="60">
+      <input type="range" class="input-warning input-6" min="0" max="100" value="90">
+    </div>
+    <div>
+      <h3>Medium (input-9)</h3>
+      <input type="range" class="input-info input-9" min="0" max="100" value="20">
+      <input type="range" class="input-error input-9" min="0" max="100" value="50">
+      <input type="range" class="input-highlight input-9" min="0" max="100" value="80">
+    </div>
+    <div>
+      <h3>Large (input-12)</h3>
+      <input type="range" class="input-secondary input-12" min="0" max="100" value="25">
+      <input type="range" class="input-caution input-12" min="0" max="100" value="55">
+      <input type="range" class="input-tertiary input-12" min="0" max="100" value="85">
+    </div>
+  </div>
+
+  <h2 id="width-plus-color-combinations">Width + color combinations</h2>
+  <div class="section">
+    <div>
+      <h3>input-ratio + color</h3>
+      <input type="range" class="input-primary input-ratio" min="0" max="100" value="40">
+      <input type="range" class="input-success input-ratio-2" min="0" max="100" value="70">
+    </div>
+    <div>
+      <h3>input-scale + color</h3>
+      <input type="range" class="input-primary input-scale" min="0" max="100" value="40">
+      <input type="range" class="input-success input-scale-2" min="0" max="100" value="70">
+      <input type="range" class="input-error input-scale-[1.5]" min="0" max="100" value="80">
+    </div>
+    <div>
+      <h3>input-full + color</h3>
+      <input type="range" class="input-primary input-full" min="0" max="100" value="50">
+      <input type="range" class="input-error input-full" min="0" max="100" value="80">
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

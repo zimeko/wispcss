@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Buoy - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Buoy Component</h1>
+  <p>Dual-segment badge (label + value) with variants, theme colors, shapes, and sizes.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use <code>.buoy</code> as a container with <code>data-role="label"</code> and <code>data-role="value"</code> children.</li>
+      <li>Prefer shorthand compound variants like <code>buoy-outline-primary</code> over <code>buoy-outline buoy-primary</code> — smaller CSS output.</li>
+      <li>An empty <code>data-role="label"</code> is automatically hidden.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default buoy</h3>
+      <div class="buoy"><span data-role="label">Version</span><span data-role="value">v2.1.0</span></div>
+      <div class="buoy"><span data-role="label">Downloads</span><span data-role="value">12.5k</span></div>
+      <div class="buoy"><span data-role="label">Build</span><span data-role="value">Passed</span></div>
+    </div>
+    <div>
+      <h3>Reverse (<code>.buoy-reverse</code>) — swaps segment colors</h3>
+      <div class="buoy buoy-reverse"><span data-role="label">Version</span><span data-role="value">v2.1.0</span></div>
+      <div class="buoy buoy-reverse"><span data-role="label">Build</span><span data-role="value">Passed</span></div>
+    </div>
+    <div>
+      <h3>Empty label — auto hidden</h3>
+      <div class="buoy"><span data-role="label"></span><span data-role="value">Value only</span></div>
+    </div>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <div class="buoy"><span data-role="label">Version</span><span data-role="value">v2.1.0</span></div>
+    </div>
+    <div>
+      <h3>Outline (<code>.buoy-outline</code>) — light tint</h3>
+      <div class="buoy buoy-outline"><span data-role="label">Version</span><span data-role="value">v2.1.0</span></div>
+    </div>
+    <div>
+      <h3>Muted (<code>.buoy-muted</code>) — thin border</h3>
+      <div class="buoy buoy-muted"><span data-role="label">Version</span><span data-role="value">v2.1.0</span></div>
+    </div>
+    <div>
+      <h3>Solid (<code>.buoy-solid</code>) — dark fill</h3>
+      <div class="buoy buoy-solid"><span data-role="label">Version</span><span data-role="value">v2.1.0</span></div>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div><div class="buoy buoy-primary"><span data-role="label">Primary</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-secondary"><span data-role="label">Secondary</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-tertiary"><span data-role="label">Tertiary</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-success"><span data-role="label">Success</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-error"><span data-role="label">Error</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-info"><span data-role="label">Info</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-warning"><span data-role="label">Warning</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-highlight"><span data-role="label">Highlight</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-caution"><span data-role="label">Caution</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-ink"><span data-role="label">Ink</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-title"><span data-role="label">Title</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-description"><span data-role="label">Description</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-caption"><span data-role="label">Caption</span><span data-role="value">v1</span></div></div>
+    <div><div class="buoy buoy-disabled"><span data-role="label">Disabled</span><span data-role="value">v1</span></div></div>
+  </div>
+
+  <h2 id="compound-variants">Shorthand compound variants</h2>
+  <div class="section">
+    <div>
+      <h3>Outline (<code>.buoy-outline-*</code>)</h3>
+      <div class="buoy buoy-outline-primary"><span data-role="label">Primary</span><span data-role="value">v1</span></div>
+      <div class="buoy buoy-outline-success"><span data-role="label">Success</span><span data-role="value">v1</span></div>
+      <div class="buoy buoy-outline-error"><span data-role="label">Error</span><span data-role="value">v1</span></div>
+    </div>
+    <div>
+      <h3>Muted (<code>.buoy-muted-*</code>) — thin border</h3>
+      <div class="buoy buoy-muted-primary"><span data-role="label">Primary</span><span data-role="value">v1</span></div>
+      <div class="buoy buoy-muted-success"><span data-role="label">Success</span><span data-role="value">v1</span></div>
+      <div class="buoy buoy-muted-error"><span data-role="label">Error</span><span data-role="value">v1</span></div>
+    </div>
+    <div>
+      <h3>Subtle (<code>.buoy-subtle-*</code>) — borderless tint</h3>
+      <div class="buoy buoy-subtle-primary"><span data-role="label">Primary</span><span data-role="value">v1</span></div>
+      <div class="buoy buoy-subtle-success"><span data-role="label">Success</span><span data-role="value">v1</span></div>
+      <div class="buoy buoy-subtle-error"><span data-role="label">Error</span><span data-role="value">v1</span></div>
+    </div>
+    <div>
+      <h3>Solid (<code>.buoy-solid-*</code>) — dark fill</h3>
+      <div class="buoy buoy-solid-primary"><span data-role="label">Primary</span><span data-role="value">v1</span></div>
+      <div class="buoy buoy-solid-success"><span data-role="label">Success</span><span data-role="value">v1</span></div>
+      <div class="buoy buoy-solid-error"><span data-role="label">Error</span><span data-role="value">v1</span></div>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Default variant</h3>
+      <div class="buoy buoy-green-200"><span data-role="label">green-200</span><span data-role="value">ok</span></div>
+      <div class="buoy buoy-green-500"><span data-role="label">green-500</span><span data-role="value">ok</span></div>
+      <div class="buoy buoy-[blue]"><span data-role="label">[blue]</span><span data-role="value">ok</span></div>
+    </div>
+    <div>
+      <h3>Solid variant</h3>
+      <div class="buoy buoy-solid-green-200"><span data-role="label">green-200</span><span data-role="value">ok</span></div>
+      <div class="buoy buoy-solid-green-500"><span data-role="label">green-500</span><span data-role="value">ok</span></div>
+      <div class="buoy buoy-solid-[blue]"><span data-role="label">[blue]</span><span data-role="value">ok</span></div>
+    </div>
+    <div>
+      <h3>Outline variant</h3>
+      <div class="buoy buoy-outline-green-500"><span data-role="label">green-500</span><span data-role="value">ok</span></div>
+      <div class="buoy buoy-outline-[blue]"><span data-role="label">[blue]</span><span data-role="value">ok</span></div>
+    </div>
+    <div>
+      <h3>Subtle variant</h3>
+      <div class="buoy buoy-subtle-green-500"><span data-role="label">green-500</span><span data-role="value">ok</span></div>
+      <div class="buoy buoy-subtle-[blue]"><span data-role="label">[blue]</span><span data-role="value">ok</span></div>
+    </div>
+    <div>
+      <h3>Muted variant</h3>
+      <div class="buoy buoy-muted-green-500"><span data-role="label">green-500</span><span data-role="value">ok</span></div>
+      <div class="buoy buoy-muted-[blue]"><span data-role="label">[blue]</span><span data-role="value">ok</span></div>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>Rounded (<code>.buoy-rounded</code>)</h3>
+      <div class="buoy buoy-primary buoy-rounded"><span data-role="label">Version</span><span data-role="value">v1</span></div>
+    </div>
+    <div>
+      <h3>Fluid (<code>.buoy-fluid</code>)</h3>
+      <div class="buoy buoy-primary buoy-fluid"><span data-role="label">Version</span><span data-role="value">v1</span></div>
+    </div>
+    <div>
+      <h3>Square (<code>.buoy-square</code>) — sharp corners</h3>
+      <div class="buoy buoy-primary buoy-square"><span data-role="label">Version</span><span data-role="value">v1</span></div>
+    </div>
+    <div>
+      <h3>Circle (<code>.buoy-pill</code>) — pill shape</h3>
+      <div class="buoy buoy-primary buoy-pill"><span data-role="label">Version</span><span data-role="value">v1</span></div>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (buoy-4 ~ buoy-15)</h2>
+  <div class="section">
+    <div><h3>buoy-4</h3><div class="buoy buoy-primary buoy-4"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+    <div><h3>buoy-5</h3><div class="buoy buoy-primary buoy-5"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+    <div><h3>buoy-6</h3><div class="buoy buoy-primary buoy-6"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+    <div><h3>buoy-7</h3><div class="buoy buoy-primary buoy-7"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+    <div><h3>buoy-8</h3><div class="buoy buoy-primary buoy-8"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+    <div><h3>buoy-9</h3><div class="buoy buoy-primary buoy-9"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+    <div><h3>buoy-10</h3><div class="buoy buoy-primary buoy-10"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+    <div><h3>buoy-11</h3><div class="buoy buoy-primary buoy-11"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+    <div><h3>buoy-12</h3><div class="buoy buoy-primary buoy-12"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+    <div><h3>buoy-13</h3><div class="buoy buoy-primary buoy-13"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+    <div><h3>buoy-14</h3><div class="buoy buoy-primary buoy-14"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+    <div><h3>buoy-15</h3><div class="buoy buoy-primary buoy-15"><span data-role="label">Version</span><span data-role="value">v1</span></div></div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

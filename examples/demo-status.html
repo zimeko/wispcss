@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Status - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Status Component</h1>
+  <p>Static status indicator with a colored dot (or hollow ring) and optional text label. Uses <code>::before</code> pseudo-element for the dot.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.status</code>. Default dot is a filled circle (info color).</li>
+      <li>Variant: <code>.status-ring</code> — hollow ring instead of filled dot. Compound variant: <code>status-ring-primary</code> (equals <code>status-ring status-primary</code>).</li>
+      <li>Shapes: <code>status-square</code>, <code>status-rounded</code>, <code>status-circle / status-pill</code>, <code>status-fluid</code>.</li>
+      <li>Color + size: <code>status-*</code> dynamic utilities (e.g. <code>status-primary</code>, <code>status-4</code>, <code>status-[12px]</code>).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <span class="status"><span>Default</span></span>
+      <span class="status status-success"><span>Online</span></span>
+      <span class="status status-error"><span>Offline</span></span>
+      <span class="status status-caution"><span>Busy</span></span>
+    </div>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Filled (default)</h3>
+      <span class="status status-primary"><span>Primary</span></span>
+      <span class="status status-success"><span>Success</span></span>
+      <span class="status status-error"><span>Error</span></span>
+      <span class="status status-caution"><span>Caution</span></span>
+    </div>
+    <div>
+      <h3>Hollow ring (status-ring)</h3>
+      <span class="status status-ring status-primary"><span>Primary</span></span>
+      <span class="status status-ring status-success"><span>Success</span></span>
+      <span class="status status-ring status-error"><span>Error</span></span>
+      <span class="status status-ring status-caution"><span>Caution</span></span>
+    </div>
+    <div>
+      <h3>Compound variant (status-ring-*)</h3>
+      <span class="status status-ring-primary"><span>Primary</span></span>
+      <span class="status status-ring-success"><span>Success</span></span>
+      <span class="status status-ring-error"><span>Error</span></span>
+      <span class="status status-ring-caution"><span>Caution</span></span>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>Default (circle)</h3>
+      <span class="status status-info"><span>Circle default</span></span>
+    </div>
+    <div>
+      <h3>status-square</h3>
+      <span class="status status-square status-primary"><span>Square</span></span>
+    </div>
+    <div>
+      <h3>status-rounded</h3>
+      <span class="status status-rounded status-success"><span>Rounded</span></span>
+    </div>
+    <div>
+      <h3>status-circle / status-pill (status-circle === status-pill)</h3>
+      <span class="status status-circle status-error"><span>Full circle</span></span>
+    </div>
+    <div>
+      <h3>status-fluid</h3>
+      <span class="status status-fluid status-3 status-success"><span>Fluid 3</span></span>
+      <span class="status status-fluid status-5 status-success"><span>Fluid 5</span></span>
+      <span class="status status-fluid status-8 status-success"><span>Fluid 8</span></span>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>status-3 / status-4 (default) / status-5 / status-6 / status-8</h3>
+      <span class="status status-3 status-success"><span>status-3</span></span>
+      <span class="status status-4 status-success"><span>status-4</span></span>
+      <span class="status status-5 status-success"><span>status-5</span></span>
+      <span class="status status-6 status-success"><span>status-6</span></span>
+      <span class="status status-8 status-success"><span>status-8</span></span>
+    </div>
+    <div>
+      <h3>Arbitrary size (status-[*])</h3>
+      <span class="status status-[8px] status-primary"><span>[8px]</span></span>
+      <span class="status status-[12px] status-primary"><span>[12px]</span></span>
+      <span class="status status-[16px] status-primary"><span>[16px]</span></span>
+      <span class="status status-[20px] status-primary"><span>[20px]</span></span>
+      <span class="status status-[24px] status-primary"><span>[24px]</span></span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary / Secondary / Tertiary</h3>
+      <span class="status status-primary"><span>Primary</span></span>
+      <span class="status status-secondary"><span>Secondary</span></span>
+      <span class="status status-tertiary"><span>Tertiary</span></span>
+    </div>
+    <div>
+      <h3>Success / Error / Info</h3>
+      <span class="status status-success"><span>Success</span></span>
+      <span class="status status-error"><span>Error</span></span>
+      <span class="status status-info"><span>Info</span></span>
+    </div>
+    <div>
+      <h3>Highlight / Warning / Caution</h3>
+      <span class="status status-highlight"><span>Highlight</span></span>
+      <span class="status status-warning"><span>Warning</span></span>
+      <span class="status status-caution"><span>Caution</span></span>
+    </div>
+    <div>
+      <h3>Ink / Title / Description / Caption / Disabled</h3>
+      <span class="status status-ink"><span>Ink</span></span>
+      <span class="status status-title"><span>Title</span></span>
+      <span class="status status-description"><span>Description</span></span>
+      <span class="status status-caption"><span>Caption</span></span>
+      <span class="status status-disabled"><span>Disabled</span></span>
+    </div>
+    <div>
+      <h3>status-black / status-white (on dark bg)</h3>
+      <span class="status status-black"><span>Black</span></span>
+      <span style="display:inline-block;padding:8px 12px;border-radius:8px;background:var(--color-black);">
+        <span class="status status-white text-white"><span>White</span></span>
+      </span>
+    </div>
+  </div>
+
+  <h2 id="hollow-ring-colors-status-ring">Hollow ring colors (status-ring-*)</h2>
+  <div class="section">
+    <div>
+      <span class="status status-ring-primary"><span>Primary</span></span>
+      <span class="status status-ring-secondary"><span>Secondary</span></span>
+      <span class="status status-ring-success"><span>Success</span></span>
+      <span class="status status-ring-error"><span>Error</span></span>
+      <span class="status status-ring-info"><span>Info</span></span>
+      <span class="status status-ring-caution"><span>Caution</span></span>
+      <span class="status status-ring-warning"><span>Warning</span></span>
+      <span class="status status-ring-ink"><span>Ink</span></span>
+      <span class="status status-ring-title"><span>Title</span></span>
+      <span class="status status-ring-description"><span>Description</span></span>
+      <span class="status status-ring-caption"><span>Caption</span></span>
+      <span class="status status-ring-disabled"><span>Disabled</span></span>
+      <span class="status status-ring-black"><span>Black</span></span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <span class="status status-blue-500"><span>blue-500</span></span>
+      <span class="status status-green-500"><span>green-500</span></span>
+      <span class="status status-[#ff6b6b]"><span>[#ff6b6b]</span></span>
+      <span class="status status-[red]"><span>[red]</span></span>
+    </div>
+  </div>
+
+  <h2 id="size-plus-shape-plus-color-combinations">Size + shape + color combinations</h2>
+  <div class="section">
+    <div>
+      <span class="status status-square status-5 status-success"><span>Square large success</span></span>
+      <span class="status status-rounded status-3 status-caution"><span>Rounded small caution</span></span>
+      <span class="status status-ring status-6 status-primary"><span>Outline large primary</span></span>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>System monitor</h3>
+      <span class="status status-success"><span>Web server — Running</span></span>
+      <span class="status status-success"><span>Database — Running</span></span>
+      <span class="status status-caution"><span>Cache — High load</span></span>
+      <span class="status status-error"><span>Queue — Connection failed</span></span>
+      <span class="status status-info"><span>Logger — Maintenance</span></span>
+      <span class="status status-disabled"><span>Backup — Disabled</span></span>
+    </div>
+    <div>
+      <h3>Order status</h3>
+      <span class="status status-info"><span>Submitted</span></span>
+      <span class="status status-primary"><span>Confirmed</span></span>
+      <span class="status status-success"><span>Completed</span></span>
+      <span class="status status-error"><span>Cancelled</span></span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

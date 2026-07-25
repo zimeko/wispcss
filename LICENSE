@@ -1,0 +1,49 @@
+# Beautify License
+
+Copyright (c) 2026 DEVIVID.COM
+
+This repository contains files under two different licenses:
+
+---
+
+## Commercial Software License Agreement (CSLA)
+
+**Applies to: All files in the `src/` directory**
+
+The files in the `src/` directory are proprietary commercial software. All rights are reserved.
+
+### Terms and Conditions
+
+1. **License Grant**: A paid license is required to use, copy, modify, or distribute any files from the `src/` directory in any project, whether personal, commercial, or otherwise.
+
+2. **Restrictions**: Without a valid paid license, you may NOT:
+   - Use the source files in any project
+   - Copy, modify, or distribute the source files
+   - Create derivative works based on the source files
+   - Include the source files in any software distribution
+
+3. **Purchase**: To obtain a license, see the contact information at the bottom of this file.
+
+4. **Warranty Disclaimer**: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+5. **Liability**: IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+
+## MIT License
+
+**Applies to: All other files (examples/, dist/, docs/, configuration files, etc.)**
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+
+## Contact
+
+For licensing inquiries or questions:
+- Email: devivid2026@outlook.com
+- Website: https://beautify.devivid.com

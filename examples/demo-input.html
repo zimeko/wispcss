@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Input - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Input Component</h1>
+  <p>Text input and textarea styling utilities with CSS variables. Supports visual variants, dynamic theme colors, shapes, sizes, and width modes.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Prefer combined utilities like <code>input-subtle-primary</code> over separate <code>input-subtle input-primary</code> — smaller CSS output.</li>
+      <li>Variants: <code>input-subtle</code>, <code>input-ghost</code>, <code>input-underline</code>, <code>input-outline</code>.</li>
+      <li>Sizes: <code>input-4</code> ~ <code>input-15</code> (row height increases by 1 spacing unit per step).</li>
+      <li>Shapes: <code>input-pill</code>, <code>input-rounded</code>, <code>input-square</code>, <code>input-fluid</code>.</li>
+      <li>Width: <code>input-scale</code>, <code>input-scale-*</code>, <code>input-ratio</code>, <code>input-ratio-*</code>, <code>input-full</code>.</li>
+      <li>Colors: <code>input-*</code> dynamic utilities (e.g. <code>input-primary</code>, <code>input-error</code>, <code>input-teal-500</code>). Works with all variants as compound classes like <code>input-subtle-primary</code>.</li>
+      <li>States: <code>disabled</code>, <code>readonly</code>, <code>required</code>, <code>pattern</code> all work natively with styling.</li>
+    </ul>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <input type="text" placeholder="Text input">
+      <input type="text" value="Disabled" disabled>
+      <input type="text" value="Readonly" readonly>
+      <input type="text" placeholder="Required" required>
+      <input type="text" value="Aabc" pattern="[a-z]+" placeholder="Lowercase only">
+    </div>
+    <div>
+      <h3>Textarea</h3>
+      <textarea placeholder="Multi-line text"></textarea>
+      <textarea disabled>Disabled</textarea>
+      <textarea readonly>Readonly</textarea>
+      <textarea placeholder="Required" required></textarea>
+    </div>
+    <div>
+      <h3>.input-subtle</h3>
+      <input type="text" class="input-subtle" placeholder="Subtle">
+      <input type="text" class="input-subtle" value="Disabled" disabled>
+    </div>
+    <div>
+      <h3>.input-ghost</h3>
+      <input type="text" class="input-ghost" placeholder="Ghost">
+      <input type="text" class="input-ghost" value="Disabled" disabled>
+    </div>
+    <div>
+      <h3>.input-underline</h3>
+      <input type="text" class="input-underline" placeholder="Underline">
+      <input type="text" class="input-underline" value="Disabled" disabled>
+    </div>
+    <div>
+      <h3>.input-outline</h3>
+      <input type="text" class="input-outline" placeholder="Outline">
+      <input type="text" class="input-outline" value="Disabled" disabled>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors + variants</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <input type="text" class="input-primary" placeholder="Default">
+      <input type="text" class="input-subtle-primary" placeholder="Subtle">
+      <input type="text" class="input-muted-primary" placeholder="Muted">
+      <input type="text" class="input-ghost-primary" placeholder="Ghost">
+      <input type="text" class="input-underline-primary" placeholder="Underline">
+      <input type="text" class="input-outline-primary" placeholder="Outline">
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <input type="text" class="input-secondary" placeholder="Default">
+      <input type="text" class="input-subtle-secondary" placeholder="Subtle">
+      <input type="text" class="input-muted-secondary" placeholder="Muted">
+      <input type="text" class="input-ghost-secondary" placeholder="Ghost">
+      <input type="text" class="input-underline-secondary" placeholder="Underline">
+      <input type="text" class="input-outline-secondary" placeholder="Outline">
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <input type="text" class="input-tertiary" placeholder="Default">
+      <input type="text" class="input-subtle-tertiary" placeholder="Subtle">
+      <input type="text" class="input-muted-tertiary" placeholder="Muted">
+      <input type="text" class="input-outline-tertiary" placeholder="Outline">
+      <input type="text" class="input-ghost-tertiary" placeholder="Ghost">
+      <input type="text" class="input-underline-tertiary" placeholder="Underline">
+    </div>
+    <div>
+      <h3>Success</h3>
+      <input type="text" class="input-success" placeholder="Default">
+      <input type="text" class="input-subtle-success" placeholder="Subtle">
+      <input type="text" class="input-muted-success" placeholder="Muted">
+      <input type="text" class="input-outline-success" placeholder="Outline">
+      <input type="text" class="input-ghost-success" placeholder="Ghost">
+      <input type="text" class="input-underline-success" placeholder="Underline">
+    </div>
+    <div>
+      <h3>Error</h3>
+      <input type="text" class="input-error" placeholder="Default">
+      <input type="text" class="input-subtle-error" placeholder="Subtle">
+      <input type="text" class="input-muted-error" placeholder="Muted">
+      <input type="text" class="input-outline-error" placeholder="Outline">
+      <input type="text" class="input-ghost-error" placeholder="Ghost">
+      <input type="text" class="input-underline-error" placeholder="Underline">
+    </div>
+    <div>
+      <h3>Info</h3>
+      <input type="text" class="input-info" placeholder="Default">
+      <input type="text" class="input-subtle-info" placeholder="Subtle">
+      <input type="text" class="input-muted-info" placeholder="Muted">
+      <input type="text" class="input-outline-info" placeholder="Outline">
+      <input type="text" class="input-ghost-info" placeholder="Ghost">
+      <input type="text" class="input-underline-info" placeholder="Underline">
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <input type="text" class="input-warning" placeholder="Default">
+      <input type="text" class="input-subtle-warning" placeholder="Subtle">
+      <input type="text" class="input-muted-warning" placeholder="Muted">
+      <input type="text" class="input-outline-warning" placeholder="Outline">
+      <input type="text" class="input-ghost-warning" placeholder="Ghost">
+      <input type="text" class="input-underline-warning" placeholder="Underline">
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <input type="text" class="input-highlight" placeholder="Default">
+      <input type="text" class="input-subtle-highlight" placeholder="Subtle">
+      <input type="text" class="input-muted-highlight" placeholder="Muted">
+      <input type="text" class="input-outline-highlight" placeholder="Outline">
+      <input type="text" class="input-ghost-highlight" placeholder="Ghost">
+      <input type="text" class="input-underline-highlight" placeholder="Underline">
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <input type="text" class="input-ink" placeholder="Default">
+      <input type="text" class="input-subtle-ink" placeholder="Subtle">
+      <input type="text" class="input-muted-ink" placeholder="Muted">
+      <input type="text" class="input-outline-ink" placeholder="Outline">
+      <input type="text" class="input-ghost-ink" placeholder="Ghost">
+      <input type="text" class="input-underline-ink" placeholder="Underline">
+    </div>
+    <div>
+      <h3>Title</h3>
+      <input type="text" class="input-title" placeholder="Default">
+      <input type="text" class="input-subtle-title" placeholder="Subtle">
+      <input type="text" class="input-muted-title" placeholder="Muted">
+      <input type="text" class="input-outline-title" placeholder="Outline">
+      <input type="text" class="input-ghost-title" placeholder="Ghost">
+      <input type="text" class="input-underline-title" placeholder="Underline">
+    </div>
+    <div>
+      <h3>Description</h3>
+      <input type="text" class="input-description" placeholder="Default">
+      <input type="text" class="input-subtle-description" placeholder="Subtle">
+      <input type="text" class="input-muted-description" placeholder="Muted">
+      <input type="text" class="input-outline-description" placeholder="Outline">
+      <input type="text" class="input-ghost-description" placeholder="Ghost">
+      <input type="text" class="input-underline-description" placeholder="Underline">
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <input type="text" class="input-caption" placeholder="Default">
+      <input type="text" class="input-subtle-caption" placeholder="Subtle">
+      <input type="text" class="input-muted-caption" placeholder="Muted">
+      <input type="text" class="input-outline-caption" placeholder="Outline">
+      <input type="text" class="input-ghost-caption" placeholder="Ghost">
+      <input type="text" class="input-underline-caption" placeholder="Underline">
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <input type="text" class="input-disabled" placeholder="Default">
+      <input type="text" class="input-subtle-disabled" placeholder="Subtle">
+      <input type="text" class="input-muted-disabled" placeholder="Muted">
+      <input type="text" class="input-outline-disabled" placeholder="Outline">
+      <input type="text" class="input-ghost-disabled" placeholder="Ghost">
+      <input type="text" class="input-underline-disabled" placeholder="Underline">
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div>
+      <h3>Default variant</h3>
+      <input type="text" class="input-teal-500" placeholder="teal-500">
+      <input type="text" class="input-fuchsia-800" placeholder="fuchsia-800">
+      <input type="text" class="input-fuchsia-200" placeholder="fuchsia-200">
+    </div>
+    <div>
+      <h3>Subtle variant</h3>
+      <input type="text" class="input-subtle-teal-500" placeholder="subtle-teal-500">
+      <input type="text" class="input-subtle-[#ff0000]" placeholder="subtle-[#ff0000]">
+    </div>
+    <div>
+      <h3>Ghost variant</h3>
+      <input type="text" class="input-ghost-teal-500" placeholder="ghost-teal-500">
+      <input type="text" class="input-ghost-[#ff0000]" placeholder="ghost-[#ff0000]">
+    </div>
+    <div>
+      <h3>Underline variant</h3>
+      <input type="text" class="input-underline-teal-500" placeholder="underline-teal-500">
+      <input type="text" class="input-underline-[#ff0000]" placeholder="underline-[#ff0000]">
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>.input-pill (pill)</h3>
+      <input type="text" class="input-pill" placeholder="Circle">
+      <input type="text" class="input-primary input-pill" placeholder="Primary">
+    </div>
+    <div>
+      <h3>.input-rounded</h3>
+      <input type="text" class="input-rounded" placeholder="Rounded">
+      <input type="text" class="input-secondary input-rounded" placeholder="Secondary">
+    </div>
+    <div>
+      <h3>.input-fluid</h3>
+      <input type="text" class="input-fluid" placeholder="Fluid">
+      <input type="text" class="input-tertiary input-fluid" placeholder="Tertiary">
+    </div>
+    <div>
+      <h3>.input-square</h3>
+      <input type="text" class="input-square" placeholder="Square">
+      <input type="text" class="input-primary input-square" placeholder="Primary">
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (input-4 ~ input-15)</h2>
+  <div class="section">
+    <div>
+      <h3>input-4 ~ input-7</h3>
+      <input type="text" class="input-4" placeholder="input-4">
+      <input type="text" class="input-5" placeholder="input-5">
+      <input type="text" class="input-6" placeholder="input-6">
+      <input type="text" class="input-7" placeholder="input-7">
+    </div>
+    <div>
+      <h3>input-8 ~ input-11</h3>
+      <input type="text" class="input-8" placeholder="input-8">
+      <input type="text" class="input-9" placeholder="input-9 (default)">
+      <input type="text" class="input-10" placeholder="input-10">
+      <input type="text" class="input-11" placeholder="input-11">
+    </div>
+    <div>
+      <h3>input-12 ~ input-15</h3>
+      <input type="text" class="input-12" placeholder="input-12">
+      <input type="text" class="input-13" placeholder="input-13">
+      <input type="text" class="input-14" placeholder="input-14">
+      <input type="text" class="input-15" placeholder="input-15">
+    </div>
+  </div>
+
+  <h2 id="width">Width</h2>
+  <div class="section">
+    <div>
+      <h3>.input-scale</h3>
+      <input type="text" class="input-scale" placeholder="Default width">
+    </div>
+    <div>
+      <h3>.input-scale-2 / .input-scale-[2.5]</h3>
+      <input type="text" class="input-scale-2" placeholder="2x width">
+      <input type="text" class="input-scale-[2.5]" placeholder="2.5x width">
+    </div>
+    <div>
+      <h3>.input-ratio (1:1)</h3>
+      <input type="text" class="input-ratio input-8" placeholder="1:1">
+      <input type="text" class="input-ratio input-10" placeholder="1:1">
+    </div>
+    <div>
+      <h3>.input-ratio-2 / .input-ratio-3 (2:1 / 3:1)</h3>
+      <input type="text" class="input-ratio-2 input-8" placeholder="2:1">
+      <input type="text" class="input-ratio-3 input-8" placeholder="3:1">
+    </div>
+    <div>
+      <h3>.input-full</h3>
+      <input type="text" class="input-full" placeholder="Full width">
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

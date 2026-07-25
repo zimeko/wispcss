@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Entry - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Entry Component</h1>
+  <p>List item container with centered text and optional side media (icons, images, checkboxes). Supports single-line truncation, multi-line expansion, states, shapes, variants, and sizes.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base structure: <code>.entry > .entry-body > .entry-label</code>. Side slots accept any content (icons, checkboxes, text).</li>
+      <li>States: <code>.entry-disabled</code>, <code>.entry-selected</code>, <code>.entry-checked</code>.</li>
+      <li>Shapes: <code>.entry-rounded</code>, <code>.entry-pill</code> (pill).</li>
+      <li>Variants: <code>.entry-muted</code> (border), <code>.entry-outline</code> (dark border), <code>.entry-subtle</code> (background), <code>.entry-ghost</code> (hover bg).</li>
+      <li>Text features: <code>.entry-nowrap</code> (single-line truncation), <code>.entry-multiline</code> (wrap), <code>.entry-padded</code> (extra padding), <code>.entry-hoverable</code> (hover color).</li>
+      <li>Sizes: <code>entry-4</code> ~ <code>entry-15</code>. Default is entry-9.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Simple entry</h3>
+      <div class="entry">
+        <div class="entry-body">
+          <div class="entry-label">Basic entry item</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-body">
+          <div class="entry-label">With arrow</div>
+        </div>
+        <span>→</span>
+      </div>
+      <div class="entry">
+        <span>🔍</span>
+        <div class="entry-body">
+          <div class="entry-label">With icon on left</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>With icons + side info</h3>
+      <div class="entry">
+        <span>📁</span>
+        <div class="entry-body">
+          <div class="entry-label">Documents</div>
+        </div>
+        <span style="font-size:0.75rem;color:var(--color-caption);">12 items</span>
+      </div>
+      <div class="entry">
+        <span>🖼️</span>
+        <div class="entry-body">
+          <div class="entry-label">Images</div>
+        </div>
+        <span style="font-size:0.75rem;color:var(--color-caption);">8 items</span>
+      </div>
+    </div>
+    <div>
+      <h3>With checkbox</h3>
+      <div class="entry">
+        <input type="checkbox">
+        <div class="entry-body">
+          <div class="entry-label">Option 1</div>
+        </div>
+      </div>
+      <div class="entry">
+        <input type="checkbox" checked>
+        <div class="entry-body">
+          <div class="entry-label">Option 2 (checked)</div>
+        </div>
+      </div>
+      <div class="entry">
+        <input type="checkbox" disabled>
+        <div class="entry-body">
+          <div class="entry-label">Option 3 (disabled)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="states">States</h2>
+  <div class="section">
+    <div>
+      <h3>.entry-disabled</h3>
+      <div class="entry entry-disabled">
+        <div class="entry-body"><div class="entry-label">Disabled item</div></div>
+      </div>
+      <div class="entry entry-disabled">
+        <span>🔒</span>
+        <div class="entry-body"><div class="entry-label">No access</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>.entry-selected</h3>
+      <div class="entry entry-selected">
+        <div class="entry-body"><div class="entry-label">Selected item</div></div>
+      </div>
+      <div class="entry entry-selected">
+        <span>⭐</span>
+        <div class="entry-body"><div class="entry-label">Favorited</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>.entry-checked</h3>
+      <div class="entry entry-checked">
+        <div class="entry-body"><div class="entry-label">Checked item</div></div>
+      </div>
+      <div class="entry entry-checked">
+        <span>📄</span>
+        <div class="entry-body"><div class="entry-label">Selected file</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Comparison</h3>
+      <div class="entry"><div class="entry-body"><div class="entry-label">Default</div></div></div>
+      <div class="entry entry-selected"><div class="entry-body"><div class="entry-label">Selected</div></div></div>
+      <div class="entry entry-checked"><div class="entry-body"><div class="entry-label">Checked</div></div></div>
+      <div class="entry entry-disabled"><div class="entry-body"><div class="entry-label">Disabled</div></div></div>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>Square (default)</h3>
+      <div class="entry entry-muted"><div class="entry-body"><div class="entry-label">Square item</div></div></div>
+    </div>
+    <div>
+      <h3>.entry-rounded</h3>
+      <div class="entry entry-rounded entry-muted"><div class="entry-body"><div class="entry-label">Rounded item</div></div></div>
+    </div>
+    <div>
+      <h3>.entry-pill (pill)</h3>
+      <div class="entry entry-pill entry-muted"><div class="entry-body"><div class="entry-label">Pill item</div></div></div>
+    </div>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default (no bg/border)</h3>
+      <div class="entry"><div class="entry-body"><div class="entry-label">Default</div></div></div>
+    </div>
+    <div>
+      <h3>.entry-muted (border)</h3>
+      <div class="entry entry-muted"><div class="entry-body"><div class="entry-label">Muted</div></div></div>
+    </div>
+    <div>
+      <h3>.entry-outline (dark border)</h3>
+      <div class="entry entry-outline"><div class="entry-body"><div class="entry-label">Outline</div></div></div>
+    </div>
+    <div>
+      <h3>.entry-subtle (background)</h3>
+      <div class="entry entry-subtle"><div class="entry-body"><div class="entry-label">Subtle</div></div></div>
+    </div>
+    <div>
+      <h3>.entry-ghost (hover bg)</h3>
+      <div class="entry entry-ghost" style="cursor:pointer;"><div class="entry-body"><div class="entry-label">Ghost (hover me)</div></div></div>
+    </div>
+  </div>
+
+  <h2 id="text-features">Text features</h2>
+  <div class="section">
+    <div>
+      <h3>.entry-nowrap (single-line truncation)</h3>
+      <div class="entry entry-nowrap entry-muted" style="max-width:280px;">
+        <div class="entry-body"><div class="entry-label">This is a very long text that will be truncated with ellipsis when it exceeds the container width.</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>.entry-multiline (wrap)</h3>
+      <div class="entry entry-multiline entry-muted" style="max-width:280px;">
+        <div class="entry-body"><div class="entry-label">Multi-line text that wraps automatically. Height adapts to content. Useful for longer descriptions in list items.</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>.entry-padded (extra padding)</h3>
+      <div class="entry entry-padded entry-muted"><div class="entry-body"><div class="entry-label">Padded item</div></div></div>
+      <div class="entry entry-padded entry-subtle"><div class="entry-body"><div class="entry-label">Padded subtle</div></div></div>
+    </div>
+    <div>
+      <h3>.entry-hoverable (hover color)</h3>
+      <div class="entry entry-hoverable" style="cursor:pointer;"><div class="entry-body"><div class="entry-label">Hover me to see color change</div></div></div>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (entry-4 ~ entry-15)</h2>
+  <div class="section">
+    <div>
+      <div class="entry entry-4 entry-muted"><div class="entry-body"><div class="entry-label">entry-4</div></div></div>
+      <div class="entry entry-5 entry-muted"><div class="entry-body"><div class="entry-label">entry-5</div></div></div>
+      <div class="entry entry-6 entry-muted"><div class="entry-body"><div class="entry-label">entry-6</div></div></div>
+      <div class="entry entry-7 entry-muted"><div class="entry-body"><div class="entry-label">entry-7</div></div></div>
+      <div class="entry entry-8 entry-muted"><div class="entry-body"><div class="entry-label">entry-8</div></div></div>
+      <div class="entry entry-9 entry-muted"><div class="entry-body"><div class="entry-label">entry-9</div></div></div>
+      <div class="entry entry-10 entry-muted"><div class="entry-body"><div class="entry-label">entry-10</div></div></div>
+      <div class="entry entry-11 entry-muted"><div class="entry-body"><div class="entry-label">entry-11</div></div></div>
+      <div class="entry entry-12 entry-muted"><div class="entry-body"><div class="entry-label">entry-12</div></div></div>
+      <div class="entry entry-13 entry-muted"><div class="entry-body"><div class="entry-label">entry-13</div></div></div>
+      <div class="entry entry-14 entry-muted"><div class="entry-body"><div class="entry-label">entry-14</div></div></div>
+      <div class="entry entry-15 entry-muted"><div class="entry-body"><div class="entry-label">entry-15</div></div></div>
+    </div>
+  </div>
+
+
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

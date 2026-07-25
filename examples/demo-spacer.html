@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Spacer - Beautify Demo</title>
+  <style>
+    .demo-box { display: inline-flex; align-items: center; justify-content: center; padding: 8px 16px; background: var(--color-primary-bg); border: 1px solid var(--color-primary); border-radius: var(--default-border-radius); font-size: 0.875rem; color: var(--color-primary); }
+    .demo-area { min-height: 60px; }
+    .demo-area-fill { display: flex; align-items: center; border: 1px solid var(--color-title-bd); border-radius: var(--default-border-radius); padding: 8px 12px; min-height: 48px; }
+  </style>
+</head>
+
+<body>
+  <h1>Spacer Component</h1>
+  <p>Whitespace separator utilities for horizontal, vertical, and flex-fill spacing. Uses <code>--spacing</code> (4px base unit) for sizing.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li><code>.spacer</code> / <code>.spacer-h</code> — block-level vertical spacing (default 1rem = 16px).</li>
+      <li><code>.spacer-v</code> — inline horizontal spacing between inline/inline-block elements.</li>
+      <li><code>.spacer-fill</code> — fills remaining space in a flex container (like flex: auto).</li>
+      <li>Custom size via <code>spacer-{n}</code> where n is a multiple of <code>--spacing</code> (e.g. <code>spacer-4</code> = 16px, <code>spacer-10</code> = 40px).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>spacer (vertical)</h3>
+      <div class="demo-area">
+        <div class="demo-box">Block A</div>
+        <div class="spacer"></div>
+        <div class="demo-box">Block B (1rem gap)</div>
+      </div>
+    </div>
+    <div>
+      <h3>spacer-v (horizontal)</h3>
+      <div>
+        <span class="demo-box">Left</span>
+        <span class="spacer-v"></span>
+        <span class="demo-box">Right (1rem gap)</span>
+      </div>
+    </div>
+    <div>
+      <h3>spacer-fill (flex fill)</h3>
+      <div class="demo-area-fill">
+        <span class="demo-box">Left</span>
+        <span class="spacer-fill"></span>
+        <span class="demo-box">Right</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="spacer-sizes-spacer">Spacer sizes (spacer-*)</h2>
+  <div class="section">
+    <div>
+      <h3>spacer-1 (4px) ~ spacer-4 (16px)</h3>
+      <div class="demo-area">
+        <div class="demo-box">A</div><div class="spacer spacer-1"></div><div class="demo-box">1</div>
+        <div class="spacer spacer-2"></div><div class="demo-box">2</div>
+        <div class="spacer spacer-3"></div><div class="demo-box">3</div>
+        <div class="spacer spacer-4"></div><div class="demo-box">4</div>
+      </div>
+    </div>
+    <div>
+      <h3>spacer-5 (20px) ~ spacer-10 (40px)</h3>
+      <div class="demo-area">
+        <div class="demo-box">A</div><div class="spacer spacer-5"></div><div class="demo-box">5</div>
+        <div class="spacer spacer-6"></div><div class="demo-box">6</div>
+        <div class="spacer spacer-8"></div><div class="demo-box">8</div>
+        <div class="spacer spacer-10"></div><div class="demo-box">10</div>
+      </div>
+    </div>
+    <div>
+      <h3>spacer-12 (48px) ~ spacer-20 (80px)</h3>
+      <div class="demo-area">
+        <div class="demo-box">A</div><div class="spacer spacer-12"></div><div class="demo-box">12</div>
+        <div class="spacer spacer-16"></div><div class="demo-box">16</div>
+        <div class="spacer spacer-20"></div><div class="demo-box">20</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="spacer-v-sizes">Spacer-v sizes</h2>
+  <div class="section">
+    <div>
+      <h3>spacer-v-1 ~ spacer-v-4</h3>
+      <span class="demo-box">A</span><span class="spacer-v spacer-1"></span><span class="demo-box">1</span>
+      <span class="spacer-v spacer-2"></span><span class="demo-box">2</span>
+      <span class="spacer-v spacer-3"></span><span class="demo-box">3</span>
+      <span class="spacer-v spacer-4"></span><span class="demo-box">4</span>
+    </div>
+    <div>
+      <h3>spacer-v-5 ~ spacer-v-10</h3>
+      <span class="demo-box">A</span><span class="spacer-v spacer-5"></span><span class="demo-box">5</span>
+      <span class="spacer-v spacer-6"></span><span class="demo-box">6</span>
+      <span class="spacer-v spacer-8"></span><span class="demo-box">8</span>
+      <span class="spacer-v spacer-10"></span><span class="demo-box">10</span>
+    </div>
+    <div>
+      <h3>spacer-v-12 ~ spacer-v-20</h3>
+      <span class="demo-box">A</span><span class="spacer-v spacer-12"></span><span class="demo-box">12</span>
+      <span class="spacer-v spacer-16"></span><span class="demo-box">16</span>
+      <span class="spacer-v spacer-20"></span><span class="demo-box">20</span>
+    </div>
+  </div>
+
+  <h2 id="spacer-fill-use-cases">Spacer-fill use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Left-right alignment</h3>
+      <div class="demo-area-fill">
+        <span class="demo-box">Left</span>
+        <span class="spacer-fill"></span>
+        <span class="demo-box">Right</span>
+      </div>
+    </div>
+    <div>
+      <h3>Left-center-right layout</h3>
+      <div class="demo-area-fill">
+        <span class="demo-box">Left</span>
+        <span class="spacer-fill"></span>
+        <span class="demo-box" style="background:transparent;border-color:var(--color-title-bd);color:var(--color-description);">Center</span>
+        <span class="spacer-fill"></span>
+        <span class="demo-box">Right</span>
+      </div>
+    </div>
+    <div>
+      <h3>Nav bar example</h3>
+      <div class="demo-area-fill" style="gap:0;">
+        <span class="demo-box" style="background:var(--color-primary);color:#fff;border-color:var(--color-primary);">Logo</span>
+        <span class="spacer-fill"></span>
+        <span class="demo-box" style="background:transparent;border-color:var(--color-title-bd);color:var(--color-description);">Home</span>
+        <span class="spacer-v spacer-2"></span>
+        <span class="demo-box" style="background:transparent;border-color:var(--color-title-bd);color:var(--color-description);">About</span>
+        <span class="spacer-v spacer-2"></span>
+        <span class="demo-box" style="background:transparent;border-color:var(--color-title-bd);color:var(--color-description);">Contact</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

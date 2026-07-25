@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Button Icon - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Button Icon</h1>
+<p>Icon buttons using <code>.btn-icon</code> (1:1 square button) with variants, colors, sizes, and shapes. Supports SVG, <code>img</code>, and icon fonts.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+<li>Use <code>.btn-icon</code> for a square 1:1 icon button. It works on button, a, span elements, etc. All <code>btn-*</code> utilities (colors, variants, sizes, shapes) work with it.</li>
+      <li>Three icon types are supported: inline SVG, <code>img</code> tag, and icon font (e.g. Font Awesome).</li>
+      <li>Use the <code>disabled</code> attribute for disabled state.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default icon button</h3>
+      <button class="btn-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </button>
+      <button class="btn-icon"><i class="fas fa-home"></i></button>
+      <button class="btn-icon">
+        <img src="https://unpkg.com/@codady/resource/image/avatar07.jpg" alt="avatar" style="width:18px;height:18px">
+      </button>
+      <a href="###" class="btn btn-icon">N</a>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <button class="btn-icon" disabled><i class="fas fa-home"></i></button>
+      <button class="btn-icon" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </button>
+    </div>
+    <div>
+      <h3>Link as icon button</h3>
+      <a href="###" class="btn btn-icon btn-primary">N</a>
+      <a href="###" class="btn btn-icon btn-outline-success">Y</a>
+      <a href="###" class="btn btn-icon btn-subtle-info"><i class="fas fa-info"></i></a>
+    </div>
+    <div>
+      <h3>Ghost variant (<code>.btn-ghost</code>)</h3>
+      <button class="btn-icon btn-ghost"><i class="fas fa-edit"></i></button>
+      <button class="btn-icon btn-ghost"><i class="fas fa-trash"></i></button>
+      <button class="btn-icon btn-ghost"><i class="fas fa-cog"></i></button>
+      <button class="btn-icon btn-ghost" disabled><i class="fas fa-edit"></i></button>
+    </div>
+  </div>
+
+  <h2 id="primary-colors">Primary colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <button class="btn-icon btn-primary"><i class="fas fa-star"></i></button>
+      <button class="btn-icon btn-outline-primary"><i class="fas fa-star"></i></button>
+      <button class="btn-icon btn-subtle-primary"><i class="fas fa-star"></i></button>
+      <button class="btn-icon btn-ghost-primary"><i class="fas fa-star"></i></button>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <button class="btn-icon btn-secondary"><i class="fas fa-bell"></i></button>
+      <button class="btn-icon btn-outline-secondary"><i class="fas fa-bell"></i></button>
+      <button class="btn-icon btn-subtle-secondary"><i class="fas fa-bell"></i></button>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <button class="btn-icon btn-tertiary"><i class="fas fa-music"></i></button>
+      <button class="btn-icon btn-outline-tertiary"><i class="fas fa-music"></i></button>
+      <button class="btn-icon btn-subtle-tertiary"><i class="fas fa-music"></i></button>
+    </div>
+  </div>
+
+  <h2 id="status-colors">Status colors</h2>
+  <div class="section">
+    <div>
+      <h3>Success</h3>
+      <button class="btn-icon btn-success"><i class="fas fa-check"></i></button>
+      <button class="btn-icon btn-outline-success"><i class="fas fa-check"></i></button>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <button class="btn-icon btn-error"><i class="fas fa-times"></i></button>
+      <button class="btn-icon btn-outline-error"><i class="fas fa-times"></i></button>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <button class="btn-icon btn-info"><i class="fas fa-info-circle"></i></button>
+      <button class="btn-icon btn-outline-info"><i class="fas fa-info-circle"></i></button>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <button class="btn-icon btn-warning"><i class="fas fa-life-ring"></i></button>
+      <button class="btn-icon btn-outline-warning"><i class="fas fa-life-ring"></i></button>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <button class="btn-icon btn-highlight"><i class="fas fa-exclamation-triangle"></i></button>
+      <button class="btn-icon btn-outline-highlight"><i class="fas fa-exclamation-triangle"></i></button>
+    </div>
+  </div>
+
+  <h2 id="neutral-colors">Neutral colors</h2>
+  <div class="section">
+    <div>
+      <h3>Title</h3>
+      <button class="btn-icon btn-title"><i class="fas fa-heading"></i></button>
+      <button class="btn-icon btn-outline-title"><i class="fas fa-heading"></i></button>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <button class="btn-icon btn-description"><i class="fas fa-paragraph"></i></button>
+      <button class="btn-icon btn-outline-description"><i class="fas fa-paragraph"></i></button>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <button class="btn-icon btn-caption"><i class="fas fa-comment-alt"></i></button>
+      <button class="btn-icon btn-outline-caption"><i class="fas fa-comment-alt"></i></button>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <button class="btn-icon btn-disabled"><i class="fas fa-ban"></i></button>
+      <button class="btn-icon btn-outline-disabled"><i class="fas fa-ban"></i></button>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Solid</h3>
+      <button class="btn-icon btn-green-500"><i class="fas fa-check"></i></button>
+      <button class="btn-icon btn-green-800"><i class="fas fa-check"></i></button>
+      <button class="btn-icon btn-[blue]"><i class="fas fa-check"></i></button>
+      <button class="btn-icon btn-[#ff0000]"><i class="fas fa-check"></i></button>
+    </div>
+    <div>
+      <h3>Outline</h3>
+      <button class="btn-icon btn-outline-green-500"><i class="fas fa-check"></i></button>
+      <button class="btn-icon btn-outline-[blue]"><i class="fas fa-check"></i></button>
+    </div>
+    <div>
+      <h3>Subtle</h3>
+      <button class="btn-icon btn-subtle-green-500"><i class="fas fa-check"></i></button>
+    </div>
+    <div>
+      <h3>Ghost</h3>
+      <button class="btn-icon btn-ghost-green-500"><i class="fas fa-check"></i></button>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (btn-4 ~ btn-15)</h2>
+  <div class="section">
+    <div>
+      <h3>Extra small: 4 ~ 7</h3>
+      <button class="btn-icon btn-primary btn-4"><i class="fas fa-star"></i></button>
+      <button class="btn-icon btn-primary btn-5"><i class="fas fa-star"></i></button>
+      <button class="btn-icon btn-primary btn-6"><i class="fas fa-star"></i></button>
+      <button class="btn-icon btn-primary btn-7"><i class="fas fa-star"></i></button>
+    </div>
+    <div>
+      <h3>Small: 8 ~ 9</h3>
+      <button class="btn-icon btn-primary btn-8"><i class="fas fa-star"></i></button>
+      <button class="btn-icon btn-primary btn-9"><i class="fas fa-star"></i></button>
+    </div>
+    <div>
+      <h3>Medium: 10 ~ 11</h3>
+      <button class="btn-icon btn-primary btn-10"><i class="fas fa-star"></i></button>
+      <button class="btn-icon btn-primary btn-11"><i class="fas fa-star"></i></button>
+    </div>
+    <div>
+      <h3>Large: 12 ~ 13</h3>
+      <button class="btn-icon btn-primary btn-12"><i class="fas fa-star"></i></button>
+      <button class="btn-icon btn-primary btn-13"><i class="fas fa-star"></i></button>
+    </div>
+    <div>
+      <h3>Extra large: 14 ~ 15</h3>
+      <button class="btn-icon btn-primary btn-14"><i class="fas fa-star"></i></button>
+      <button class="btn-icon btn-primary btn-15"><i class="fas fa-star"></i></button>
+    </div>
+  </div>
+
+  <h2 id="icon-types">Icon types comparison</h2>
+  <div class="section">
+    <div>
+      <h3>SVG</h3>
+      <button class="btn-icon btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </button>
+      <button class="btn-icon btn-outline-success">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      </button>
+    </div>
+    <div>
+      <h3>Image (img tag)</h3>
+      <button class="btn-icon btn-primary">
+        <img src="https://unpkg.com/@codady/resource/image/avatar07.jpg" alt="avatar" style="width:18px;height:18px">
+      </button>
+      <button class="btn-icon btn-outline-info">
+        <img src="https://unpkg.com/@codady/resource/image/avatar07.jpg" alt="avatar" style="width:18px;height:18px">
+      </button>
+    </div>
+    <div>
+      <h3>Icon font</h3>
+      <button class="btn-icon btn-primary"><i class="fas fa-home"></i></button>
+      <button class="btn-icon btn-outline-secondary"><i class="fas fa-cog"></i></button>
+      <button class="btn-icon btn-success"><i class="fas fa-check-pill"></i></button>
+      <button class="btn-icon btn-outline-error"><i class="fas fa-times-pill"></i></button>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

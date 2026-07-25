@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Skeleton - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Skeleton Component</h1>
+  <p>Loading placeholder that renders a shimmer sweep or pulse animation. Add <code>.skeleton</code> to any element and set its dimensions via <code>width</code> / <code>height</code> / <code>border-radius</code>. All child content is automatically hidden.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.skeleton</code>. Requires explicit <code>width</code>, <code>height</code>, and optionally <code>border-radius</code>.</li>
+      <li>Uses a <code>::after</code> pseudo-element with a diagonal shimmer gradient overlay (<code>mix-blend-mode: overlay</code>).</li>
+      <li>Add <code>.skeleton-pulse</code> to switch from shimmer to a simple opacity breathing animation.</li>
+      <li>Set a background color via Tailwind utilities (e.g. <code>bg-title-bd</code>) or inline styles for the base skeleton color.</li>
+    </ul>
+  </div>
+
+  <h2 id="shimmer-default">Shimmer (default)</h2>
+  <div class="section">
+    <div>
+      <h3>Text lines</h3>
+      <div class="skeleton bg-title-bd" style="width: 200px; height: 16px; border-radius: 4px;"></div>
+      <div class="skeleton bg-title-bd" style="width: 140px; height: 16px; border-radius: 4px; margin-top: 8px;"></div>
+      <div class="skeleton bg-title-bd" style="width: 280px; height: 16px; border-radius: 4px; margin-top: 8px;"></div>
+    </div>
+    <div>
+      <h3>Circle avatars</h3>
+      <div class="skeleton bg-title-bd" style="width: 48px; height: 48px; border-radius: 50%; display: inline-block;"></div>
+      <div class="skeleton bg-title-bd" style="width: 40px; height: 40px; border-radius: 50%; display: inline-block;"></div>
+      <div class="skeleton bg-title-bd" style="width: 32px; height: 32px; border-radius: 50%; display: inline-block;"></div>
+    </div>
+    <div>
+      <h3>Square thumbnails</h3>
+      <div class="skeleton bg-title-bd" style="width: 80px; height: 80px; border-radius: 8px; display: inline-block;"></div>
+      <div class="skeleton bg-title-bd" style="width: 64px; height: 64px; border-radius: 8px; display: inline-block;"></div>
+    </div>
+  </div>
+
+  <h2 id="pulse-skeleton-pulse">Pulse (skeleton-pulse)</h2>
+  <div class="section">
+    <div>
+      <h3>Text lines</h3>
+      <div class="skeleton skeleton-pulse bg-title-bd" style="width: 200px; height: 16px; border-radius: 4px;"></div>
+      <div class="skeleton skeleton-pulse bg-title-bd" style="width: 140px; height: 16px; border-radius: 4px; margin-top: 8px;"></div>
+    </div>
+    <div>
+      <h3>Circle + square</h3>
+      <div class="skeleton skeleton-pulse bg-title-bd" style="width: 48px; height: 48px; border-radius: 50%; display: inline-block;"></div>
+      <div class="skeleton skeleton-pulse bg-title-bd" style="width: 80px; height: 80px; border-radius: 8px; display: inline-block;"></div>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Article card</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 300px;">
+        <div class="skeleton bg-title-bd" style="width: 100%; height: 140px; border-radius: 8px;"></div>
+        <div class="skeleton bg-title-bd" style="width: 80%; height: 18px; border-radius: 4px;"></div>
+        <div class="skeleton bg-title-bd" style="width: 60%; height: 14px; border-radius: 4px;"></div>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <div class="skeleton bg-title-bd" style="width: 24px; height: 24px; border-radius: 50%;"></div>
+          <div class="skeleton bg-title-bd" style="width: 100px; height: 12px; border-radius: 4px;"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>List items</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 300px;">
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div class="skeleton bg-title-bd" style="width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;"></div>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
+            <div class="skeleton bg-title-bd" style="width: 60%; height: 14px; border-radius: 4px;"></div>
+            <div class="skeleton bg-title-bd" style="width: 40%; height: 12px; border-radius: 4px;"></div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div class="skeleton bg-title-bd" style="width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;"></div>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
+            <div class="skeleton bg-title-bd" style="width: 60%; height: 14px; border-radius: 4px;"></div>
+            <div class="skeleton bg-title-bd" style="width: 40%; height: 12px; border-radius: 4px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Form skeleton</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 300px;">
+        <div class="skeleton bg-title-bd" style="width: 60px; height: 12px; border-radius: 4px;"></div>
+        <div class="skeleton bg-title-bd" style="width: 100%; height: 40px; border-radius: 8px;"></div>
+        <div class="skeleton bg-title-bd" style="width: 60px; height: 12px; border-radius: 4px;"></div>
+        <div class="skeleton bg-title-bd" style="width: 100%; height: 40px; border-radius: 8px;"></div>
+        <div class="skeleton bg-title-bd" style="width: 100px; height: 40px; border-radius: 8px;"></div>
+      </div>
+    </div>
+    <div>
+      <h3>Profile card</h3>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 16px; max-width: 280px;">
+        <div class="skeleton bg-title-bd" style="width: 72px; height: 72px; border-radius: 50%;"></div>
+        <div class="skeleton bg-title-bd" style="width: 120px; height: 18px; border-radius: 4px;"></div>
+        <div class="skeleton bg-title-bd" style="width: 180px; height: 14px; border-radius: 4px;"></div>
+        <div style="display: flex; gap: 12px;">
+          <div class="skeleton bg-title-bd" style="width: 80px; height: 32px; border-radius: 6px;"></div>
+          <div class="skeleton bg-title-bd" style="width: 80px; height: 32px; border-radius: 6px;"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Article card (pulse)</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 300px;">
+        <div class="skeleton skeleton-pulse bg-title-bd" style="width: 100%; height: 140px; border-radius: 8px;"></div>
+        <div class="skeleton skeleton-pulse bg-title-bd" style="width: 80%; height: 18px; border-radius: 4px;"></div>
+        <div class="skeleton skeleton-pulse bg-title-bd" style="width: 60%; height: 14px; border-radius: 4px;"></div>
+      </div>
+    </div>
+    <div>
+      <h3>List items (pulse)</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 300px;">
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div class="skeleton skeleton-pulse bg-title-bd" style="width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;"></div>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
+            <div class="skeleton skeleton-pulse bg-title-bd" style="width: 60%; height: 14px; border-radius: 4px;"></div>
+            <div class="skeleton skeleton-pulse bg-title-bd" style="width: 40%; height: 12px; border-radius: 4px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top: 2rem;">For regular loading indicators, see <a class="link" href="./demo-spinner.html">demo-spinner.html</a>.</p>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+

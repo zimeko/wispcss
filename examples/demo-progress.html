@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Progress - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Progress Component</h1>
+  <p>Progress bar with dynamic width, height, colors, stripes, gradient, and animation. Uses <code>[data-role=bar]</code> for the filled portion and <code>--progress-value</code> or <code>progress-*</code> class for width.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.progress</code>. Set value via <code>style="--progress-value: 60%"</code> , class <code>progress-60</code> or class <code>progress-[60%]</code>.</li>
+      <li>The <code>[data-role=bar]</code> child renders the filled bar. Text inside is centered automatically.</li>
+      <li>Use <code>[data-role=base]</code> for a background label when the bar is too narrow to show text.</li>
+      <li>Size: <code>progress-2xs</code> (4px) to <code>progress-5xl</code> (40px) — default is <code>progress-md</code> (16px).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>With text</h3>
+      <div class="progress progress-md progress-rounded" style="--progress-value: 25%"><div data-role="bar">25%</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded" style="--progress-value: 50%"><div data-role="bar">50%</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded" style="--progress-value: 75%"><div data-role="bar">75%</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded" style="--progress-value: 100%"><div data-role="bar">100%</div></div>
+    </div>
+    <div>
+      <h3>Without text</h3>
+      <div class="progress progress-md progress-rounded" style="--progress-value: 30%"><div data-role="bar"></div></div>
+      <p></p>
+      <div class="progress progress-20"><div data-role="bar"></div></div>
+      <p></p>
+      <div class="progress progress-[46%]"><div data-role="bar"></div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded" style="--progress-value: 60%"><div data-role="bar"></div></div>
+      <p></p><div class="progress progress-md progress-rounded" style="--progress-value: 90%"><div data-role="bar"></div></div>
+    </div>
+    <div>
+      <h3>Using progress-* value class</h3>
+      <div class="progress progress-md progress-rounded progress-20"><div data-role="bar">20%</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-45"><div data-role="bar">45%</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-80"><div data-role="bar">80%</div></div>
+    </div>
+    <div>
+      <h3>With [data-role=base] (narrow values)</h3>
+      <div class="progress" style="--progress-value: 40%"><div data-role="bar"><span>40%</span></div></div>
+      <p></p>
+      <div class="progress" style="--progress-value: 3%"><div data-role="bar"><span>3%</span></div><span data-role="base">3%</span></div>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>4px (progress-2xs)</h3>
+      <div class="progress progress-2xs progress-rounded progress-primary progress-60"><div data-role="bar"></div></div>
+    </div>
+    <div>
+      <h3>8px (progress-xs)</h3>
+      <div class="progress progress-xs progress-rounded progress-primary progress-60"><div data-role="bar"></div></div>
+    </div>
+    <div>
+      <h3>12px (progress-sm)</h3>
+      <div class="progress progress-sm progress-rounded progress-primary progress-60"><div data-role="bar"></div></div>
+    </div>
+    <div>
+      <h3>16px (progress-md, default)</h3>
+      <div class="progress progress-md progress-rounded progress-primary progress-60"><div data-role="bar">60%</div></div>
+    </div>
+    <div>
+      <h3>20px (progress-lg)</h3>
+      <div class="progress progress-lg progress-rounded progress-primary progress-60"><div data-role="bar">60%</div></div>
+    </div>
+    <div>
+      <h3>24px (progress-xl)</h3>
+      <div class="progress progress-xl progress-rounded progress-primary progress-60"><div data-role="bar">60%</div></div>
+    </div>
+    <div>
+      <h3>28px (progress-2xl)</h3>
+      <div class="progress progress-2xl progress-rounded progress-primary progress-60"><div data-role="bar">60%</div></div>
+    </div>
+    <div>
+      <h3>32px (progress-3xl)</h3>
+      <div class="progress progress-3xl progress-rounded progress-primary progress-60"><div data-role="bar">60%</div></div>
+    </div>
+    <div>
+      <h3>36px (progress-4xl)</h3>
+      <div class="progress progress-4xl progress-rounded progress-primary progress-60"><div data-role="bar">60%</div></div>
+    </div>
+    <div>
+      <h3>40px (progress-5xl)</h3>
+      <div class="progress progress-5xl progress-rounded progress-primary progress-60"><div data-role="bar">60%</div></div>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>progress-rounded</h3>
+      <div class="progress progress-md progress-rounded progress-60"><div data-role="bar">Rounded</div></div>
+    </div>
+    <div>
+      <h3>progress-pill</h3>
+      <div class="progress progress-md progress-pill progress-60"><div data-role="bar">Circle</div></div>
+    </div>
+    <div>
+      <h3>progress-square</h3>
+      <div class="progress progress-md progress-square progress-60"><div data-role="bar">Square</div></div>
+    </div>
+    <div>
+      <h3>progress-fluid</h3>
+      <div class="progress progress-md progress-fluid progress-60"><div data-role="bar">Fluid</div></div>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary / Secondary / Tertiary</h3>
+      <div class="progress progress-md progress-rounded progress-primary progress-70"><div data-role="bar">Primary</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-secondary progress-70"><div data-role="bar">Secondary</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-tertiary progress-70"><div data-role="bar">Tertiary</div></div>
+    </div>
+    <div>
+      <h3>Success / Error / Info</h3>
+      <div class="progress progress-md progress-rounded progress-success progress-65"><div data-role="bar">Success</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-error progress-65"><div data-role="bar">Error</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-info progress-65"><div data-role="bar">Info</div></div>
+    </div>
+    <div>
+      <h3>Highlight / Warning / Caution</h3>
+      <div class="progress progress-md progress-rounded progress-highlight progress-65"><div data-role="bar">Highlight</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-warning progress-65"><div data-role="bar">Warning</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-caution progress-65"><div data-role="bar">Caution</div></div>
+    </div>
+    <div>
+      <h3>Ink / Title / Description / Caption / Disabled</h3>
+      <div class="progress progress-md progress-rounded progress-ink progress-70"><div data-role="bar">Ink</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-title progress-70"><div data-role="bar">Title</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-description progress-70"><div data-role="bar">Description</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-caption progress-70"><div data-role="bar">Caption</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-disabled progress-70"><div data-role="bar">Disabled</div></div>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Tailwind colors</h3>
+      <div class="progress progress-md progress-rounded progress-blue-500 progress-70"><div data-role="bar">blue-500</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-green-500 progress-70"><div data-role="bar">green-500</div></div>
+    </div>
+    <div>
+      <h3>Raw / named colors</h3>
+      <div class="progress progress-md progress-rounded progress-[#ff0000] progress-70"><div data-role="bar">[#ff0000]</div></div>
+      <p></p>
+      <div class="progress progress-md progress-rounded progress-[blue] progress-70"><div data-role="bar">[blue]</div></div>
+    </div>
+  </div>
+
+  <h2 id="stripes">Stripes</h2>
+  <div class="section">
+    <div>
+      <h3>progress-stripes</h3>
+      <div class="progress progress-md progress-rounded progress-primary progress-stripes progress-30"><div data-role="bar">30%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-success progress-stripes progress-55"><div data-role="bar">55%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-error progress-stripes progress-80"><div data-role="bar">80%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-warning progress-stripes progress-60"><div data-role="bar">Warning</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-highlight progress-stripes progress-90"><div data-role="bar">Highlight</div></div>
+    </div>
+  </div>
+
+  <h2 id="gradient">Gradient</h2>
+  <div class="section">
+    <div>
+      <h3>progress-gradient (static)</h3>
+      <div class="progress progress-md progress-rounded progress-primary progress-gradient progress-30"><div data-role="bar">30%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-success progress-gradient progress-55"><div data-role="bar">55%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-error progress-gradient progress-80"><div data-role="bar">80%</div></div>
+    </div>
+    <div>
+      <h3>progress-gradient + progress-animated</h3>
+      <div class="progress progress-md progress-rounded progress-primary progress-gradient progress-animated progress-40"><div data-role="bar">40%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-info progress-gradient progress-animated progress-65"><div data-role="bar">65%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-warning progress-gradient progress-animated progress-90"><div data-role="bar">90%</div></div>
+    </div>
+    <div>
+      <h3>progress-gradient + progress-animated-reverse</h3>
+      <div class="progress progress-md progress-rounded progress-success progress-gradient progress-animated-reverse progress-35"><div data-role="bar">35%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-caution progress-gradient progress-animated-reverse progress-60"><div data-role="bar">60%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-highlight progress-gradient progress-animated-reverse progress-85"><div data-role="bar">85%</div></div>
+    </div>
+  </div>
+
+  <h2 id="stripes-plus-animated">Stripes + Animated</h2>
+  <div class="section">
+    <div>
+      <h3>progress-stripes + progress-animated</h3>
+      <div class="progress progress-md progress-rounded progress-primary progress-stripes progress-animated progress-35"><div data-role="bar">35%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-success progress-stripes progress-animated progress-60"><div data-role="bar">60%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-error progress-stripes progress-animated progress-85"><div data-role="bar">85%</div></div>
+    </div>
+    <div>
+      <h3>progress-stripes + progress-animated-reverse</h3>
+      <div class="progress progress-md progress-rounded progress-info progress-stripes progress-animated-reverse progress-40"><div data-role="bar">40%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-warning progress-stripes progress-animated-reverse progress-65"><div data-role="bar">65%</div></div>
+      <p></p><div class="progress progress-md progress-rounded progress-caution progress-stripes progress-animated-reverse progress-90"><div data-role="bar">90%</div></div>
+    </div>
+  </div>
+
+  <h2 id="loading-progress-spinner">Loading (progress-spinner)</h2>
+  <div class="section">
+    <div>
+      <h3>Indeterminate loading (no [data-role=bar] needed)</h3>
+      <div class="progress progress-md progress-rounded progress-primary progress-spinner"></div>
+      <p></p><div class="progress progress-md progress-rounded progress-success progress-spinner"></div>
+      <p></p><div class="progress progress-md progress-rounded progress-error progress-spinner"></div>
+      <p></p><div class="progress progress-md progress-rounded progress-info progress-spinner"></div>
+      <p></p><div class="progress progress-md progress-rounded progress-warning progress-spinner"></div>
+    </div>
+    <div>
+      <h3>progress-spinner with different sizes</h3>
+      <div class="progress progress-xs progress-rounded progress-primary progress-spinner"></div>
+      <p></p><div class="progress progress-sm progress-rounded progress-primary progress-spinner"></div>
+      <p></p><div class="progress progress-md progress-rounded progress-primary progress-spinner"></div>
+      <p></p><div class="progress progress-lg progress-rounded progress-primary progress-spinner"></div>
+      <p></p><div class="progress progress-xl progress-rounded progress-primary progress-spinner"></div>
+    </div>
+    <div>
+      <h3>progress-spinner with different shapes</h3>
+      <div class="progress progress-md progress-rounded progress-primary progress-spinner"></div>
+      <p></p><div class="progress progress-md progress-pill progress-primary progress-spinner"></div>
+      <p></p><div class="progress progress-md progress-square progress-primary progress-spinner"></div>
+      <p></p><div class="progress progress-md progress-fluid progress-primary progress-spinner"></div>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>File upload progress</h3>
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#666;margin-bottom:4px;"><span>photo.jpg</span><span>75%</span></div>
+      <div class="progress progress-sm progress-rounded progress-success progress-stripes progress-animated progress-75"><div data-role="bar"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#666;margin-bottom:4px;margin-top:8px;"><span>document.pdf</span><span>45%</span></div>
+      <div class="progress progress-sm progress-rounded progress-primary progress-stripes progress-animated progress-45"><div data-role="bar"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#666;margin-bottom:4px;margin-top:8px;"><span>video.mp4</span><span>100%</span></div>
+      <div class="progress progress-sm progress-rounded progress-success progress-100"><div data-role="bar"></div></div>
+    </div>
+    <div>
+      <h3>System resource usage</h3>
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#666;margin-bottom:4px;"><span>CPU</span><span>32%</span></div>
+      <div class="progress progress-xs progress-rounded progress-info progress-32"><div data-role="bar"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#666;margin-bottom:4px;margin-top:8px;"><span>Memory</span><span>67%</span></div>
+      <div class="progress progress-xs progress-rounded progress-warning progress-67"><div data-role="bar"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#666;margin-bottom:4px;margin-top:8px;"><span>Disk</span><span>89%</span></div>
+      <div class="progress progress-xs progress-rounded progress-error progress-89"><div data-role="bar"></div></div>
+    </div>
+    <div>
+      <h3>Password strength</h3>
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#666;margin-bottom:4px;"><span>Weak</span><span>25%</span></div>
+      <div class="progress progress-sm progress-rounded progress-error progress-25"><div data-role="bar"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#666;margin-bottom:4px;margin-top:8px;"><span>Medium</span><span>55%</span></div>
+      <div class="progress progress-sm progress-rounded progress-warning progress-55"><div data-role="bar"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#666;margin-bottom:4px;margin-top:8px;"><span>Strong</span><span>85%</span></div>
+      <div class="progress progress-sm progress-rounded progress-success progress-85"><div data-role="bar"></div></div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Check - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Check Component</h1>
+  <p>Modern checkbox and radio component with CSS variables and pseudo-elements.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Prefer combined utilities like <code>check-subtle-primary</code> over separate <code>check-subtle check-primary</code> — smaller CSS output.</li>
+      <li>Use <code>check-indeterminate</code> for semi-checked state, or the native <code>:indeterminate</code> pseudo-class.</li>
+      <li>Sizes use <code>check-4</code> ~ <code>check-15</code> (4 ~ 15 spacing units). Height increases by 1 spacing unit per step.</li>
+      <li>Shape modifiers (<code>check-pill</code>, <code>check-rounded</code>, <code>check-square</code>, <code>check-fluid</code>) apply to variants with background/border (subtle, vivid, ghost, outline, muted, tick).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Radio</h3>
+      <label class="check"><input type="radio" name="basic-radio"><span>Option 1</span></label>
+      <label class="check"><input type="radio" name="basic-radio"><span>Option 2</span></label>
+      <label class="check check-bold"><input type="radio" name="basic-radio"><span>Bold border</span></label>
+      <label class="check"><input type="radio" name="basic-radio" checked><span>Checked</span></label>
+      <label class="check"><input type="radio" name="basic-radio" disabled><span>Disabled</span></label>
+    </div>
+    <div>
+      <h3>Checkbox</h3>
+      <label class="check"><input type="checkbox"><span>Option 1</span></label>
+      <label class="check"><input type="checkbox"><span>Option 2</span></label>
+      <label class="check check-bold"><input type="checkbox"><span>Bold border</span></label>
+      <label class="check"><input type="checkbox" checked><span>Checked</span></label>
+      <label class="check"><input type="checkbox" disabled><span>Disabled</span></label>
+    </div>
+  </div>
+
+  <h2 id="variants">Visual variants</h2>
+  <div class="section">
+    <div>
+      <h3>check-subtle</h3>
+      <p>Soft filled background.</p>
+      <label class="check check-subtle"><input type="radio" name="subtle-radio"><span>Radio</span></label>
+      <label class="check check-subtle"><input type="radio" name="subtle-radio" checked><span>Checked</span></label>
+      <label class="check check-subtle"><input type="radio" name="subtle-radio" disabled><span>Disabled</span></label>
+      <label class="check check-subtle"><input type="checkbox"><span>Checkbox</span></label>
+      <label class="check check-subtle"><input type="checkbox" checked><span>Checked</span></label>
+      <label class="check check-subtle"><input type="checkbox" disabled><span>Disabled</span></label>
+    </div>
+    <div>
+      <h3>check-vivid</h3>
+      <p>Color inversion on hover / checked.</p>
+      <label class="check check-vivid"><input type="radio" name="vivid-radio"><span>Radio</span></label>
+      <label class="check check-vivid"><input type="radio" name="vivid-radio" checked><span>Checked</span></label>
+      <label class="check check-vivid"><input type="radio" name="vivid-radio" disabled><span>Disabled</span></label>
+      <label class="check check-vivid"><input type="checkbox"><span>Checkbox</span></label>
+      <label class="check check-vivid"><input type="checkbox" checked><span>Checked</span></label>
+      <label class="check check-vivid"><input type="checkbox" disabled><span>Disabled</span></label>
+    </div>
+    <div>
+      <h3>check-ghost</h3>
+      <p>Transparent with hover background.</p>
+      <label class="check check-ghost"><input type="radio" name="ghost-radio"><span>Radio</span></label>
+      <label class="check check-ghost"><input type="radio" name="ghost-radio" checked><span>Checked</span></label>
+      <label class="check check-ghost"><input type="radio" name="ghost-radio" disabled><span>Disabled</span></label>
+      <label class="check check-ghost"><input type="checkbox"><span>Checkbox</span></label>
+      <label class="check check-ghost"><input type="checkbox" checked><span>Checked</span></label>
+      <label class="check check-ghost"><input type="checkbox" disabled><span>Disabled</span></label>
+    </div>
+    <div>
+      <h3>check-outline</h3>
+      <p>Solid border button-like.</p>
+      <label class="check check-outline"><input type="radio" name="outline-radio"><span>Radio</span></label>
+      <label class="check check-outline"><input type="radio" name="outline-radio" checked><span>Checked</span></label>
+      <label class="check check-outline"><input type="radio" name="outline-radio" disabled><span>Disabled</span></label>
+      <label class="check check-outline"><input type="checkbox"><span>Checkbox</span></label>
+      <label class="check check-outline"><input type="checkbox" checked><span>Checked</span></label>
+      <label class="check check-outline"><input type="checkbox" disabled><span>Disabled</span></label>
+    </div>
+    <div>
+      <h3>check-muted</h3>
+      <p>Soft gray border.</p>
+      <label class="check check-muted"><input type="radio" name="muted-radio"><span>Radio</span></label>
+      <label class="check check-muted"><input type="radio" name="muted-radio" checked><span>Checked</span></label>
+      <label class="check check-muted"><input type="radio" name="muted-radio" disabled><span>Disabled</span></label>
+      <label class="check check-muted"><input type="checkbox"><span>Checkbox</span></label>
+      <label class="check check-muted"><input type="checkbox" checked><span>Checked</span></label>
+      <label class="check check-muted"><input type="checkbox" disabled><span>Disabled</span></label>
+    </div>
+    <div>
+      <h3>check-tick</h3>
+      <p>Checkmark icon only, no box.</p>
+      <label class="check check-tick"><input type="radio" name="tick-radio"><span>Radio</span></label>
+      <label class="check check-tick"><input type="radio" name="tick-radio" checked><span>Checked</span></label>
+      <label class="check check-tick"><input type="radio" name="tick-radio" disabled><span>Disabled</span></label>
+      <label class="check check-tick"><input type="checkbox"><span>Checkbox</span></label>
+      <label class="check check-tick"><input type="checkbox" checked><span>Checked</span></label>
+      <label class="check check-tick"><input type="checkbox" disabled><span>Disabled</span></label>
+    </div>
+  </div>
+
+  <h2 id="features">Features</h2>
+  <div class="section">
+    <div>
+      <h3>check-indeterminate</h3>
+      <label class="check check-indeterminate"><input type="checkbox"><span>Indeterminate</span></label>
+      <label class="check check-primary check-indeterminate"><input type="checkbox"><span>Primary indeterminate</span></label>
+    </div>
+    <div>
+      <h3>check-reverse</h3>
+      <p>Label on the left side.</p>
+      <label class="check check-reverse"><input type="checkbox"><span>Reverse layout</span></label>
+    </div>
+    <div>
+      <h3>check-full</h3>
+      <p>Full-width horizontal fill.</p>
+      <label class="check check-full"><input type="checkbox"><span>This option fills the parent container width.</span></label>
+    </div>
+    <div>
+      <h3>check-multiline</h3>
+      <p>Multi-line text, top-aligned with input.</p>
+      <label class="check check-multiline" style="width:300px;"><input type="checkbox"><span>This is a long multi-line option. When the text is too long it will wrap automatically to keep the layout clean and readable.</span></label>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shape modifiers</h2>
+  <div class="section">
+    <div>
+      <h3>check-pill (pill)</h3>
+      <label class="check check-subtle check-pill"><input type="checkbox"><span>Circle shape</span></label>
+      <label class="check check-outline check-pill"><input type="checkbox"><span>Circle outline</span></label>
+    </div>
+    <div>
+      <h3>check-rounded (micro-rounded)</h3>
+      <label class="check check-subtle check-rounded"><input type="checkbox"><span>Rounded</span></label>
+      <label class="check check-outline check-rounded"><input type="checkbox"><span>Rounded outline</span></label>
+    </div>
+    <div>
+      <h3>check-square (sharp)</h3>
+      <label class="check check-subtle check-square"><input type="checkbox"><span>Square</span></label>
+      <label class="check check-outline check-square"><input type="checkbox"><span>Square outline</span></label>
+    </div>
+    <div>
+      <h3>check-fluid (height-proportional)</h3>
+      <label class="check check-subtle check-fluid"><input type="checkbox"><span>Fluid round</span></label>
+      <label class="check check-outline check-fluid"><input type="checkbox"><span>Fluid outline</span></label>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>check-4 (16px) ~ check-7 (28px)</h3>
+      <label class="check check-subtle check-4"><input type="checkbox"><span>check-4</span></label>
+      <label class="check check-subtle check-5"><input type="checkbox"><span>check-5</span></label>
+      <label class="check check-subtle check-6"><input type="checkbox"><span>check-6</span></label>
+      <label class="check check-subtle check-7"><input type="checkbox"><span>check-7</span></label>
+    </div>
+    <div>
+      <h3>check-8 (32px) ~ check-11 (44px)</h3>
+      <label class="check check-subtle check-8"><input type="checkbox"><span>check-8</span></label>
+      <label class="check check-subtle check-9"><input type="checkbox"><span>check-9</span></label>
+      <label class="check check-subtle check-10"><input type="checkbox"><span>check-10</span></label>
+      <label class="check check-subtle check-11"><input type="checkbox"><span>check-11</span></label>
+    </div>
+    <div>
+      <h3>check-12 (48px) ~ check-15 (60px)</h3>
+      <label class="check check-subtle check-12"><input type="checkbox"><span>check-12</span></label>
+      <label class="check check-subtle check-13"><input type="checkbox"><span>check-13</span></label>
+      <label class="check check-subtle check-14"><input type="checkbox"><span>check-14</span></label>
+      <label class="check check-subtle check-15"><input type="checkbox"><span>check-15</span></label>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <label class="check check-primary"><input type="radio" name="c-primary-radio"><span>Radio</span></label>
+      <label class="check check-primary"><input type="checkbox" checked><span>Checkbox</span></label>
+      <label class="check check-subtle check-primary"><input type="checkbox" checked><span>Subtle</span></label>
+      <label class="check check-outline check-primary"><input type="checkbox"><span>Outline</span></label>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <label class="check check-secondary"><input type="radio" name="c-secondary-radio"><span>Radio</span></label>
+      <label class="check check-secondary"><input type="checkbox" checked><span>Checkbox</span></label>
+      <label class="check check-subtle check-secondary"><input type="checkbox" checked><span>Subtle</span></label>
+      <label class="check check-outline check-secondary"><input type="checkbox"><span>Outline</span></label>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <label class="check check-tertiary"><input type="radio" name="c-tertiary-radio"><span>Radio</span></label>
+      <label class="check check-tertiary"><input type="checkbox" checked><span>Checkbox</span></label>
+      <label class="check check-subtle check-tertiary"><input type="checkbox" checked><span>Subtle</span></label>
+      <label class="check check-outline check-tertiary"><input type="checkbox" ><span>Outline</span></label>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <label class="check check-success"><input type="radio" name="c-success-radio"><span>Radio</span></label>
+      <label class="check check-success"><input type="checkbox" checked><span>Checkbox</span></label>
+      <label class="check check-subtle check-success"><input type="checkbox" checked><span>Subtle</span></label>
+      <label class="check check-outline check-success"><input type="checkbox" ><span>Outline</span></label>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <label class="check check-error"><input type="radio" name="c-error-radio"><span>Radio</span></label>
+      <label class="check check-error"><input type="checkbox" checked><span>Checkbox</span></label>
+      <label class="check check-subtle check-error"><input type="checkbox" checked><span>Subtle</span></label>
+      <label class="check check-outline check-error"><input type="checkbox" ><span>Outline</span></label>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <label class="check check-info"><input type="radio" name="c-info-radio"><span>Radio</span></label>
+      <label class="check check-info"><input type="checkbox" checked><span>Checkbox</span></label>
+      <label class="check check-subtle check-info"><input type="checkbox" checked><span>Subtle</span></label>
+      <label class="check check-outline check-info"><input type="checkbox" ><span>Outline</span></label>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <label class="check check-warning"><input type="radio" name="c-warning-radio"><span>Radio</span></label>
+      <label class="check check-warning"><input type="checkbox" checked><span>Checkbox</span></label>
+      <label class="check check-subtle check-warning"><input type="checkbox" checked><span>Subtle</span></label>
+      <label class="check check-outline check-warning"><input type="checkbox" ><span>Outline</span></label>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <label class="check check-caution"><input type="radio" name="c-caution-radio"><span>Radio</span></label>
+      <label class="check check-caution"><input type="checkbox" checked><span>Checkbox</span></label>
+      <label class="check check-subtle check-caution"><input type="checkbox" checked><span>Subtle</span></label>
+      <label class="check check-outline check-caution"><input type="checkbox" ><span>Outline</span></label>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <label class="check check-highlight"><input type="radio" name="c-highlight-radio"><span>Radio</span></label>
+      <label class="check check-highlight"><input type="checkbox" checked><span>Checkbox</span></label>
+      <label class="check check-subtle check-highlight"><input type="checkbox" checked><span>Subtle</span></label>
+      <label class="check check-outline check-highlight"><input type="checkbox" ><span>Outline</span></label>
+    </div>
+  </div>
+
+  <h2 id="variant-shortcuts">Shortcut variant colors</h2>
+  <div class="section">
+    <p>Standalone compound variants — equivalent to variant + color in one class.</p>
+    <div>
+      <h3>check-subtle-*</h3>
+      <label class="check check-subtle-primary"><input type="checkbox" checked><span>check-subtle-primary</span></label>
+      <label class="check check-subtle-success"><input type="checkbox" checked><span>check-subtle-success</span></label>
+      <label class="check check-subtle-error"><input type="checkbox" ><span>check-subtle-error</span></label>
+    </div>
+    <div>
+      <h3>check-vivid-*</h3>
+      <label class="check check-vivid-primary"><input type="checkbox" checked><span>check-vivid-primary</span></label>
+      <label class="check check-vivid-success"><input type="checkbox" checked><span>check-vivid-success</span></label>
+      <label class="check check-vivid-error"><input type="checkbox" ><span>check-vivid-error</span></label>
+    </div>
+    <div>
+      <h3>check-ghost-*</h3>
+      <label class="check check-ghost-primary"><input type="checkbox" checked><span>check-ghost-primary</span></label>
+      <label class="check check-ghost-success"><input type="checkbox" checked><span>check-ghost-success</span></label>
+      <label class="check check-ghost-error"><input type="checkbox" ><span>check-ghost-error</span></label>
+    </div>
+    <div>
+      <h3>check-outline-*</h3>
+      <label class="check check-outline-primary"><input type="checkbox" checked><span>check-outline-primary</span></label>
+      <label class="check check-outline-success"><input type="checkbox" checked><span>check-outline-success</span></label>
+      <label class="check check-outline-error"><input type="checkbox" ><span>check-outline-error</span></label>
+    </div>
+    <div>
+      <h3>check-muted-*</h3>
+      <label class="check check-muted-primary"><input type="checkbox" checked><span>check-muted-primary</span></label>
+      <label class="check check-muted-success"><input type="checkbox" checked><span>check-muted-success</span></label>
+      <label class="check check-muted-error"><input type="checkbox" ><span>check-muted-error</span></label>
+    </div>
+    <div>
+      <h3>check-tick-*</h3>
+      <label class="check check-tick-primary"><input type="checkbox" checked><span>check-tick-primary</span></label>
+      <label class="check check-tick-success"><input type="checkbox" checked><span>check-tick-success</span></label>
+      <label class="check check-tick-error"><input type="checkbox" ><span>check-tick-error</span></label>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div>
+      <h3>check-blue-* custom color</h3>
+      <label class="check check-blue-100"><input type="checkbox" checked><span>check-blue-100</span></label>
+      <label class="check check-blue-500"><input type="checkbox" checked><span>check-blue-500</span></label>
+      <label class="check check-blue-800"><input type="checkbox" checked><span>check-blue-800</span></label>
+    </div>
+    <div>
+      <h3>Subtle variant with custom color</h3>
+      <label class="check check-subtle check-blue-100"><input type="checkbox" checked><span>check-blue-100 subtle</span></label>
+      <label class="check check-subtle check-blue-500"><input type="checkbox" checked><span>check-blue-500 subtle</span></label>
+      <label class="check check-subtle check-blue-800"><input type="checkbox" checked><span>check-blue-800 subtle</span></label>
+    </div>
+    <div>
+      <h3>Outline variant with custom color</h3>
+      <label class="check check-outline check-blue-100"><input type="checkbox" checked><span>check-blue-100 outline</span></label>
+      <label class="check check-outline check-blue-500"><input type="checkbox" checked><span>check-blue-500 outline</span></label>
+      <label class="check check-outline check-blue-800"><input type="checkbox" checked><span>check-blue-800 outline</span></label>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

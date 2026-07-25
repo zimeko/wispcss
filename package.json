@@ -1,0 +1,69 @@
+{
+  "name": "@codady/beautify",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Devivid Development Team",
+  "license": "MIT",
+  "description": "Beautify, A pure CSS component and utility library built on the Tailwind CSS v4 compiler. Fully documented with inline comments, AI-friendly. It provides styled HTML native elements and a comprehensive set of utility classes for UI layout, without requiring any JavaScript.",
+  "exports": {
+    ".": "./src/index.css",
+    "./*": "./src/*.css"
+  },
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "private": false,
+  "workspaces": [],
+  "files": [
+    "examples",
+    "dist",
+    "package.json",
+    "CHANGELOG.md",
+    "README.md",
+    "README.zh-CN.md",
+    "skill.md",
+    "script-gen-color.js",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.27.2"
+  },
+  "scripts": {
+    "gen-color": "node script-gen-color.js",
+    "mini": "node script-mini.js",
+    "pack": "node script-pack.js",
+    "git": "node script-git.js",
+    "push": "node script-push.js",
+    "all": "npm run mini && npm publish  && (npm run push || true)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codady/beautify"
+  },
+  "extraRepositories": [
+    {
+      "type": "git",
+      "url": "https://gitee.com/codady/beautify"
+    }
+  ],
+  "keywords": [
+    "tailwind",
+    "css4",
+    "html5",
+    "css3"
+  ],
+  "bugs": {
+    "url": "https://github.com/codady/beautify/issues"
+  },
+  "homepage": "https://www.devivid.com",
+  "dependencies": {
+    "@codady/normalize": "^0.0.7",
+    "@tailwindcss/cli": "^4.3.0",
+    "simple-git": "^3.27.0",
+    "tailwindcss": "^4.3.2"
+  }
+}

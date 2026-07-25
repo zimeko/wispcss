@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Shadow - Beautify Demo</title>
+  <style>
+    .shadow-box { width: 100%; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; background: var(--color-stage); margin-bottom: 8px; }
+  </style>
+</head>
+
+<body>
+  <h1>Shadow Utilities</h1>
+  <p>Beautify supplements Tailwind's built-in shadows with additional CSS variables for common UI layers. Tailwind <code>shadow-*</code> classes work directly.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Beautify adds shadow variables beyond Tailwind's defaults: <code>--shadow-base</code>, <code>--shadow-border</code>, <code>--shadow-border-inner</code>, <code>--shadow-bubble</code>, <code>--shadow-card</code>, <code>--shadow-desk</code>.</li>
+      <li>Tailwind built-in shadow classes: <code>shadow-sm</code>, <code>shadow</code>, <code>shadow-md</code>, <code>shadow-lg</code>, <code>shadow-xl</code>, <code>shadow-2xl</code>, <code>shadow-inner</code>, <code>shadow-none</code>.</li>
+      <li>Custom shadow color: <code>shadow-lg shadow-blue-500/50</code> (Tailwind v4).</li>
+      <li>Arbitrary shadow: <code>shadow-[0_10px_40px_rgba(0,0,0,0.3)]</code>.</li>
+    </ul>
+  </div>
+
+  <h2 id="beautify-supplemental-shadows">Beautify supplemental shadows</h2>
+  <div class="section">
+    <div>
+      <h3>--shadow-base</h3>
+      <div class="shadow-box" style="box-shadow: var(--shadow-base);">base</div>
+    </div>
+    <div>
+      <h3>--shadow-border</h3>
+      <div class="shadow-box" style="box-shadow: var(--shadow-border);">border (base + outline)</div>
+    </div>
+    <div>
+      <h3>--shadow-border-inner</h3>
+      <div class="shadow-box" style="box-shadow: var(--shadow-border-inner);">border-inner (inset + base)</div>
+    </div>
+    <div>
+      <h3>--shadow-bubble</h3>
+      <div class="shadow-box" style="box-shadow: var(--shadow-bubble);">bubble (dialog/balloon)</div>
+    </div>
+    <div>
+      <h3>--shadow-card</h3>
+      <div class="shadow-box" style="box-shadow: var(--shadow-card);">card</div>
+    </div>
+    <div>
+      <h3>--shadow-desk</h3>
+      <div class="shadow-box" style="box-shadow: var(--shadow-desk);">desk (highest)</div>
+    </div>
+  </div>
+
+  <h2 id="tailwind-built-in-shadow-classes">Tailwind built-in shadow classes</h2>
+  <div class="section">
+    <div>
+      <h3>shadow-sm</h3>
+      <div class="shadow-box shadow-sm">shadow-sm</div>
+    </div>
+    <div>
+      <h3>shadow</h3>
+      <div class="shadow-box shadow">shadow</div>
+    </div>
+    <div>
+      <h3>shadow-md</h3>
+      <div class="shadow-box shadow-md">shadow-md</div>
+    </div>
+    <div>
+      <h3>shadow-lg</h3>
+      <div class="shadow-box shadow-lg">shadow-lg</div>
+    </div>
+    <div>
+      <h3>shadow-xl</h3>
+      <div class="shadow-box shadow-xl">shadow-xl</div>
+    </div>
+    <div>
+      <h3>shadow-2xl</h3>
+      <div class="shadow-box shadow-2xl">shadow-2xl</div>
+    </div>
+    <div>
+      <h3>shadow-inner</h3>
+      <div class="shadow-box shadow-inner">shadow-inner</div>
+    </div>
+    <div>
+      <h3>shadow-none</h3>
+      <div class="shadow-box shadow-none">shadow-none</div>
+    </div>
+  </div>
+
+  <h2 id="custom-shadow-colors-tailwind-v4">Custom shadow colors (Tailwind v4)</h2>
+  <div class="section">
+    <div>
+      <h3>shadow-lg shadow-blue-500/50</h3>
+      <div class="shadow-box shadow-lg shadow-blue-500/50">Blue shadow</div>
+    </div>
+    <div>
+      <h3>shadow-lg shadow-red-500/40</h3>
+      <div class="shadow-box shadow-lg shadow-red-500/40">Red shadow</div>
+    </div>
+    <div>
+      <h3>shadow-lg shadow-green-500/40</h3>
+      <div class="shadow-box shadow-lg shadow-green-500/40">Green shadow</div>
+    </div>
+    <div>
+      <h3>Arbitrary value</h3>
+      <div class="shadow-box shadow-[0_10px_40px_rgba(0,0,0,0.3)]">Custom value</div>
+    </div>
+  </div>
+
+  <h2 id="ring-utilities">Ring utilities</h2>
+  <div class="section">
+    <div>
+      <h3>ring (2px outline)</h3>
+      <div class="shadow-box ring">ring</div>
+    </div>
+    <div>
+      <h3>ring-4</h3>
+      <div class="shadow-box ring-4">ring-4</div>
+    </div>
+    <div>
+      <h3>ring-primary</h3>
+      <div class="shadow-box ring ring-primary">ring ring-primary</div>
+    </div>
+    <div>
+      <h3>ring-blue-500</h3>
+      <div class="shadow-box ring ring-blue-500">ring ring-blue-500</div>
+    </div>
+    <div>
+      <h3>ring-offset-2</h3>
+      <div class="shadow-box ring ring-primary ring-offset-2">ring ring-primary ring-offset-2</div>
+    </div>
+    <div>
+      <h3>inset-ring</h3>
+      <div class="shadow-box inset-ring">inset-ring</div>
+    </div>
+    <div>
+      <h3>inset-ring-4</h3>
+      <div class="shadow-box inset-ring-4">inset-ring-4</div>
+    </div>
+    <div>
+      <h3>inset-ring-primary</h3>
+      <div class="shadow-box inset-ring inset-ring-primary">inset-ring inset-ring-primary</div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Spinner - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Spinner Component</h1>
+  <p>Loading indicator with infinite clockwise rotation. Uses CSS conic-gradient and mask for the spinning arc.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.spinner</code>. Default size is 24px (spinner-6).</li>
+      <li>Sizes: <code>spinner-1</code> (4px) to <code>spinner-15</code> (60px). Border width increases with size.</li>
+      <li>Variants: <code>spinner-gapped</code> (gap in the arc), <code>spinner-broken</code> (broken arc segment).</li>
+      <li>Color: <code>spinner-*</code> dynamic utilities (e.g. <code>spinner-primary</code>, <code>spinner-success</code>).</li>
+    </ul>
+  </div>
+
+  <h2 id="default">Default</h2>
+  <div class="section">
+    <div>
+      <span class="spinner"></span>
+      <span class="spinner spinner-gapped"></span>
+      <span class="spinner spinner-broken"></span>
+    </div>
+    <div>
+      <h3>With text</h3>
+      <span class="spinner"></span> Loading...
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>4px (spinner-1)</h3>
+      <span class="spinner spinner-1"></span>
+      <span class="spinner spinner-primary spinner-1"></span>
+    </div>
+    <div>
+      <h3>8px (spinner-2)</h3>
+      <span class="spinner spinner-2"></span>
+      <span class="spinner spinner-primary spinner-2"></span>
+    </div>
+    <div>
+      <h3>12px (spinner-3)</h3>
+      <span class="spinner spinner-3"></span>
+      <span class="spinner spinner-primary spinner-3"></span>
+    </div>
+    <div>
+      <h3>16px (spinner-4)</h3>
+      <span class="spinner spinner-4"></span>
+      <span class="spinner spinner-primary spinner-4"></span>
+    </div>
+    <div>
+      <h3>20px (spinner-5)</h3>
+      <span class="spinner spinner-5"></span>
+      <span class="spinner spinner-primary spinner-5"></span>
+    </div>
+    <div>
+      <h3>24px (spinner-6, default)</h3>
+      <span class="spinner spinner-6"></span>
+      <span class="spinner spinner-primary spinner-6"></span>
+    </div>
+    <div>
+      <h3>28px (spinner-7)</h3>
+      <span class="spinner spinner-7"></span>
+      <span class="spinner spinner-primary spinner-7"></span>
+    </div>
+    <div>
+      <h3>32px (spinner-8)</h3>
+      <span class="spinner spinner-8"></span>
+      <span class="spinner spinner-primary spinner-8"></span>
+    </div>
+    <div>
+      <h3>36px (spinner-9)</h3>
+      <span class="spinner spinner-9"></span>
+      <span class="spinner spinner-primary spinner-9"></span>
+    </div>
+    <div>
+      <h3>40px (spinner-10)</h3>
+      <span class="spinner spinner-10"></span>
+      <span class="spinner spinner-primary spinner-10"></span>
+    </div>
+    <div>
+      <h3>44px (spinner-11)</h3>
+      <span class="spinner spinner-11"></span>
+      <span class="spinner spinner-primary spinner-11"></span>
+    </div>
+    <div>
+      <h3>48px (spinner-12)</h3>
+      <span class="spinner spinner-12"></span>
+      <span class="spinner spinner-primary spinner-12"></span>
+    </div>
+    <div>
+      <h3>52px (spinner-13)</h3>
+      <span class="spinner spinner-13"></span>
+      <span class="spinner spinner-primary spinner-13"></span>
+    </div>
+    <div>
+      <h3>56px (spinner-14)</h3>
+      <span class="spinner spinner-14"></span>
+      <span class="spinner spinner-primary spinner-14"></span>
+    </div>
+    <div>
+      <h3>60px (spinner-15)</h3>
+      <span class="spinner spinner-15"></span>
+      <span class="spinner spinner-primary spinner-15"></span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <span class="spinner spinner-primary"></span>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <span class="spinner spinner-secondary"></span>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <span class="spinner spinner-tertiary"></span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="spinner spinner-success"></span>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <span class="spinner spinner-error"></span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="spinner spinner-info"></span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="spinner spinner-highlight"></span>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <span class="spinner spinner-warning"></span>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <span class="spinner spinner-caution"></span>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <span class="spinner spinner-ink"></span>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <span class="spinner spinner-title"></span>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <span class="spinner spinner-description"></span>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <span class="spinner spinner-caption"></span>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <span class="spinner spinner-disabled"></span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Tailwind + raw colors</h3>
+      <span class="spinner spinner-blue-500"></span>
+      <span class="spinner spinner-green-500"></span>
+      <span class="spinner spinner-[#ff6b6b]"></span>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Inline with text</h3>
+      <span class="spinner spinner-primary spinner-3"></span> Saving...
+    </div>
+    <div>
+      <h3>Button loading</h3>
+      <button class="btn-primary" disabled><span class="spinner spinner-title spinner-3 dark"></span> Saving...</button>
+      <button class="btn-outline-success"><span class="spinner spinner-success spinner-3"></span> Submitting...</button>
+    </div>
+    <div>
+      <h3>Centered loading</h3>
+      <div style="text-align:center;padding:24px;border:1px dashed var(--color-title-bd);border-radius:8px;">
+        <span class="spinner spinner-primary spinner-9"></span>
+        <p style="margin:8px 0 0;font-size:0.875rem;color:var(--color-description);">Loading content...</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top: 2rem;">For skeleton-style loading placeholders, see <a class="link" href="./demo-skeleton.html">demo-skeleton.html</a>.</p>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+

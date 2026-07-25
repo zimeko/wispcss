@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Pill - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Pill Component</h1>
+  <p>Pill-shaped radio button group. Use <code>.segment</code> as container, child items use <code>data-selected="true"</code> or <code>&lt;input type="radio" checked></code> to mark selection.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base class: <code>.segment</code>. Children can be <code>&lt;span></code>, <code>&lt;label></code>, or <code>&lt;a></code>.</li>
+      <li>Selection via <code>data-selected="true"</code> attribute or <code>&lt;input type="radio" checked></code> inside a label.</li>
+      <li>Visual variants: <code>segment-dark</code> (dark background), <code>segment-inverted</code> (swapped colors), <code>segment-flush</code> (no gap, rounded only at ends).</li>
+      <li>Size presets: <code>segment-4</code> (16px) to <code>segment-15</code> (60px) — default is <code>segment-8</code> (32px).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default segment</h3>
+      <span class="segment"><span data-selected="true">Option A</span><span>Option B</span><span>Option C</span></span>
+    </div>
+    <div>
+      <h3>With icons</h3>
+      <span class="segment"><span data-selected="true">&#11088; Star</span><span>&#127867; Fork</span><span>&#128027; Issue</span></span>
+    </div>
+    <div>
+      <h3>segment-grid (full width)</h3>
+      <span class="segment segment-grid"><span data-selected="true">Home</span><span>Products</span><span>About</span><span>Contact</span></span>
+    </div>
+    <div>
+      <h3>Using input[type=radio]</h3>
+      <span class="segment"><label>Option A<input type="radio" checked name="segment-radio" /></label><label>Option B<input type="radio" name="segment-radio" /></label><label>Option C<input type="radio" name="segment-radio" /></label></span>
+    </div>
+  </div>
+
+  <h2 id="variants">Visual variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <span class="segment"><span data-selected="true">Default</span><span>Option</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>segment-dark</h3>
+      <span class="segment segment-dark"><span data-selected="true">Dark</span><span>Option</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>segment-inverted</h3>
+      <span class="segment segment-inverted"><span data-selected="true">Inverted</span><span>Option</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>segment-flush</h3>
+      <span class="segment segment-flush"><span data-selected="true">Flush</span><span>Option</span><span>Option</span></span>
+      <span class="segment segment-flush segment-dark"><span data-selected="true">Flush Dark</span><span>Option</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Dark + inverted</h3>
+      <span class="segment segment-dark segment-inverted"><span data-selected="true">Dark Inv</span><span>Option</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Comparison</h3>
+      <span class="segment"><span data-selected="true">Default</span><span>Option</span></span>
+      <span class="segment segment-dark"><span data-selected="true">Dark</span><span>Option</span></span>
+      <span class="segment segment-inverted"><span data-selected="true">Inv</span><span>Option</span></span>
+      <span class="segment segment-dark segment-inverted"><span data-selected="true">D+I</span><span>Option</span></span>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <span class="segment"><span data-selected="true">Default</span><span>Option</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>segment-rounded</h3>
+      <span class="segment segment-rounded"><span data-selected="true">Rounded</span><span>Option</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>segment-fluid</h3>
+      <span class="segment segment-fluid"><span data-selected="true">Fluid</span><span>Option</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>segment-square</h3>
+      <span class="segment segment-square"><span data-selected="true">Square</span><span>Option</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>segment-pill</h3>
+      <span class="segment segment-pill"><span data-selected="true">Circle</span><span>Option</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>Comparison</h3>
+      <span class="segment"><span data-selected="true">Def</span><span>Opt</span></span>
+      <span class="segment segment-rounded"><span data-selected="true">Rnd</span><span>Opt</span></span>
+      <span class="segment segment-fluid"><span data-selected="true">Flu</span><span>Opt</span></span>
+      <span class="segment segment-square"><span data-selected="true">Sqr</span><span>Opt</span></span>
+      <span class="segment segment-pill"><span data-selected="true">Cir</span><span>Opt</span></span>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (segment-4 ~ segment-15)</h2>
+  <div class="section">
+    <div>
+      <h3>16px (segment-4)</h3>
+      <span class="segment segment-4"><span data-selected="true">4</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>20px (segment-5)</h3>
+      <span class="segment segment-5"><span data-selected="true">5</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>24px (segment-6)</h3>
+      <span class="segment segment-6"><span data-selected="true">6</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>28px (segment-7)</h3>
+      <span class="segment segment-7"><span data-selected="true">7</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>32px (segment-8, default)</h3>
+      <span class="segment segment-8"><span data-selected="true">8</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>36px (segment-9)</h3>
+      <span class="segment segment-9"><span data-selected="true">9</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>40px (segment-10)</h3>
+      <span class="segment segment-10"><span data-selected="true">10</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>44px (segment-11)</h3>
+      <span class="segment segment-11"><span data-selected="true">11</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>48px (segment-12)</h3>
+      <span class="segment segment-12"><span data-selected="true">12</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>52px (segment-13)</h3>
+      <span class="segment segment-13"><span data-selected="true">13</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>56px (segment-14)</h3>
+      <span class="segment segment-14"><span data-selected="true">14</span><span>Option</span></span>
+    </div>
+    <div>
+      <h3>60px (segment-15)</h3>
+      <span class="segment segment-15"><span data-selected="true">15</span><span>Option</span></span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors (default style)</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <span class="segment segment-primary"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <span class="segment segment-secondary"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <span class="segment segment-tertiary"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="segment segment-success"><span data-selected="true">Pass</span><span>Fail</span><span>Skip</span></span>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <span class="segment segment-error"><span data-selected="true">Error</span><span>Warn</span><span>Info</span></span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="segment segment-info"><span data-selected="true">Info</span><span>Warn</span><span>Error</span></span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="segment segment-highlight"><span data-selected="true">Alert</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <span class="segment segment-warning"><span data-selected="true">Help</span><span>Feedback</span><span>Support</span></span>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <span class="segment segment-caution"><span data-selected="true">Caution</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <span class="segment segment-ink"><span data-selected="true">Ink</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <span class="segment segment-title"><span data-selected="true">Title</span><span>Desc</span><span>Cap</span></span>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <span class="segment segment-description"><span data-selected="true">Desc</span><span>Cap</span><span>Title</span></span>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <span class="segment segment-caption"><span data-selected="true">Caption</span><span>Desc</span><span>Title</span></span>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <span class="segment segment-disabled"><span data-selected="true">Disabled</span><span>B</span><span>C</span></span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors (dark style)</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <span class="segment segment-primary segment-dark"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <span class="segment segment-secondary segment-dark"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="segment segment-success segment-dark"><span data-selected="true">Pass</span><span>Fail</span><span>Skip</span></span>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <span class="segment segment-error segment-dark"><span data-selected="true">Error</span><span>Warn</span><span>Info</span></span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="segment segment-info segment-dark"><span data-selected="true">Info</span><span>Warn</span><span>Error</span></span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="segment segment-highlight segment-dark"><span data-selected="true">Alert</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <span class="segment segment-warning segment-dark"><span data-selected="true">Help</span><span>Feed</span><span>Support</span></span>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <span class="segment segment-ink segment-dark"><span data-selected="true">Ink</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <span class="segment segment-title segment-dark"><span data-selected="true">Title</span><span>Desc</span><span>Cap</span></span>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <span class="segment segment-description segment-dark"><span data-selected="true">Desc</span><span>Cap</span><span>Title</span></span>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <span class="segment segment-caption segment-dark"><span data-selected="true">Caption</span><span>Desc</span><span>Title</span></span>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <span class="segment segment-disabled segment-dark"><span data-selected="true">Disabled</span><span>B</span><span>C</span></span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors (inverted style)</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <span class="segment segment-primary segment-inverted"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <span class="segment segment-secondary segment-inverted"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="segment segment-success segment-inverted"><span data-selected="true">Pass</span><span>Fail</span><span>Skip</span></span>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <span class="segment segment-error segment-inverted"><span data-selected="true">Error</span><span>Warn</span><span>Info</span></span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="segment segment-info segment-inverted"><span data-selected="true">Info</span><span>Warn</span><span>Error</span></span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="segment segment-highlight segment-inverted"><span data-selected="true">Alert</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <span class="segment segment-warning segment-inverted"><span data-selected="true">Help</span><span>Feed</span><span>Support</span></span>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <span class="segment segment-ink segment-inverted"><span data-selected="true">Ink</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <span class="segment segment-title segment-inverted"><span data-selected="true">Title</span><span>Desc</span><span>Cap</span></span>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <span class="segment segment-description segment-inverted"><span data-selected="true">Desc</span><span>Cap</span><span>Title</span></span>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <span class="segment segment-caption segment-inverted"><span data-selected="true">Caption</span><span>Desc</span><span>Title</span></span>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <span class="segment segment-disabled segment-inverted"><span data-selected="true">Disabled</span><span>B</span><span>C</span></span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors (dark + inverted)</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <span class="segment segment-primary segment-dark segment-inverted"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <span class="segment segment-secondary segment-dark segment-inverted"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="segment segment-success segment-dark segment-inverted"><span data-selected="true">Pass</span><span>Fail</span><span>Skip</span></span>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <span class="segment segment-error segment-dark segment-inverted"><span data-selected="true">Error</span><span>Warn</span><span>Info</span></span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="segment segment-info segment-dark segment-inverted"><span data-selected="true">Info</span><span>Warn</span><span>Error</span></span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="segment segment-highlight segment-dark segment-inverted"><span data-selected="true">Alert</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <span class="segment segment-warning segment-dark segment-inverted"><span data-selected="true">Help</span><span>Feed</span><span>Support</span></span>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <span class="segment segment-ink segment-dark segment-inverted"><span data-selected="true">Ink</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <span class="segment segment-title segment-dark segment-inverted"><span data-selected="true">Title</span><span>Desc</span><span>Cap</span></span>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <span class="segment segment-description segment-dark segment-inverted"><span data-selected="true">Desc</span><span>Cap</span><span>Title</span></span>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <span class="segment segment-caption segment-dark segment-inverted"><span data-selected="true">Caption</span><span>Desc</span><span>Title</span></span>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <span class="segment segment-disabled segment-dark segment-inverted"><span data-selected="true">Disabled</span><span>B</span><span>C</span></span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Tailwind colors (default)</h3>
+      <span class="segment segment-red-200"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+      <span class="segment segment-green-500"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Raw colors (default)</h3>
+      <span class="segment segment-[#90ced2]"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Tailwind colors (dark)</h3>
+      <span class="segment segment-red-600 segment-dark"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+      <span class="segment segment-[#04afba] segment-dark"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+    <div>
+      <h3>Tailwind colors (dark + inverted)</h3>
+      <span class="segment segment-red-600 segment-dark segment-inverted"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+      <span class="segment segment-[#04afba] segment-dark segment-inverted"><span data-selected="true">A</span><span>B</span><span>C</span></span>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Tab switcher (default + primary)</h3>
+      <span class="segment segment-primary"><span data-selected="true">&#11088; Favorites</span><span>&#128193; Files</span><span>&#128101; Team</span><span>&#9881;&#65039; Settings</span></span>
+    </div>
+    <div>
+      <h3>Filter bar (dark + full width)</h3>
+      <span class="segment segment-primary segment-dark segment-grid"><span data-selected="true">All</span><span>In Progress</span><span>Completed</span><span>Closed</span></span>
+    </div>
+    <div>
+      <h3>View mode (inverted + circle)</h3>
+      <span class="segment segment-primary segment-inverted segment-pill"><span data-selected="true">&#128202; Chart</span><span>&#128203; List</span><span>&#128209; Board</span></span>
+    </div>
+    <div>
+      <h3>Status selector</h3>
+      <span class="segment segment-success"><span data-selected="true">&#9989; Pass</span><span>&#9203; Wait</span><span>&#10060; Fail</span></span>
+      <span class="segment segment-highlight segment-dark"><span data-selected="true">&#9888;&#65039; Warning</span><span>&#8505;&#65039; Info</span><span>&#128683; Error</span></span>
+    </div>
+    <div>
+      <h3>Combined: dark + inverted + square + grid</h3>
+      <span class="segment segment-primary segment-dark segment-inverted segment-square segment-grid"><span data-selected="true">Home</span><span>Products</span><span>Services</span><span>About</span><span>Contact</span></span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

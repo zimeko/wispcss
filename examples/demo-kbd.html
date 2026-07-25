@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Kbd - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Kbd Component</h1>
+  <p>Keyboard key styling with dynamic sizing, shape and color support.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base element: <code>&lt;kbd></code>. Sizes: <code>kbd-4</code> ~ <code>kbd-15</code> (font-size based).</li>
+      <li>Shapes: <code>kbd-rounded</code>, <code>kbd-square</code>, <code>kbd-pill</code>, <code>kbd-fluid</code>.</li>
+      <li>Colors: <code>kbd-*</code> dynamic utilities (e.g. <code>kbd-primary</code>, <code>kbd-error</code>, <code>kbd-blue-500</code>).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Native kbd</h3>
+      <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>Esc</kbd> <kbd>Tab</kbd> <kbd>Space</kbd> <kbd>Enter</kbd> <kbd>Del</kbd>
+    </div>
+    <div>
+      <h3>Combination shortcuts</h3>
+      <kbd>Ctrl</kbd> + <kbd>C</kbd>
+      <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
+      <kbd>Alt</kbd> + <kbd>Tab</kbd>
+      <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
+    </div>
+    <div>
+      <h3>Inline in paragraph</h3>
+      <p>Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save, or <kbd>F11</kbd> for fullscreen.</p>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (kbd-4 ~ kbd-15)</h2>
+  <div class="section">
+    <div>
+      <h3>All sizes</h3>
+      <kbd class="kbd-4">4</kbd>
+      <kbd class="kbd-5">5</kbd>
+      <kbd class="kbd-6">6</kbd>
+      <kbd class="kbd-7">7</kbd>
+      <kbd class="kbd-8">8</kbd>
+      <kbd class="kbd-9">9</kbd>
+      <kbd class="kbd-10">10</kbd>
+      <kbd class="kbd-11">11</kbd>
+      <kbd class="kbd-12">12</kbd>
+      <kbd class="kbd-13">13</kbd>
+      <kbd class="kbd-14">14</kbd>
+      <kbd class="kbd-15">15</kbd>
+    </div>
+    <div>
+      <h3>Via font-size</h3>
+      <kbd class="text-sm">Ctrl</kbd>
+      <kbd class="text-lg">Ctrl</kbd>
+      <kbd class="text-xl">Ctrl</kbd>
+      <kbd class="[--kbd-font-size:1.5rem]">Ctrl</kbd>
+      <kbd style="font-size:20px;">Ctrl</kbd>
+    </div>
+    <div>
+      <h3>Size + primary color</h3>
+      <kbd class="kbd-4 kbd-rounded kbd-primary">4</kbd>
+      <kbd class="kbd-5 kbd-rounded kbd-primary">5</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-primary">6</kbd>
+      <kbd class="kbd-7 kbd-rounded kbd-primary">7</kbd>
+      <kbd class="kbd-8 kbd-rounded kbd-primary">8</kbd>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>Four shapes (kbd-6)</h3>
+      <kbd class="kbd-6 kbd-rounded">Rounded</kbd>
+      <kbd class="kbd-6 kbd-square">Square</kbd>
+      <kbd class="kbd-6 kbd-pill">C</kbd>
+      <kbd class="kbd-6 kbd-fluid">Fluid</kbd>
+    </div>
+    <div>
+      <h3>Shapes + success color</h3>
+      <kbd class="kbd-6 kbd-rounded kbd-success">Rounded</kbd>
+      <kbd class="kbd-6 kbd-square kbd-success">Square</kbd>
+      <kbd class="kbd-6 kbd-pill kbd-success">S</kbd>
+      <kbd class="kbd-6 kbd-fluid kbd-success">Fluid</kbd>
+    </div>
+    <div>
+      <h3>Shapes + large size (kbd-9)</h3>
+      <kbd class="kbd-9 kbd-rounded">Rounded</kbd>
+      <kbd class="kbd-9 kbd-square">Square</kbd>
+      <kbd class="kbd-9 kbd-pill">C</kbd>
+      <kbd class="kbd-9 kbd-fluid">Fluid</kbd>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <kbd class="kbd-6 kbd-rounded kbd-primary">Primary</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-secondary">Secondary</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-tertiary">Tertiary</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-success">Success</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-error">Error</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-info">Info</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-warning">Warning</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-caution">Caution</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-highlight">Highlight</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-ink">Ink</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-title">Title</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-description">Description</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-caption">Caption</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-disabled">Disabled</kbd>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div>
+      <kbd class="kbd-6 kbd-rounded kbd-blue-200">blue-200</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-blue-500">blue-500</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-[#ff0000]">[#ff0000]</kbd>
+    </div>
+  </div>
+
+  <h2 id="shape-plus-color-combinations">Shape + color combinations</h2>
+  <div class="section">
+    <div>
+      <h3>Rounded + colors</h3>
+      <kbd class="kbd-6 kbd-rounded kbd-primary">P</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-success">S</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-error">E</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-info">I</kbd>
+      <kbd class="kbd-6 kbd-rounded kbd-warning">W</kbd>
+    </div>
+    <div>
+      <h3>Square + colors</h3>
+      <kbd class="kbd-6 kbd-square kbd-primary">P</kbd>
+      <kbd class="kbd-6 kbd-square kbd-success">S</kbd>
+      <kbd class="kbd-6 kbd-square kbd-error">E</kbd>
+      <kbd class="kbd-6 kbd-square kbd-info">I</kbd>
+      <kbd class="kbd-6 kbd-square kbd-warning">W</kbd>
+    </div>
+    <div>
+      <h3>Circle + colors</h3>
+      <kbd class="kbd-6 kbd-pill kbd-primary">P</kbd>
+      <kbd class="kbd-6 kbd-pill kbd-success">S</kbd>
+      <kbd class="kbd-6 kbd-pill kbd-error">E</kbd>
+      <kbd class="kbd-6 kbd-pill kbd-info">I</kbd>
+      <kbd class="kbd-6 kbd-pill kbd-warning">W</kbd>
+    </div>
+    <div>
+      <h3>Fluid + colors</h3>
+      <kbd class="kbd-6 kbd-fluid kbd-primary">P</kbd>
+      <kbd class="kbd-6 kbd-fluid kbd-success">S</kbd>
+      <kbd class="kbd-6 kbd-fluid kbd-error">E</kbd>
+      <kbd class="kbd-6 kbd-fluid kbd-info">I</kbd>
+      <kbd class="kbd-6 kbd-fluid kbd-warning">W</kbd>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Editor shortcuts</h3>
+      <p><kbd class="kbd-6 kbd-rounded kbd-primary">Ctrl</kbd> + <kbd class="kbd-6 kbd-rounded kbd-primary">P</kbd> Quick open</p>
+      <p><kbd class="kbd-6 kbd-rounded kbd-primary">Ctrl</kbd> + <kbd class="kbd-6 kbd-rounded kbd-primary">Shift</kbd> + <kbd class="kbd-6 kbd-rounded kbd-primary">F</kbd> Global search</p>
+      <p><kbd class="kbd-6 kbd-rounded kbd-primary">F5</kbd> Start debugging</p>
+    </div>
+    <div>
+      <h3>System operations</h3>
+      <p><kbd class="kbd-6 kbd-rounded kbd-success">Ctrl</kbd> + <kbd class="kbd-6 kbd-rounded kbd-success">Alt</kbd> + <kbd class="kbd-6 kbd-rounded kbd-success">Del</kbd> Security options</p>
+      <p><kbd class="kbd-6 kbd-rounded kbd-info">Win</kbd> + <kbd class="kbd-6 kbd-rounded kbd-info">D</kbd> Show desktop</p>
+    </div>
+    <div>
+      <h3>Game controls</h3>
+      <p><kbd class="kbd-6 kbd-pill kbd-primary">W</kbd> <kbd class="kbd-6 kbd-pill kbd-primary">A</kbd> <kbd class="kbd-6 kbd-pill kbd-primary">S</kbd> <kbd class="kbd-6 kbd-pill kbd-primary">D</kbd> Move</p>
+      <p><kbd class="kbd-6 kbd-rounded kbd-success">Space</kbd> Jump</p>
+      <p><kbd class="kbd-6 kbd-rounded kbd-error">Mouse</kbd> Attack</p>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

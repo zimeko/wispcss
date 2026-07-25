@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Empty - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Empty Component</h1>
+  <p>Empty state placeholder with text and optional SVG illustration. Supports <code>data-empty</code> for custom messages and <code>--i18n-no-data</code> for locale defaults.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base class: <code>.empty</code>. Displays centered caption text via <code>::before</code> pseudo-element.</li>
+      <li>Custom text via <code>data-empty="Your message"</code> attribute. Falls back to <code>--i18n-no-data</code> CSS variable (default "No Data").</li>
+      <li>Add <code>.empty-illustrated</code> for an SVG illustration above the text.</li>
+      <li>Children (e.g. buttons, links) are automatically placed below the text via flex column layout.</li>
+      <li>Custom colors are supported — <code>.empty</code> text and SVG illustration color inherit from <code>text-*</code> utilities (e.g. <code>text-gray-300</code>).</li>
+    </ul>
+  </div>
+
+  <h2 id="text-only">Text-only</h2>
+  <div class="section">
+    <div>
+      <h3>Custom message</h3>
+      <div class="empty" data-empty="No data available"></div>
+    </div>
+    <div>
+      <h3>Default message</h3>
+      <div class="empty"></div>
+    </div>
+    <div>
+      <h3>Custom i18n default</h3>
+      <div class="empty" style="--i18n-no-data: 'No Content'"></div>
+    </div>
+  </div>
+
+  <h2 id="illustrated">Illustrated</h2>
+  <div class="section">
+    <div>
+      <h3>With custom message</h3>
+      <div class="empty empty-illustrated" data-empty="No search results"></div>
+    </div>
+    <div>
+      <h3>Default message</h3>
+      <div class="empty empty-illustrated"></div>
+    </div>
+    <div>
+      <h3>Use color</h3>
+      <div class="empty empty-illustrated text-blue-300"></div>
+    </div>
+  </div>
+
+  <h2 id="with-actions">With actions</h2>
+  <div class="section">
+    <div>
+      <h3>Text + button</h3>
+      <div class="empty" data-empty="No data">
+        <div><button>Refresh</button></div>
+      </div>
+    </div>
+    <div>
+      <h3>Illustrated + buttons</h3>
+      <div class="empty empty-illustrated" data-empty="Nothing found">
+        <div><button class="btn-primary">Go Home</button> <button>Retry</button></div>
+      </div>
+    </div>
+    <div>
+      <h3>With link</h3>
+      <div class="empty" data-empty="Cart is empty">
+        <div><a class="btn btn-primary" href="#">Browse</a></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Search no results</h3>
+      <div class="empty empty-illustrated" data-empty="No results for 'beautify'">
+        <div><button>Clear filters</button></div>
+      </div>
+    </div>
+    <div>
+      <h3>Empty messages</h3>
+      <div class="empty" data-empty="No new messages">
+        <div><button>View history</button></div>
+      </div>
+    </div>
+    <div>
+      <h3>Empty orders</h3>
+      <div class="empty empty-illustrated" data-empty="No orders yet">
+        <div><button class="btn-primary">Start Shopping</button></div>
+      </div>
+    </div>
+    <div>
+      <h3>Empty favorites</h3>
+      <div class="empty" data-empty="Favorites is empty">
+        <div><a class="btn btn-primary" href="#">Discover</a></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

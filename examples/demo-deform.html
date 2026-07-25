@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Deform - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Deform Component</h1>
+  <p>Deform icons built with CSS pseudo-elements. Supports plus, minus, close, menu, check, search, spinner, chevron, arrow and more. Color via <code>text-*</code> classes.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base class: <code>.deform</code>. Shape class: <code>.deform-*</code> (e.g. <code>.deform-plus</code>).</li>
+      <li>Some shapes require a child <code><span></span></code> element: menu*, arrow*, more-h/v, chevron*, info, warning, spinner.</li>
+      <li>Use <code>.deform-flip</code> to mirror chevron and arrow shapes horizontally.</li>
+      <li>Sizes: <code>deform-2xs</code> ~ <code>deform-5xl</code>.</li>
+      <li>Color: apply <code>text-*</code> utility classes (e.g. <code>text-primary</code>, <code>text-error</code>).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default shapes</h3>
+      <span class="deform deform-plus deform-2xs"></span>
+      <span class="deform deform-minus deform-2xs"></span>
+      <span class="deform deform-close deform-2xs"></span>
+      <span class="deform deform-menu deform-2xs"><span></span></span>
+      <span class="deform deform-check deform-2xs"></span>
+      <span class="deform deform-chevron-end deform-2xs"><span></span></span>
+      <span class="deform deform-arrow-end deform-2xs"><span></span></span>
+    </div>
+    <div>
+      <h3>With color</h3>
+      <span class="deform deform-plus text-primary"></span>
+      <span class="deform deform-close text-error"></span>
+      <span class="deform deform-check text-success"></span>
+      <span class="deform deform-info text-info"><span></span></span>
+      <span class="deform deform-warning text-warniing"><span></span></span>
+      <span class="deform deform-spinner text-primary"><span></span></span>
+    </div>
+    <div>
+      <h3>With text</h3>
+      <span class="deform deform-plus text-primary"></span> Add
+      <span class="deform deform-close text-error"></span> Close
+      <span class="deform deform-check text-success"></span> Confirm
+      <span class="deform deform-search"></span> Search
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>Basic operations</h3>
+      <span class="deform deform-plus deform-xl"></span> plus
+      <span class="deform deform-minus deform-xl"></span> minus
+      <span class="deform deform-close deform-xl"></span> close
+      <span class="deform deform-check deform-xl text-success"></span> check
+    </div>
+    <div>
+      <h3>Menu</h3>
+      <span class="deform deform-menu deform-xl"><span></span></span> menu
+      <span class="deform deform-menu-start deform-xl"><span></span></span> menu-start
+      <span class="deform deform-menu-end deform-xl"><span></span></span> menu-end
+    </div>
+    <div>
+      <h3>Status</h3>
+      <span class="deform deform-info deform-xl text-info"><span></span></span> info
+      <span class="deform deform-warning deform-xl text-warning"><span></span></span> warning
+      <span class="deform deform-spinner deform-xl text-primary"><span></span></span> spin
+      <span class="deform deform-search deform-xl"></span> search
+    </div>
+    <div>
+      <h3>More</h3>
+      <span class="deform deform-more-h deform-xl"><span></span></span> more-h
+      <span class="deform deform-more-v deform-xl"><span></span></span> more-v
+    </div>
+    <div>
+      <h3>Chevron (V-shape)</h3>
+      <span class="deform deform-chevron-start deform-xl"><span></span></span> start
+      <span class="deform deform-chevron-end deform-xl"><span></span></span> end
+      <span class="deform deform-chevron-up deform-xl"><span></span></span> up
+      <span class="deform deform-chevron-down deform-xl"><span></span></span> down
+    </div>
+    <div>
+      <h3>Arrow (with tail)</h3>
+      <span class="deform deform-arrow-start deform-xl"><span></span></span> start
+      <span class="deform deform-arrow-end deform-xl"><span></span></span> end
+      <span class="deform deform-arrow-up deform-xl"><span></span></span> up
+      <span class="deform deform-arrow-down deform-xl"><span></span></span> down
+    </div>
+  </div>
+
+  <h2 id="shape-transitions">Shape transitions (all → close)</h2>
+  <div class="section">
+    <div>
+      <span class="deform deform-plus deform-xl text-primary" title="plus"></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span>
+    </div>
+    <div>
+      <span class="deform deform-menu deform-xl" title="menu"><span></span></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span>
+    </div>
+    <div>
+      <span class="deform deform-menu-start deform-xl" title="menu-start"><span></span></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span>
+    </div>
+    <div>
+      <span class="deform deform-menu-end deform-xl" title="menu-end"><span></span></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span>
+    </div>
+    <div>
+      <span class="deform deform-info deform-xl text-info" title="info"><span></span></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span>
+    </div>
+    <div>
+      <span class="deform deform-warning deform-xl text-warning" title="warning"><span></span></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span>
+    </div>
+    <div>
+      <span class="deform deform-more-h deform-xl" title="more-h"><span></span></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span>
+    </div>
+    <div>
+      <span class="deform deform-more-v deform-xl" title="more-v"><span></span></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span>
+    </div>
+    <div>
+      <span class="deform deform-check deform-xl text-success" title="check"></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span>
+    </div>
+    <div>
+      <span class="deform deform-spinner deform-xl text-primary" title="spin"><span></span></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span> /
+      <span class="deform deform-check deform-xl text-success" title="check"></span>
+    </div>
+    <div>
+      <span class="deform deform-search deform-xl" title="search"></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span>
+    </div>
+    <div>
+      <span class="deform deform-chevron-end deform-xl" title="chevron-end"><span></span></span> →
+      <span class="deform deform-close deform-xl text-error" title="close"></span>
+    </div>
+  </div>
+
+  <h2 id="flip">Flip</h2>
+  <div class="section">
+    <div>
+      <span class="deform deform-chevron-end deform-xl" title="chevron-end"><span></span></span>
+      <span class="deform deform-chevron-end deform-flip deform-xl" title="flipped"><span></span></span>
+    </div>
+    <div>
+      <span class="deform deform-arrow-end deform-xl" title="arrow-end"><span></span></span>
+      <span class="deform deform-arrow-end deform-flip deform-xl" title="flipped"><span></span></span>
+    </div>
+    <div>
+      <span class="deform deform-chevron-start deform-xl" title="chevron-start"><span></span></span> →
+      <span class="deform deform-chevron-start deform-flip deform-xl" title="flipped"><span></span></span>
+    </div>
+    <div>
+      <span class="deform deform-chevron-up deform-xl" title="chevron-up"><span></span></span> →
+      <span class="deform deform-chevron-up deform-flip deform-xl" title="flipped"><span></span></span>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>2xs ~ xs</h3>
+      <span class="deform deform-plus deform-2xs text-primary"></span>
+      <span class="deform deform-plus deform-xs text-primary"></span>
+    </div>
+    <div>
+      <h3>sm ~ default (md)</h3>
+      <span class="deform deform-plus deform-sm text-primary"></span>
+      <span class="deform deform-plus text-primary"></span>
+    </div>
+    <div>
+      <h3>lg ~ xl</h3>
+      <span class="deform deform-plus deform-lg text-primary"></span>
+      <span class="deform deform-plus deform-xl text-primary"></span>
+    </div>
+    <div>
+      <h3>2xl ~ 5xl</h3>
+      <span class="deform deform-plus deform-2xl text-primary"></span>
+      <span class="deform deform-plus deform-3xl text-primary"></span>
+      <span class="deform deform-plus deform-4xl text-primary"></span>
+      <span class="deform deform-plus deform-5xl text-primary"></span>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Expand / collapse</h3>
+      <span class="deform deform-chevron-end deform-sm"></span> Click to expand
+      <span class="deform deform-chevron-down deform-sm"></span> Expanded, click to collapse
+    </div>
+    <div>
+      <h3>Loading state (spinner)</h3>
+      <span class="deform deform-spinner text-primary"><span></span></span> Loading...
+    </div>
+    <div>
+      <h3>Search field</h3>
+      <span class="deform deform-search deform-sm"></span> Search...
+    </div>
+    <div>
+      <h3>Close button</h3>
+      <span class="deform deform-close deform-xs"></span> tag
+    </div>
+    <div>
+      <h3>Common button</h3>
+      <button><span class="deform deform-check"></span></button>
+      <button><span class="deform deform-check"></span> check</button>
+      <button class="btn-icon"><span class="deform deform-check "></span></button>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Underline - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Underline Utilities</h1>
+  <p>Beautify supplements Tailwind's built-in <code>underline</code> with CJK offset adjustment and additional decoration styles. The <code>.underline</code> class adds <code>text-underline-offset: .2em</code> for <code>lang="zh"</code>, <code>lang="ja"</code>, and <code>lang="ko"</code> to prevent the underline from intersecting CJK descenders.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use <code>.underline</code> for basic underline with CJK offset (replaces Tailwind's <code>underline</code> for CJK content).</li>
+      <li>Style variants: <code>underline-wavy</code>, <code>underline-dashed</code>, <code>underline-dotted</code>, <code>underline-solid</code>, <code>underline-double</code>.</li>
+      <li>CJK offset applies automatically when the element has <code>lang="zh"</code>, <code>lang="ja"</code>, or <code>lang="ko"</code>.</li>
+    </ul>
+  </div>
+
+  <h2 id="underline-default">underline (basic, CJK offset)</h2>
+  <div class="section">
+    <p lang="zh"><span class="underline">中文下划线</span></p>
+    <p lang="ja"><span class="underline">日本語の下線</span></p>
+    <p lang="ko"><span class="underline">한국어 밑줄</span></p>
+    <p lang="en"><span class="underline">Underline in English</span></p>
+  </div>
+
+  <h2 id="underline-solid">underline-solid</h2>
+  <div class="section">
+    <p lang="zh"><span class="underline-solid">中文下划线</span></p>
+    <p lang="ja"><span class="underline-solid">日本語の下線</span></p>
+    <p lang="ko"><span class="underline-solid">한국어 밑줄</span></p>
+    <p lang="en"><span class="underline-solid">Underline in English</span></p>
+  </div>
+
+  <h2 id="underline-double">underline-double</h2>
+  <div class="section">
+    <p lang="zh"><span class="underline-double">中文下划线</span></p>
+    <p lang="ja"><span class="underline-double">日本語の下線</span></p>
+    <p lang="ko"><span class="underline-double">한국어 밑줄</span></p>
+    <p lang="en"><span class="underline-double">Underline in English</span></p>
+  </div>
+
+  <h2 id="underline-wavy">underline-wavy</h2>
+  <div class="section">
+    <p lang="zh"><span class="underline-wavy">中文下划线</span></p>
+    <p lang="ja"><span class="underline-wavy">日本語の下線</span></p>
+    <p lang="ko"><span class="underline-wavy">한국어 밑줄</span></p>
+    <p lang="en"><span class="underline-wavy">Underline in English</span></p>
+  </div>
+
+  <h2 id="underline-dashed">underline-dashed</h2>
+  <div class="section">
+    <p lang="zh"><span class="underline-dashed">中文下划线</span></p>
+    <p lang="ja"><span class="underline-dashed">日本語の下線</span></p>
+    <p lang="ko"><span class="underline-dashed">한국어 밑줄</span></p>
+    <p lang="en"><span class="underline-dashed">Underline in English</span></p>
+  </div>
+
+  <h2 id="underline-dotted">underline-dotted</h2>
+  <div class="section">
+    <p lang="zh"><span class="underline-dotted">中文下划线</span></p>
+    <p lang="ja"><span class="underline-dotted">日本語の下線</span></p>
+    <p lang="ko"><span class="underline-dotted">한국어 밑줄</span></p>
+    <p lang="en"><span class="underline-dotted">Underline in English</span></p>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

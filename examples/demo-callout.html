@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Callout - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Callout Component</h1>
+  <p>Callout container for alerts and tips. Uses fixed font-size for visual prominence.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Prefer combined utilities like <code>callout-solid-primary</code> over separate <code>callout-solid callout-primary</code> — smaller CSS output.</li>
+      <li>Use <code>data-role="title"</code> and <code>data-role="icon"</code> for structured callout content with larger title/icon sizing.</li>
+      <li>Default font-size is 14px (0.875rem) — no responsive scaling to maintain visual prominence.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default callout</h3>
+      <div class="callout callout-md">
+        <span class="icon icon-warning-triangle-fill"></span>
+        <div>Default warning callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>With title</h3>
+      <div class="callout callout-md">
+        <span class="icon icon-warning-triangle-fill icon-xs"></span>
+        <div>
+          <h3>Note</h3>
+          A callout with title and additional description text.
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Without icon</h3>
+      <div class="callout callout-md">
+        <div>Text-only callout without icon.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="fixed-nodes">Fixed nodes</h2>
+  <div class="section">
+    <div>
+      <h3>data-role="title"</h3>
+      <div class="callout">
+        <div>
+          <div data-role="title">Tip</div>
+          Text-only callout with title node.
+        </div>
+      </div>
+      <div class="callout callout-solid-primary">
+        <div>
+          <div data-role="title">Tip</div>
+          Solid callout with title node.
+        </div>
+      </div>
+      <div class="callout callout-subtle-primary">
+        <div>
+          <div data-role="title">Tip</div>
+          Subtle callout with title node.
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>data-role="icon"</h3>
+      <div class="callout">
+        <span class="icon icon-info-circle-fill" data-role="icon"></span>
+        <div>Callout with icon node.</div>
+      </div>
+      <div class="callout callout-solid-primary">
+        <span class="icon icon-info-circle-fill" data-role="icon"></span>
+        <div>Solid callout with icon node.</div>
+      </div>
+      <div class="callout callout-subtle-primary">
+        <span class="icon icon-info-circle-fill" data-role="icon"></span>
+        <div>Subtle callout with icon node.</div>
+      </div>
+    </div>
+    <div>
+      <h3>Both title + icon</h3>
+      <div class="callout">
+        <span class="icon icon-info-circle-fill" data-role="icon"></span>
+        <div>
+          <div data-role="title">Tip</div>
+          Text-only callout with both icon and title.
+        </div>
+      </div>
+      <div class="callout callout-solid-primary">
+        <span class="icon icon-info-circle-fill" data-role="icon"></span>
+        <div>
+          <div data-role="title">Tip</div>
+          Solid callout with both icon and title.
+        </div>
+      </div>
+      <div class="callout callout-subtle-primary">
+        <span class="icon icon-info-circle-fill" data-role="icon"></span>
+        <div>
+          <div data-role="title">Tip</div>
+          Subtle callout with both icon and title.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Only title + icon</h3>
+      <div class="callout">
+        <span class="icon icon-check-pill-fill" data-role="icon"></span>
+        <div>
+          <div data-role="title">Operation completed successfully.</div>
+        </div>
+      </div>
+      <div class="callout callout-solid">
+        <span class="icon icon-check-pill-fill" data-role="icon"></span>
+        <div>
+          <div data-role="title">Operation completed successfully.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="variants">Visual variants</h2>
+  <div class="section">
+    <div>
+      <h3>Text (default)</h3>
+      <p>No background or border. Colored text only.</p>
+      <div class="callout callout-primary">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Text variant — no background, no border.</div>
+      </div>
+      <div class="callout callout-success">
+        <span class="icon icon-check-pill-fill icon-4xs"></span>
+        <div>Operation completed successfully.</div>
+      </div>
+    </div>
+    <div>
+      <h3>Muted (callout-muted)</h3>
+      <p>Light tint with 1px border.</p>
+      <div class="callout callout-primary callout-muted">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Muted variant — light background with border.</div>
+      </div>
+      <div class="callout callout-success callout-muted">
+        <span class="icon icon-check-pill-fill icon-4xs"></span>
+        <div>Operation completed successfully.</div>
+      </div>
+    </div>
+    <div>
+      <h3>Subtle (callout-subtle)</h3>
+      <p>Borderless low-saturation tint.</p>
+      <div class="callout callout-primary callout-subtle">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Subtle variant — borderless, light background.</div>
+      </div>
+      <div class="callout callout-success callout-subtle">
+        <span class="icon icon-check-pill-fill icon-4xs"></span>
+        <div>Operation completed successfully.</div>
+      </div>
+    </div>
+    <div>
+      <h3>Solid (callout-solid)</h3>
+      <p>High-saturation solid fill with white text.</p>
+      <div class="callout callout-primary callout-solid">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Solid variant — saturated background, white text.</div>
+      </div>
+      <div class="callout callout-success callout-solid">
+        <span class="icon icon-check-pill-fill icon-4xs"></span>
+        <div>Operation completed successfully.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>Extra small: callout-2xs ~ callout-xs</h3>
+      <div class="callout callout-2xs callout-info">
+        <span class="icon icon-info-circle-fill"></span>
+        <div>2xs — 12px font, compact padding</div>
+      </div>
+      <div class="callout callout-xs callout-info">
+        <span class="icon icon-info-circle-fill"></span>
+        <div>xs — 12px font, standard padding</div>
+      </div>
+    </div>
+    <div>
+      <h3>Small: callout-sm ~ callout-md</h3>
+      <div class="callout callout-sm callout-info">
+        <span class="icon icon-info-circle-fill"></span>
+        <div>sm — 14px font (default)</div>
+      </div>
+      <div class="callout callout-md callout-info">
+        <span class="icon icon-info-circle-fill"></span>
+        <div>md — 16px font</div>
+      </div>
+    </div>
+    <div>
+      <h3>Medium: callout-lg ~ callout-xl</h3>
+      <div class="callout callout-lg callout-info">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>lg — 18px font, spacious padding</div>
+      </div>
+      <div class="callout callout-xl callout-info">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>xl — 20px font, extra padding</div>
+      </div>
+    </div>
+    <div>
+      <h3>Large: callout-2xl ~ callout-5xl</h3>
+      <div class="callout callout-2xl callout-info">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>2xl — 22px font</div>
+      </div>
+      <div class="callout callout-3xl callout-info">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>3xl — 24px font</div>
+      </div>
+      <div class="callout callout-4xl callout-info">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>4xl — 26px font</div>
+      </div>
+      <div class="callout callout-5xl callout-info">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>5xl — 28px font</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors (text/muted/subtle)</h2>
+  <div class="section">
+    <div>
+      <h3>callout-primary</h3>
+      <div class="callout callout-md callout-primary">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Primary callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-secondary</h3>
+      <div class="callout callout-md callout-secondary">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Secondary callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-tertiary</h3>
+      <div class="callout callout-md callout-tertiary">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Tertiary callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-success</h3>
+      <div class="callout callout-md callout-success">
+        <span class="icon icon-check-pill-fill icon-4xs"></span>
+        <div>Success callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-error</h3>
+      <div class="callout callout-md callout-error">
+        <span class="icon icon-close-circle-fill icon-4xs"></span>
+        <div>Error callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-info</h3>
+      <div class="callout callout-md callout-info">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Info callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-warning</h3>
+      <div class="callout callout-md callout-warning">
+        <span class="icon icon-warning-circle-fill icon-4xs"></span>
+        <div>Warning callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-caution</h3>
+      <div class="callout callout-md callout-caution">
+        <span class="icon icon-warning-triangle-fill icon-xs"></span>
+        <div>Caution callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-highlight</h3>
+      <div class="callout callout-md callout-highlight">
+        <span class="icon icon-warning-triangle-fill icon-xs"></span>
+        <div>Highlight callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-ink</h3>
+      <div class="callout callout-md callout-ink">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Neutral ink callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-title</h3>
+      <div class="callout callout-md callout-title">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Title color callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-description</h3>
+      <div class="callout callout-md callout-description">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Description color callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-caption</h3>
+      <div class="callout callout-md callout-caption">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Caption color callout.</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-disabled</h3>
+      <div class="callout callout-md callout-disabled">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Disabled callout.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="solid-colors">Solid colors</h2>
+  <div class="section">
+    <div>
+      <div class="callout callout-md callout-primary callout-solid">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Primary</div>
+      </div>
+      <div class="callout callout-md callout-secondary callout-solid">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Secondary</div>
+      </div>
+      <div class="callout callout-md callout-tertiary callout-solid">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Tertiary</div>
+      </div>
+      <div class="callout callout-md callout-success callout-solid">
+        <span class="icon icon-check-pill-fill icon-4xs"></span>
+        <div>Success</div>
+      </div>
+      <div class="callout callout-md callout-error callout-solid">
+        <span class="icon icon-close-circle-fill icon-4xs"></span>
+        <div>Error</div>
+      </div>
+      <div class="callout callout-md callout-info callout-solid">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Info</div>
+      </div>
+      <div class="callout callout-md callout-warning callout-solid">
+        <span class="icon icon-warning-circle-fill icon-4xs"></span>
+        <div>Warning</div>
+      </div>
+      <div class="callout callout-md callout-caution callout-solid">
+        <span class="icon icon-warning-circle-fill icon-4xs"></span>
+        <div>Caution</div>
+      </div>
+      <div class="callout callout-md callout-highlight callout-solid">
+        <span class="icon icon-warning-triangle-fill icon-4xs"></span>
+        <div>Highlight</div>
+      </div>
+      <div class="callout callout-md callout-ink callout-solid">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Ink</div>
+      </div>
+      <div class="callout callout-md callout-title callout-solid">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Title</div>
+      </div>
+      <div class="callout callout-md callout-description callout-solid">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Description</div>
+      </div>
+      <div class="callout callout-md callout-caption callout-solid">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Caption</div>
+      </div>
+      <div class="callout callout-md callout-disabled callout-solid">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>Disabled</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="variant-shortcuts">Shortcut variants</h2>
+  <div class="section">
+    <div>
+      <h3>callout-solid-* (standalone solid)</h3>
+      <div class="callout callout-md callout-solid-primary">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-solid-primary</div>
+      </div>
+      <div class="callout callout-md callout-solid-success">
+        <span class="icon icon-check-pill-fill icon-4xs"></span>
+        <div>callout-solid-success</div>
+      </div>
+      <div class="callout callout-md callout-solid-error">
+        <span class="icon icon-close-circle-fill icon-4xs"></span>
+        <div>callout-solid-error</div>
+      </div>
+      <div class="callout callout-md callout-solid-highlight">
+        <span class="icon icon-warning-triangle-fill icon-4xs"></span>
+        <div>callout-solid-highlight</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-muted-* (standalone muted)</h3>
+      <div class="callout callout-md callout-muted-primary">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-muted-primary</div>
+      </div>
+      <div class="callout callout-md callout-muted-success">
+        <span class="icon icon-check-pill-fill icon-4xs"></span>
+        <div>callout-muted-success</div>
+      </div>
+      <div class="callout callout-md callout-muted-error">
+        <span class="icon icon-close-circle-fill icon-4xs"></span>
+        <div>callout-muted-error</div>
+      </div>
+      <div class="callout callout-md callout-muted-highlight">
+        <span class="icon icon-warning-triangle-fill icon-4xs"></span>
+        <div>callout-muted-highlight</div>
+      </div>
+    </div>
+    <div>
+      <h3>callout-subtle-* (standalone subtle)</h3>
+      <div class="callout callout-md callout-subtle-primary">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-subtle-primary</div>
+      </div>
+      <div class="callout callout-md callout-subtle-success">
+        <span class="icon icon-check-pill-fill icon-4xs"></span>
+        <div>callout-subtle-success</div>
+      </div>
+      <div class="callout callout-md callout-subtle-error">
+        <span class="icon icon-close-circle-fill icon-4xs"></span>
+        <div>callout-subtle-error</div>
+      </div>
+      <div class="callout callout-md callout-subtle-highlight">
+        <span class="icon icon-warning-triangle-fill icon-4xs"></span>
+        <div>callout-subtle-highlight</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div>
+      <h3>Text variant custom color</h3>
+      <div class="callout callout-green-200">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-green-200</div>
+      </div>
+      <div class="callout callout-green-500">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-green-500</div>
+      </div>
+      <div class="callout callout-[blue]">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-[blue]</div>
+      </div>
+      <div class="callout callout-[#acaa20]">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-[#acaa20]</div>
+      </div>
+    </div>
+    <div>
+      <h3>Solid variant custom color</h3>
+      <div class="callout callout-solid callout-green-200">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-solid callout-green-200</div>
+      </div>
+      <div class="callout callout-solid callout-green-500">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-solid callout-green-500</div>
+      </div>
+      <div class="callout callout-solid callout-[blue]">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-solid callout-[blue]</div>
+      </div>
+      <div class="callout callout-solid callout-[#acaa20]">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-solid callout-[#acaa20]</div>
+      </div>
+    </div>
+    <div>
+      <h3>Shortcut solid custom color</h3>
+      <div class="callout callout-solid-green-200">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-solid-green-200</div>
+      </div>
+      <div class="callout callout-solid-green-500">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-solid-green-500</div>
+      </div>
+      <div class="callout callout-solid-[blue]">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-solid-[blue]</div>
+      </div>
+      <div class="callout callout-solid-[#acaa20]">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>callout-solid-[#acaa20]</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Form validation</h3>
+      <div class="callout callout-md callout-error">
+        <span class="icon icon-close-circle-fill icon-xs"></span>
+        <div>
+          <h3>Submit failed</h3>
+          Please check the following fields: username already exists, password too short.
+        </div>
+      </div>
+      <div class="callout callout-md callout-success">
+        <span class="icon icon-check-pill-fill icon-xs"></span>
+        <div>
+          <h3>Registration successful</h3>
+          Welcome! Your account has been created.
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>System notifications</h3>
+      <div class="callout callout-md callout-info">
+        <span class="icon icon-info-circle-fill icon-xs"></span>
+        <div>
+          <h3>System update</h3>
+          Scheduled maintenance tonight 02:00-04:00. Service may be temporarily unavailable.
+        </div>
+      </div>
+      <div class="callout callout-md callout-caution">
+        <span class="icon icon-warning-triangle-fill icon-xs"></span>
+        <div>
+          <h3>Disk space low</h3>
+          Server disk usage at 92%. Please clean up.
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Confirmation</h3>
+      <div class="callout callout-md callout-warning">
+        <span class="icon icon-warning-circle-fill icon-4xs"></span>
+        <div>
+          <h3>Confirm deletion</h3>
+          Are you sure? This action cannot be undone.
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Solid variant highlights</h3>
+      <div class="callout callout-md callout-primary callout-solid">
+        <span class="icon icon-info-circle-fill icon-4xs"></span>
+        <div>
+          <h3>New feature</h3>
+          We've launched a new analytics dashboard. Check it out!
+        </div>
+      </div>
+      <div class="callout callout-md callout-success callout-solid">
+        <span class="icon icon-check-pill-fill icon-4xs"></span>
+        <div>
+          <h3>Backup complete</h3>
+          All data has been backed up to the cloud.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

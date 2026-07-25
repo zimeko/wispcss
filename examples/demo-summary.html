@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Details / Summary - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Details / Summary Component</h1>
+  <p>Native HTML <code>&lt;details></code> / <code>&lt;summary></code> elements styled by <code>preset.css</code>. No JavaScript required for expand/collapse interaction.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use <code>&lt;details></code> as the container and <code>&lt;summary></code> as the clickable header.</li>
+      <li>Add <code>open</code> attribute to keep the panel expanded by default.</li>
+      <li>Add <code>disabled</code> attribute to disable interaction (optional browser support).</li>
+      <li>Nesting is supported — place <code>&lt;details></code> inside another <code>&lt;details></code> for tree-like navigation.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default (collapsed)</h3>
+      <details>
+        <summary>What is details / summary?</summary>
+        <div><p>Native HTML collapsible elements. Click the header to toggle content.</p></div>
+      </details>
+    </div>
+    <div>
+      <h3>Default expanded (open)</h3>
+      <details open>
+        <summary>Terms & Conditions</summary>
+        <div><p>1. You agree to use this service lawfully.<br>2. We reserve the right to modify terms.</p></div>
+      </details>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <details disabled>
+        <summary>Disabled panel</summary>
+        <div><p>This panel cannot be expanded.</p></div>
+      </details>
+    </div>
+  </div>
+
+  <h2 id="content-types">Content types</h2>
+  <div class="section">
+    <div>
+      <h3>Text content</h3>
+      <details><summary>Product description</summary><div><p>Built with cutting-edge technology for enterprise applications.</p></div></details>
+    </div>
+    <div>
+      <h3>List content</h3>
+      <details><summary>System requirements</summary><div><ul><li>OS: Windows 10 / macOS 12+ / Linux</li><li>RAM: 8GB minimum</li><li>Storage: 500MB free space</li></ul></div></details>
+    </div>
+    <div>
+      <h3>Table content</h3>
+      <details><summary>Quarterly sales</summary><div><table style="width:100%;font-size:0.875rem;"><thead><tr><th style="padding:8px;text-align:left;border-bottom:1px solid var(--color-title-bd);">Quarter</th><th style="padding:8px;text-align:right;border-bottom:1px solid var(--color-title-bd);">Revenue</th></tr></thead><tbody><tr><td style="padding:8px;border-bottom:1px solid var(--color-title-bd);">Q1</td><td style="padding:8px;text-align:right;border-bottom:1px solid var(--color-title-bd);">$128K</td></tr><tr><td style="padding:8px;">Q2</td><td style="padding:8px;text-align:right;">$156K</td></tr></tbody></table></div></details>
+    </div>
+  </div>
+
+  <h2 id="nested">Nested</h2>
+  <div class="section">
+    <div>
+      <h3>Nested details</h3>
+      <details><summary>Project docs</summary><div>
+        <p>Full documentation structure.</p>
+        <details><summary>Chapter 1: Overview</summary><div>
+          <p>Project goals and tech stack.</p>
+          <details><summary>1.1 Goals</summary><div><ul><li>Consistent visual style</li><li>Theme customization</li><li>Accessibility</li></ul></div></details>
+        </div></details>
+        <details><summary>Chapter 2: Quick Start</summary><div><p><code>npm install beautify</code></p></div></details>
+      </div></details>
+    </div>
+    <div>
+      <h3>Grouped (FAQ)</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <details><summary>How to reset password?</summary><div><p>Click "Forgot password" on the login page.</p></div></details>
+        <details><summary>How to change profile?</summary><div><p>Go to "Profile" > "Edit".</p></div></details>
+        <details><summary>How to contact support?</summary><div><p>Email: support@example.com</p></div></details>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>FAQ section</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <details><summary>Payment methods?</summary><div><p>We accept WeChat Pay, Alipay, and major credit cards.</p></div></details>
+        <details><summary>Shipping fee?</summary><div><p>Free shipping on orders over $99.</p></div></details>
+        <details><summary>Return policy?</summary><div><p>7-day no-questions-asked returns.</p></div></details>
+      </div>
+    </div>
+    <div>
+      <h3>Settings panel</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <details open><summary>Notifications</summary><div><label style="display:block;margin-top:8px;"><input type="checkbox" checked /> System notices</label></div></details>
+        <details><summary>Security</summary><div><label style="display:block;margin-top:8px;"><input type="checkbox" checked /> Two-factor auth</label></div></details>
+        <details><summary>Appearance</summary><div><label style="display:block;margin-top:8px;"><input type="radio" name="theme" checked /> Light</label></div></details>
+      </div>
+    </div>
+    <div>
+      <h3>Changelog</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <details open><summary>v2.5.0 (2026-06-01)</summary><div><p><strong>New:</strong> Data export, batch operations</p></div></details>
+        <details><summary>v2.4.1 (2026-05-15)</summary><div><p><strong>Fix:</strong> Login timeout issue</p></div></details>
+      </div>
+    </div>
+    <div>
+      <h3>Code snippet</h3>
+      <details><summary>View sample code</summary><div>
+        <pre><code>function hello() {
+  console.log("Hello World");
+}</code></pre>
+      </div></details>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

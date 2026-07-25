@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Transition - Beautify Demo</title>
+  <style>
+    .trans-box { width: 80px; height: 80px; margin: 0 auto 12px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 0.875rem; }
+    .controls { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .ctrl-btn { padding: 4px 12px; font-size: 0.875rem; border: 1px solid #d1d5db; background: #fff; border-radius: 6px; cursor: pointer; }
+    .ctrl-btn:hover { background: #f3f4f6; }
+    .ctrl-btn.active { background: #3b82f6; color: #fff; border-color: #3b82f6; }
+    .global-ctrl { background: #f8fafc; padding: 16px 20px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  </style>
+</head>
+
+<body>
+  <h1>Transition Utilities</h1>
+  <p>Each utility defines a single target state value. Use with Tailwind's <code>transition-*</code> and <code>duration-*</code> properties. Click the buttons below to see effects.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>All utilities only define the target state — pair with <code>transition-[property]</code> and <code>duration-*</code> for animation.</li>
+      <li>Supported transitions: rotate (cross, expand, collapse, reverse), scale (up, down, in, out), 3D flip (flip-y, flip-x), translate (up, down, start, end), opacity (in, out), blur (in, out), backdrop-blur (in, out), shadow (in, out), drop-shadow (in, out).</li>
+      <li>Combine multiple properties: <code>transition-[opacity,translate] duration-normal opacity-in translate-up</code>.</li>
+    </ul>
+  </div>
+
+
+  <h2 id="rotate">Rotate</h2>
+  <div class="section">
+    <div>
+      <h3>rotate-cross (+45&deg;)</h3>
+      <div class="trans-box" id="rc">+</div>
+      <div class="controls"><button class="ctrl-btn" data-target="rc" data-class="transition-[rotate] duration-normal rotate-cross">+45&deg;</button><button class="ctrl-btn" data-target="rc">Reset</button></div>
+    </div>
+    <div>
+      <h3>rotate-expand / rotate-collapse</h3>
+      <div class="trans-box" id="re">></div>
+      <div class="controls"><button class="ctrl-btn" data-target="re" data-class="transition-[rotate] duration-normal rotate-expand">Expand 90&deg;</button><button class="ctrl-btn" data-target="re">Reset</button></div>
+    </div>
+    <div>
+      <h3>rotate-reverse (180&deg;)</h3>
+      <div class="trans-box" id="rr">^</div>
+      <div class="controls"><button class="ctrl-btn" data-target="rr" data-class="transition-[rotate] duration-slower rotate-reverse">180&deg;</button><button class="ctrl-btn" data-target="rr">Reset</button></div>
+    </div>
+  </div>
+
+  <h2 id="scale">Scale</h2>
+  <div class="section">
+    <div>
+      <div class="trans-box" id="sc">Scale</div>
+      <div class="controls">
+        <button class="ctrl-btn" data-target="sc" data-class="transition-[scale] duration-normal scale-up">Up 1.05x</button>
+        <button class="ctrl-btn" data-target="sc" data-class="transition-[scale] duration-normal scale-in">In (1x)</button>
+        <button class="ctrl-btn" data-target="sc" data-class="transition-[scale] duration-normal scale-down">Down 0.95x</button>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="3d-flip">3D Flip</h2>
+  <div class="section">
+    <div>
+      <h3>flip-y</h3>
+      <div class="trans-box" id="fy">Flip Y</div>
+      <div class="controls"><button class="ctrl-btn" data-target="fy" data-class="transition-[rotate] duration-normal flip-y">Flip Y</button><button class="ctrl-btn" data-target="fy">Reset</button></div>
+    </div>
+    <div>
+      <h3>flip-x</h3>
+      <div class="trans-box" id="fx">Flip X</div>
+      <div class="controls"><button class="ctrl-btn" data-target="fx" data-class="transition-[rotate] duration-normal flip-x">Flip X</button><button class="ctrl-btn" data-target="fx">Reset</button></div>
+    </div>
+  </div>
+
+  <h2 id="translate">Translate</h2>
+  <div class="section">
+    <div>
+      <h3>translate-up / translate-down</h3>
+      <div class="trans-box" id="tu">Up</div>
+      <div class="controls"><button class="ctrl-btn" data-target="tu" data-class="transition-[translate] duration-normal translate-up">Up 8px</button><button class="ctrl-btn" data-target="tu">Reset</button></div>
+    </div>
+    <div>
+      <h3>translate-start / translate-end</h3>
+      <div class="trans-box" id="te">R/L</div>
+      <div class="controls"><button class="ctrl-btn" data-target="te" data-class="transition-[translate] duration-normal translate-start">Start</button><button class="ctrl-btn" data-target="te" data-class="transition-[translate] duration-normal translate-end">End</button><button class="ctrl-btn" data-target="te">Reset</button></div>
+    </div>
+  </div>
+
+  <h2 id="opacity">Opacity</h2>
+  <div class="section">
+    <div>
+      <div class="trans-box" id="op">Fade</div>
+      <div class="controls"><button class="ctrl-btn" data-target="op" data-class="transition-[opacity] duration-normal opacity-in">In</button><button class="ctrl-btn" data-target="op" data-class="transition-[opacity] duration-normal opacity-out">Out</button></div>
+    </div>
+  </div>
+
+  <h2 id="blur">Blur</h2>
+  <div class="section">
+    <div>
+      <div class="trans-box" id="bl">Blur</div>
+      <div class="controls"><button class="ctrl-btn" data-target="bl" data-class="transition-[filter] duration-normal blur-in">Clear</button><button class="ctrl-btn" data-target="bl" data-class="transition-[filter] duration-normal blur-out">Blur</button></div>
+    </div>
+  </div>
+
+  <h2 id="backdrop-blur">Backdrop Blur</h2>
+  <div class="section">
+    <div>
+      <div class="trans-box" style="background-size:cover;background-image:url(https://unpkg.com/@codady/resource/image/earth04_sm.jpg);">
+        <div id="bbl" style="background:rgba(255,255,255,0.5);width:100%;height:100%;" ></div></div>
+      <div class="controls"><button class="ctrl-btn" data-target="bbl" data-class="transition-[backdrop-filter] duration-normal backdrop-blur-in">Clear</button><button class="ctrl-btn" data-target="bbl" data-class="transition-[backdrop-filter] duration-normal backdrop-blur-out">Blur</button></div>
+    </div>
+  </div>
+
+  <h2 id="shadow">Shadow</h2>
+  <div class="section">
+    <div>
+      <div class="trans-box" id="sh" style="background:#fff;border:1px solid #ccc;color:#333;">Shadow</div>
+      <div class="controls"><button class="ctrl-btn" data-target="sh" data-class="transition-[box-shadow] duration-normal shadow-in">In</button><button class="ctrl-btn" data-target="sh" data-class="transition-[box-shadow] duration-normal shadow-out">Out</button></div>
+    </div>
+    <div>
+      <h3>drop-shadow</h3>
+      <div class="trans-box" id="ds" style="background:#fff;border:1px solid #ccc;color:#333;">Drop</div>
+      <div class="controls"><button class="ctrl-btn" data-target="ds" data-class="transition-[filter] duration-normal drop-shadow-in">In</button><button class="ctrl-btn" data-target="ds" data-class="transition-[filter] duration-normal drop-shadow-out">Out</button></div>
+    </div>
+  </div>
+
+  <h2 id="combinations">Combinations</h2>
+  <div class="section">
+    <div>
+      <h3>opacity-in + translate-up</h3>
+      <div class="trans-box" id="co">Combo</div>
+      <div class="controls">
+        <button class="ctrl-btn" data-target="co" data-class="transition-[opacity,translate] duration-normal opacity-in translate-up">In+Up</button>
+        <button class="ctrl-btn" data-target="co" data-class="transition-[opacity,translate] duration-normal opacity-out translate-down">Out+Down</button>
+        <button class="ctrl-btn" data-target="co">Reset</button>
+      </div>
+    </div>
+    <div>
+      <h3>scale-up + rotate-cross</h3>
+      <div class="trans-box" id="cs">Combo</div>
+      <div class="controls">
+        <button class="ctrl-btn" data-target="cs" data-class="transition-[scale,rotate] duration-normal scale-up rotate-cross">Scale+Rotate</button>
+        <button class="ctrl-btn" data-target="cs">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+
+      document.addEventListener('click', function(e) {
+        if (!e.target.classList.contains('ctrl-btn')) return;
+        const target = document.getElementById(e.target.getAttribute('data-target'));
+        if (!target) return;
+        const cls = e.target.getAttribute('data-class');
+        e.target.closest('.controls').querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active'));
+        if (cls) { target.className = 'trans-box ' + cls; e.target.classList.add('active'); }
+        else { target.className = 'trans-box'; if (target.id === 'bbl') target.style.backdropFilter = ''; if (target.id === 'sh') target.style.boxShadow = ''; }
+      });
+    })();
+  </script>
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

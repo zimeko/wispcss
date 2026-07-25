@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Comment - Beautify Demo</title>
+
+  <style>
+    /* Media row */
+    .media-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .media-row img {
+      width: 120px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: var(--default-border-radius);
+      cursor: pointer;
+    }
+  
+    /* Poll card */
+    .poll-card {
+      margin-top: 8px;
+      padding: 12px 16px;
+      border: 1px solid var(--color-title-bd);
+      border-radius: var(--default-border-radius);
+      max-width: 360px;
+    }
+
+    .poll-card .poll-title { font-weight: bolder; margin-bottom: 8px; }
+
+    .poll-card .poll-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+    }
+
+    .poll-card .poll-bar {
+      flex: 1;
+      height: 8px;
+      background: var(--color-title-bg-hover);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .poll-card .poll-bar-inner {
+      height: 100%;
+      background: var(--color-primary);
+      border-radius: 4px;
+    }
+
+    .poll-card .poll-pct {
+      font-size: 0.8125rem;
+      color: var(--color-description);
+      min-width: 32px;
+      text-align: right;
+    }
+
+    /* Link card */
+    .link-card {
+      margin-top: 8px;
+      display: flex;
+      border: 1px solid var(--color-title-bd);
+      border-radius: var(--default-border-radius);
+      overflow: hidden;
+      max-width: 400px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .link-card:hover { border-color: var(--color-primary); }
+
+    .link-card-img {
+      width: 120px;
+      min-height: 80px;
+      background: var(--color-title-bg-hover);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .link-card-body {
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .link-card-title {  font-size: 0.875rem; }
+    .link-card-desc { font-size: 0.75rem; color: var(--color-description); }
+    .link-card-url { font-size: 0.6875rem; color: var(--color-caption); }
+  </style>
+</head>
+
+<body>
+  <h1>Comment Component</h1>
+  <p>Comment list with nested threads, avatars, badges, media content (images/video/audio), quotes, polls, and link cards.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use <code>.comments > .comment</code> structure for comment lists.</li>
+      <li>Recursive nesting: <code>.comment > .comment-end > .comments > .comment</code> for threaded replies.</li>
+      <li>Left slot (<code>.comment-start</code>) usually contains avatar; right slot (<code>.comment-end</code>) contains header, body, footer.</li>
+      <li>Use <code>data-role="start"</code> and <code>data-role="end"</code> in header/footer for layout split.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Single comment</h3>
+      <div class="comments">
+        <div class="comment">
+          <div class="comment-start">
+            <a href="###" class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+          </div>
+          <div class="comment-end">
+            <div class="comment-header">
+              <div data-role="start"><a href="###">Song Jian</a><span class="badge"></span></div>
+              <div data-role="end"><span>#1</span></div>
+            </div>
+            <div class="comment-body">
+              Overall, worthy of the status. Strong comprehensive capability.
+            </div>
+            <div class="comment-footer">
+              <div data-role="start"><span>10 hours ago</span><span>Guangdong</span></div>
+              <div data-role="end"><span>&#9829; 12</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>With badge</h3>
+      <div class="comments">
+        <div class="comment">
+          <div class="comment-start">
+            <a href="###" class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+          </div>
+          <div class="comment-end">
+            <div class="comment-header">
+              <div data-role="start"><a href="###">Song Jian</a><span class="badge badge-xs badge-vip">Diamond</span></div>
+              <div data-role="end"><span>#1</span></div>
+            </div>
+            <div class="comment-body">
+              Overall, worthy of the status. Strong comprehensive capability.
+            </div>
+            <div class="comment-footer">
+              <div data-role="start"><span>10 hours ago</span><span>Guangdong</span></div>
+              <div data-role="end"><span>&#9829; 12</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>With separator</h3>
+      <div class="comments">
+        <div class="comment">
+          <div class="comment-start">
+            <a href="###" class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+          </div>
+          <div class="comment-end">
+            <div class="comment-header">
+              <div data-role="start"><a href="###">Song Jian</a><span class="badge badge-xs badge-op">OP</span></div>
+              <div data-role="end"><span>#2</span></div>
+            </div>
+            <div class="comment-body">
+              Thanks for the replies. Adding some additional details.
+            </div>
+            <div class="comment-footer">
+              <div data-role="start"><span>5 hours ago</span><span>Beijing</span></div>
+              <div data-role="end"><span>&#9829; 8</span></div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="nested-replies">Nested replies</h2>
+  <div class="section">
+    <div class="comments">
+      <div class="comment">
+        <div class="comment-start">
+          <a href="###" class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+        </div>
+        <div class="comment-end">
+          <div class="comment-header">
+            <div data-role="start"><a href="###">Song Jian</a><span class="badge badge-xs badge-vip">Diamond</span></div>
+            <div data-role="end"><span>#1</span></div>
+          </div>
+          <div class="comment-body">
+            Overall, worthy of the status. Strong comprehensive capability.
+          </div>
+          <div class="comment-footer">
+            <div data-role="start"><span>10 hours ago</span><span>Guangdong</span></div>
+            <div data-role="end"><span>&#9829; 12</span></div>
+          </div>
+
+          <div class="comments">
+            <div class="comment">
+              <div class="comment-start">
+                <a href="###" class="avatar avatar-sm"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+              </div>
+              <div class="comment-end">
+                <div class="comment-header">
+                  <div data-role="start"><a href="###">Li Hua</a><span class="badge"></span></div>
+                  <div data-role="end"><span>#2</span></div>
+                </div>
+                <div class="comment-body">
+                  Reply to <span class="text-primary">Song Jian</span>: Totally agree, especially the analysis.
+                </div>
+                <div class="comment-footer">
+                  <div data-role="start"><span>8 hours ago</span><span>Shanghai</span></div>
+                  <div data-role="end"><span>&#9829; 5</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment">
+              <div class="comment-start">
+                <a href="###" class="avatar avatar-sm"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+              </div>
+              <div class="comment-end">
+                <div class="comment-header">
+                  <div data-role="start"><a href="###">Wang Ming</a><span class="badge badge-xs badge-op">Mod</span></div>
+                  <div data-role="end"><span>#3</span></div>
+                </div>
+                <div class="comment-body">
+                  Overall, worthy of the status. Strong comprehensive capability.
+                </div>
+                <div class="comment-footer">
+                  <div data-role="start"><span>6 hours ago</span><span>Shenzhen</span></div>
+                  <div data-role="end"><span>&#9829; 3</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="media-content">Media content</h2>
+  <div class="section">
+    <div>
+      <h3>Images</h3>
+      <div class="comments">
+        <div class="comment">
+          <div class="comment-start">
+            <a href="###" class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+          </div>
+          <div class="comment-end">
+            <div class="comment-header">
+              <div data-role="start"><a href="###">Photographer Wang</a><span class="badge badge-xs badge-vip">Photographer</span></div>
+              <div data-role="end"><span>#5</span></div>
+            </div>
+            <div class="comment-body">
+              Sharing some landscape photos from today!
+              <div class="media-row">
+                <img src="https://unpkg.com/@codady/resource/image/earth04_sm.jpg" alt="Landscape 1">
+                <img src="https://unpkg.com/@codady/resource/image/earth04_sm.jpg" alt="Landscape 2">
+                <img src="https://unpkg.com/@codady/resource/image/earth04_sm.jpg" alt="Landscape 3">
+                <img src="https://unpkg.com/@codady/resource/image/earth04_sm.jpg" alt="Landscape 4">
+              </div>
+            </div>
+            <div class="comment-footer">
+              <div data-role="start"><span>3 hours ago</span><span>Yunnan</span></div>
+              <div data-role="end"><span>&#9829; 28</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Video</h3>
+      <div class="comments">
+        <div class="comment">
+          <div class="comment-start">
+            <a href="###" class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+          </div>
+          <div class="comment-end">
+            <div class="comment-header">
+              <div data-role="start"><a href="###">Video Fan</a><span class="badge"></span></div>
+              <div data-role="end"><span>#6</span></div>
+            </div>
+            <div class="comment-body">
+              This video is hilarious! Check it out.
+              <video controls poster="https://unpkg.com/@codady/resource/image/earth04_sm.jpg">
+                <source src="https://unpkg.com/@codady/resource/video/earth04.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comment-footer">
+              <div data-role="start"><span>2 hours ago</span><span>Beijing</span></div>
+              <div data-role="end"><span>&#9829; 15</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Audio</h3>
+      <div class="comments">
+        <div class="comment">
+          <div class="comment-start">
+            <a href="###" class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+          </div>
+          <div class="comment-end">
+            <div class="comment-header">
+              <div data-role="start"><a href="###">Music Lover</a><span class="badge badge-xs badge-vip">VIP</span></div>
+              <div data-role="end"><span>#7</span></div>
+            </div>
+            <div class="comment-body">
+              Sharing a song I have on repeat &#127925;
+              <audio src="https://unpkg.com/@codady/resource/audio/sound.mp3" controls="" style="margin-top:8px;"></audio>
+            </div>
+            <div class="comment-footer">
+              <div data-role="start"><span>1 hour ago</span><span>Guangzhou</span></div>
+              <div data-role="end"><span>&#9829; 9</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="quoted-reply">Quoted reply</h2>
+  <div class="section">
+    <div class="comments">
+      <div class="comment">
+        <div class="comment-start">
+          <a href="###" class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+        </div>
+        <div class="comment-end">
+          <div class="comment-header">
+            <div data-role="start"><a href="###">Manager Zhang</a><span class="badge badge-xs badge-op">OP</span></div>
+            <div data-role="end"><span>#8</span></div>
+          </div>
+          <div class="comment-body">
+            What do you think of this plan? Seems very feasible to me.
+          </div>
+          <div class="comment-footer">
+            <div data-role="start"><span>30 min ago</span><span>Hangzhou</span></div>
+            <div data-role="end"><span>&#9829; 6</span></div>
+          </div>
+
+          <div class="comments">
+            <div class="comment">
+              <div class="comment-start">
+                <a href="###" class="avatar avatar-sm"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+              </div>
+              <div class="comment-end">
+                <div class="comment-header">
+                  <div data-role="start"><a href="###">Engineer Zhao</a><span class="badge"></span></div>
+                  <div data-role="end"><span>#9</span></div>
+                </div>
+                <div class="comment-body">
+                  <blockquote class="blockquote-plain text-description">
+                    <p>Manager Zhang: What do you think of this plan? Seems very feasible to me.</p>
+                  </blockquote>
+                  Reply to <span class="text-primary">Manager Zhang</span>: Overall good, but a few technical points to discuss.
+                </div>
+                <div class="comment-footer">
+                  <div data-role="start"><span>20 min ago</span><span>Chengdu</span></div>
+                  <div data-role="end"><span>&#9829; 4</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="rich-content">Rich content</h2>
+  <div class="section">
+    <div>
+      <h3>Poll card</h3>
+      <div class="comments">
+        <div class="comment">
+          <div class="comment-start">
+            <a href="###" class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+          </div>
+          <div class="comment-end">
+            <div class="comment-header">
+              <div data-role="start"><a href="###">Poll Creator</a><span class="badge"></span></div>
+              <div data-role="end"><span>#10</span></div>
+            </div>
+            <div class="comment-body">
+              Let's vote on where to go for the team building!
+              <div class="poll-card">
+                <div class="poll-title">Team building destination</div>
+                <div class="poll-option">
+                  <span>Hiking</span>
+                  <div class="poll-bar"><div class="poll-bar-inner" style="width:45%"></div></div>
+                  <span class="poll-pct">45%</span>
+                </div>
+                <div class="poll-option">
+                  <span>Beach</span>
+                  <div class="poll-bar"><div class="poll-bar-inner" style="width:30%"></div></div>
+                  <span class="poll-pct">30%</span>
+                </div>
+                <div class="poll-option">
+                  <span>Board games</span>
+                  <div class="poll-bar"><div class="poll-bar-inner" style="width:25%"></div></div>
+                  <span class="poll-pct">25%</span>
+                </div>
+              </div>
+            </div>
+            <div class="comment-footer">
+              <div data-role="start"><span>1 day ago</span><span>Beijing</span></div>
+              <div data-role="end"><span>&#9829; 20</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Link card</h3>
+      <div class="comments">
+        <div class="comment">
+          <div class="comment-start">
+            <a href="###" class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+          </div>
+          <div class="comment-end">
+            <div class="comment-header">
+              <div data-role="start"><a href="###">Sharing Expert</a><span class="badge"></span></div>
+              <div data-role="end"><span>#11</span></div>
+            </div>
+            <div class="comment-body">
+              Great article recommendation &#128071;
+              <a href="###" class="link-card">
+                <div class="link-card-img">&#128196;</div>
+                <div class="link-card-body">
+                  <div class="link-card-title">How to Write Elegant CSS</div>
+                  <div class="link-card-desc">A comprehensive guide on CSS best practices</div>
+                  <div class="link-card-url">blog.example.com</div>
+                </div>
+              </a>
+            </div>
+            <div class="comment-footer">
+              <div data-role="start"><span>2 days ago</span><span>Shanghai</span></div>
+              <div data-role="end"><span>&#9829; 16</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Code share</h3>
+      <div class="comments">
+        <div class="comment">
+          <div class="comment-start">
+            <a href="###" class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar01.jpg"></a>
+          </div>
+          <div class="comment-end">
+            <div class="comment-header">
+              <div data-role="start"><a href="###">Programmer Zhang</a><span class="badge"></span></div>
+              <div data-role="end"><span>#12</span></div>
+            </div>
+            <div class="comment-body">
+              Sharing some useful CSS:
+              <pre style="background:var(--color-title-bg-hover);padding:12px 16px;border-radius:var(--default-border-radius);margin-top:8px;overflow-x:auto;font-size:0.8125rem;"><code>.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}</code></pre>
+            </div>
+            <div class="comment-footer">
+              <div data-role="start"><span>3 days ago</span><span>Shenzhen</span></div>
+              <div data-role="end"><span>&#9829; 22</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

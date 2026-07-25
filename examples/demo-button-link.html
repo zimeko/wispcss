@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Button Link - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Button Link</h1>
+  <p>Borderless link-style buttons (<code>.btn-link</code>) with underline, supporting colors, sizes, shapes, and icons.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use <code>.btn-link</code> for a transparent button with underline. Works on button, a, span elements, etc.</li>
+      <li>Combine with <code>btn-link-*</code> for themed links, e.g. <code>btn-link-primary</code>.</li>
+      <li>Use <code>.btn-link-cjk</code> for optimized CJK underline offset.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Button element</h3>
+      <button class="btn-link">Common Link</button>
+      <button class="btn-link btn-link-cjk">中日韩链接</button>
+      <button class="btn-link" disabled>Disabled</button>
+    </div>
+    <div>
+      <h3>Anchor element</h3>
+      <a href="###" class="btn-link">Anchor link</a>
+      <a href="###" class="btn-link btn-link-cjk">锚点链接</a>
+    </div>
+    <div>
+      <h3>Span element</h3>
+      <span class="btn-link">Span link</span>
+      <span class="btn-link" disabled>Disabled</span>
+    </div>
+  </div>
+
+  <h2 id="link-cjk">Link CJK</h2>
+  <div class="section">
+    <div>
+      <h3>btn-link (default underline offset)</h3>
+      <button class="btn-link">Link Button</button>
+      <button class="btn-link-primary">Primary Link</button>
+      <button class="btn-link-success">Success Link</button>
+    </div>
+    <div>
+      <h3>btn-link-cjk (optimized offset for CJK)</h3>
+      <button class="btn-link btn-link-cjk">链接按钮</button>
+      <button class="btn-link-primary btn-link-cjk">主要链接</button>
+      <button class="btn-link-success btn-link-cjk">成功链接</button>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <button class="btn-link btn-primary">Primary link</button>
+      <button class="btn-link btn-primary" disabled>Disabled</button>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <button class="btn-link btn-secondary">Secondary link</button>
+      <button class="btn-link btn-secondary" disabled>Disabled</button>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <button class="btn-link btn-success">Success link</button>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <button class="btn-link btn-error">Error link</button>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <button class="btn-link btn-info">Info link</button>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <button class="btn-link btn-highlight">Highlight link</button>
+    </div>
+  </div>
+
+  <h2 id="shorthand-btn-link">Shorthand: btn-link-*</h2>
+  <div class="section">
+    <div>
+      <button class="btn-link-primary">Primary</button>
+      <button class="btn-link-success">Success</button>
+      <button class="btn-link-error">Error</button>
+      <button class="btn-link-info">Info</button>
+      <button class="btn-link-highlight">Highlight</button>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Solid variant</h3>
+      <button class="btn-link btn-green-500">green-500</button>
+      <button class="btn-link btn-green-800">green-800</button>
+      <button class="btn-link btn-[blue]">[blue]</button>
+      <button class="btn-link btn-[#ff0000]">[#ff0000]</button>
+    </div>
+    <div>
+      <h3>btn-link-*</h3>
+      <button class="btn-link-green-500">green-500</button>
+      <button class="btn-link-[blue]">[blue]</button>
+    </div>
+  </div>
+
+  <h2 id="with-icons">With icons</h2>
+  <div class="section">
+    <div>
+      <h3>Left icon</h3>
+      <button class="btn-link">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        With icon
+      </button>
+      <button class="btn-link-primary">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        Primary icon
+      </button>
+    </div>
+    <div>
+      <h3>Right icon</h3>
+      <button class="btn-link">
+        View more
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+      <button class="btn-link-success">
+        Complete
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Form actions</h3>
+      <button class="btn-link">Forgot password?</button>
+      <button class="btn-link-primary">Create account</button>
+      <button class="btn-link-success">View details</button>
+    </div>
+    <div>
+      <h3>List actions</h3>
+      <button class="btn-link btn-8">Edit</button>
+      <button class="btn-link btn-error btn-8">Delete</button>
+      <button class="btn-link btn-info btn-8">View</button>
+    </div>
+    <div>
+      <h3>Navigation</h3>
+      <button class="btn-link btn-9">Home</button>
+      <button class="btn-link btn-9">Products</button>
+      <button class="btn-link btn-9">About</button>
+      <button class="btn-link-primary btn-9">Contact</button>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

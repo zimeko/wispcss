@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Avatar - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Avatar Component</h1>
+  <p>Flexible avatar component with text/placeholder fallbacks, SVG masking, themes, and dynamic sizing.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use <code>&lt;span class="avatar">A</span></code> for text initials; add <code>&lt;img></code> child for images.</li>
+      <li>Empty or missing <code>img[src=""]</code> is hidden and the container shows fallback text "Null".</li>
+      <li>For background-image avatars, set <code>style="background-image: url(...)"</code> directly on <code>.avatar</code>.</li>
+      <li>RTL is auto-supported; <code>avatar-bubble-start</code> / <code>avatar-bubble-end</code> flip their tail direction.</li>
+    </ul>
+  </div>
+
+  <h2 id="base">Base</h2>
+  <div class="section">
+    <div>
+      <h3>Text initials</h3>
+      <span class="avatar">A</span>
+      <span class="avatar">B</span>
+      <span class="avatar">C</span>
+      <span class="avatar">AB</span>
+      <span class="avatar">张三</span>
+    </div>
+    <div>
+      <h3>Image via img child</h3>
+      <span class="avatar"><img src="https://unpkg.com/@codady/resource/image/earth04_sm.jpg" /></span>
+      <span class="avatar"><img src="https://unpkg.com/@codady/resource/image/avatar07.jpg" /></span>
+    </div>
+    <div>
+      <h3>Image via background-image</h3>
+      <span class="avatar" style="background-image: url(https://unpkg.com/@codady/resource/image/earth04_sm.jpg);"></span>
+      <span class="avatar" style="background-image: url(https://unpkg.com/@codady/resource/image/avatar07.jpg);"></span>
+    </div>
+    <div>
+      <h3>Combination (overlay on image avatar)</h3>
+      <span class="avatar avatar-20 avatar-fluid" style="background-image: url(https://unpkg.com/@codady/resource/image/avatar07.jpg);">
+        <span class="text-white bg-black/40">+10</span>
+      </span>
+      <span class="avatar avatar-20 avatar-fluid" style="background-image: url(https://unpkg.com/@codady/resource/image/avatar07.jpg);">
+        <span class="text-white text-sm bg-black/40">Upload<br />Tap to change</span>
+      </span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors-solid">Solid theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <span class="avatar avatar-primary">P</span>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <span class="avatar avatar-secondary">S</span>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <span class="avatar avatar-tertiary">T</span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="avatar avatar-success">S</span>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <span class="avatar avatar-error">E</span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="avatar avatar-info">I</span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="avatar avatar-highlight">H</span>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <span class="avatar avatar-title">T</span>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <span class="avatar avatar-description">D</span>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <span class="avatar avatar-caption">C</span>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <span class="avatar avatar-disabled">D</span>
+    </div>
+  </div>
+
+  <h2 id="subtle-theme-borderless">Subtle theme (borderless)</h2>
+  <div class="section">
+    <div>
+      <h3>Subtle primary</h3>
+      <span class="avatar avatar-subtle-primary">P</span>
+      <span class="avatar avatar-subtle-secondary">S</span>
+      <span class="avatar avatar-subtle-tertiary">T</span>
+      <span class="avatar avatar-subtle-success">S</span>
+      <span class="avatar avatar-subtle-error">E</span>
+      <span class="avatar avatar-subtle-info">I</span>
+      <span class="avatar avatar-subtle-highlight">H</span>
+      <span class="avatar avatar-subtle-title">T</span>
+      <span class="avatar avatar-subtle-description">D</span>
+      <span class="avatar avatar-subtle-caption">C</span>
+      <span class="avatar avatar-subtle-disabled">D</span>
+    </div>
+  </div>
+
+  <h2 id="muted-theme-with-border">Muted theme (with border)</h2>
+  <div class="section">
+    <div>
+      <h3>Muted primary</h3>
+      <span class="avatar avatar-muted-primary">P</span>
+      <span class="avatar avatar-muted-secondary">S</span>
+      <span class="avatar avatar-muted-tertiary">T</span>
+      <span class="avatar avatar-muted-success">S</span>
+      <span class="avatar avatar-muted-error">E</span>
+      <span class="avatar avatar-muted-info">I</span>
+      <span class="avatar avatar-muted-highlight">H</span>
+      <span class="avatar avatar-muted-title">T</span>
+      <span class="avatar avatar-muted-description">D</span>
+      <span class="avatar avatar-muted-caption">C</span>
+      <span class="avatar avatar-muted-disabled">D</span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Solid with Tailwind palettes</h3>
+      <span class="avatar avatar-green-500">A</span>
+      <span class="avatar avatar-orange-500">B</span>
+      <span class="avatar avatar-indigo-500">C</span>
+    </div>
+    <div>
+      <h3>Solid with raw values</h3>
+      <span class="avatar avatar-[#ff0000]">R</span>
+      <span class="avatar avatar-[rgb(125,23,200)]">P</span>
+    </div>
+    <div>
+      <h3>Subtle with Tailwind palettes</h3>
+      <span class="avatar avatar-subtle-green-500">A</span>
+      <span class="avatar avatar-subtle-green-800">B</span>
+    </div>
+    <div>
+      <h3>Muted with Tailwind palettes</h3>
+      <span class="avatar avatar-muted-green-500">A</span>
+      <span class="avatar avatar-muted-green-800">B</span>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>avatar-circle / avatar-pill</h3>
+      <span class="avatar avatar-primary avatar-circle">A</span>
+      <span class="avatar avatar-success avatar-pill" style="background-image: url(https://unpkg.com/@codady/resource/image/avatar07.jpg);"></span>
+    </div>
+    <div>
+      <h3>avatar-rounded</h3>
+      <span class="avatar avatar-primary avatar-rounded">A</span>
+      <span class="avatar avatar-success avatar-rounded" style="background-image: url(https://unpkg.com/@codady/resource/image/avatar07.jpg);"></span>
+    </div>
+    <div>
+      <h3>avatar-square</h3>
+      <span class="avatar avatar-primary avatar-square">A</span>
+      <span class="avatar avatar-success avatar-square" style="background-image: url(https://unpkg.com/@codady/resource/image/avatar07.jpg);"></span>
+    </div>
+    <div>
+      <h3>avatar-fluid</h3>
+      <span class="avatar avatar-primary avatar-fluid">A</span>
+      <span class="avatar avatar-success avatar-fluid" style="background-image: url(https://unpkg.com/@codady/resource/image/avatar07.jpg);"></span>
+    </div>
+    <div>
+      <h3>avatar-scoop</h3>
+      <span class="avatar avatar-primary avatar-scoop">A</span>
+      <span class="avatar avatar-success avatar-scoop" style="background-image: url(https://unpkg.com/@codady/resource/image/avatar07.jpg);"></span>
+    </div>
+    <div>
+      <h3>avatar-beveled</h3>
+      <span class="avatar avatar-primary avatar-beveled">A</span>
+      <span class="avatar avatar-subtle-primary avatar-beveled">B</span>
+      <span class="avatar avatar-beveled"><img src="https://unpkg.com/@codady/resource/image/earth04_sm.jpg" /></span>
+    </div>
+    <div>
+      <h3>avatar-squircle</h3>
+      <span class="avatar avatar-primary avatar-squircle">A</span>
+      <span class="avatar avatar-subtle-primary avatar-squircle">B</span>
+      <span class="avatar avatar-squircle"><img src="https://unpkg.com/@codady/resource/image/earth04_sm.jpg" /></span>
+      <div>With border: <span class="avatar avatar-primary avatar-squircle" style="--avatar-border-width:2px;--avatar-border-color:black">A</span></div>
+    </div>
+    <div>
+      <h3>avatar-flower</h3>
+      <span class="avatar avatar-primary avatar-flower">A</span>
+      <span class="avatar avatar-subtle-primary avatar-flower">B</span>
+      <span class="avatar avatar-flower"><img src="https://unpkg.com/@codady/resource/image/earth04_sm.jpg" /></span>
+      <div>With border: <span class="avatar avatar-primary avatar-flower" style="--avatar-border-width:2px;--avatar-border-color:black">A</span></div>
+    </div>
+    <div>
+      <h3>avatar-bubble-start</h3>
+      <span class="avatar avatar-primary avatar-bubble-start">A</span>
+      <span class="avatar avatar-subtle-primary avatar-bubble-start">B</span>
+      <span class="avatar avatar-bubble-start"><img src="https://unpkg.com/@codady/resource/image/earth04_sm.jpg" /></span>
+      <div>With border: <span class="avatar avatar-primary avatar-bubble-start" style="--avatar-border-width:2px;--avatar-border-color:black">A</span></div>
+    </div>
+    <div>
+      <h3>avatar-bubble-end</h3>
+      <span class="avatar avatar-primary avatar-bubble-end">A</span>
+      <span class="avatar avatar-subtle-primary avatar-bubble-end">B</span>
+      <span class="avatar avatar-bubble-end"><img src="https://unpkg.com/@codady/resource/image/earth04_sm.jpg" /></span>
+      <div>With border: <span class="avatar avatar-primary avatar-bubble-end" style="--avatar-border-width:2px;--avatar-border-color:black">A</span></div>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>avatar-4 ~ avatar-10</h3>
+      <span class="avatar avatar-primary avatar-4">4</span>
+      <span class="avatar avatar-primary avatar-5">5</span>
+      <span class="avatar avatar-primary avatar-6">6</span>
+      <span class="avatar avatar-primary avatar-7">7</span>
+      <span class="avatar avatar-primary avatar-8">8</span>
+      <span class="avatar avatar-primary avatar-9">9</span>
+      <span class="avatar avatar-primary avatar-10">10</span>
+    </div>
+    <div>
+      <h3>avatar-11 ~ avatar-20</h3>
+      <span class="avatar avatar-success avatar-11">11</span>
+      <span class="avatar avatar-success avatar-12">12</span>
+      <span class="avatar avatar-success avatar-13">13</span>
+      <span class="avatar avatar-success avatar-14">14</span>
+      <span class="avatar avatar-success avatar-15">15</span>
+      <span class="avatar avatar-success avatar-16">16</span>
+      <span class="avatar avatar-success avatar-17">17</span>
+      <span class="avatar avatar-success avatar-18">18</span>
+      <span class="avatar avatar-success avatar-19">19</span>
+      <span class="avatar avatar-success avatar-20">20</span>
+    </div>
+    <div>
+      <h3>avatar-21 ~ avatar-30</h3>
+      <span class="avatar avatar-error avatar-21">21</span>
+      <span class="avatar avatar-error avatar-22">22</span>
+      <span class="avatar avatar-error avatar-23">23</span>
+      <span class="avatar avatar-error avatar-24">24</span>
+      <span class="avatar avatar-error avatar-25">25</span>
+      <span class="avatar avatar-error avatar-26">26</span>
+      <span class="avatar avatar-error avatar-27">27</span>
+      <span class="avatar avatar-error avatar-28">28</span>
+      <span class="avatar avatar-error avatar-29">29</span>
+      <span class="avatar avatar-error avatar-30">30</span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Flag - Beautify Demo</title>
+  <style>
+    .flag-demo {
+      position: relative;
+      background-color: var(--color-title-bg);
+      width: 400px;
+      height: 200px;
+      border: 1px solid var(--color-title-bd);
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Flag Component</h1>
+  <p>Corner flag/badge shapes for decorative labeling: triangle, circle, horn, ribbon, and diamond. Supports position modifiers, size modifiers, and dynamic colors.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>5 shapes: <code>.flag-triangle</code>, <code>.flag-circle</code>, <code>.flag-horn</code>, <code>.flag-ribbon</code>, <code>.flag-diamond</code>.</li>
+      <li>Positions: default (start-top), <code>.flag-end-top</code> (right-top), <code>.flag-start-bottom</code> (left-bottom), <code>.flag-end-bottom</code> (right-bottom).</li>
+      <li>Sizes: <code>.flag-sm</code>, <code>.flag-lg</code>, <code>.flag-xl</code>.</li>
+      <li>Color: <code>flag-*</code> dynamic utilities (e.g. <code>flag-primary</code>, <code>flag-success</code>, <code>flag-red-500</code>).</li>
+      <li>Shapes require a child element: <code>&lt;span class="flag-triangle"><span>HOT</span></span></code>. Circle shape can use direct text content.</li>
+    </ul>
+  </div>
+
+  <h2 id="triangle-flag-triangle">Triangle (flag-triangle)</h2>
+  <div class="section">
+    <div>
+      <h3>Default (start-top)</h3>
+      <div class="flag-demo">
+        <span class="flag-triangle flag-lg"><span>HOT</span></span>
+      </div>
+    </div>
+    <div>
+      <h3>Positions</h3>
+      <div class="flag-demo">
+        <span class="flag-triangle flag-end-top flag-xl"><span>HOT</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-triangle flag-start-bottom"><span>HOT</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-triangle flag-end-bottom flag-sm"><span>HOT</span></span>
+      </div>
+    </div>
+    <div>
+      <h3>Sizes</h3>
+      <div class="flag-demo">
+        <span class="flag-triangle flag-sm"><span>NEW</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-triangle flag-lg"><span>SALE</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-triangle flag-xl"><span>VIP</span></span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="circle-flag-circle">Circle (flag-circle)</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <div class="flag-demo">
+        <span class="flag-circle flag-lg">HOT</span>
+      </div>
+    </div>
+    <div>
+      <h3>Positions</h3>
+      <div class="flag-demo">
+        <span class="flag-circle flag-end-top flag-xl"><span>HOT</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-circle flag-start-bottom"><span>HOT</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-circle flag-end-bottom flag-sm"><span>HOT</span></span>
+      </div>
+    </div>
+    <div>
+      <h3>Colors</h3>
+      <div class="flag-demo">
+        <span class="flag-circle flag-success flag-lg">✓</span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-circle flag-error flag-lg">!</span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-circle flag-highlight flag-lg">⚠</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="horn-flag-horn">Horn (flag-horn)</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <div class="flag-demo">
+        <span class="flag-horn flag-lg"><span>HOT</span></span>
+      </div>
+    </div>
+    <div>
+      <h3>Positions</h3>
+      <div class="flag-demo">
+        <span class="flag-horn flag-end-top flag-xl"><span>HOT</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-horn flag-start-bottom"><span>HOT</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-horn flag-end-bottom flag-sm"><span>HOT</span></span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="ribbon-flag-ribbon">Ribbon (flag-ribbon)</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <div class="flag-demo">
+        <span class="flag-ribbon flag-lg"><span>HOT</span></span>
+      </div>
+    </div>
+    <div>
+      <h3>Positions</h3>
+      <div class="flag-demo">
+        <span class="flag-ribbon flag-end-top flag-xl"><span>HOT</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-ribbon flag-start-bottom"><span>HOT</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-ribbon flag-end-bottom flag-sm"><span>HOT</span></span>
+      </div>
+    </div>
+    <div>
+      <h3>Colors</h3>
+      <div class="flag-demo">
+        <span class="flag-ribbon flag-secondary flag-lg"><span>FEATURED</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-ribbon flag-info flag-lg"><span>INFO</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-ribbon flag-title flag-lg"><span>PREMIUM</span></span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="diamond-flag-diamond">Diamond (flag-diamond)</h2>
+  <div class="section">
+    <div>
+      <h3>Default</h3>
+      <div class="flag-demo">
+        <span class="flag-diamond flag-lg"><span>HOT</span></span>
+      </div>
+    </div>
+    <div>
+      <h3>Positions</h3>
+      <div class="flag-demo">
+        <span class="flag-diamond flag-end-top flag-xl"><span>HOT</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-diamond flag-start-bottom"><span>HOT</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-diamond flag-end-bottom flag-sm"><span>HOT</span></span>
+      </div>
+    </div>
+    <div>
+      <h3>Colors + sizes</h3>
+      <div class="flag-demo">
+        <span class="flag-diamond flag-success flag-sm"><span>OK</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-diamond flag-error flag-lg"><span>ERROR</span></span>
+      </div>
+      <div class="flag-demo">
+        <span class="flag-diamond flag-primary flag-lg"><span>PRIMARY</span></span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div class="flag-demo">
+      <span class="flag-triangle flag-lg flag-red-500"><span>HOT</span></span>
+      <span class="flag-triangle flag-end-bottom flag-sm flag-[#12eded]"><span>HOT</span></span>
+      <span class="flag-triangle flag-end-top flag-xl flag-[rgba(0,0,0,0.5)]"><span>HOT</span></span>
+      <span class="flag-triangle flag-start-bottom flag-info"><span>HOT</span></span>
+    </div>
+  </div>
+
+  <h2 id="shapes">All shapes</h2>
+  <div class="section">
+    <div class="flag-demo">
+      <span class="flag-triangle flag-lg"><span>TRI</span></span>
+      <span class="flag-circle flag-end-top flag-lg"><span>CIR</span></span>
+      <span class="flag-horn flag-start-bottom flag-sm"><span>HORN</span></span>
+      <span class="flag-ribbon flag-end-bottom flag-lg"><span>RIB</span></span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

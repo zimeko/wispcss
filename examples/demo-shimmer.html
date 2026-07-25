@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Shimmer - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Shimmer Component</h1>
+  <p>Text glow / shimmer effect using CSS gradient clip and keyframe animations. The light sweep passes across the text in a configurable direction, color, and speed.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.shimmer</code>. Default direction is left-to-right (LTR) with a 2s duration.</li>
+      <li>Uses <code>background-clip: text</code> with transparent fill — the shimmer color is derived from <code>currentColor</code>.</li>
+      <li>Direction modifiers: <code>shimmer-start</code> (RTL), <code>shimmer-bottom</code> (TTB), <code>shimmer-top</code> (BTT).</li>
+      <li>Color: <code>shimmer-*</code> (e.g. <code>shimmer-red-500</code>, <code>shimmer-primary</code>).</li>
+      <li>Duration: <code>animate-shimmer-ltr-1000</code> (1000ms), <code>animate-shimmer-rtl-[3s]</code> (arbitrary).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default shimmer (LTR, 2s)</h3>
+      <span class="shimmer" style="font-size: 1.5rem; font-weight: 700;">Shimmer Text</span>
+    </div>
+    <div>
+      <h3>Different font sizes</h3>
+      <span class="shimmer" style="font-size: 1rem; font-weight: 600;">Small text</span><br>
+      <span class="shimmer" style="font-size: 1.5rem; font-weight: 700;">Medium text</span><br>
+      <span class="shimmer" style="font-size: 2.5rem; font-weight: 800;">Large text</span>
+    </div>
+    <div>
+      <h3>Chinese text</h3>
+      <span class="shimmer" style="font-size: 1.5rem; font-weight: 700;">流光文字效果</span>
+    </div>
+  </div>
+
+  <h2 id="direction">Direction</h2>
+  <div class="section">
+    <div>
+      <h3>LTR (default)</h3>
+      <span class="shimmer" style="font-size: 1.5rem; font-weight: 700;">Left to Right</span>
+    </div>
+    <div>
+      <h3>RTL (shimmer-start)</h3>
+      <span class="shimmer shimmer-start" style="font-size: 1.5rem; font-weight: 700;">Right to Left</span>
+    </div>
+    <div>
+      <h3>TTB (shimmer-bottom)</h3>
+      <span class="shimmer shimmer-bottom" style="font-size: 1.5rem; font-weight: 700;">Top to Bottom</span>
+    </div>
+    <div>
+      <h3>BTT (shimmer-top)</h3>
+      <span class="shimmer shimmer-top" style="font-size: 1.5rem; font-weight: 700;">Bottom to Top</span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <span class="shimmer shimmer-primary" style="font-size: 1.5rem; font-weight: 700;">Primary</span>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <span class="shimmer shimmer-secondary" style="font-size: 1.5rem; font-weight: 700;">Secondary</span>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <span class="shimmer shimmer-tertiary" style="font-size: 1.5rem; font-weight: 700;">Tertiary</span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="shimmer shimmer-success" style="font-size: 1.5rem; font-weight: 700;">Success</span>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <span class="shimmer shimmer-error" style="font-size: 1.5rem; font-weight: 700;">Error</span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="shimmer shimmer-info" style="font-size: 1.5rem; font-weight: 700;">Info</span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="shimmer shimmer-highlight" style="font-size: 1.5rem; font-weight: 700;">Highlight</span>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <span class="shimmer shimmer-warning" style="font-size: 1.5rem; font-weight: 700;">Warning</span>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <span class="shimmer shimmer-caution" style="font-size: 1.5rem; font-weight: 700;">Caution</span>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <span class="shimmer shimmer-ink text-stage-light" style="font-size: 1.5rem; font-weight: 700;">Ink</span>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <span class="shimmer shimmer-title text-stage" style="font-size: 1.5rem; font-weight: 700;">Title</span>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <span class="shimmer shimmer-description text-stage" style="font-size: 1.5rem; font-weight: 700;">Description</span>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <span class="shimmer shimmer-caption" style="font-size: 1.5rem; font-weight: 700;">Caption</span>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <span class="shimmer shimmer-disabled" style="font-size: 1.5rem; font-weight: 700;">Disabled</span>
+    </div>
+     <div>
+      <h3>White</h3>
+      <span class="shimmer shimmer-white" style="font-size: 1.5rem; font-weight: 700;">White</span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Tailwind colors</h3>
+      <span class="shimmer shimmer-red-500" style="font-size: 1.5rem; font-weight: 700;">Red</span><br>
+      <span class="shimmer shimmer-green-500" style="font-size: 1.5rem; font-weight: 700;">Green</span><br>
+      <span class="shimmer shimmer-blue-500" style="font-size: 1.5rem; font-weight: 700;">Blue</span><br>
+      <span class="shimmer shimmer-purple-500" style="font-size: 1.5rem; font-weight: 700;">Purple</span>
+    </div>
+    <div>
+      <h3>Raw / named colors</h3>
+      <span class="shimmer shimmer-[#ff6b6b]" style="font-size: 1.5rem; font-weight: 700;">Coral</span><br>
+      <span class="shimmer shimmer-[#48dbfb]" style="font-size: 1.5rem; font-weight: 700;">Sky</span><br>
+      <span class="shimmer shimmer-[#feca57]" style="font-size: 1.5rem; font-weight: 700;">Gold</span>
+    </div>
+  </div>
+
+  <h2 id="animation-duration">Animation duration</h2>
+  <div class="section">
+    <div>
+      <h3>Fast (1s) — animate-shimmer-ltr-1000</h3>
+      <span class="shimmer animate-shimmer-ltr-1000" style="font-size: 1.5rem; font-weight: 700;">Fast</span>
+    </div>
+    <div>
+      <h3>Default (2s) — no class needed</h3>
+      <span class="shimmer" style="font-size: 1.5rem; font-weight: 700;">Normal</span>
+    </div>
+    <div>
+      <h3>Slow (4s) — animate-shimmer-ltr-4000</h3>
+      <span class="shimmer animate-shimmer-ltr-4000" style="font-size: 1.5rem; font-weight: 700;">Slow</span>
+    </div>
+    <div>
+      <h3>Very slow (8s) — animate-shimmer-ltr-8000</h3>
+      <span class="shimmer animate-shimmer-ltr-8000" style="font-size: 1.5rem; font-weight: 700;">Very Slow</span>
+    </div>
+  </div>
+
+  <h2 id="direction-plus-duration-combinations">Direction + duration combinations</h2>
+  <div class="section">
+    <div>
+      <h3>RTL + fast</h3>
+      <span class="shimmer shimmer-start animate-shimmer-rtl-1000" style="font-size: 1.5rem; font-weight: 700;">RTL Fast</span>
+    </div>
+    <div>
+      <h3>TTB + slow</h3>
+      <span class="shimmer shimmer-bottom animate-shimmer-ttb-4000" style="font-size: 1.5rem; font-weight: 700;">TTB Slow</span>
+    </div>
+    <div>
+      <h3>BTT + medium</h3>
+      <span class="shimmer shimmer-top animate-shimmer-btt-2500" style="font-size: 1.5rem; font-weight: 700;">BTT Medium</span>
+    </div>
+    <div>
+      <h3>Color + direction + duration</h3>
+      <span class="shimmer shimmer-red-500 shimmer-start animate-shimmer-rtl-3000" style="font-size: 1.5rem; font-weight: 700;">Red RTL 3s</span>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Brand title</h3>
+      <span class="shimmer shimmer-primary" style="font-size: 2rem; font-weight: 800;">Brand Title</span>
+    </div>
+    <div>
+      <h3>Loading indicator</h3>
+      <span class="shimmer shimmer-blue-500" style="font-size: 1.2rem; font-weight: 600;">Loading...</span>
+    </div>
+    <div>
+      <h3>Multi-line tagline</h3>
+      <span class="shimmer shimmer-purple-500 animate-shimmer-ltr-3000" style="font-size: 1.8rem; font-weight: 800;">Beautify</span><br>
+      <span class="shimmer shimmer-[#48dbfb] shimmer-start animate-shimmer-rtl-2500" style="font-size: 1rem; font-weight: 500;">Make Your UI Beautiful</span>
+    </div>
+    <div>
+      <h3>Extra large text</h3>
+      <span class="shimmer shimmer-red-500 animate-shimmer-ltr-4000" style="font-size: 3.5rem; font-weight: 900;">SHIMMER</span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

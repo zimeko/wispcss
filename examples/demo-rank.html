@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Rank - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Rank Component</h1>
+  <p>List ranking indicator with dynamic sizing, variants, shapes, and color support. Uses <code>aspect-ratio: 1/1</code> for square sizing.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.rank</code>. Default is text-only color (no background).</li>
+      <li>Variants: <code>rank-solid</code> (filled), <code>rank-muted</code> (subtle border), <code>rank-outline</code> (thick border), <code>rank-subtle</code> (soft background).</li>
+      <li>Prefer compound variant classes like <code>rank-solid-primary</code> over <code>rank rank-solid rank-primary</code> — smaller CSS output.</li>
+      <li>Sizes: <code>rank-2xs</code> (12px) to <code>rank-5xl</code> (32px) — default is <code>rank-md</code> (16px).</li>
+      <li>Shapes: <code>rank-square</code>, <code>rank-rounded</code>, <code>rank-circle / rank-pill</code>, <code>rank-fluid</code>.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default rank (text only)</h3>
+      <span class="rank">1</span>
+      <span class="rank">2</span>
+      <span class="rank">3</span>
+      <span class="rank">A</span>
+      <span class="rank">B</span>
+    </div>
+    <div>
+      <h3>With text color</h3>
+      <span class="rank text-primary">1</span>
+      <span class="rank text-success">2</span>
+      <span class="rank text-error">3</span>
+      <span class="rank text-info">4</span>
+    </div>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Default (text color)</h3>
+      <span class="rank rank-primary">1</span>
+      <span class="rank rank-success">2</span>
+      <span class="rank rank-error">3</span>
+    </div>
+    <div>
+      <h3>rank-solid (filled)</h3>
+      <span class="rank rank-solid rank-primary">1</span>
+      <span class="rank rank-solid rank-success">2</span>
+      <span class="rank rank-solid rank-error">3</span>
+    </div>
+    <div>
+      <h3>rank-muted (subtle border)</h3>
+      <span class="rank rank-muted rank-primary">1</span>
+      <span class="rank rank-muted rank-success">2</span>
+      <span class="rank rank-muted rank-error">3</span>
+    </div>
+    <div>
+      <h3>rank-outline (thick border)</h3>
+      <span class="rank rank-outline rank-primary">1</span>
+      <span class="rank rank-outline rank-success">2</span>
+      <span class="rank rank-outline rank-error">3</span>
+    </div>
+    <div>
+      <h3>rank-subtle (soft bg)</h3>
+      <span class="rank rank-subtle rank-primary">1</span>
+      <span class="rank rank-subtle rank-success">2</span>
+      <span class="rank rank-subtle rank-error">3</span>
+    </div>
+    <div>
+      <h3>Comparison</h3>
+      <span class="rank rank-primary">1</span>
+      <span class="rank rank-solid rank-primary">1</span>
+      <span class="rank rank-muted rank-primary">1</span>
+      <span class="rank rank-outline rank-primary">1</span>
+      <span class="rank rank-subtle rank-primary">1</span>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>Default (small radius)</h3>
+      <span class="rank rank-solid rank-primary rank-lg">1</span>
+      <span class="rank rank-solid rank-success rank-lg">2</span>
+    </div>
+    <div>
+      <h3>rank-square</h3>
+      <span class="rank rank-solid rank-primary rank-square rank-lg">1</span>
+      <span class="rank rank-solid rank-success rank-square rank-lg">2</span>
+    </div>
+    <div>
+      <h3>rank-circle / rank-pill (rank-circle === rank-pill)</h3>
+      <span class="rank rank-solid rank-primary rank-circle rank-lg">1</span>
+      <span class="rank rank-solid rank-success rank-circle rank-lg">2</span>
+    </div>
+    <div>
+      <h3>rank-fluid</h3>
+      <span class="rank rank-solid rank-primary rank-fluid rank-lg">1</span>
+      <span class="rank rank-solid rank-success rank-fluid rank-2xl">2</span>
+      <span class="rank rank-solid rank-error rank-fluid rank-5xl">3</span>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    
+    <div>
+      <h3>12px (rank-2xs)</h3>
+      <span class="rank rank-solid rank-primary rank-2xs">1</span>
+    </div>
+    <div>
+      <h3>14px (rank-xs)</h3>
+      <span class="rank rank-solid rank-primary rank-xs">2</span>
+    </div>
+    <div>
+      <h3>14px (rank-sm)</h3>
+      <span class="rank rank-solid rank-primary rank-sm">3</span>
+    </div>
+    <div>
+      <h3>16px (rank-md, default)</h3>
+      <span class="rank rank-solid rank-primary rank-md">4</span>
+    </div>
+    <div>
+      <h3>16px (rank-lg)</h3>
+      <span class="rank rank-solid rank-primary rank-lg">5</span>
+    </div>
+    <div>
+      <h3>16px (rank-xl)</h3>
+      <span class="rank rank-solid rank-primary rank-xl">6</span>
+    </div>
+    <div>
+      <h3>20px (rank-2xl)</h3>
+      <span class="rank rank-solid rank-primary rank-2xl">7</span>
+    </div>
+    <div>
+      <h3>24px (rank-3xl)</h3>
+      <span class="rank rank-solid rank-primary rank-3xl">8</span>
+    </div>
+    <div>
+      <h3>28px (rank-4xl)</h3>
+      <span class="rank rank-solid rank-primary rank-4xl">9</span>
+    </div>
+    <div>
+      <h3>32px (rank-5xl)</h3>
+      <span class="rank rank-solid rank-primary rank-5xl">10</span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <p>Each color shown in 3 variants: default / solid / muted.</p>
+    <div>
+      <h3>Primary / Secondary / Tertiary</h3>
+      <span class="rank rank-primary">1</span><span class="rank rank-solid rank-primary">1</span><span class="rank rank-muted rank-primary">1</span>
+      <span class="rank rank-secondary">2</span><span class="rank rank-solid rank-secondary">2</span><span class="rank rank-muted rank-secondary">2</span>
+      <span class="rank rank-tertiary">3</span><span class="rank rank-solid rank-tertiary">3</span><span class="rank rank-muted rank-tertiary">3</span>
+    </div>
+    <div>
+      <h3>Success / Error / Info</h3>
+      <span class="rank rank-success">S</span><span class="rank rank-solid rank-success">S</span><span class="rank rank-muted rank-success">S</span>
+      <span class="rank rank-error">E</span><span class="rank rank-solid rank-error">E</span><span class="rank rank-muted rank-error">E</span>
+      <span class="rank rank-info">I</span><span class="rank rank-solid rank-info">I</span><span class="rank rank-muted rank-info">I</span>
+    </div>
+    <div>
+      <h3>Highlight / Warning / Caution</h3>
+      <span class="rank rank-highlight">!</span><span class="rank rank-solid rank-highlight">!</span><span class="rank rank-muted rank-highlight">!</span>
+      <span class="rank rank-warning">?</span><span class="rank rank-solid rank-warning">?</span><span class="rank rank-muted rank-warning">?</span>
+      <span class="rank rank-caution">C</span><span class="rank rank-solid rank-caution">C</span><span class="rank rank-muted rank-caution">C</span>
+    </div>
+    <div>
+      <h3>Ink / Title / Description / Caption / Disabled</h3>
+      <span class="rank rank-ink">N</span><span class="rank rank-solid rank-ink">N</span><span class="rank rank-muted rank-ink">N</span>
+      <span class="rank rank-title">T</span><span class="rank rank-solid rank-title">T</span><span class="rank rank-muted rank-title">T</span>
+      <span class="rank rank-description">D</span><span class="rank rank-solid rank-description">D</span><span class="rank rank-muted rank-description">D</span>
+      <span class="rank rank-caption">C</span><span class="rank rank-solid rank-caption">C</span><span class="rank rank-muted rank-caption">C</span>
+      <span class="rank rank-disabled">X</span><span class="rank rank-solid rank-disabled">X</span><span class="rank rank-muted rank-disabled">X</span>
+    </div>
+  </div>
+
+  <h2 id="compound-shortcut-variants">Compound shortcut variants</h2>
+  <div class="section">
+    <p>Use <code>rank-solid-primary</code> instead of <code>rank rank-solid rank-primary</code> for smaller CSS output.</p>
+    <div>
+      <h3>rank-solid-*</h3>
+      <span class="rank rank-solid-primary">1</span>
+      <span class="rank rank-solid-success">2</span>
+      <span class="rank rank-solid-error">3</span>
+      <span class="rank rank-solid-warning">4</span>
+    </div>
+    <div>
+      <h3>rank-muted-*</h3>
+      <span class="rank rank-muted-primary">1</span>
+      <span class="rank rank-muted-success">2</span>
+      <span class="rank rank-muted-error">3</span>
+    </div>
+    <div>
+      <h3>rank-outline-*</h3>
+      <span class="rank rank-outline-primary">1</span>
+      <span class="rank rank-outline-success">2</span>
+      <span class="rank rank-outline-error">3</span>
+    </div>
+    <div>
+      <h3>rank-subtle-*</h3>
+      <span class="rank rank-subtle-primary">1</span>
+      <span class="rank rank-subtle-success">2</span>
+      <span class="rank rank-subtle-error">3</span>
+    </div>
+    <div>
+      <h3>rank-plain-* (text only)</h3>
+      <span class="rank rank-plain-primary">1</span>
+      <span class="rank rank-plain-success">2</span>
+      <span class="rank rank-plain-error">3</span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Default variant</h3>
+      <span class="rank rank-green-100">1</span>
+      <span class="rank rank-green-500">1</span>
+      <span class="rank rank-green-800">1</span>
+    </div>
+    <div>
+      <h3>Solid variant</h3>
+      <span class="rank rank-solid rank-green-100">1</span>
+      <span class="rank rank-solid rank-green-500">1</span>
+      <span class="rank rank-solid rank-green-800">1</span>
+      <span class="rank rank-solid rank-[red]">1</span>
+    </div>
+    <div>
+      <h3>Muted variant</h3>
+      <span class="rank rank-muted rank-green-100">1</span>
+      <span class="rank rank-muted rank-green-500">1</span>
+      <span class="rank rank-muted rank-[red]">1</span>
+    </div>
+    <div>
+      <h3>Subtle variant</h3>
+      <span class="rank rank-subtle rank-green-100">1</span>
+      <span class="rank rank-subtle rank-green-500">1</span>
+      <span class="rank rank-subtle rank-[#a7dcdf]">1</span>
+    </div>
+    <div>
+      <h3>Outline variant</h3>
+      <span class="rank rank-outline rank-green-100">1</span>
+      <span class="rank rank-outline rank-green-500">1</span>
+      <span class="rank rank-outline rank-[red]">1</span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

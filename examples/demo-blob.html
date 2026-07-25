@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Blob - Beautify Demo</title>
+  <style>
+    .blob-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .blob-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .blob-item>span {
+      font-size: .7rem;
+      color: #666;
+      text-align: center;
+      word-break: break-all;
+      max-width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Blob Component</h1>
+  <p>Organic blob shapes with morphing animation. Combine <code>blob-{shape}</code> with size (<code>w-* h-*</code>),
+    color (<code>bg-*</code>), and animation (<code>animate-blob-morph</code>) utilities.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use <code>blob-{shape}</code> for a static organic shape.</li>
+      <li>Add <code>animate-blob-morph</code> (or variants <code>animate-blob-morph1</code> ~
+        <code>animate-blob-morph4</code>) for continuous morphing.</li>
+      <li>Append <code>-{ms}</code> for custom duration, e.g. <code>animate-blob-morph3000</code>.</li>
+      <li>Shapes are clip-path-free — simply irregular <code>border-radius</code> values, fully compatible with
+        <code>overflow:hidden</code> for images.</li>
+    </ul>
+
+
+  </div>
+
+  <h2 id="shapes">All shapes</h2>
+  <div class="section">
+    <div class="blob-list">
+      <div class="blob-item">
+        <div class="blob-circle w-20 h-20 bg-red-500 flex-center text-white text-sm font-bold">circle</div>
+        <span>blob-circle</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-triangle w-20 h-20 bg-orange-500 flex-center text-white text-sm font-bold">tri</div>
+        <span>blob-triangle</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-diamond w-20 h-20 bg-amber-500 flex-center text-white text-sm font-bold">dmd</div>
+        <span>blob-diamond</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-oval w-20 h-20 bg-yellow-500 flex-center text-white text-sm font-bold">oval</div>
+        <span>blob-oval</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-tent w-20 h-20 bg-green-500 flex-center text-white text-sm font-bold">tent</div>
+        <span>blob-tent</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-shield w-20 h-20 bg-teal-500 flex-center text-white text-sm font-bold">shld</div>
+        <span>blob-shield</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-pebble w-20 h-20 bg-blue-500 flex-center text-white text-sm font-bold">peb</div>
+        <span>blob-pebble</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-amoeba w-20 h-20 bg-purple-500 flex-center text-white text-sm font-bold">amo</div>
+        <span>blob-amoeba</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-droplet w-20 h-20 bg-pink-500 flex-center text-white text-sm font-bold">drp</div>
+        <span>blob-droplet</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-kidney w-20 h-20 bg-rose-500 flex-center text-white text-sm font-bold">kid</div>
+        <span>blob-kidney</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-burger w-20 h-20 bg-fuchsia-500 flex-center text-white text-sm font-bold">brg</div>
+        <span>blob-burger</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-leaf w-20 h-20 bg-lime-500 flex-center text-white text-sm font-bold">leaf</div>
+        <span>blob-leaf</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-petal w-20 h-20 bg-sky-500 flex-center text-white text-sm font-bold">pet</div>
+        <span>blob-petal</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-olive w-20 h-20 bg-violet-500 flex-center text-white text-sm font-bold">olv</div>
+        <span>blob-olive</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-ellipse w-20 h-20 bg-indigo-500 flex-center text-white text-sm font-bold">ell</div>
+        <span>blob-ellipse</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="morph">Morph animation</h2>
+  <div class="section">
+    <p>4 variants are available in addition to the default morph.</p>
+    <div class="blob-list">
+      <div class="blob-item">
+        <div class="blob-circle w-20 h-20 bg-red-500 flex-center text-white text-sm font-bold animate-blob-morph">def
+        </div>
+        <span>animate-blob-morph</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-triangle w-20 h-20 bg-orange-500 flex-center text-white text-sm font-bold animate-blob-morph1">
+          v1</div>
+        <span>animate-blob-morph1</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-diamond w-20 h-20 bg-amber-500 flex-center text-white text-sm font-bold animate-blob-morph2">v2
+        </div>
+        <span>animate-blob-morph2</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-oval w-20 h-20 bg-yellow-500 flex-center text-white text-sm font-bold animate-blob-morph3">v3
+        </div>
+        <span>animate-blob-morph3</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-tent w-20 h-20 bg-green-500 flex-center text-white text-sm font-bold animate-blob-morph4">v4
+        </div>
+        <span>animate-blob-morph4</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="dynamic-duration">Dynamic duration</h2>
+  <p>Multiple time formats are supported:</p>
+  <ul>
+    <li>1. Integer value, e.g. <code>*-3000</code> (3000ms)</li>
+    <li>2. Bracketed integer, e.g. <code>*-[3000]</code> (3000ms)</li>
+    <li>3. Bracketed time string, e.g. <code>*-[4s]</code>, <code>*-[2000ms]</code></li>
+  </ul>
+  <div class="section">
+    <div class="blob-list">
+      <div class="blob-item">
+        <div class="blob-circle w-20 h-20 bg-sky-500 flex-center text-white text-sm font-bold animate-blob-morph-2000">
+          2s</div>
+        <span>animate-blob-morph-2000</span>
+      </div>
+      <div class="blob-item">
+        <div
+          class="blob-triangle w-20 h-20 bg-violet-500 flex-center text-white text-sm font-bold animate-blob-morph1-3000">
+          3s</div>
+        <span>animate-blob-morph1-3000</span>
+      </div>
+      <div class="blob-item">
+        <div
+          class="blob-diamond w-20 h-20 bg-pink-500 flex-center text-white text-sm font-bold animate-blob-morph2-5000">
+          5s</div>
+        <span>animate-blob-morph2-5000</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-oval w-20 h-20 bg-indigo-500 flex-center text-white text-sm font-bold animate-blob-morph-6000">
+          6s</div>
+        <span>animate-blob-morph-6000</span>
+      </div>
+      <div class="blob-item">
+        <div
+          class="blob-circle w-20 h-20 bg-emerald-500 flex-center text-white text-sm font-bold animate-blob-morph-[4s]">
+          [4s]</div>
+        <span>animate-blob-morph-[4s]</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="color-variants">Color variants</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div class="blob-list">
+      <div class="blob-item">
+        <div class="blob-circle w-20 h-20 bg-primary flex-center text-primary-contrast text-sm font-bold">prim</div>
+        <span>bg-primary</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-triangle w-20 h-20 bg-error flex-center text-error-contrast text-sm font-bold">err</div>
+        <span>bg-error</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-diamond w-20 h-20 bg-success flex-center text-success-contrast text-sm font-bold">ok</div>
+        <span>bg-success</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-oval w-20 h-20 bg-info flex-center text-info-contrast text-sm font-bold">info</div>
+        <span>bg-info</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-tent w-20 h-20 bg-warning flex-center text-warning-contrast text-sm font-bold">warn</div>
+        <span>bg-warning</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-shield w-20 h-20 bg-[#ff00ff] flex-center text-white text-sm font-bold">raw</div>
+        <span>bg-[#ff00ff]</span>
+      </div>
+      <div class="blob-item">
+        <div
+          class="blob-pebble w-20 h-20 bg-gradient-to-br from-pink-500 to-violet-500 flex-center text-white text-sm font-bold">
+          grad</div>
+        <span>bg-gradient</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sizes">Size variants</h2>
+  <div class="section">
+    <div class="blob-list">
+      <div class="blob-item">
+        <div class="blob-circle w-12 h-12 bg-red-500 flex-center text-white text-xs font-bold">S</div>
+        <span>w-12 h-12</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-triangle w-16 h-16 bg-orange-500 flex-center text-white text-xs font-bold">M</div>
+        <span>w-16 h-16</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-diamond w-20 h-20 bg-amber-500 flex-center text-white text-sm font-bold">L</div>
+        <span>w-20 h-20</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-oval w-28 h-28 bg-green-500 flex-center text-white text-base font-bold">XL</div>
+        <span>w-28 h-28</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-circle w-36 h-36 bg-purple-500 flex-center text-white text-lg font-bold animate-blob-morph">2XL
+        </div>
+        <span>w-36 h-36</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div class="blob-list">
+      <div class="blob-item">
+        <div class="blob-circle w-20 h-20 overflow-hidden">
+          <img src="https://unpkg.com/@codady/resource/image/avatar02.jpg" class="w-full h-full object-cover"
+            alt="avatar">
+        </div>
+        <span>Avatar container</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-diamond w-20 h-20 overflow-hidden">
+          <img src="https://unpkg.com/@codady/resource/image/avatar02.jpg" class="w-full h-full object-cover"
+            alt="avatar">
+        </div>
+        <span>blob-diamond</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-pebble w-20 h-20 overflow-hidden">
+          <img src="https://unpkg.com/@codady/resource/image/avatar02.jpg" class="w-full h-full object-cover"
+            alt="avatar">
+        </div>
+        <span>blob-pebble</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-circle w-16 h-16 bg-sky-100 flex-center">
+          <svg class="w-8 h-8 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <span>Icon container</span>
+      </div>
+      <div class="blob-item">
+        <div class="blob-triangle w-16 h-16 bg-rose-100 flex-center">
+          <svg class="w-8 h-8 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01" />
+          </svg>
+        </div>
+        <span>Icon container</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

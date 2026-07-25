@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Code - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Code Component</h1>
+  <p>Inline code highlighting utilities for <code>&lt;code&gt;</code> tags with dynamic theme support.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Default inline code style uses a subtle background (bg-hover). No variant class needed.</li>
+      <li>Prefer combined utilities like <code>code-solid-primary</code> over separate <code>code-solid code-primary</code> — smaller CSS output.</li>
+      <li>Use <code>&lt;pre&gt;&lt;code&gt;</code> for multi-line code blocks — <code>&lt;pre&gt;</code> preserves formatting, <code>&lt;code&gt;</code> marks semantics.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Inline code (default subtle style)</h3>
+      <p>Variable declaration: <code>const x = 10;</code></p>
+      <p>Function call: <code>getData()</code></p>
+      <p>File path: <code>/usr/local/bin/node</code></p>
+      <p>Install: <code>npm install beautify</code></p>
+    </div>
+    <div>
+      <h3>Code in paragraph text</h3>
+      <p>Run <code>npm install</code> in your terminal to install dependencies.</p>
+      <p>Use <code>git commit -m "message"</code> to commit changes.</p>
+      <p>Config file is at <code>~/.config/beautify/config.json</code>.</p>
+    </div>
+  </div>
+
+  <h2 id="variants">Visual variants</h2>
+  <div class="section">
+    <div>
+      <h3>code-plain</h3>
+      <p>Removes background, padding and border-radius. Uses current text color.</p>
+      <p><code class="code-primary code-plain">code-plain</code> — no background</p>
+    </div>
+    <div>
+      <h3>code-muted</h3>
+      <p>Subtle semi-transparent border with background.</p>
+      <p><code class="code-secondary code-muted">code-muted</code> — light border</p>
+    </div>
+    <div>
+      <h3>code-outline</h3>
+      <p>Solid border matching the theme color.</p>
+      <p><code class="code-tertiary code-outline">code-outline</code> — solid border</p>
+    </div>
+    <div>
+      <h3>code-solid</h3>
+      <p>Solid filled background with white text.</p>
+      <p><code class="code-solid">code-solid</code> — dark background</p>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary / Secondary / Tertiary</h3>
+      <p><code class="code-primary">primary</code> — theme primary</p>
+      <p><code class="code-secondary">secondary</code> — theme secondary</p>
+      <p><code class="code-tertiary">tertiary</code> — theme tertiary</p>
+    </div>
+    <div>
+      <h3>Status colors</h3>
+      <p><code class="code-success">success</code> — success state</p>
+      <p><code class="code-error">error</code> — error state</p>
+      <p><code class="code-info">info</code> — info state</p>
+      <p><code class="code-warning">warning</code> — warning state</p>
+      <p><code class="code-caution">caution</code> — caution state</p>
+    </div>
+    <div>
+      <h3>Highlight / Ink</h3>
+      <p><code class="code-highlight">highlight</code> — highlight emphasis</p>
+      <p><code class="code-ink">ink</code> — neutral ink</p>
+    </div>
+  </div>
+
+  <h2 id="variant-shortcuts">Shortcut variant colors</h2>
+  <div class="section">
+    <p>Standalone compound variants — equivalent to variant + color in one class.</p>
+    <div>
+      <h3>code-muted-*</h3>
+      <p><code class="code-muted-primary">code-muted-primary</code></p>
+      <p><code class="code-muted-success">code-muted-success</code></p>
+      <p><code class="code-muted-error">code-muted-error</code></p>
+    </div>
+    <div>
+      <h3>code-outline-*</h3>
+      <p><code class="code-outline-primary">code-outline-primary</code></p>
+      <p><code class="code-outline-success">code-outline-success</code></p>
+      <p><code class="code-outline-error">code-outline-error</code></p>
+    </div>
+    <div>
+      <h3>code-solid-*</h3>
+      <p><code class="code-solid-primary">code-solid-primary</code></p>
+      <p><code class="code-solid-success">code-solid-success</code></p>
+      <p><code class="code-solid-error">code-solid-error</code></p>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div>
+      <p><code class="code-blue-200">blue-200</code></p>
+      <p><code class="code-blue-500">blue-500</code></p>
+      <p><code class="code-[#ff0000]">[#ff0000]</code> — raw color value</p>
+      <p><code class="code-solid-[#ff0000]">code-solid-[#ff0000]</code> — solid with raw color</p>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Error logs and messages</h3>
+      <p><code class="code-error">ERROR</code> TypeError: Cannot read property 'x' of undefined</p>
+      <p><code class="code-warning">WARN</code> Deprecated: use new API instead</p>
+      <p><code class="code-info">INFO</code> Server started on port 3000</p>
+      <p><code class="code-success">SUCCESS</code> Build completed successfully!</p>
+    </div>
+    <div>
+      <h3>Documentation references</h3>
+      <p>Type: <code>type User = { id: number; name: string }</code></p>
+      <p>Interface: <code>interface Config { theme: string }</code></p>
+      <p>Generic: <code>Array&lt;T&gt;</code></p>
+      <p>Regex: <code>/^[a-zA-Z0-9]+$/</code></p>
+    </div>
+  </div>
+
+  <h2 id="pre-plus-code-blocks">Pre + code blocks</h2>
+  <div class="section">
+    <div>
+      <h3>JavaScript</h3>
+      <pre><code>function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(10)); // 55</code></pre>
+    </div>
+    <div>
+      <h3>Python</h3>
+      <pre><code>def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(10))  # 55</code></pre>
+    </div>
+    <div>
+      <h3>HTML</h3>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+    <div>
+      <h3>CSS</h3>
+      <pre><code>.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}</code></pre>
+    </div>
+    <div>
+      <h3>Long line (horizontal scroll)</h3>
+      <pre><code>const veryLongFunctionName = (param1, param2, param3, param4, param5, param6) => {
+  return param1 + param2 + param3 + param4 + param5 + param6;
+};</code></pre>
+    </div>
+    <div>
+      <h3>Log output</h3>
+      <pre><code>[2026-06-13 17:00:00] INFO  Starting server...
+[2026-06-13 17:00:01] INFO  Server listening on port 3000
+[2026-06-13 17:00:02] WARN  Deprecated configuration option detected
+[2026-06-13 17:00:03] ERROR Failed to connect to database
+[2026-06-13 17:00:04] INFO  Retrying connection...</code></pre>
+    </div>
+  </div>
+
+  <p style="margin-top: 2rem;">For <code>pre</code> block utilities, see <a class="link" href="./demo-pre.html">demo-pre.html</a>.</p>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

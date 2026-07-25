@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Form Controls - Beautify Demo</title>
+  <style>
+    .row { display: grid; grid-template-columns: 180px 1fr; gap: 12px 16px; align-items: center; margin-bottom: 12px; }
+  </style>
+</head>
+
+<body>
+  <h1>Form Controls</h1>
+  <p>Native form control elements styled with Beautify input utilities and defaults from preset.css.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>All native input types (text, password, email, etc.) accept the same <code>input-*</code> utility classes.</li>
+      <li><code>&lt;button></code>, <code>&lt;input type="submit/reset/button"></code> get basic <code>btn</code> styles by default from preset.css.</li>
+      <li><code>&lt;select></code>, <code>&lt;textarea></code>, <code>&lt;progress></code>, <code>&lt;meter></code> are styled natively via CSS.</li>
+    </ul>
+  </div>
+
+  <form>
+    <h2 id="text-inputs">Text inputs</h2>
+    <fieldset>
+      <div class="row">
+        <label>text</label>
+        <input type="text" placeholder="Text input" class="input-underline">
+      </div>
+      <div class="row">
+        <label>password</label>
+        <input type="password" placeholder="Password" class="input-subtle">
+      </div>
+      <div class="row">
+        <label>email</label>
+        <input type="email" placeholder="email@example.com" class="input-error input-pill">
+      </div>
+      <div class="row">
+        <label>tel</label>
+        <input type="tel" placeholder="Phone number" class="input-underline-success">
+      </div>
+      <div class="row">
+        <label>url</label>
+        <input type="url" placeholder="https://example.com" class="input-highlight">
+      </div>
+      <div class="row">
+        <label>search</label>
+        <input type="search" placeholder="Search">
+      </div>
+      <div class="row">
+        <label>textarea</label>
+        <textarea rows="4" placeholder="Multi-line text" class="input-success input-5xl input-fluid"></textarea>
+      </div>
+    </fieldset>
+
+    <h2 id="numeric-time">Numeric & time</h2>
+    <fieldset>
+      <div class="row">
+        <label>number</label>
+        <input type="number" min="0" max="100" step="1" value="10">
+      </div>
+      <div class="row">
+        <label>range</label>
+        <input type=range min="0" max="100" value="40">
+      </div>
+      <div class="row">
+        <label>date</label>
+        <input type="date">
+      </div>
+      <div class="row">
+        <label>time</label>
+        <input type="time">
+      </div>
+      <div class="row">
+        <label>datetime-local</label>
+        <input type="datetime-local">
+      </div>
+      <div class="row">
+        <label>month</label>
+        <input type="month">
+      </div>
+      <div class="row">
+        <label>week</label>
+        <input type="week">
+      </div>
+      <div class="row">
+        <label>color</label>
+        <input type="color" value="#2563eb">
+      </div>
+    </fieldset>
+
+    <h2 id="selection-controls">Selection controls</h2>
+    <fieldset>
+      <div class="row">
+        <label>checkbox</label>
+        <div>
+          <label><input type="checkbox" checked> Option A</label>
+          <label><input type="checkbox"> Option B</label>
+        </div>
+      </div>
+      <div class="row">
+        <label>radio</label>
+        <div>
+          <label><input type="radio" name="r" checked> Radio A</label>
+          <label><input type="radio" name="r"> Radio B</label>
+        </div>
+      </div>
+      <div class="row">
+        <label>select</label>
+        <select>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <optgroup label="Group 1">
+            <option>Option 1</option>
+            <option>Option 2</option>
+          </optgroup>
+          <optgroup label="Group 2">
+            <option>Option 3</option>
+            <option>Option 4</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="row">
+        <label>select multiple</label>
+        <select multiple size="5">
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <optgroup label="Group 1">
+            <option>Option 1</option>
+            <option>Option 2</option>
+          </optgroup>
+          <optgroup label="Group 2">
+            <option>Option 3</option>
+            <option>Option 4</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="row">
+        <label>datalist</label>
+        <div>
+          <input list="browsers" placeholder="Type or select">
+          <datalist id="browsers">
+            <option value="Chrome">
+            <option value="Firefox">
+            <option value="Safari">
+            <option value="Edge">
+          </datalist>
+        </div>
+      </div>
+    </fieldset>
+
+    <h2 id="file-buttons">File & buttons</h2>
+    <fieldset>
+      <div class="row">
+        <label>file</label>
+        <input type="file">
+      </div>
+      <div class="row">
+        <label>multiple file</label>
+        <input type="file" multiple>
+      </div>
+      <div class="row">
+        <label>buttons</label>
+        <div class="actions">
+          <button type="button" class="btn-primary btn-7">Button</button>
+          <button type="button" class="btn-primary btn-10">Button</button>
+          <button type="button" class="btn-primary">Button</button>
+          <button type="submit" class="btn-outline-primary">Submit</button>
+          <button type="button" class="btn-warning">Warning</button>
+          <button type="submit" class="btn-outline-warning">Submit</button>
+          <button type="button" class="btn-highlight">Highlight</button>
+          <button type="reset" class="btn-outline-title">Reset</button>
+          <input type="button" value="Input btn" class="btn-outline-title">
+          <input type="submit" value="Input submit">
+          <input type="reset" value="Input reset">
+        </div>
+      </div>
+    </fieldset>
+
+    <h2 id="progress">Progress</h2>
+    <fieldset>
+      <div class="row">
+        <label>progress</label>
+        <progress value="60" max="100"></progress>
+      </div>
+      <div class="row">
+        <label>meter</label>
+        <meter min="0" max="100" value="70"></meter>
+      </div>
+    </fieldset>
+  </form>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

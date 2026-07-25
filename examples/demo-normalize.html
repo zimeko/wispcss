@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Normalize - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Normalize / Reset</h1>
+  <p>Baseline appearance of native HTML elements after Beautify normalize is applied.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Normalize is applied automatically via <code>src/normalize.css</code> in the <code>@layer base</code>.</li>
+      <li>It resets browser inconsistencies and provides a consistent baseline across all HTML elements.</li>
+      <li>No additional classes are required — just use native HTML tags.</li>
+      <li>All elements below are shown with their normalized default appearance.</li>
+    </ul>
+  </div>
+
+  <h2 id="document-structure">Document structure</h2>
+  <div class="section">
+    <div>
+      <h3>box-sizing</h3>
+      <div style="width:200px;padding:20px;border:10px solid #333;background:#ddd;">
+        width: 200px + padding 20 + border 10 — total still 200px (border-box)
+      </div>
+      <p><code>border-box</code> makes width/height include padding and border.</p>
+    </div>
+    <div>
+      <h3>body margin</h3>
+      <p>Default body margin is removed — no white edge around the page.</p>
+    </div>
+  </div>
+
+  <h2 id="typography">Typography</h2>
+  <div class="section">
+    <div>
+      <h3>Headings (h1–h6)</h3>
+      <h1>Heading h1</h1>
+      <h2 id="heading-h2">Heading h2</h2>
+      <h3>Heading h3</h3>
+      <h4>Heading h4</h4>
+      <h5>Heading h5</h5>
+      <h6>Heading h6</h6>
+    </div>
+    <div>
+      <h3>System font stack</h3>
+      <p>The quick brown fox jumps over the lazy dog</p>
+      <p>System UI font with CJK fallback.</p>
+    </div>
+    <div>
+      <h3>b / strong (bold)</h3>
+      <p><b>b tag bold</b></p>
+      <p><strong>strong tag bold</strong></p>
+      <p>Both use <code>font-weight: bolder</code>.</p>
+    </div>
+    <div>
+      <h3>i (italic)</h3>
+      <p><i>Italic text</i></p>
+    </div>
+     <div>
+      <h3>em (Auto-adapted for languages without italic tradition)</h3>
+      <p><em>Emphasized text</em></p>
+      <p lang="zh"><em>EM强调文本</em></p>
+    </div>
+    <div>
+      <h3>u / ins / del / s</h3>
+      <p><u>Underlined</u>, <ins>Inserted</ins>, <del>Deleted</del>, <s>Strikethrough</s></p>
+    </div>
+    <div>
+      <h3>mark</h3>
+      <p>This is <mark>highlighted text</mark> using the mark tag.</p>
+    </div>
+    <div>
+      <h3>Monospace (code, kbd, samp, pre)</h3>
+      <p>Inline code: <code>npm install</code></p>
+      <p>Keyboard: <kbd>Ctrl+C</kbd></p>
+      <p>Sample: <samp>output text</samp></p>
+      <pre>
+function hello() {
+  console.log("monospace");
+}
+      </pre>
+      <pre><code>
+function hello() {
+  console.log("monospace");
+}
+      </code></pre>
+    </div>
+    <div>
+      <h3>small</h3>
+      <p>Normal text</p>
+      <p><small>Small text (80%)</small></p>
+    </div>
+    <div>
+      <h3>sub / sup</h3>
+      <p>H<sub>2</sub>O is water</p>
+      <p>E = mc<sup>2</sup></p>
+      <p>Sub and sup do not affect line height.</p>
+    </div>
+    <div>
+      <h3>abbr</h3>
+      <p><abbr title="Cascading Style Sheets">CSS</abbr> stands for Cascading Style Sheets.</p>
+    </div>
+    <div>
+      <h3>cite (uses dashed underline for non-italic languages)</h3>
+      <p><cite>The Elements of Style</cite> — a citation example.</p>
+      <p lang="zh"><cite>《论语》</cite> — 子曰：学而时习之，不亦说乎。</p>
+    </div>
+        <div>
+      <h3>dfn (displays as bold for non-italic languages)</h3>
+      <p><dfn>HTML</dfn> is the standard markup language for web documents.</p>
+      <p lang="zh"><dfn>HTML</dfn> 是基本标签.</p>
+    </div>
+    <div>
+      <h3>time</h3>
+      <p><time datetime="2026-07-22">July 22, 2026</time></p>
+    </div>
+    <div>
+      <h3>address</h3>
+      <address>
+        Contact: <a href="mailto:user@example.com">user@example.com</a><br>
+        123 Main Street, City
+      </address>
+    </div>
+    <div>
+      <h3>ruby</h3>
+      <ruby>中<rt>Zhong</rt>国<rt>Guo</rt></ruby>
+    </div>
+    <div>
+      <h3>blockquote</h3>
+      <blockquote>
+        <p>This is a blockquote. It inherits the base font size and line height.</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <h2 id="lists">Lists</h2>
+  <div class="section">
+    <div>
+      <h3>Unordered list (ul)</h3>
+      <ul>
+        <li>Item one
+          <ul>
+            <li>Nested item A</li>
+            <li>Nested item B</li>
+          </ul>
+        </li>
+        <li>Item two</li>
+        <li>Item three</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Ordered list (ol)</h3>
+      <ol>
+        <li>First step
+          <ol>
+            <li>Sub-step 1</li>
+            <li>Sub-step 2</li>
+          </ol>
+        </li>
+        <li>Second step</li>
+        <li>Third step</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Description list (dl)</h3>
+      <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets</dd>
+      </dl>
+    </div>
+  </div>
+
+  <h2 id="table">Table</h2>
+  <div class="section">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>City</th>
+          <th>Population</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Beijing</td>
+          <td>21.8M</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Shanghai</td>
+          <td>24.7M</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Shenzhen</td>
+          <td>17.6M</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="forms">Forms</h2>
+  <div class="section">
+    <div>
+      <h3>Button</h3>
+      <input type="submit" value="Submit" /> <input type="reset" value="Reset" /> <input type="button" value="Button" />
+      <button>Button</button> <button disabled>Disabled</button>
+    </div>
+    <div>
+      <h3>Input types</h3>
+      <div>text: <input placeholder="text input"></div>
+      <div>search: <input type="search" placeholder="search input"></div>
+      <div>number: <input type="number" value="10"></div>
+      <div>password: <input type="password" placeholder="password"></div>
+      <div>email: <input type="email" placeholder="email@example.com"></div>
+      <div>url: <input type="url" placeholder="https://example.com"></div>
+      <div>tel: <input type="tel" placeholder="+86-1234567890"></div>
+      <div>color: <input type="color"></div>
+      <div>file: <input type="file"></div>
+    </div>
+    <div>
+      <h3>Input date / time</h3>
+      <div>date: <input type="date"></div>
+      <div>time: <input type="time"></div>
+      <div>datetime-local: <input type="datetime-local"></div>
+      <div>month: <input type="month"></div>
+      <div>week: <input type="week"></div>
+    </div>
+    <div>
+      <h3>Input range</h3>
+      <input type="range" min="0" max="100" value="50">
+    </div>
+    <div>
+      <h3>Checkbox / Radio</h3>
+      <label><input type="checkbox"> Checkbox A</label>
+      <label><input type="checkbox" checked> Checkbox B (checked)</label>
+      <p></p>
+      <label><input type="radio" name="radio-group"> Radio A</label>
+      <label><input type="radio" name="radio-group" checked> Radio B (checked)</label>
+    </div>
+    <div>
+      <h3>Select</h3>
+      <select>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </select>
+      <select multiple>
+        <option>Multiple A</option>
+        <option>Multiple B</option>
+        <option>Multiple C</option>
+      </select>
+    </div>
+    <div>
+      <h3>Datalist</h3>
+      <input list="browsers" placeholder="Type a browser name">
+      <datalist id="browsers">
+        <option value="Chrome">
+        <option value="Firefox">
+        <option value="Edge">
+        <option value="Safari">
+        <option value="Opera">
+      </datalist>
+    </div>
+    <div>
+      <h3>Textarea</h3>
+      <textarea placeholder="Multi-line textarea"></textarea>
+    </div>
+    <div>
+      <h3>Output</h3>
+      <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+        <input type="range" id="a" value="20"> +
+        <input type="number" id="b" value="30" style="width:60px"> =
+        <output name="result">50</output>
+      </form>
+    </div>
+    <div>
+      <h3>Fieldset / Legend</h3>
+      <fieldset>
+        <legend>Contact Info</legend>
+        <div>Phone: <input type="tel" placeholder="phone"></div>
+        <div>Email: <input type="email" placeholder="email@example.com"></div>
+      </fieldset>
+    </div>
+    <div>
+      <h3>Progress</h3>
+      <p>Download progress: <progress value="70" max="100"></progress> 70%</p>
+    </div>
+    <div>
+      <h3>Meter</h3>
+      <p>Disk usage: <meter value="45" min="0" max="100"></meter> 45%</p>
+      <p>Memory: <meter value="0.8">80%</meter></p>
+    </div>
+    <div>
+      <h3>Label with input</h3>
+      <label>
+        <input type="checkbox"> Accept terms
+      </label>
+    </div>
+  </div>
+
+  <h2 id="interactive-elements">Interactive elements</h2>
+  <div class="section">
+    <div>
+      <h3>details / summary</h3>
+      <details>
+        <summary>Click to expand</summary>
+        <p>This content is hidden by default.</p>
+      </details>
+    </div>
+    <div>
+      <h3>dialog</h3>
+      <p>Native <code>&lt;dialog></code> element. Open with anchor <code>:target</code> or JS.</p>
+      <a href="#demoNormalizeDialog" class="link">Open dialog</a>
+    </div>
+  </div>
+
+  <!-- Simple dialog sample for normalize demo -->
+  <dialog id="demoNormalizeDialog" style="padding:40px;">
+    <p>Native <code>&lt;dialog></code> displayed with normalize baseline styling.</p>
+    <p><a href="##" class="link">Close</a></p>
+  </dialog>
+  </div>
+
+  <h2 id="media-elements">Media elements</h2>
+  <div class="section">
+    <div>
+      <h3>img</h3>
+      <p>Images are <code>max-width: 100%</code> and <code>height: auto</code>.</p>
+      <img src="https://unpkg.com/@codady/resource/image/earth01_sm.jpg">
+    </div>
+    <div>
+      <h3>hr</h3>
+      <hr>
+      <p>Horizontal rule rendered as a 1px solid line with border color.</p>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

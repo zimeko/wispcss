@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Gilt - Beautify Demo</title>
+  <style>
+    .gradient-demo { font-size: 1.5rem; font-weight: 700; line-height: 1.4; padding: 8px 0; }
+    .gradient-demo-sm { font-size: 1rem; font-weight: 600; line-height: 1.4; padding: 6px 0; }
+    .gradient-demo-lg { font-size: 2.5rem; font-weight: 800; line-height: 1.3; padding: 10px 0; }
+  </style>
+</head>
+
+<body>
+  <h1>Gilt Component</h1>
+  <p>Text gradient color effect using CSS variables and layered linear-gradient. Supports dynamic colors, direction modifiers, spotlight and duotone variants.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base class: <code>.gilt</code>. Uses <code>--color-primary</code> as gradient primary and <code>currentColor</code> as secondary by default.</li>
+      <li>Directions: <code>.gilt-start</code> (left→right, default), <code>.gilt-end</code> (right→left), <code>.gilt-top</code> (top→bottom), <code>.gilt-bottom</code> (bottom→top).</li>
+      <li>Variants: <code>.gilt-spotlight</code> (color converges in middle), <code>.gilt-duotone</code> (shifts second color hue by 40&deg;).</li>
+      <li>Color: <code>gilt-*</code> dynamic utilities (e.g. <code>gilt-primary</code>, <code>gilt-error</code>, <code>gilt-pink-500</code>, <code>gilt-[#ff6600]</code>).</li>
+      <li>Gilt works with any text color — the <code>currentColor</code> value in the gradient inherits from the element's text color (<code>color</code> property). Just set <code>style="color: ..."</code> or use <code>text-*</code> utilities.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default gilt</h3>
+      <span class="gradient-demo gilt">Gradient text</span>
+    </div>
+    <div>
+      <h3>Font sizes</h3>
+      <span class="gradient-demo-sm gilt">Small</span>
+      <span class="gradient-demo gilt">Medium</span>
+      <span class="gradient-demo-lg gilt">Large</span>
+    </div>
+    <div>
+      <h3>Paragraph text</h3>
+      <p class="gilt" style="font-size:1rem;line-height:1.8;max-width:400px;">
+        This is a paragraph with gilt gradient effect. The gradient can be applied to text of any length.
+      </p>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <span class="gradient-demo gilt gilt-primary">Primary</span>
+      <span class="gradient-demo gilt gilt-secondary">Secondary</span>
+      <span class="gradient-demo gilt gilt-tertiary">Tertiary</span>
+      <span class="gradient-demo gilt gilt-success">Success</span>
+      <span class="gradient-demo gilt gilt-error">Error</span>
+      <span class="gradient-demo gilt gilt-info">Info</span>
+      <span class="gradient-demo gilt gilt-warning">Warning</span>
+      <span class="gradient-demo gilt gilt-caution">Caution</span>
+      <span class="gradient-demo gilt gilt-highlight">Highlight</span>
+      <span class="gradient-demo gilt gilt-title">Title</span>
+    </div>
+  </div>
+
+  <h2 id="direction">Directions</h2>
+  <div class="section">
+    <div>
+      <h3>.gilt-start (left→right, default)</h3>
+      <span class="gradient-demo gilt gilt-primary gilt-start">Start</span>
+    </div>
+    <div>
+      <h3>.gilt-end (right→left)</h3>
+      <span class="gradient-demo gilt gilt-primary gilt-end">End</span>
+    </div>
+    <div>
+      <h3>.gilt-top (top→bottom)</h3>
+      <span class="gradient-demo gilt gilt-primary gilt-top">Top</span>
+    </div>
+    <div>
+      <h3>.gilt-bottom (bottom→top)</h3>
+      <span class="gradient-demo gilt gilt-primary gilt-bottom">Bottom</span>
+    </div>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>.gilt-spotlight</h3>
+      <span class="gradient-demo gilt gilt-primary gilt-spotlight">Spotlight</span>
+      <span class="gradient-demo gilt gilt-primary gilt-spotlight gilt-end">Spotlight End</span>
+    </div>
+    <div>
+      <h3>.gilt-duotone</h3>
+      <span class="gradient-demo gilt gilt-primary gilt-duotone">Duotone</span>
+      <span class="gradient-demo gilt gilt-primary gilt-duotone gilt-end">Duotone End</span>
+    </div>
+    <div>
+      <h3>Spotlight + colors</h3>
+      <span class="gradient-demo gilt gilt-success gilt-spotlight">Success</span>
+      <span class="gradient-demo gilt gilt-error gilt-spotlight">Error</span>
+      <span class="gradient-demo gilt gilt-info gilt-spotlight">Info</span>
+    </div>
+    <div>
+      <h3>Duotone + colors</h3>
+      <span class="gradient-demo gilt gilt-success gilt-duotone">Success</span>
+      <span class="gradient-demo gilt gilt-error gilt-duotone">Error</span>
+      <span class="gradient-demo gilt gilt-info gilt-duotone">Info</span>
+    </div>
+  </div>
+
+  <h2 id="combinations">Combinations</h2>
+  <div class="section">
+    <div>
+      <span class="gradient-demo gilt gilt-success gilt-bottom gilt-spotlight">Success + Bottom + Spotlight</span>
+    </div>
+    <div>
+      <span class="gradient-demo gilt gilt-error gilt-end gilt-duotone">Error + End + Duotone</span>
+    </div>
+    <div>
+      <span class="gradient-demo gilt gilt-info gilt-top gilt-spotlight">Info + Top + Spotlight</span>
+    </div>
+    <div>
+      <span class="gradient-demo gilt gilt-warning gilt-start gilt-duotone">Warning + Start + Duotone</span>
+    </div>
+  </div>
+
+  <h2 id="text-color-override">Text color override</h2>
+  <div class="section">
+    <div>
+      <span class="gradient-demo gilt" style="color:red;">Red text color</span>
+    </div>
+    <div>
+      <span class="gradient-demo gilt gilt-duotone" style="color:orange;">Orange text color + duotone</span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div>
+      <h3>Hex value</h3>
+      <span class="gradient-demo gilt gilt-[#ff6600]">#ff6600</span>
+    </div>
+    <div>
+      <h3>Named color</h3>
+      <span class="gradient-demo gilt gilt-[blue]">blue</span>
+    </div>
+    <div>
+      <h3>Tailwind color</h3>
+      <span class="gradient-demo gilt gilt-pink-500">pink-500</span>
+    </div>
+    <div>
+      <h3>Custom + spotlight</h3>
+      <span class="gradient-demo gilt gilt-[#ff6600] gilt-spotlight">#ff6600 spotlight</span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

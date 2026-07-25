@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Button - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Button Component</h1>
+  <p>All button variants, colors, sizes, shapes, and widths.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Prefer combined utilities like <code>btn-outline-primary</code> over separate
+        <code>btn-outline btn-primary</code> — smaller CSS output.
+      </li>
+      <li><code>&lt;button&gt;</code> and <code>&lt;input type="submit/reset/button"&gt;</code> get basic
+        <code>btn</code> styles by
+        default from preset.css. Add classes only for variants.</li>
+    </ul>
+  </div>
+
+  <h2 id="elements">Button elements</h2>
+  <div class="section">
+    <div>
+      <h3>Button tag</h3>
+      <button>Button</button> <button disabled>Disabled</button>
+    </div>
+    <div>
+      <h3>Input tag</h3>
+      <div>type=submit: <input type="submit" value="Submit"> <input type="submit" value="Submit" disabled></div>
+      <div>type=reset: <input type="reset" value="Reset"> <input type="reset" value="Reset" disabled></div>
+      <div>type=button: <input type="button" value="Button"> <input type="button" value="Button" disabled></div>
+    </div>
+    <div>
+      <h3>A / span tag</h3>
+      <a href="###" class="btn">Link button</a>
+    </div>
+  </div>
+
+  <h2 id="variants-color">Base variants + color</h2>
+  <div class="section">
+    <div>
+      <h3>Separate: btn-solid + btn-primary</h3>
+      <button class="btn-solid btn-primary">Solid</button> <button class="btn-solid btn-primary"
+        disabled>Disabled</button>
+      <button class="btn-subtle btn-primary">Subtle</button> <button class="btn-subtle btn-primary"
+        disabled>Disabled</button>
+      <button class="btn-outline btn-primary">Outline</button> <button class="btn-outline btn-primary"
+        disabled>Disabled</button>
+      <button class="btn-ghost btn-primary">Ghost</button> <button class="btn-ghost btn-primary"
+        disabled>Disabled</button>
+      <button class="btn-vivid btn-primary">Vivid</button> <button class="btn-vivid btn-primary"
+        disabled>Disabled</button>
+      <button class="btn-link btn-primary">Link</button> <button class="btn-link btn-primary" disabled>Disabled</button>
+    </div>
+    <div>
+      <h3>Combined: btn-solid-primary (recommended)</h3>
+      <button class="btn-solid-primary">Solid</button> <button class="btn-solid-primary" disabled>Disabled</button>
+      <button class="btn-subtle-primary">Subtle</button> <button class="btn-subtle-primary" disabled>Disabled</button>
+      <button class="btn-outline-primary">Outline</button> <button class="btn-outline-primary"
+        disabled>Disabled</button>
+      <button class="btn-ghost-primary">Ghost</button> <button class="btn-ghost-primary" disabled>Disabled</button>
+      <button class="btn-vivid-primary">Vivid</button> <button class="btn-vivid-primary" disabled>Disabled</button>
+      <button class="btn-link-primary">Link</button> <button class="btn-link-primary" disabled>Disabled</button>
+    </div>
+  </div>
+
+  <h2 id="link-cjk">Link CJK</h2>
+  <div class="section">
+    <div>
+      <h3>btn-link (default underline offset)</h3>
+      <button class="btn-link">Link Button</button>
+      <button class="btn-link-primary">Primary Link</button>
+      <button class="btn-link-success">Success Link</button>
+    </div>
+    <div>
+      <h3>btn-link-cjk (optimized offset for CJK)</h3>
+      <button class="btn-link btn-link-cjk">链接按钮</button>
+      <button class="btn-link-primary btn-link-cjk">主要链接</button>
+      <button class="btn-link-success btn-link-cjk">成功链接</button>
+    </div>
+  </div>
+
+  <h2 id="primary-colors">Primary colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <button class="btn-primary">Solid</button> <button class="btn-outline-primary">Outline</button> <button
+        class="btn-muted-primary">Muted</button> <button class="btn-subtle-primary">Subtle</button> <button
+        class="btn-vivid-primary">Vivid</button> <button class="btn-ghost-primary">Ghost</button>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <button class="btn-secondary">Solid</button> <button class="btn-outline-secondary">Outline</button> <button
+        class="btn-muted-secondary">Muted</button> <button class="btn-subtle-secondary">Subtle</button> <button
+        class="btn-vivid-secondary">Vivid</button> <button class="btn-ghost-secondary">Ghost</button>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <button class="btn-tertiary">Solid</button> <button class="btn-outline-tertiary">Outline</button> <button
+        class="btn-muted-tertiary">Muted</button> <button class="btn-subtle-tertiary">Subtle</button> <button
+        class="btn-vivid-tertiary">Vivid</button> <button class="btn-ghost-tertiary">Ghost</button>
+    </div>
+  </div>
+
+  <h2 id="status-colors">Status colors</h2>
+  <div class="section">
+    <div>
+      <h3>Success</h3>
+      <button class="btn-success">Solid</button> <button class="btn-outline-success">Outline</button> <button
+        class="btn-muted-success">Muted</button> <button class="btn-subtle-success">Subtle</button> <button
+        class="btn-vivid-success">Vivid</button> <button class="btn-ghost-success">Ghost</button>
+    </div>
+    <div>
+      <h3>Error</h3>
+      <button class="btn-error">Solid</button> <button class="btn-outline-error">Outline</button> <button
+        class="btn-muted-error">Muted</button> <button class="btn-subtle-error">Subtle</button> <button
+        class="btn-vivid-error">Vivid</button> <button class="btn-ghost-error">Ghost</button>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <button class="btn-info">Solid</button> <button class="btn-outline-info">Outline</button> <button
+        class="btn-muted-info">Muted</button> <button class="btn-subtle-info">Subtle</button> <button
+        class="btn-vivid-info">Vivid</button> <button class="btn-ghost-info">Ghost</button>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <button class="btn-warning">Solid</button> <button class="btn-outline-warning">Outline</button> <button
+        class="btn-muted-warning">Muted</button> <button class="btn-subtle-warning">Subtle</button> <button
+        class="btn-vivid-warning">Vivid</button> <button class="btn-ghost-warning">Ghost</button>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <button class="btn-caution">Solid</button> <button class="btn-outline-caution">Outline</button> <button
+        class="btn-muted-caution">Muted</button> <button class="btn-subtle-caution">Subtle</button> <button
+        class="btn-vivid-caution">Vivid</button> <button class="btn-ghost-caution">Ghost</button>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <button class="btn-highlight">Solid</button> <button class="btn-outline-highlight">Outline</button> <button
+        class="btn-muted-highlight">Muted</button> <button class="btn-subtle-highlight">Subtle</button> <button
+        class="btn-vivid-highlight">Vivid</button> <button class="btn-ghost-highlight">Ghost</button>
+    </div>
+  </div>
+
+  <h2 id="neutral-colors">Neutral colors</h2>
+  <div class="section">
+    <div>
+      <h3>Ink</h3>
+      <button class="btn-ink">Solid</button> <button class="btn-outline-ink">Outline</button> <button
+        class="btn-muted-ink">Muted</button> <button class="btn-subtle-ink">Subtle</button> <button
+        class="btn-vivid-ink">Vivid</button> <button class="btn-ghost-ink">Ghost</button>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <button class="btn-title">Solid</button> <button class="btn-outline-title">Outline</button> <button
+        class="btn-muted-title">Muted</button> <button class="btn-subtle-title">Subtle</button> <button
+        class="btn-vivid-title">Vivid</button> <button class="btn-ghost-title">Ghost</button>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <button class="btn-description">Solid</button> <button class="btn-outline-description">Outline</button> <button
+        class="btn-muted-description">Muted</button> <button class="btn-subtle-description">Subtle</button> <button
+        class="btn-vivid-description">Vivid</button> <button class="btn-ghost-description">Ghost</button>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <button class="btn-caption">Solid</button> <button class="btn-outline-caption">Outline</button> <button
+        class="btn-muted-caption">Muted</button> <button class="btn-subtle-caption">Subtle</button> <button
+        class="btn-vivid-caption">Vivid</button> <button class="btn-ghost-caption">Ghost</button>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <button class="btn-disabled">Solid</button> <button class="btn-outline-disabled">Outline</button> <button
+        class="btn-muted-disabled">Muted</button> <button class="btn-subtle-disabled">Subtle</button> <button
+        class="btn-vivid-disabled">Vivid</button> <button class="btn-ghost-disabled">Ghost</button>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <h3>Solid</h3>
+    <button class="btn-green-500">green-500</button> <button class="btn-green-800">green-800</button> <button
+      class="btn-green-200">green-200</button>
+    <button class="btn-[blue]">[blue]</button> <button class="btn-[#ff0000]">[#ff0000]</button>
+    <h3>Outline</h3>
+    <button class="btn-outline-green-500">green-500</button> <button class="btn-outline-green-800">green-800</button>
+    <button class="btn-outline-green-200">green-200</button>
+    <button class="btn-outline-[blue]">[blue]</button> <button class="btn-outline-[#ff0000]">[#ff0000]</button>
+    <h3>Muted</h3>
+    <button class="btn-muted-green-500">green-500</button> <button class="btn-muted-green-800">green-800</button>
+    <button class="btn-muted-green-200">green-200</button>
+    <h3>Subtle</h3>
+    <button class="btn-subtle-green-500">green-500</button> <button class="btn-subtle-green-800">green-800</button>
+    <button class="btn-subtle-green-200">green-200</button>
+    <h3>Vivid</h3>
+    <button class="btn-vivid-green-500">green-500</button> <button class="btn-vivid-green-800">green-800</button>
+    <button class="btn-vivid-green-200">green-200</button>
+    <h3>Ghost</h3>
+    <button class="btn-ghost-green-500">green-500</button> <button class="btn-ghost-green-800">green-800</button>
+    <button class="btn-ghost-green-200">green-200</button>
+  </div>
+
+  <h2 id="sizes">Sizes (btn-4 ~ btn-15)</h2>
+  <div class="section">
+    <div>
+      <h3>16px (btn-4)</h3>
+      <button class="btn-primary btn-4">Primary</button> <button class="btn-success btn-4">Success</button>
+      <button class="btn-outline-primary btn-4">Outline</button> <button class="btn-outline-error btn-4">Error</button>
+    </div>
+    <div>
+      <h3>20px (btn-5)</h3>
+      <button class="btn-primary btn-5">Primary</button> <button class="btn-success btn-5">Success</button>
+      <button class="btn-outline-primary btn-5">Outline</button>
+    </div>
+    <div>
+      <h3>24px (btn-6)</h3>
+      <button class="btn-primary btn-6">Primary</button> <button class="btn-success btn-6">Success</button>
+      <button class="btn-outline-primary btn-6">Outline</button>
+    </div>
+    <div>
+      <h3>28px (btn-7)</h3>
+      <button class="btn-primary btn-7">Primary</button> <button class="btn-success btn-7">Success</button>
+      <button class="btn-outline-primary btn-7">Outline</button>
+      <button class="btn-primary btn-7"><svg height="12" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg> Icon</button>
+    </div>
+    <div>
+      <h3>32px (btn-8, default)</h3>
+      <button class="btn-primary btn-8">Primary</button> <button class="btn-success btn-8">Success</button>
+      <button class="btn-outline-primary btn-8">Outline</button>
+    </div>
+    <div>
+      <h3>36px (btn-9)</h3>
+      <button class="btn-primary btn-9">Primary</button> <button class="btn-success btn-9">Success</button>
+    </div>
+    <div>
+      <h3>40px (btn-10)</h3>
+      <button class="btn-primary btn-10">Primary</button> <button class="btn-success btn-10">Success</button>
+    </div>
+    <div>
+      <h3>44px (btn-11)</h3>
+      <button class="btn-primary btn-11">Primary</button> <button class="btn-success btn-11">Success</button>
+    </div>
+    <div>
+      <h3>48px (btn-12)</h3>
+      <button class="btn-primary btn-12">Primary</button> <button class="btn-success btn-12">Success</button>
+    </div>
+    <div>
+      <h3>52px (btn-13)</h3>
+      <button class="btn-primary btn-13">Primary</button> <button class="btn-success btn-13">Success</button>
+    </div>
+    <div>
+      <h3>56px (btn-14)</h3>
+      <button class="btn-primary btn-14">Primary</button> <button class="btn-success btn-14">Success</button>
+    </div>
+    <div>
+      <h3>60px (btn-15)</h3>
+      <button class="btn-primary btn-15">Primary</button> <button class="btn-success btn-15">Success</button>
+    </div>
+  </div>
+
+  <h2 id="width">Width variants</h2>
+  <div class="section">
+    <div>
+      <h3>btn-full (100%)</h3>
+      <button class="btn-solid btn-primary btn-full">Full width</button>
+      <p></p>
+      <button class="btn-outline btn-primary btn-full">Full outline</button>
+    </div>
+    <div>
+      <h3>btn-ratio (1:1)</h3>
+      <button class="btn-solid btn-primary btn-ratio btn-8">S</button>
+      <button class="btn-solid btn-primary btn-ratio btn-10">M</button>
+      <button class="btn-solid btn-primary btn-ratio btn-12">L</button>
+      <h3>btn-ratio-2 (2:1)</h3>
+      <button class="btn-solid btn-primary btn-ratio-2 btn-8">2:1</button>
+      <button class="btn-solid btn-primary btn-ratio-2 btn-10">2:1</button>
+    </div>
+    <div>
+      <h3>btn-icon (1:1 icon)</h3>
+      <button class="btn-solid btn-primary btn-icon btn-8"><svg height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+        </svg></button>
+      <button class="btn-outline btn-primary btn-icon btn-8"><svg height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+        </svg></button>
+    </div>
+    <div>
+      <h3>btn-gutter (1em padding x)</h3>
+      <button class="btn-solid btn-primary btn-gutter btn-8">Gutter</button>
+      <h3>btn-gutter-2 (2em padding x)</h3>
+      <button class="btn-solid btn-primary btn-gutter-2 btn-8">Wide</button>
+    </div>
+  </div>
+
+  <h2 id="scale-width">Scale width</h2>
+  <div class="section">
+    <div>
+      <h3>btn-scale (fixed width)</h3>
+      <button class="btn-solid btn-primary btn-scale btn-8">Default</button>
+    </div>
+    <div>
+      <h3>btn-scale-2 (2x width)</h3>
+      <button class="btn-solid btn-primary btn-scale-2 btn-8">2x</button>
+    </div>
+    <div>
+      <h3>btn-scale-[3] (custom 3x width)</h3>
+      <button class="btn-solid btn-primary btn-scale-[3] btn-8">3x</button>
+    </div>
+    <div>
+      <h3>Scale with outline variant</h3>
+      <button class="btn-outline btn-primary btn-scale btn-8">Outline</button>
+      <button class="btn-outline btn-primary btn-scale-2 btn-8">Outline 2x</button>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>btn-pill (pill)</h3>
+      <button class="btn-primary btn-7 btn-pill">Save</button>
+      <button class="btn-primary btn-9 btn-pill">Save</button>
+      <button class="btn-primary btn-11 btn-pill">Save</button>
+    </div>
+    <div>
+      <h3>btn-rounded (default 8px)</h3>
+      <button class="btn-primary btn-7 btn-rounded">Save</button>
+      <button class="btn-primary btn-9 btn-rounded">Save</button>
+    </div>
+    <div>
+      <h3>btn-fluid (dynamic radius)</h3>
+      <button class="btn-primary btn-7 btn-fluid">Save</button>
+      <button class="btn-primary btn-9 btn-fluid">Save</button>
+    </div>
+    <div>
+      <h3>btn-square (no radius)</h3>
+      <button class="btn-primary btn-7 btn-square">Save</button>
+      <button class="btn-primary btn-9 btn-square">Save</button>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

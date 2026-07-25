@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Animation - Beautify Demo</title>
+  <style>
+    .anim-preview {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      font-weight: 600;
+      font-size: .75rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .anim-preview.infinite {
+      cursor: default;
+    }
+    .grid-cols {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .anim-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 4px;
+    }
+    .anim-label {
+      font-size: .7rem;
+      color: #666;
+      text-align: center;
+      word-break: break-all;
+      max-width: 120px;
+    }
+    .section-dynamic {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .duration-demo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Animation Component</h1>
+  <p>CSS animation utilities — rotation, bounce, fade, scale, spring, fly, and more.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use <code>animate-[effect-name]</code> to apply an animation.</li>
+      <li>Append <code>-[ms]</code> to override duration dynamically, e.g. <code>animate-fade-in-500</code>.</li>
+      <li>Combine with <code>animate-infinite</code> for continuous loops, or <code>animate-once</code> (default) for single play.</li>
+      <li>Click a single-shot demo block to replay the animation.</li>
+    </ul>
+    <p>Multiple time formats are supported:</p>
+    <ul>
+      <li>1. Integer value, e.g. <code>*-100</code> (100ms)</li>
+      <li>2. Bracketed integer, e.g. <code>*-[100]</code> (100ms)</li>
+      <li>3. Bracketed time string, e.g. <code>*-[100ms]</code>, <code>*-[2s]</code></li>
+    </ul>
+  </div>
+
+  <h2 id="rotation-single">Rotation (single)</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-rotate-cw-360">CW</div>
+        <span class="anim-label">animate-rotate-cw-360</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-rotate-ccw-360">CCW</div>
+        <span class="anim-label">animate-rotate-ccw-360</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="rotation-infinite">Rotation (infinite)</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview infinite animate-circle-cw-360">CW</div>
+        <span class="anim-label">animate-circle-cw-360</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview infinite animate-circle-ccw-360">CCW</div>
+        <span class="anim-label">animate-circle-ccw-360</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="remind">Remind</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview infinite animate-remind-x">X</div>
+        <span class="anim-label">animate-remind-x</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview infinite animate-remind-y">Y</div>
+        <span class="anim-label">animate-remind-y</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="float">Float</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview infinite animate-float-x">X</div>
+        <span class="anim-label">animate-float-x</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview infinite animate-float-y">Y</div>
+        <span class="anim-label">animate-float-y</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="bounce">Bounce</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-bounce-y">Y</div>
+        <span class="anim-label">animate-bounce-y</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-bounce-x">X</div>
+        <span class="anim-label">animate-bounce-x</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="blink">Blink</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-blink">Blink</div>
+        <span class="anim-label">animate-blink</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="heartbeat">Heartbeat</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-heartbeat">♥</div>
+        <span class="anim-label">animate-heartbeat</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="shake">Shake</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-shake-x">X</div>
+        <span class="anim-label">animate-shake-x</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-shake-y">Y</div>
+        <span class="anim-label">animate-shake-y</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-shake-z">Z</div>
+        <span class="anim-label">animate-shake-z</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="fade">Fade</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fade-in">In</div>
+        <span class="anim-label">animate-fade-in</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fade-out">Out</div>
+        <span class="anim-label">animate-fade-out</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fade-in-up">Up</div>
+        <span class="anim-label">animate-fade-in-up</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fade-out-up">Out Up</div>
+        <span class="anim-label">animate-fade-out-up</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fade-in-down">Down</div>
+        <span class="anim-label">animate-fade-in-down</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fade-out-down">Out Dn</div>
+        <span class="anim-label">animate-fade-out-down</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fade-in-start">Start</div>
+        <span class="anim-label">animate-fade-in-start</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fade-out-start">Out St</div>
+        <span class="anim-label">animate-fade-out-start</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fade-in-end">End</div>
+        <span class="anim-label">animate-fade-in-end</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fade-out-end">Out End</div>
+        <span class="anim-label">animate-fade-out-end</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="ease-vertical-scale">Ease (vertical scale)</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-ease-in">In</div>
+        <span class="anim-label">animate-ease-in</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-ease-out">Out</div>
+        <span class="anim-label">animate-ease-out</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-ease-in-top">Top</div>
+        <span class="anim-label">animate-ease-in-top</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-ease-out-top">Out T</div>
+        <span class="anim-label">animate-ease-out-top</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-ease-in-bottom">Bot</div>
+        <span class="anim-label">animate-ease-in-bottom</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-ease-out-bottom">Out B</div>
+        <span class="anim-label">animate-ease-out-bottom</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-ease-in-start">Start</div>
+        <span class="anim-label">animate-ease-in-start</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-ease-out-start">Out St</div>
+        <span class="anim-label">animate-ease-out-start</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-ease-in-end">End</div>
+        <span class="anim-label">animate-ease-in-end</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-ease-out-end">Out En</div>
+        <span class="anim-label">animate-ease-out-end</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="spring">Spring</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-spring-in">In</div>
+        <span class="anim-label">animate-spring-in</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-spring-out">Out</div>
+        <span class="anim-label">animate-spring-out</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="scale">Scale</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-scale-in">In</div>
+        <span class="anim-label">animate-scale-in</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-scale-out">Out</div>
+        <span class="anim-label">animate-scale-out</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="fly">Fly</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fly-in-start">St In</div>
+        <span class="anim-label">animate-fly-in-start</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fly-out-start">St Out</div>
+        <span class="anim-label">animate-fly-out-start</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fly-in-end">End In</div>
+        <span class="anim-label">animate-fly-in-end</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fly-out-end">End Out</div>
+        <span class="anim-label">animate-fly-out-end</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fly-in-up">Up In</div>
+        <span class="anim-label">animate-fly-in-up</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fly-out-up">Up Out</div>
+        <span class="anim-label">animate-fly-out-up</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fly-in-down">Dn In</div>
+        <span class="anim-label">animate-fly-in-down</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-fly-out-down">Dn Out</div>
+        <span class="anim-label">animate-fly-out-down</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="rotate-fade">Rotate Fade</h2>
+  <div class="section">
+    <div class="grid-cols">
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-rotate-in">In</div>
+        <span class="anim-label">animate-rotate-in</span>
+      </div>
+      <div class="anim-block">
+        <div class="anim-preview" data-anim="animate-rotate-out">Out</div>
+        <span class="anim-label">animate-rotate-out</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="dynamic-duration">Dynamic duration examples</h2>
+  <div class="section">
+    <div class="section-dynamic">
+      <div class="duration-demo">
+        <div class="anim-preview" data-anim="animate-fade-in-200">200ms</div>
+        <span class="anim-label">animate-fade-in-200</span>
+      </div>
+      <div class="duration-demo">
+        <div class="anim-preview" data-anim="animate-fade-in-500">500ms</div>
+        <span class="anim-label">animate-fade-in-500</span>
+      </div>
+      <div class="duration-demo">
+        <div class="anim-preview" data-anim="animate-fade-in-1000">1000ms</div>
+        <span class="anim-label">animate-fade-in-1000</span>
+      </div>
+      <div class="duration-demo">
+        <div class="anim-preview" data-anim="animate-fade-in-[2s]">[2s]</div>
+        <span class="anim-label">animate-fade-in-[2s]</span>
+      </div>
+      <div class="duration-demo">
+        <div class="anim-preview animate-circle-cw-360-500">500ms</div>
+        <span class="anim-label">animate-circle-cw-360-500</span>
+      </div>
+      <div class="duration-demo">
+        <div class="anim-preview animate-circle-cw-360-2000">2000ms</div>
+        <span class="anim-label">animate-circle-cw-360-2000</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Click to replay single-shot animations
+    document.querySelectorAll('.anim-preview[data-anim]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var cls = this.getAttribute('data-anim');
+        this.classList.remove(cls);
+        void this.offsetWidth;
+        this.classList.add(cls);
+      });
+    });
+  </script>
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

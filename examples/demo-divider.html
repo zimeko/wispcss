@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Divider - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Divider Component</h1>
+  <p>Horizontal and vertical divider component with label support.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base class: <code>.divider</code>. Use <code>.divider-h</code> for explicit horizontal (same as <code>.divider</code>).</li>
+      <li>Vertical: use <code>.divider-v</code>. With label, width expands to 1.5em.</li>
+      <li>Label positions: default (center), <code>.divider-start</code> (left), <code>.divider-end</code> (right).</li>
+      <li>Line styles: <code>.divider-dotted</code>, <code>.divider-dashed</code>, <code>.divider-slash</code>.</li>
+      <li>Sizes: <code>divider-1</code> ~ <code>divider-10</code> (1px ~ 10px thickness). Custom via <code>--divider-size</code>.</li>
+      <li>Colors: use <code>divider-*</code> dynamic utilities (e.g. <code>divider-primary</code>, <code>divider-error</code>).</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default divider</h3>
+      <p>Above</p>
+      <div class="divider"></div>
+      <p>Below</p>
+    </div>
+    <div>
+      <h3>With label</h3>
+      <div class="divider"><span>OR</span></div>
+    </div>
+    <div>
+      <h3>Label positions</h3>
+      <div class="divider divider-start"><span>Start</span></div>
+      <div class="divider divider-end"><span>End</span></div>
+    </div>
+  </div>
+
+  <h2 id="line-styles">Line styles</h2>
+  <div class="section">
+    <div>
+      <h3>Solid (default)</h3>
+      <div class="divider"><span>Solid</span></div>
+    </div>
+    <div>
+      <h3>Dotted</h3>
+      <div class="divider divider-dotted"><span>Dotted</span></div>
+    </div>
+    <div>
+      <h3>Dashed</h3>
+      <div class="divider divider-dashed"><span>Dashed</span></div>
+    </div>
+    <div>
+      <h3>Slash</h3>
+      <div class="divider divider-slash"><span>Slash</span></div>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes (divider-1 ~ divider-10)</h2>
+  <div class="section">
+    <div>
+      <div class="divider divider-1"><span>1 (1px)</span></div>
+      <div class="divider divider-2"><span>2 (2px)</span></div>
+      <div class="divider divider-3"><span>3 (3px)</span></div>
+      <div class="divider divider-4"><span>4 (4px)</span></div>
+      <div class="divider divider-5"><span>5 (5px)</span></div>
+      <div class="divider divider-6"><span>6 (6px)</span></div>
+      <div class="divider divider-7"><span>7 (7px)</span></div>
+      <div class="divider divider-8"><span>8 (8px)</span></div>
+      <div class="divider divider-9"><span>9 (9px)</span></div>
+      <div class="divider divider-10"><span>10 (10px)</span></div>
+    </div>
+    <div>
+      <h3>Custom size via --divider-size</h3>
+      <div class="divider [--divider-size:20px]"><span>20px</span></div>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <div class="divider divider-primary"><span>Primary</span></div>
+      <div class="divider divider-secondary"><span>Secondary</span></div>
+      <div class="divider divider-tertiary"><span>Tertiary</span></div>
+      <div class="divider divider-success"><span>Success</span></div>
+      <div class="divider divider-error"><span>Error</span></div>
+      <div class="divider divider-info"><span>Info</span></div>
+      <div class="divider divider-warning"><span>Warning</span></div>
+      <div class="divider divider-caution"><span>Caution</span></div>
+      <div class="divider divider-highlight"><span>Highlight</span></div>
+      <div class="divider divider-ink"><span>Ink</span></div>
+      <div class="divider divider-title"><span>Title</span></div>
+      <div class="divider divider-description"><span>Description</span></div>
+      <div class="divider divider-caption"><span>Caption</span></div>
+      <div class="divider divider-disabled"><span>Disabled</span></div>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+    <div>
+      <div class="divider divider-blue-200"><span>blue-200</span></div>
+      <div class="divider divider-blue-500"><span>blue-500</span></div>
+      <div class="divider divider-[#ff0000]"><span>[#ff0000]</span></div>
+    </div>
+  </div>
+
+  <h2 id="vertical">Vertical divider</h2>
+  <div class="section">
+    <div>
+      <h3>Basic vertical</h3>
+      <div style="display:flex;align-items:stretch;height:120px;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Left</div>
+        <div class="divider-v"></div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Right</div>
+      </div>
+    </div>
+    <div>
+      <h3>Vertical with label</h3>
+      <div style="display:flex;align-items:stretch;height:120px;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Left</div>
+        <div class="divider-v"><span>OR</span></div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Right</div>
+      </div>
+    </div>
+    <div>
+      <h3>Vertical dashed</h3>
+      <div style="display:flex;align-items:stretch;height:120px;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Left</div>
+        <div class="divider-v divider-dashed"><span>Dashed</span></div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Right</div>
+      </div>
+    </div>
+    <div>
+      <h3>Vertical dotted</h3>
+      <div style="display:flex;align-items:stretch;height:120px;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Left</div>
+        <div class="divider-v divider-dotted"><span>Dotted</span></div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Right</div>
+      </div>
+    </div>
+    <div>
+      <h3>Vertical slash</h3>
+      <div style="display:flex;align-items:stretch;height:120px;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Left</div>
+        <div class="divider-v divider-slash"><span>Slash</span></div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Right</div>
+      </div>
+    </div>
+    <div>
+      <h3>Vertical with color</h3>
+      <div style="display:flex;align-items:stretch;height:120px;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Left</div>
+        <div class="divider-v divider-primary"><span>Primary</span></div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;">Right</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Form section divider</h3>
+      <p><strong>Basic info</strong></p>
+      <p>Name: John &nbsp;|&nbsp; Age: 28 &nbsp;|&nbsp; Dept: Tech</p>
+      <div class="divider divider-primary divider-3"><span>Contact</span></div>
+      <p>Email: john@example.com</p>
+      <p>Phone: 138-0000-0000</p>
+    </div>
+    <div>
+      <h3>Navigation separator</h3>
+      <div style="display:flex;align-items:center;justify-content:center;padding:8px 0;">
+        <span style="padding:0 16px;font-size:0.875rem;">Home</span>
+        <div class="divider-v" style="height:1em;"></div>
+        <span style="padding:0 16px;font-size:0.875rem;">Products</span>
+        <div class="divider-v" style="height:1em;"></div>
+        <span style="padding:0 16px;font-size:0.875rem;">Services</span>
+        <div class="divider-v" style="height:1em;"></div>
+        <span style="padding:0 16px;font-size:0.875rem;">About</span>
+      </div>
+    </div>
+    <div>
+      <h3>Style + color combinations</h3>
+      <div class="divider divider-dashed divider-info"><span>Info</span></div>
+      <div class="divider divider-dotted divider-highlight"><span>Warning</span></div>
+      <div class="divider divider-slash divider-error"><span>Error</span></div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

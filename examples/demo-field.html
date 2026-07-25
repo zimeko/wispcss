@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Field - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Field Component</h1>
+  <p>Form field container that accommodates all form field types. Supports vertical/horizontal layout, full-width, borderless mode, dynamic sizing, and slots for label, content, control, note, and help.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base structure: <code>.field &gt; [data-role="label"] + [data-role="content"] &gt; [data-role="control"] + [data-role="note"] + [data-role="help"]</code>.</li>
+      <li>Layouts: <code>.field</code> (vertical), <code>.field-h</code> (horizontal), <code>.field-v</code> (vertical alias).</li>
+      <li>Width modes: <code>.field-full</code> (100%), <code>.field-scale</code> (1x input width), <code>.field-scale-*</code> (Nx input width), <code>.field-ratio</code> (1x input height), <code>.field-ratio-*</code> (Nx input height).</li>
+      <li>Use <code>.field-borderless</code> to remove input borders for embedding in custom containers. Compatible with <code>.shell</code>.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default (vertical)</h3>
+      <section class="field">
+        <div data-role="label">Name:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="text" data-role="input">
+          </div>
+          <div data-role="note">note</div>
+        </div>
+        <span data-role="help">Forgot?</span>
+      </section>
+    </div>
+    <div>
+      <h3>With help text</h3>
+      <section class="field">
+        <div data-role="label">Password:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="password" data-role="input">
+          </div>
+          <div data-role="note">At least 8 characters, letters and numbers</div>
+        </div>
+        <span data-role="help">Forgot?</span>
+      </section>
+    </div>
+    <div>
+      <h3>With note</h3>
+      <section class="field">
+        <div data-role="label">Email:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="email" data-role="input" placeholder="your@email.com">
+          </div>
+          <div data-role="note">We will not share your email</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <h2 id="layout">Layouts</h2>
+  <div class="section">
+    <div>
+      <h3>Vertical (.field / .field-v)</h3>
+      <section class="field">
+        <div data-role="label">Username:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="text" data-role="input" placeholder="Enter username">
+          </div>
+        </div>
+      </section>
+    </div>
+    <div>
+      <h3>Horizontal (.field-h)</h3>
+      <section class="field-h">
+        <div data-role="label">Username:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="text" data-role="input" placeholder="Enter username">
+          </div>
+        </div>
+      </section>
+    </div>
+    <div>
+      <h3>Horizontal + full width (.field-h .field-full)</h3>
+      <section class="field-h field-full">
+        <div data-role="label">Username:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="text" data-role="input" placeholder="Enter username">
+          </div>
+        </div>
+      </section>
+    </div>
+    <div>
+      <h3>Horizontal + full + help</h3>
+      <section class="field-h field-full">
+        <div data-role="label">Password:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="password" data-role="input" placeholder="Enter password">
+          </div>
+        </div>
+        <span data-role="help">Forgot?</span>
+      </section>
+    </div>
+  </div>
+
+  <h2 id="dynamic-width">Dynamic width</h2>
+  <div class="section">
+    <div>
+      <h3>.field-scale (1x input width)</h3>
+      <section class="field-h field-scale">
+        <div data-role="label">Name:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="text" data-role="input" placeholder="Enter name">
+          </div>
+        </div>
+      </section>
+    </div>
+    <div>
+      <h3>.field-scale-2 (2x input width)</h3>
+      <section class="field-h field-scale-2">
+        <div data-role="label">Address:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="text" data-role="input" placeholder="Enter address">
+          </div>
+        </div>
+      </section>
+    </div>
+    <div>
+      <h3>.field-scale-3 (3x input width)</h3>
+      <section class="field-h field-scale-3">
+        <div data-role="label">Description:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="text" data-role="input" placeholder="Enter description">
+          </div>
+        </div>
+      </section>
+    </div>
+    <div>
+      <h3>.field-ratio (1x input height)</h3>
+      <section class="field-h field-ratio">
+        <div data-role="content">
+          <div data-role="control">
+            <input type="text" data-role="input" value="1">
+          </div>
+        </div>
+      </section>
+    </div>
+    <div>
+      <h3>.field-ratio-3 (3x input height)</h3>
+      <section class="field-h field-ratio-3">
+        <div data-role="label">Code:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="text" data-role="input" placeholder="Verification code">
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <h2 id="borderless">Borderless mode</h2>
+  <div class="section">
+    <div>
+      <h3>Vertical borderless</h3>
+      <div class="border rounded-md w-70">
+        <section class="field field-borderless">
+          <div data-role="label">Name:</div>
+          <div data-role="content">
+            <div data-role="control">
+              <input type="text" data-role="input" placeholder="Borderless input">
+            </div>
+            <div data-role="note">Borderless inside custom container</div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div>
+      <h3>Horizontal borderless + full</h3>
+      <div class="border rounded-md">
+        <section class="field-h field-full field-borderless">
+          <div data-role="label">Name:</div>
+          <div data-role="content">
+            <div data-role="control">
+              <input type="text" data-role="input" placeholder="Borderless horizontal">
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div>
+      <h3>Borderless + shell</h3>
+      <div class="border rounded-md w-full">
+        <section class="field-h field-full field-borderless">
+          <div data-role="label">Search:</div>
+          <div data-role="content">
+            <div data-role="control">
+              <section class="shell">
+                <input placeholder="Search...">
+                <kbd>CTRL+K</kbd>
+              </section>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="with-shell">With shell (room layout)</h2>
+  <div class="section">
+    <div>
+      <h3>Vertical field</h3>
+      <section class="field field-full">
+        <div data-role="label">Room Type</div>
+        <div data-role="content">
+          <div data-role="control" class="gap-2">
+            <div class="flex-fluid">
+              <section class="shell">
+                <input placeholder="Enter..."> Rooms
+              </section>
+            </div>
+            <div class="flex-fluid">
+              <section class="shell">
+                <input placeholder="Enter..."> Halls
+              </section>
+            </div>
+            <div class="flex-fluid">
+              <section class="shell">
+                <input placeholder="Enter..."> Baths
+              </section>
+            </div>
+          </div>
+          <div data-role="note">Form note</div>
+        </div>
+        <span data-role="help"><span class="text-error">Required</span></span>
+      </section>
+    </div>
+    <div>
+      <h3>Borderless room layout</h3>
+      <div class="border rounded-xl inline-flex">
+        <section class="field field-borderless">
+          <div data-role="label">Room Type</div>
+          <div data-role="content">
+            <div data-role="control" class="gap-2">
+              <div class="flex-fluid">
+                <section class="shell">
+                  <input placeholder="Enter..."> Rooms
+                </section>
+              </div>
+              <div class="flex-fluid">
+                <section class="shell">
+                  <input placeholder="Enter..."> Halls
+                </section>
+              </div>
+              <div class="flex-fluid">
+                <section class="shell">
+                  <input placeholder="Enter..."> Baths
+                </section>
+              </div>
+            </div>
+            <div data-role="note">Form note</div>
+          </div>
+          <span data-role="help"><span class="text-error">Required</span></span>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <div>
+      <h3>Login form (vertical)</h3>
+      <section class="field field-full">
+        <div data-role="label">Email:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="email" data-role="input" placeholder="your@email.com">
+          </div>
+        </div>
+      </section>
+      <section class="field field-full">
+        <div data-role="label">Password:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="password" data-role="input" placeholder="Enter password">
+          </div>
+          <div data-role="note">At least 8 characters</div>
+        </div>
+        <span data-role="help">Forgot?</span>
+      </section>
+    </div>
+    <div>
+      <h3>Login form (horizontal)</h3>
+      <section class="field-h field-full">
+        <div data-role="label">Email:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="email" data-role="input" placeholder="your@email.com">
+          </div>
+        </div>
+      </section>
+      <section class="field-h field-full">
+        <div data-role="label">Password:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="password" data-role="input" placeholder="Enter password">
+          </div>
+        </div>
+        <span data-role="help">Forgot?</span>
+      </section>
+    </div>
+    <div>
+      <h3>Registration form</h3>
+      <section class="field field-full">
+        <div data-role="label">Username:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="text" data-role="input" placeholder="Enter username">
+          </div>
+          <div data-role="note">3-20 characters, starts with a letter</div>
+        </div>
+      </section>
+      <section class="field field-full">
+        <div data-role="label">Email:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="email" data-role="input" placeholder="your@email.com">
+          </div>
+        </div>
+      </section>
+      <section class="field field-full">
+        <div data-role="label">Password:</div>
+        <div data-role="content">
+          <div data-role="control">
+            <input type="password" data-role="input" placeholder="Enter password">
+          </div>
+          <div data-role="note">At least 8 characters, letters and numbers</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

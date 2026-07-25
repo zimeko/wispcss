@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Blockquote - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Blockquote Component</h1>
+  <p>Semantic <code>&lt;blockquote></code> with layout variants and dynamic accent colors.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use a layout class: <code>blockquote-plain</code>, <code>blockquote-quote</code>, <code>blockquote-bar</code>, or <code>blockquote-card</code>.</li>
+      <li>Omit the layout class for the default style (left border + background).</li>
+      <li>Add <code>blockquote-{color}</code> to set the accent. Supports theme colors like <code>blockquote-primary</code>, <code>blockquote-success</code>, etc.</li>
+      <li>Custom colors via Tailwind palette: <code>blockquote-green-500</code>, <code>blockquote-green-100</code>.</li>
+    </ul>
+   
+  </div>
+
+  <h2 id="default">Default blockquote</h2>
+  <div class="section">
+    <blockquote>
+      <p>Default blockquote with left border and light background.</p>
+    </blockquote>
+    <blockquote>
+      <p>First paragraph of a multi-paragraph quote.</p>
+      <p>Second paragraph with natural spacing.</p>
+      <P>— Attribution via </P>
+    </blockquote>
+  </div>
+
+  <h2 id="layout-variants">Layout variants</h2>
+  <div class="section">
+    <h3>blockquote-plain</h3>
+    <blockquote class="blockquote-plain">
+      <p>Minimal — left border only, transparent background, no extra padding.</p>
+    </blockquote>
+
+    <h3>blockquote-quote</h3>
+    <blockquote class="blockquote-quote">
+      <p>Large quotation marks at top-left and bottom-right, top divider line, no left border.</p>
+    </blockquote>
+
+    <h3>blockquote-bar</h3>
+    <blockquote class="blockquote-bar">
+      <p>Vertical color bar on the start side, subtle rounded container.</p>
+    </blockquote>
+
+    <h3>blockquote-card</h3>
+    <blockquote class="blockquote-card">
+      <p>Full border, background, and quotation mark — similar to a callout card.</p>
+    </blockquote>
+  </div>
+
+  <h2 id="colors-default-layout">Color — default layout</h2>
+  <div class="section">
+    <blockquote class="blockquote-primary"><p><strong>primary</strong> — default theme</p></blockquote>
+    <blockquote class="blockquote-secondary"><p><strong>secondary</strong> — secondary theme</p></blockquote>
+    <blockquote class="blockquote-tertiary"><p><strong>tertiary</strong> — tertiary theme</p></blockquote>
+    <blockquote class="blockquote-success"><p><strong>success</strong> — success status</p></blockquote>
+    <blockquote class="blockquote-error"><p><strong>error</strong> — error status</p></blockquote>
+    <blockquote class="blockquote-info"><p><strong>info</strong> — info status</p></blockquote>
+    <blockquote class="blockquote-warning"><p><strong>warning</strong> — warning status</p></blockquote>
+    <blockquote class="blockquote-caution"><p><strong>caution</strong> — caution status</p></blockquote>
+    <blockquote class="blockquote-highlight"><p><strong>highlight</strong> — highlight status</p></blockquote>
+    <blockquote class="blockquote-ink"><p><strong>ink</strong> — neutral ink</p></blockquote>
+    <blockquote class="blockquote-title"><p><strong>title</strong> — neutral title</p></blockquote>
+    <blockquote class="blockquote-description"><p><strong>description</strong> — neutral description</p></blockquote>
+    <blockquote class="blockquote-caption"><p><strong>caption</strong> — neutral caption</p></blockquote>
+    <blockquote class="blockquote-disabled"><p><strong>disabled</strong> — neutral disabled</p></blockquote>
+  </div>
+
+  <h2 id="colors-bar-layout">Color — bar layout</h2>
+  <div class="section">
+    <blockquote class="blockquote-bar blockquote-primary"><p><strong>primary</strong></p></blockquote>
+    <blockquote class="blockquote-bar blockquote-success"><p><strong>success</strong></p></blockquote>
+    <blockquote class="blockquote-bar blockquote-error"><p><strong>error</strong></p></blockquote>
+    <blockquote class="blockquote-bar blockquote-info"><p><strong>info</strong></p></blockquote>
+    <blockquote class="blockquote-bar blockquote-warning"><p><strong>warning</strong></p></blockquote>
+    <blockquote class="blockquote-bar blockquote-caution"><p><strong>caution</strong></p></blockquote>
+    <blockquote class="blockquote-bar blockquote-highlight"><p><strong>highlight</strong></p></blockquote>
+    <blockquote class="blockquote-bar blockquote-ink"><p><strong>ink</strong></p></blockquote>
+  </div>
+
+  <h2 id="colors-card-layout">Color — card layout</h2>
+  <div class="section">
+    <blockquote class="blockquote-card blockquote-primary"><p><strong>primary</strong></p></blockquote>
+    <blockquote class="blockquote-card blockquote-success"><p><strong>success</strong></p></blockquote>
+    <blockquote class="blockquote-card blockquote-error"><p><strong>error</strong></p></blockquote>
+    <blockquote class="blockquote-card blockquote-info"><p><strong>info</strong></p></blockquote>
+    <blockquote class="blockquote-card blockquote-warning"><p><strong>warning</strong></p></blockquote>
+    <blockquote class="blockquote-card blockquote-caution"><p><strong>caution</strong></p></blockquote>
+    <blockquote class="blockquote-card blockquote-highlight"><p><strong>highlight</strong></p></blockquote>
+    <blockquote class="blockquote-card blockquote-ink"><p><strong>ink</strong></p></blockquote>
+  </div>
+
+  <h2 id="colors-quote-layout">Color — quote layout</h2>
+  <div class="section">
+    <blockquote class="blockquote-quote blockquote-primary"><p><strong>primary</strong></p></blockquote>
+    <blockquote class="blockquote-quote blockquote-success"><p><strong>success</strong></p></blockquote>
+    <blockquote class="blockquote-quote blockquote-error"><p><strong>error</strong></p></blockquote>
+    <blockquote class="blockquote-quote blockquote-info"><p><strong>info</strong></p></blockquote>
+    <blockquote class="blockquote-quote blockquote-warning"><p><strong>warning</strong></p></blockquote>
+    <blockquote class="blockquote-quote blockquote-caution"><p><strong>caution</strong></p></blockquote>
+    <blockquote class="blockquote-quote blockquote-highlight"><p><strong>highlight</strong></p></blockquote>
+    <blockquote class="blockquote-quote blockquote-ink"><p><strong>ink</strong></p></blockquote>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+   <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
+  <div class="section">
+    <blockquote class="blockquote-green-100"><p><strong>blockquote-green-100</strong> — Tailwind shade</p></blockquote>
+    <blockquote class="blockquote-green-500"><p><strong>blockquote-green-500</strong> — Tailwind shade</p></blockquote>
+    <blockquote class="blockquote-green-800"><p><strong>blockquote-green-800</strong> — Tailwind shade</p></blockquote>
+    <blockquote class="blockquote-bar blockquote-green-100"><p><strong>bar + green-100</strong></p></blockquote>
+    <blockquote class="blockquote-bar blockquote-green-500"><p><strong>bar + green-500</strong></p></blockquote>
+    <blockquote class="blockquote-card blockquote-green-100"><p><strong>card + green-100</strong></p></blockquote>
+    <blockquote class="blockquote-card blockquote-green-500"><p><strong>card + green-500</strong></p></blockquote>
+    <blockquote class="blockquote-quote blockquote-green-100"><p><strong>quote + green-100</strong></p></blockquote>
+    <blockquote class="blockquote-quote blockquote-green-500"><p><strong>quote + green-500</strong></p></blockquote>
+  </div>
+
+  <h2 id="use-cases">Use cases</h2>
+  <div class="section">
+    <blockquote class="blockquote-quote blockquote-primary">
+      <p>Stay hungry, stay foolish.</p>
+      <footer>— Steve Jobs, Stanford 2005</footer>
+    </blockquote>
+    <blockquote class="blockquote-bar blockquote-info">
+      <p><strong>Tip:</strong> Ensure authentication tokens are configured before calling this API.</p>
+    </blockquote>
+    <blockquote class="blockquote-card blockquote-caution">
+      <p><strong>Caution:</strong> This action cannot be undone. Deleted data is irretrievable.</p>
+    </blockquote>
+    <blockquote class="blockquote-bar blockquote-success">
+      <p><strong>Done:</strong> All tasks completed. 128 records processed in 1.2s.</p>
+    </blockquote>
+    <blockquote class="blockquote-card blockquote-error">
+      <p><strong>Error:</strong> Request failed (500). Server encountered an internal error.</p>
+    </blockquote>
+    <blockquote class="blockquote-plain blockquote-ink">
+      <p>A concise inline-style quote suitable for article body text.</p>
+    </blockquote>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

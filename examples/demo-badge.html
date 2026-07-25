@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Badge - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Badge</h1>
+  <p>Notification badge and tag component with sizes, shapes, variants, and dynamic colors. Collapses to an 8px dot when empty.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li><code>&lt;span class="badge"&gt;&lt;/span&gt;</code> (empty) renders as an 8px notification dot.</li>
+      <li>Prefer combined utilities like <code>badge-outline-primary</code> over separate <code>badge-outline badge-primary</code> &mdash; smaller CSS output.</li>
+      <li>Size defaults to <code>badge-md</code> (20px height) when no size class is set.</li>
+    </ul>
+  </div>
+
+  <h2 id="default">Default</h2>
+  <div class="section">
+    <div>
+      <h3>Text badge (error/red default)</h3>
+      <span class="badge">New</span>
+      <span class="badge">99+</span>
+      <span class="badge">Hot</span>
+      <span class="badge">Recommend</span>
+    </div>
+    <div>
+      <h3>Empty dot</h3>
+      <span class="badge"></span>
+      <span class="badge badge-outline-success"></span>
+      <span class="badge badge-subtle-success"></span>
+      <span class="badge badge-muted-success"></span>
+      <span class="badge badge-solid-success"></span>
+    </div>
+  </div>
+
+  <h2 id="real-world">Real-world usage</h2>
+  <div class="section">
+    <div>
+      <h3>On buttons</h3>
+      <button style="position:relative; padding:6px 16px;">
+        Messages
+        <span class="badge" style="position:absolute; top:-6px; right:-6px;">3</span>
+      </button>
+      <button style="position:relative; padding:6px 16px;">
+        Notifications
+        <span class="badge" style="position:absolute; top:-6px; right:-6px;">99+</span>
+      </button>
+    </div>
+    <div>
+      <h3>On icons</h3>
+      <span style="position:relative; display:inline-flex;">
+        &#x1F514;
+        <span class="badge" style="position:absolute; top:-4px; right:-4px;"></span>
+      </span>
+      <span style="position:relative; display:inline-flex;">
+        &#x1F4AC;
+        <span class="badge" style="position:absolute; top:-4px; right:-4px;"></span>
+      </span>
+      <span style="position:relative; display:inline-flex;">
+        &#x1F4E7;
+        <span class="badge" style="position:absolute; top:-4px; right:-4px;">3</span>
+      </span>
+    </div>
+    <div>
+      <h3>Inline text</h3>
+      <span>Order status <span class="badge badge-success">Shipped</span></span>
+      <span>Version <span class="badge badge-primary">v2.0</span></span>
+    </div>
+  </div>
+
+  <h2 id="sizes">Sizes</h2>
+  <div class="section">
+    <div>
+      <h3>badge-2xs (14px)</h3>
+      <span class="badge badge-2xs">2xs</span>
+      <span class="badge badge-2xs badge-outline">2xs</span>
+    </div>
+    <div>
+      <h3>badge-xs (16px)</h3>
+      <span class="badge badge-xs">xs</span>
+      <span class="badge badge-xs badge-outline">xs</span>
+    </div>
+    <div>
+      <h3>badge-sm (18px)</h3>
+      <span class="badge badge-sm">sm</span>
+      <span class="badge badge-sm badge-outline">sm</span>
+    </div>
+    <div>
+      <h3>badge-md (20px, default)</h3>
+      <span class="badge badge-md">md</span>
+      <span class="badge badge-md badge-outline">md</span>
+    </div>
+    <div>
+      <h3>badge-lg (22px)</h3>
+      <span class="badge badge-lg">lg</span>
+      <span class="badge badge-lg badge-outline">lg</span>
+    </div>
+    <div>
+      <h3>badge-xl (24px)</h3>
+      <span class="badge badge-xl">xl</span>
+      <span class="badge badge-xl badge-outline">xl</span>
+    </div>
+    <div>
+      <h3>badge-2xl (28px)</h3>
+      <span class="badge badge-2xl">2xl</span>
+      <span class="badge badge-2xl badge-outline">2xl</span>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors</h2>
+  <div class="section">
+    <div>
+      <h3>Primary</h3>
+      <span class="badge badge-primary">Solid</span>
+      <span class="badge badge-outline-primary">Outline</span>
+      <span class="badge badge-subtle-primary">Subtle</span>
+      <span class="badge badge-muted-primary">Muted</span>
+      <span class="badge badge-solid-primary">Solid</span>
+    </div>
+    <div>
+      <h3>Secondary</h3>
+      <span class="badge badge-secondary">Solid</span>
+      <span class="badge badge-outline-secondary">Outline</span>
+      <span class="badge badge-subtle-secondary">Subtle</span>
+      <span class="badge badge-muted-secondary">Muted</span>
+      <span class="badge badge-solid-secondary">Solid</span>
+    </div>
+    <div>
+      <h3>Tertiary</h3>
+      <span class="badge badge-tertiary">Solid</span>
+      <span class="badge badge-outline-tertiary">Outline</span>
+      <span class="badge badge-subtle-tertiary">Subtle</span>
+      <span class="badge badge-muted-tertiary">Muted</span>
+      <span class="badge badge-solid-tertiary">Solid</span>
+    </div>
+    <div>
+      <h3>Success</h3>
+      <span class="badge badge-success">Solid</span>
+      <span class="badge badge-outline-success">Outline</span>
+      <span class="badge badge-subtle-success">Subtle</span>
+      <span class="badge badge-muted-success">Muted</span>
+      <span class="badge badge-solid-success">Solid</span>
+    </div>
+    <div>
+      <h3>Error (default)</h3>
+      <span class="badge badge-error">Solid</span>
+      <span class="badge badge-outline-error">Outline</span>
+      <span class="badge badge-subtle-error">Subtle</span>
+      <span class="badge badge-muted-error">Muted</span>
+      <span class="badge badge-solid-error">Solid</span>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <span class="badge badge-info">Solid</span>
+      <span class="badge badge-outline-info">Outline</span>
+      <span class="badge badge-subtle-info">Subtle</span>
+      <span class="badge badge-muted-info">Muted</span>
+      <span class="badge badge-solid-info">Solid</span>
+    </div>
+    <div>
+      <h3>Warning</h3>
+      <span class="badge badge-warning">Solid</span>
+      <span class="badge badge-outline-warning">Outline</span>
+      <span class="badge badge-subtle-warning">Subtle</span>
+      <span class="badge badge-muted-warning">Muted</span>
+      <span class="badge badge-solid-warning">Solid</span>
+    </div>
+    <div>
+      <h3>Caution</h3>
+      <span class="badge badge-caution">Solid</span>
+      <span class="badge badge-outline-caution">Outline</span>
+      <span class="badge badge-subtle-caution">Subtle</span>
+      <span class="badge badge-muted-caution">Muted</span>
+      <span class="badge badge-solid-caution">Solid</span>
+    </div>
+    <div>
+      <h3>Highlight</h3>
+      <span class="badge badge-highlight">Solid</span>
+      <span class="badge badge-outline-highlight">Outline</span>
+      <span class="badge badge-subtle-highlight">Subtle</span>
+      <span class="badge badge-muted-highlight">Muted</span>
+      <span class="badge badge-solid-highlight">Solid</span>
+    </div>
+    <div>
+      <h3>Ink</h3>
+      <span class="badge badge-ink">Solid</span>
+      <span class="badge badge-outline-ink">Outline</span>
+      <span class="badge badge-subtle-ink">Subtle</span>
+      <span class="badge badge-muted-ink">Muted</span>
+      <span class="badge badge-solid-ink">Solid</span>
+    </div>
+    <div>
+      <h3>Title</h3>
+      <span class="badge badge-title">Solid</span>
+      <span class="badge badge-outline-title">Outline</span>
+      <span class="badge badge-subtle-title">Subtle</span>
+      <span class="badge badge-muted-title">Muted</span>
+      <span class="badge badge-solid-title">Solid</span>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <span class="badge badge-description">Solid</span>
+      <span class="badge badge-outline-description">Outline</span>
+      <span class="badge badge-subtle-description">Subtle</span>
+      <span class="badge badge-muted-description">Muted</span>
+      <span class="badge badge-solid-description">Solid</span>
+    </div>
+    <div>
+      <h3>Caption</h3>
+      <span class="badge badge-caption">Solid</span>
+      <span class="badge badge-outline-caption">Outline</span>
+      <span class="badge badge-subtle-caption">Subtle</span>
+      <span class="badge badge-muted-caption">Muted</span>
+      <span class="badge badge-solid-caption">Solid</span>
+    </div>
+    <div>
+      <h3>Disabled</h3>
+      <span class="badge badge-disabled">Solid</span>
+      <span class="badge badge-outline-disabled">Outline</span>
+      <span class="badge badge-subtle-disabled">Subtle</span>
+      <span class="badge badge-muted-disabled">Muted</span>
+      <span class="badge badge-solid-disabled">Solid</span>
+    </div>
+    <div>
+      <h3>Black</h3>
+      <span class="badge badge-black">Solid</span>
+      <span class="badge badge-outline-black">Outline</span>
+      <span class="badge badge-subtle-black">Subtle</span>
+      <span class="badge badge-muted-black">Muted</span>
+      <span class="badge badge-solid-black">Solid</span>
+    </div>
+    <div>
+      <h3>White</h3>
+      <span style="display:inline-block; background:#333; padding:8px; border-radius:8px;">
+        <span class="badge badge-white">Solid</span>
+        <span class="badge badge-outline-white">Outline</span>
+        <span class="badge badge-subtle-white">Subtle</span>
+        <span class="badge badge-muted-white">Muted</span>
+        <span class="badge badge-solid-white">Solid</span>
+      </span>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Tailwind palette (green-100/500/800)</h3>
+      <span class="badge badge-green-100">green-100</span>
+      <span class="badge badge-green-500">green-500</span>
+      <span class="badge badge-green-800">green-800</span>
+    </div>
+    <div>
+      <h3>Variants with custom color</h3>
+      <span class="badge badge-outline-green-500">outline</span>
+      <span class="badge badge-subtle-green-500">subtle</span>
+      <span class="badge badge-muted-green-500">muted</span>
+      <span class="badge badge-solid-green-500">solid</span>
+    </div>
+    <div>
+      <h3>Arbitrary values</h3>
+      <span class="badge badge-[#ff0000]">[#ff0000]</span>
+      <span class="badge badge-[rgb(25,120,200)]">[rgb(25,120,200)]</span>
+      <span class="badge badge-outline-[#ff0000]">outline</span>
+      <span class="badge badge-subtle-[#ff0000]">subtle</span>
+      <span class="badge badge-muted-[#ff0000]">muted</span>
+      <span class="badge badge-solid-[#ff0000]">solid</span>
+    </div>
+  </div>
+
+  <h2 id="shapes">Shapes</h2>
+  <div class="section">
+    <div>
+      <h3>badge-pill (pill, default)</h3>
+      <span class="badge badge-primary badge-pill">Pill</span>
+      <span class="badge badge-success badge-pill">Success</span>
+      <span class="badge badge-error badge-pill">Error</span>
+    </div>
+    <div>
+      <h3>badge-rounded (small radius)</h3>
+      <span class="badge badge-primary badge-rounded">Rounded</span>
+      <span class="badge badge-success badge-rounded">Success</span>
+      <span class="badge badge-error badge-rounded">Error</span>
+    </div>
+    <div>
+      <h3>badge-square (no radius)</h3>
+      <span class="badge badge-primary badge-square">Square</span>
+      <span class="badge badge-success badge-square">Success</span>
+      <span class="badge badge-error badge-square">Error</span>
+    </div>
+    <div>
+      <h3>badge-scoop-start (clip bottom-left)</h3>
+      <span class="badge badge-primary badge-scoop-start">Scoop L</span>
+      <span class="badge badge-success badge-scoop-start">Success</span>
+      <span class="badge badge-error badge-scoop-start">Error</span>
+    </div>
+    <div>
+      <h3>badge-scoop-end (clip bottom-right)</h3>
+      <span class="badge badge-primary badge-scoop-end">Scoop R</span>
+      <span class="badge badge-success badge-scoop-end">Success</span>
+      <span class="badge badge-error badge-scoop-end">Error</span>
+    </div>
+  </div>
+
+  <h2 id="variants">Variants</h2>
+  <div class="section">
+    <div>
+      <h3>Solid (default)</h3>
+      <span class="badge badge-primary">Primary</span>
+      <span class="badge badge-success">Success</span>
+      <span class="badge badge-error">Error</span>
+      <span class="badge badge-highlight">Highlight</span>
+      <span class="badge badge-info">Info</span>
+    </div>
+    <div>
+      <h3>Outline (border only)</h3>
+      <span class="badge badge-outline-primary">Primary</span>
+      <span class="badge badge-outline-success">Success</span>
+      <span class="badge badge-outline-error">Error</span>
+      <span class="badge badge-outline-highlight">Highlight</span>
+      <span class="badge badge-outline-info">Info</span>
+    </div>
+    <div>
+      <h3>Subtle (borderless tint)</h3>
+      <span class="badge badge-subtle-primary">Primary</span>
+      <span class="badge badge-subtle-success">Success</span>
+      <span class="badge badge-subtle-error">Error</span>
+      <span class="badge badge-subtle-highlight">Highlight</span>
+      <span class="badge badge-subtle-info">Info</span>
+    </div>
+    <div>
+      <h3>Muted (tint + border)</h3>
+      <span class="badge badge-muted-primary">Primary</span>
+      <span class="badge badge-muted-success">Success</span>
+      <span class="badge badge-muted-error">Error</span>
+      <span class="badge badge-muted-highlight">Highlight</span>
+      <span class="badge badge-muted-info">Info</span>
+    </div>
+    <div>
+      <h3>Glassy (80% opacity)</h3>
+      <span class="badge badge-primary badge-glassy">Primary</span>
+      <span class="badge badge-success badge-glassy">Success</span>
+      <span class="badge badge-error badge-glassy">Error</span>
+      <span class="badge badge-highlight badge-glassy">Highlight</span>
+      <span class="badge badge-info badge-glassy">Info</span>
+    </div>
+  </div>
+
+  <h2 id="combinations">Variant + shape combinations</h2>
+  <div class="section">
+    <div>
+      <h3>Outline + shapes</h3>
+      <span class="badge badge-outline-primary badge-square">Square</span>
+      <span class="badge badge-outline-success badge-rounded">Rounded</span>
+      <span class="badge badge-outline-error badge-scoop-start">Scoop L</span>
+      <span class="badge badge-outline-info badge-scoop-end">Scoop R</span>
+    </div>
+    <div>
+      <h3>Subtle + shapes</h3>
+      <span class="badge badge-subtle-primary badge-square">Square</span>
+      <span class="badge badge-subtle-success badge-rounded">Rounded</span>
+      <span class="badge badge-subtle-error badge-scoop-start">Scoop L</span>
+      <span class="badge badge-subtle-info badge-scoop-end">Scoop R</span>
+    </div>
+    <div>
+      <h3>Real-world combos</h3>
+      <span class="badge badge-subtle-success badge-rounded">Completed</span>
+      <span class="badge badge-subtle-highlight badge-rounded">In progress</span>
+      <span class="badge badge-subtle-error badge-rounded">Failed</span>
+      <span class="badge badge-subtle-info badge-rounded">Review</span>
+    </div>
+    <div>
+      <h3>Tag labels</h3>
+      <span class="badge badge-outline-primary badge-pill">HTML</span>
+      <span class="badge badge-outline-success badge-pill">CSS</span>
+      <span class="badge badge-outline-error badge-pill">JS</span>
+      <span class="badge badge-outline-highlight badge-pill">TS</span>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

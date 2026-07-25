@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Droppanel - Beautify Demo</title>
+  <style>
+    .panel-content {
+      padding: 16px;
+      min-width: 300px;
+    }
+
+    .demo-area {
+      min-height: 320px;
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Droppanel Component</h1>
+  <p>Pure CSS dropdown panel with fully customizable content. Supports hover/click toggle, inline mode, multiple
+    positions, and custom panel content.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base class: <code>.droppanel</code>. Structure:
+        <code>droppanel > label/span/host > [data-role="panel"]</code>.</li>
+      <li>Panel content is fully customizable — use <code>&lt;div data-role="panel"></code> as container.</li>
+      <li>Hover expands by default. Use <code>label > input[type=checkbox]</code> for click toggle.</li>
+      <li>Use <code>.droppanel-inline</code> for inline expansion (content pushes siblings).</li>
+      <li>Use <code>data-role="host"</code> on trigger for arrow indicator. Use <code>data-expanded="true"</code> for
+        persistent open.</li>
+      <li>Positions: <code>.droppanel-bottom-*</code>, <code>.droppanel-top-*</code>, <code>.droppanel-end-*</code>,
+        <code>.droppanel-start-*</code></li>
+      <li>Combine with <code>.bubble</code> class on the panel element for bubble-style appearance.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Hover (default)</h3>
+      <div class="droppanel">
+        <span>Notifications</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <h4>Notifications</h4>
+            <ul class="panel-list">
+              <li>System maintenance tonight 22:00</li>
+              <li>You have 3 unread messages</li>
+              <li>Document review completed</li>
+              <li>v2.5.0 released</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>With arrow (data-role="host")</h3>
+      <div class="droppanel">
+        <span data-role="host">Notifications</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <h4>Notifications</h4>
+            <ul class="panel-list">
+              <li>System maintenance tonight 22:00</li>
+              <li>You have 3 unread messages</li>
+              <li>Document review completed</li>
+              <li>v2.5.0 released</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Inline mode (.droppanel-inline)</h3>
+      <div class="droppanel droppanel-inline">
+        <span>Notifications</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <h4>Notifications</h4>
+            <ul class="panel-list">
+              <li>System maintenance tonight 22:00</li>
+              <li>You have 3 unread messages</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p>This content gets pushed down.</p>
+    </div>
+
+    <div>
+      <h3>Click toggle (checkbox)</h3>
+      <div class="droppanel droppanel-bottom-start">
+        <label>User Center <input type="checkbox"></label>
+        <div data-role="panel">
+          <div class="panel-content">
+            <div class="panel-info">
+              <div class="avatar">👤</div>
+              <div class="info-text">
+                <div class="name">Zhang San</div>
+                <div class="desc">zhangsan@example.com</div>
+              </div>
+            </div>
+            <div class="panel-stats">
+              <div class="stat-item">
+                <div class="num">128</div>
+                <div class="label">Posts</div>
+              </div>
+              <div class="stat-item">
+                <div class="num">56</div>
+                <div class="label">Following</div>
+              </div>
+              <div class="stat-item">
+                <div class="num">1.2k</div>
+                <div class="label">Followers</div>
+              </div>
+            </div>
+            <div class="panel-actions">
+              <button class="primary">Profile</button>
+              <button>Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Expanded (data-expanded="true")</h3>
+      <div class="droppanel" data-expanded="true">
+        <span>Quick Actions</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <div>
+              <button class="primary">New Document</button>
+              <button>Upload File</button>
+            </div>
+            <p></p>
+            <div class="shell">
+              <label>Quick Search</label>
+              <input type="text" placeholder="Enter search keyword...">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="popup-positions">Popup positions</h2>
+  <div class="section">
+    <div>
+      <h3>Bottom</h3>
+      <div class="droppanel"><span>Center</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>Bottom center</p>
+          </div>
+        </div>
+      </div>
+      <div class="droppanel droppanel-bottom-start"><span>Start</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>Bottom start</p>
+          </div>
+        </div>
+      </div>
+      <div class="droppanel droppanel-bottom-end"><span>End</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>Bottom end</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Top</h3>
+      <div class="droppanel droppanel-top"><span>Center</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>Top center</p>
+          </div>
+        </div>
+      </div>
+      <div class="droppanel droppanel-top-start"><span>Start</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>Top start</p>
+          </div>
+        </div>
+      </div>
+      <div class="droppanel droppanel-top-end"><span>End</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>Top end</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>End (right)</h3>
+      <div class="droppanel droppanel-end"><span>Center</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>End center</p>
+          </div>
+        </div>
+      </div>
+      <div class="droppanel droppanel-end-top"><span>Top</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>End top</p>
+          </div>
+        </div>
+      </div>
+      <div class="droppanel droppanel-end-bottom"><span>Bottom</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>End bottom</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Start (left)</h3>
+      <div class="droppanel droppanel-start"><span>Center</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>Start center</p>
+          </div>
+        </div>
+      </div>
+      <div class="droppanel droppanel-start-top"><span>Top</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>Start top</p>
+          </div>
+        </div>
+      </div>
+      <div class="droppanel droppanel-start-bottom"><span>Bottom</span>
+        <div data-role="panel">
+          <div class="panel-content">
+            <p>Start bottom</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="panel-content">Panel content examples</h2>
+  <div class="section">
+    <div>
+      <h3>Notification list</h3>
+      <div class="droppanel droppanel-bottom-start">
+        <span>🔔 Notifications</span>
+        <div data-role="panel">
+          <div class="panel-content" style="width:280px;">
+            <h4>Notifications</h4>
+            <ul class="panel-list">
+              <li>System maintenance tonight 22:00</li>
+              <li>You have 3 unread messages</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>User info</h3>
+      <div class="droppanel droppanel-bottom-start">
+        <span>👤 Profile</span>
+        <div data-role="panel">
+          <div class="panel-content" style="width:260px;">
+            <div class="panel-info">
+              <div class="avatar">M</div>
+              <ul>
+                <li>Zhang San</li>
+                <li>zhangsan@example.com</li>
+              </ul>
+            </div>
+            <div>
+              <button class="primary">Profile</button>
+              <button>Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Search panel</h3>
+      <div class="droppanel droppanel-bottom-start">
+        <span>🔍 Search</span>
+        <div data-role="panel">
+          <div class="panel-content" style="width:260px;">
+            <div class="shell">
+              <label>Keyword</label>
+              <input type="text" placeholder="Enter search keyword...">
+            </div>
+            <div class="panel-actions" style="margin-top:12px;">
+              <button class="primary">Search</button>
+              <button>Advanced</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Quick actions</h3>
+      <div class="droppanel droppanel-bottom-start">
+        <span>⚡ Actions</span>
+        <div data-role="panel">
+          <div class="panel-content" style="width:240px;">
+            <ul class="panel-list">
+              <li>System maintenance tonight 22:00</li>
+              <li>You have 3 unread messages</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="with-bubble">With bubble</h2>
+  <div class="section">
+    <div>
+      <h3>Notifications with bubble style</h3>
+      <div class="droppanel droppanel-bottom-start">
+        <span>🔔 Notifications</span>
+        <div data-role="panel" class="bubble bubble-top-start">
+          <div class="panel-content" style="width:280px;">
+            <h4>Notifications</h4>
+            <ul class="panel-list">
+              <li>System maintenance tonight 22:00</li>
+              <li>You have 3 unread messages</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>
