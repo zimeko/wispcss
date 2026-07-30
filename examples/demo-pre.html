@@ -6,44 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
   <link rel="stylesheet" href="./demo-styles.css">
-  <title>Code / Pre - Beautify Demo</title>
+  <title>Pre - Beautify Demo</title>
 </head>
 
 <body>
-  <h1>Code / Pre Component</h1>
-  <p>Inline code highlighting with dynamic theme colors and <code>&lt;pre></code> code blocks.</p>
+  <h1>Pre Component</h1>
+  <p>Pre element highlighting utilities for <code>&lt;pre></code> tags with dynamic theme support.</p>
 
   <h2>Notes</h2>
   <div class="section">
     <ul>
-      <li><code>&lt;code></code> gets basic styling (font, background, padding, radius) from preset.css. Add utility classes for themes.</li>
       <li><code>&lt;pre></code> retains whitespace and line breaks. Pair with <code>&lt;code></code> for semantic code blocks: <code>&lt;pre>&lt;code></code>.</li>
-      <li>Variants: <code>code-plain</code> (no background), <code>code-muted</code> (subtle border), <code>code-outline</code> (solid border), <code>code-solid</code> (filled).</li>
-      <li>Dynamic colors: <code>code-*</code>, <code>code-muted-*</code>, <code>code-outline-*</code>, <code>code-solid-*</code> (e.g. <code>code-error</code>).</li>
+      <li>Variants: <code>pre-plain</code> (no background), <code>pre-muted</code> (subtle border), <code>pre-outline</code> (solid border), <code>pre-solid</code> (filled).</li>
+      <li>Dynamic colors: <code>pre-*</code>, <code>pre-muted-*</code>, <code>pre-outline-*</code>, <code>pre-solid-*</code> (e.g. <code>pre-error</code>).</li>
+      <li>Prefer combined utilities like <code>pre-solid-primary</code> over separate <code>pre-solid pre-primary</code>  smaller CSS output.</li>
     </ul>
   </div>
 
-  <h2 id="inline-code">Inline code</h2>
+  <h2 id="variants">Visual variants</h2>
   <div class="section">
     <div>
-      <h3>Default <code>code</code> tag</h3>
-      <p>This is an inline code: <code>const x = 10;</code></p>
+      <h3>pre-plain</h3>
+      <p>Removes background, padding and border-radius. Uses current text color.</p>
+      <pre class="pre-plain">pre-plain  no background</pre>
     </div>
     <div>
-      <h3>code-plain (no background)</h3>
-      <p><code class="code-plain">inline code without background</code></p>
+      <h3>pre-muted</h3>
+      <p>Subtle semi-transparent border with background.</p>
+      <pre class="pre-muted">pre-muted  light border</pre>
     </div>
     <div>
-      <h3>code-muted (subtle border)</h3>
-      <p><code class="code-muted">muted border style</code></p>
+      <h3>pre-outline</h3>
+      <p>Solid border matching the theme color.</p>
+      <pre class="pre-outline">pre-outline  solid border</pre>
     </div>
     <div>
-      <h3>code-outline (solid border)</h3>
-      <p><code class="code-outline">outline border style</code></p>
-    </div>
-    <div>
-      <h3>code-solid (filled)</h3>
-      <p><code class="code-solid">solid filled style</code></p>
+      <h3>pre-solid</h3>
+      <p>Solid filled background with white text.</p>
+      <pre class="pre-solid">pre-solid  dark background</pre>
     </div>
   </div>
 
@@ -51,88 +51,94 @@
   <div class="section">
     <div>
       <h3>Primary / Secondary / Tertiary</h3>
-      <code class="code-primary">primary</code>
-      <code class="code-secondary">secondary</code>
-      <code class="code-tertiary">tertiary</code>
+      <pre class="pre-primary">pre-primary</pre>
+      <pre class="pre-secondary">pre-secondary</pre>
+      <pre class="pre-tertiary">pre-tertiary</pre>
     </div>
     <div>
-      <h3>Success / Error / Info</h3>
-      <code class="code-success">success</code>
-      <code class="code-error">error</code>
-      <code class="code-info">info</code>
+      <h3>Status colors</h3>
+      <pre class="pre-success">pre-success</pre>
+      <pre class="pre-error">pre-error</pre>
+      <pre class="pre-info">pre-info</pre>
+      <pre class="pre-warning">pre-warning</pre>
+      <pre class="pre-caution">pre-caution</pre>
     </div>
     <div>
-      <h3>Highlight / Warning / Caution</h3>
-      <code class="code-highlight">highlight</code>
-      <code class="code-warning">warning</code>
-      <code class="code-caution">caution</code>
+      <h3>Highlight / Ink</h3>
+      <pre class="pre-highlight">pre-highlight</pre>
+      <pre class="pre-ink">pre-ink</pre>
     </div>
     <div>
-      <h3>Ink / Title / Description / Caption / Disabled</h3>
-      <code class="code-ink">ink</code>
-      <code class="code-title">title</code>
-      <code class="code-description">description</code>
-      <code class="code-caption">caption</code>
-      <code class="code-disabled">disabled</code>
+      <h3>Title / Description / Caption / Disabled</h3>
+      <pre class="pre-title">pre-title</pre>
+      <pre class="pre-description">pre-description</pre>
+      <pre class="pre-caption">pre-caption</pre>
+      <pre class="pre-disabled">pre-disabled</pre>
     </div>
   </div>
 
-  <h2 id="code-plus-variant-plus-color-combinations">Code + variant + color combinations</h2>
+  <h2 id="variant-shortcuts">Shortcut variant colors</h2>
   <div class="section">
+    <p>Standalone compound variants  equivalent to variant + color in one class.</p>
     <div>
-      <h3>code-muted + colors</h3>
-      <code class="code-muted code-muted-primary">primary</code>
-      <code class="code-muted-success">success</code>
-      <code class="code-muted-error">error</code>
-      <code class="code-muted-warning">warning</code>
+      <h3>pre-muted-*</h3>
+      <pre class="pre-muted-primary">pre-muted-primary</pre>
+      <pre class="pre-muted-success">pre-muted-success</pre>
+      <pre class="pre-muted-error">pre-muted-error</pre>
     </div>
     <div>
-      <h3>code-outline + colors</h3>
-      <code class="code-outline-primary">primary</code>
-      <code class="code-outline-success">success</code>
-      <code class="code-outline-error">error</code>
-      <code class="code-outline-warning">warning</code>
+      <h3>pre-outline-*</h3>
+      <pre class="pre-outline-primary">pre-outline-primary</pre>
+      <pre class="pre-outline-success">pre-outline-success</pre>
+      <pre class="pre-outline-error">pre-outline-error</pre>
     </div>
     <div>
-      <h3>code-solid + colors</h3>
-      <code class="code-solid-primary">primary</code>
-      <code class="code-solid-success">success</code>
-      <code class="code-solid-error">error</code>
-      <code class="code-solid-warning">warning</code>
+      <h3>pre-solid-*</h3>
+      <pre class="pre-solid-primary">pre-solid-primary</pre>
+      <pre class="pre-solid-success">pre-solid-success</pre>
+      <pre class="pre-solid-error">pre-solid-error</pre>
     </div>
   </div>
 
   <h2 id="custom-colors">Custom colors</h2>
-  <p>Multiple color formats are supported:</p>
-  <ul>
-    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
-    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
-    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
-    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
-  </ul>
   <div class="section">
+    <p>Multiple color formats are supported:</p>
+    <ul>
+      <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+      <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+      <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+      <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+    </ul>
     <div>
       <h3>Custom colors (subtle)</h3>
-      <code class="code-indigo-500">indigo-500</code>
-      <code class="code-green-500">green-500</code>
-      <code class="code-red-500">red-500</code>
+      <pre class="pre-indigo-500">pre-indigo-500</pre>
+      <pre class="pre-green-500">pre-green-500</pre>
+      <pre class="pre-red-500">pre-red-500</pre>
+      <pre class="pre-blue-200">pre-blue-200</pre>
     </div>
     <div>
       <h3>Custom colors (solid)</h3>
-      <code class="code-solid-indigo-500">indigo-500</code>
-      <code class="code-solid-green-500">green-500</code>
+      <pre class="pre-solid-indigo-500">pre-solid-indigo-500</pre>
+      <pre class="pre-solid-green-500">pre-solid-green-500</pre>
+      <pre class="pre-solid-[#ff0000]">pre-solid-[#ff0000]</pre>
     </div>
     <div>
       <h3>Custom colors (outline)</h3>
-      <code class="code-outline-[#ff6b6b]">[#ff6b6b]</code>
-      <code class="code-outline-[blue]">[blue]</code>
+      <pre class="pre-outline-indigo-500">pre-outline-indigo-500</pre>
+      <pre class="pre-outline-[#ff6b6b]">pre-outline-[#ff6b6b]</pre>
+      <pre class="pre-outline-[blue]">pre-outline-[blue]</pre>
+    </div>
+    <div>
+      <h3>Custom colors (muted)</h3>
+      <pre class="pre-muted-indigo-500">pre-muted-indigo-500</pre>
+      <pre class="pre-muted-[#ff6b6b]">pre-muted-[#ff6b6b]</pre>
     </div>
   </div>
 
-  <h2 id="pre-blocks">Pre blocks</h2>
+  <h2 id="code-blocks">Code blocks</h2>
   <div class="section">
     <div>
-      <h3>Plain <code>pre</code> tag</h3>
+      <h3>Plain <code>&lt;pre></code> tag</h3>
       <pre>
 function hello() {
     console.log("Hello World");
@@ -140,28 +146,56 @@ function hello() {
       </pre>
     </div>
     <div>
-      <h3>Pre + code (recommended)</h3>
+      <h3><code>&lt;pre></code> + &lt;code>&lt;code></code> (recommended)</h3>
       <pre><code>function hello() {
   console.log("Hello World");
 }</code></pre>
     </div>
     <div>
-      <h3>Pre + code-plain</h3>
-      <pre><code class="code-plain">$ npm install beautify</code></pre>
+      <h3><code>&lt;pre></code> + &lt;code>&lt;code></code> with theme color</h3>
+      <pre class="pre-primary"><code>function hello(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(hello("World"));</code></pre>
+    </div>
+    <div>
+      <h3><code>&lt;pre></code> + &lt;code>&lt;code></code> with error color</h3>
+      <pre class="pre-error"><code>ERROR: Failed to connect to database
+  at Database.connect (db.js:42)
+  at Server.start (server.js:18)</code></pre>
+    </div>
+    <div>
+      <h3><code>&lt;pre></code> + &lt;code>&lt;code></code> solid variant</h3>
+      <pre class="pre-solid-success"><code>$ npm install beautify
+$ npm run build
+$ npm start</code></pre>
+    </div>
+    <div>
+      <h3><code>&lt;pre></code> + &lt;code>&lt;code></code> outline variant</h3>
+      <pre class="pre-outline-info"><code>[2026-06-13 17:00:00] INFO  Starting server...
+[2026-06-13 17:00:01] INFO  Server listening on port 3000</code></pre>
+    </div>
+    <div>
+      <h3><code>&lt;pre></code> muted variant with color</h3>
+      <pre class="pre-muted-warning"><code>WARNING: Deprecated configuration option
+Please update your config file.</code></pre>
     </div>
   </div>
 
   <h2 id="summary">Summary</h2>
   <div class="section">
     <ul>
-      <li><code>&lt;code></code>: Inline code styling</li>
-      <li><code>&lt;pre></code>: Preformatted text (preserves whitespace)</li>
-      <li><code>&lt;pre>&lt;code></code>: Best practice for code blocks</li>
-      <li>Add utility classes for variants and theme colors</li>
+      <li><code>pre-plain</code>  removes background, padding, border-radius</li>
+      <li><code>pre-muted</code>  subtle border with background</li>
+      <li><code>pre-outline</code>  solid border matching theme color</li>
+      <li><code>pre-solid</code>  filled background with contrast text</li>
+      <li><code>pre-*</code>  dynamic theme colors (default subtle variant)</li>
+      <li><code>pre-muted-*</code>, <code>pre-outline-*</code>, <code>pre-solid-*</code>  shortcut variant + color</li>
     </ul>
   </div>
 
-  <p style="margin-top: 2rem;">For all <code>code</code> utilities, see <a class="link" href="./demo-code.html">demo-code.html</a>.</p>
+  <p style="margin-top: 2rem;">For <code>code</code> inline utilities, see <a class="link" href="./demo-code.html">demo-code.html</a>.</p>
 
   <script src="./demo-utils.js"></script>
 </body>

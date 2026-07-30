@@ -631,6 +631,8 @@
   }
 }
 .skeleton {
+  --skeleton-background: var(--color-title-bg-hover);
+  background-color: var(--skeleton-background);
   position: relative;
   color: transparent;
   overflow: hidden;
@@ -645,11 +647,10 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background-image: linear-gradient(calc(100deg * var(--direction-factor-1)), transparent 20%, rgba(255, 255, 255, 0.8) 50%, transparent 80%);
+    background-image: linear-gradient(calc(100deg * var(--direction-factor-1)), transparent 20%, rgba(255, 255, 255, calc(0.9 - 0.8 * var(--scheme-factor-2))) 50%, transparent 80%);
     background-size: 220% 100%;
     background-repeat: no-repeat;
     pointer-events: none;
-    mix-blend-mode: overlay;
     animation: skeleton-shimmer 1.5s linear infinite;
   }
 }
@@ -981,45 +982,6 @@
     }
   }
 }
-.blockquote-quote {
-  --blockquote-border-color: var(--color-title-bd);
-  border-inline-start: none;
-  position: relative;
-  padding-inline: 0;
-  background-color: transparent;
-  isolation: isolate;
-  &:before, &:after {
-    color: var(--blockquote-border-color);
-    font-size: 4rem;
-    line-height: 3rem;
-    height: 2rem;
-    overflow: hidden;
-    font-family: serif;
-    display: block;
-    position: absolute;
-    pointer-events: none;
-    z-index: -1;
-  }
-  &:before {
-    content: "❝";
-    top: 0;
-    inset-inline-start: -1rem;
-  }
-  &:after {
-    content: "❞";
-    top: auto;
-    bottom: 0;
-    inset-inline-end: -1rem;
-  }
-  &:dir(rtl) {
-    &:before {
-      content: "❞";
-    }
-    &::after {
-      content: "❝";
-    }
-  }
-}
 .shell-v {
   --shell-border-radius: var(--default-border-radius);
   --shell-font-size: 0.875rem;
@@ -1259,6 +1221,37 @@
     }
     >[data-role=panel] {
       display: block;
+    }
+  }
+}
+.blockquote-quote {
+  --blockquote-border-color: var(--color-title-bd);
+  border-inline-start: none;
+  position: relative;
+  padding-end: 0;
+  padding-start: 1rem;
+  background-color: transparent;
+  isolation: isolate;
+  &:before {
+    color: var(--blockquote-border-color);
+    font-size: 4rem;
+    line-height: 3rem;
+    height: 2rem;
+    overflow: hidden;
+    font-family: serif;
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+  }
+  &:before {
+    content: "❝";
+    top: 0;
+    inset-inline-start: 0;
+  }
+  &:dir(rtl) {
+    &:before {
+      content: "❞";
     }
   }
 }
@@ -3759,6 +3752,7 @@
     --segment-item-background-hover: var(--color-title-bg);
     --segment-item-padding-x: calc(var(--segment-height)/3);
     --segment-outline-color: var(--default-outline-color);
+    --segment-item-border-color-selected: var(--color-title-bd-hover);
     font-size: var(--segment-font-size);
     text-align: center;
     height: var(--segment-height);
@@ -3795,6 +3789,7 @@
       &:where([data-selected=true], :has(:checked)) {
         color: var(--segment-item-color-selected);
         background-color: var(--segment-item-background-selected);
+        border: 1px solid var(--segment-item-border-color-selected);
       }
       &:has(:focus-visible) {
         outline: var(--default-outline-width) solid var(--segment-outline-color);
@@ -12047,9 +12042,6 @@
   cursor: not-allowed;
   opacity: var(--default-opacity-disabled, 0.5);
 }
-.resize {
-  resize: both;
-}
 .columns-3xs {
   columns: var(--container-3xs);
 }
@@ -13969,6 +13961,370 @@
   border: 1px solid oklch(from var(--color-warning) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
   border-color: var(--color-warning-bd);
   line-height: calc(1lh - 2px);
+}
+.pre-caption {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-caption-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-caption) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-caption-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-caption-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-caption) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-caption-bg);
+    border: 1px solid oklch(from var(--color-caption) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-caption-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-caption);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-caption) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-caption-contrast);
+    --pre-background: var(--color-caption);
+  }
+}
+.pre-caution {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-caution-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-caution) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-caution-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-caution-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-caution) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-caution-bg);
+    border: 1px solid oklch(from var(--color-caution) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-caution-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-caution);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-caution) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-caution-contrast);
+    --pre-background: var(--color-caution);
+  }
+}
+.pre-description {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-description-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-description) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-description-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-description-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-description) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-description-bg);
+    border: 1px solid oklch(from var(--color-description) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-description-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-description);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-description) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-description-contrast);
+    --pre-background: var(--color-description);
+  }
+}
+.pre-disabled {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-disabled-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-disabled) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-disabled-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-disabled-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-disabled) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-disabled-bg);
+    border: 1px solid oklch(from var(--color-disabled) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-disabled-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-disabled);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-disabled) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-disabled-contrast);
+    --pre-background: var(--color-disabled);
+  }
+}
+.pre-error {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-error-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-error) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-error-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-error-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-error) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-error-bg);
+    border: 1px solid oklch(from var(--color-error) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-error-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-error);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-error) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-error-contrast);
+    --pre-background: var(--color-error);
+  }
+}
+.pre-highlight {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-highlight-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-highlight) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-highlight-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-highlight-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-highlight) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-highlight-bg);
+    border: 1px solid oklch(from var(--color-highlight) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-highlight-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-highlight);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-highlight) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-highlight-contrast);
+    --pre-background: var(--color-highlight);
+  }
+}
+.pre-info {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-info-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-info) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-info-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-info-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-info) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-info-bg);
+    border: 1px solid oklch(from var(--color-info) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-info-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-info);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-info) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-info-contrast);
+    --pre-background: var(--color-info);
+  }
+}
+.pre-ink {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-ink-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-ink) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-ink-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-ink-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-ink) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-ink-bg);
+    border: 1px solid oklch(from var(--color-ink) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-ink-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-ink);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-ink) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-ink-contrast);
+    --pre-background: var(--color-ink);
+  }
+}
+.pre-primary {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-primary-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-primary) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-primary-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-primary-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-primary) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-primary-bg);
+    border: 1px solid oklch(from var(--color-primary) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-primary-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-primary);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-primary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-primary-contrast);
+    --pre-background: var(--color-primary);
+  }
+}
+.pre-secondary {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-secondary-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-secondary) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-secondary-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-secondary-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-secondary) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-secondary-bg);
+    border: 1px solid oklch(from var(--color-secondary) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-secondary-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-secondary);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-secondary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-secondary-contrast);
+    --pre-background: var(--color-secondary);
+  }
+}
+.pre-success {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-success-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-success) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-success-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-success-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-success) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-success-bg);
+    border: 1px solid oklch(from var(--color-success) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-success-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-success);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-success) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-success-contrast);
+    --pre-background: var(--color-success);
+  }
+}
+.pre-tertiary {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-tertiary-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-tertiary) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-tertiary-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-tertiary-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-tertiary) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-tertiary-bg);
+    border: 1px solid oklch(from var(--color-tertiary) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-tertiary-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-tertiary);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-tertiary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-tertiary-contrast);
+    --pre-background: var(--color-tertiary);
+  }
+}
+.pre-title {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-title-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-title) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-title-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-title-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-title) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-title-bg);
+    border: 1px solid oklch(from var(--color-title) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-title-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-title);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-title) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-title-contrast);
+    --pre-background: var(--color-title);
+  }
+}
+.pre-warning {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-warning-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-warning) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+    --pre-background: var(--color-warning-bg-hover);
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-warning-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-warning) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    --pre-background: var(--color-warning-bg);
+    border: 1px solid oklch(from var(--color-warning) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+    border-color: var(--color-warning-bd);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-warning);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-warning) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-color: var(--color-warning-contrast);
+    --pre-background: var(--color-warning);
+  }
+}
+.pre-muted-error {
+  --pre-color: oklch(from var(--color-error-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --pre-background: oklch(from var(--color-error) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --pre-background: var(--color-error-bg);
+  border: 1px solid oklch(from var(--color-error) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+  border-color: var(--color-error-bd);
+}
+.pre-muted-primary {
+  --pre-color: oklch(from var(--color-primary-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --pre-background: oklch(from var(--color-primary) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --pre-background: var(--color-primary-bg);
+  border: 1px solid oklch(from var(--color-primary) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+  border-color: var(--color-primary-bd);
+}
+.pre-muted-success {
+  --pre-color: oklch(from var(--color-success-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --pre-background: oklch(from var(--color-success) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --pre-background: var(--color-success-bg);
+  border: 1px solid oklch(from var(--color-success) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+  border-color: var(--color-success-bd);
+}
+.pre-muted-warning {
+  --pre-color: oklch(from var(--color-warning-base) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --pre-background: oklch(from var(--color-warning) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --pre-background: var(--color-warning-bg);
+  border: 1px solid oklch(from var(--color-warning) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+  border-color: var(--color-warning-bd);
 }
 .border-black {
   border-color: var(--color-black);
@@ -17231,6 +17587,14 @@
         background-color: transparent;
       }
     }
+  }
+}
+.pre-plain {
+  :where(&) {
+    --pre-color: currentColor;
+    --pre-padding: 0;
+    --pre-border-radius: 0;
+    background-color: transparent;
   }
 }
 .entry-ghost {
@@ -27918,6 +28282,370 @@
     --btn-border-color: var(--color-warning-bd-active);
   }
 }
+.segment-caption {
+  --segment-background: oklch(from var(--color-caption) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-caption-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-caption) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-caption-bg);
+  --segment-outline-color: oklch(from var(--color-caption) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-caption-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-caption-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-caption-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-caption) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-caption-contrast);
+      --segment-item-background-selected: var(--color-caption);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-caption);
+      --segment-item-color: oklch(from var(--color-caption) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-caption-contrast);
+      --segment-item-background-hover: oklch(from var(--color-caption) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-caption-hover);
+    }
+  }
+}
+.segment-caution {
+  --segment-background: oklch(from var(--color-caution) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-caution-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-caution) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-caution-bg);
+  --segment-outline-color: oklch(from var(--color-caution) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-caution-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-caution-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-caution-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-caution) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-caution-contrast);
+      --segment-item-background-selected: var(--color-caution);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-caution);
+      --segment-item-color: oklch(from var(--color-caution) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-caution-contrast);
+      --segment-item-background-hover: oklch(from var(--color-caution) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-caution-hover);
+    }
+  }
+}
+.segment-description {
+  --segment-background: oklch(from var(--color-description) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-description-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-description) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-description-bg);
+  --segment-outline-color: oklch(from var(--color-description) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-description-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-description-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-description-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-description) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-description-contrast);
+      --segment-item-background-selected: var(--color-description);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-description);
+      --segment-item-color: oklch(from var(--color-description) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-description-contrast);
+      --segment-item-background-hover: oklch(from var(--color-description) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-description-hover);
+    }
+  }
+}
+.segment-disabled {
+  --segment-background: oklch(from var(--color-disabled) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-disabled-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-disabled) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-disabled-bg);
+  --segment-outline-color: oklch(from var(--color-disabled) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-disabled-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-disabled-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-disabled-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-disabled) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-disabled-contrast);
+      --segment-item-background-selected: var(--color-disabled);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-disabled);
+      --segment-item-color: oklch(from var(--color-disabled) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-disabled-contrast);
+      --segment-item-background-hover: oklch(from var(--color-disabled) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-disabled-hover);
+    }
+  }
+}
+.segment-error {
+  --segment-background: oklch(from var(--color-error) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-error-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-error) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-error-bg);
+  --segment-outline-color: oklch(from var(--color-error) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-error-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-error-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-error-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-error) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-error-contrast);
+      --segment-item-background-selected: var(--color-error);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-error);
+      --segment-item-color: oklch(from var(--color-error) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-error-contrast);
+      --segment-item-background-hover: oklch(from var(--color-error) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-error-hover);
+    }
+  }
+}
+.segment-highlight {
+  --segment-background: oklch(from var(--color-highlight) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-highlight-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-highlight) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-highlight-bg);
+  --segment-outline-color: oklch(from var(--color-highlight) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-highlight-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-highlight-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-highlight-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-highlight) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-highlight-contrast);
+      --segment-item-background-selected: var(--color-highlight);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-highlight);
+      --segment-item-color: oklch(from var(--color-highlight) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-highlight-contrast);
+      --segment-item-background-hover: oklch(from var(--color-highlight) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-highlight-hover);
+    }
+  }
+}
+.segment-info {
+  --segment-background: oklch(from var(--color-info) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-info-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-info) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-info-bg);
+  --segment-outline-color: oklch(from var(--color-info) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-info-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-info-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-info-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-info) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-info-contrast);
+      --segment-item-background-selected: var(--color-info);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-info);
+      --segment-item-color: oklch(from var(--color-info) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-info-contrast);
+      --segment-item-background-hover: oklch(from var(--color-info) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-info-hover);
+    }
+  }
+}
+.segment-ink {
+  --segment-background: oklch(from var(--color-ink) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-ink-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-ink) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-ink-bg);
+  --segment-outline-color: oklch(from var(--color-ink) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-ink-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-ink-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-ink-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-ink) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-ink-contrast);
+      --segment-item-background-selected: var(--color-ink);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-ink);
+      --segment-item-color: oklch(from var(--color-ink) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-ink-contrast);
+      --segment-item-background-hover: oklch(from var(--color-ink) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-ink-hover);
+    }
+  }
+}
+.segment-primary {
+  --segment-background: oklch(from var(--color-primary) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-primary-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-primary) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-primary-bg);
+  --segment-outline-color: oklch(from var(--color-primary) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-primary-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-primary-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-primary-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-primary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-primary-contrast);
+      --segment-item-background-selected: var(--color-primary);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-primary);
+      --segment-item-color: oklch(from var(--color-primary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-primary-contrast);
+      --segment-item-background-hover: oklch(from var(--color-primary) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-primary-hover);
+    }
+  }
+}
+.segment-secondary {
+  --segment-background: oklch(from var(--color-secondary) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-secondary-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-secondary) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-secondary-bg);
+  --segment-outline-color: oklch(from var(--color-secondary) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-secondary-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-secondary-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-secondary-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-secondary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-secondary-contrast);
+      --segment-item-background-selected: var(--color-secondary);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-secondary);
+      --segment-item-color: oklch(from var(--color-secondary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-secondary-contrast);
+      --segment-item-background-hover: oklch(from var(--color-secondary) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-secondary-hover);
+    }
+  }
+}
+.segment-success {
+  --segment-background: oklch(from var(--color-success) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-success-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-success) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-success-bg);
+  --segment-outline-color: oklch(from var(--color-success) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-success-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-success-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-success-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-success) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-success-contrast);
+      --segment-item-background-selected: var(--color-success);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-success);
+      --segment-item-color: oklch(from var(--color-success) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-success-contrast);
+      --segment-item-background-hover: oklch(from var(--color-success) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-success-hover);
+    }
+  }
+}
+.segment-tertiary {
+  --segment-background: oklch(from var(--color-tertiary) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-tertiary-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-tertiary) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-tertiary-bg);
+  --segment-outline-color: oklch(from var(--color-tertiary) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-tertiary-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-tertiary-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-tertiary-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-tertiary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-tertiary-contrast);
+      --segment-item-background-selected: var(--color-tertiary);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-tertiary);
+      --segment-item-color: oklch(from var(--color-tertiary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-tertiary-contrast);
+      --segment-item-background-hover: oklch(from var(--color-tertiary) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-tertiary-hover);
+    }
+  }
+}
+.segment-title {
+  --segment-background: oklch(from var(--color-title) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-title-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-title) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-title-bg);
+  --segment-outline-color: oklch(from var(--color-title) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-title-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-title-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-title-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-title) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-title-contrast);
+      --segment-item-background-selected: var(--color-title);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-title);
+      --segment-item-color: oklch(from var(--color-title) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-title-contrast);
+      --segment-item-background-hover: oklch(from var(--color-title) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-title-hover);
+    }
+  }
+}
+.segment-warning {
+  --segment-background: oklch(from var(--color-warning) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-background: var(--color-warning-bg-hover);
+  --segment-item-background-hover: oklch(from var(--color-warning) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-item-background-hover: var(--color-warning-bg);
+  --segment-outline-color: oklch(from var(--color-warning) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --segment-outline-color: var(--color-warning-outline);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-warning-base) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --segment-item-border-color-selected: var(--color-warning-bd-hover);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-warning) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color-selected: var(--color-warning-contrast);
+      --segment-item-background-selected: var(--color-warning);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-warning);
+      --segment-item-color: oklch(from var(--color-warning) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-color: var(--color-warning-contrast);
+      --segment-item-background-hover: oklch(from var(--color-warning) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+      --segment-item-background-hover: var(--color-warning-hover);
+    }
+  }
+}
 .rank-caption {
   &:where(:not(.rank-solid, .rank-outline, .rank-subtle, .rank-muted)) {
     --rank-color: oklch(from var(--color-caption-base) clamp(var(--light-threshold-fg) * var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
@@ -28602,314 +29330,6 @@
     --btn-background: var(--color-warning-active);
     --btn-color: oklch(from var(--color-warning) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
     --btn-color: var(--color-warning-contrast);
-  }
-}
-.segment-caption {
-  --segment-background: oklch(from var(--color-caption) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-caption-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-caption) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-caption-bg);
-  --segment-outline-color: oklch(from var(--color-caption) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-caption-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-caption) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-caption-contrast);
-      --segment-item-background-selected: var(--color-caption);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-caption);
-      --segment-item-color: oklch(from var(--color-caption) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-caption-contrast);
-      --segment-item-background-hover: oklch(from var(--color-caption) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-caption-hover);
-    }
-  }
-}
-.segment-caution {
-  --segment-background: oklch(from var(--color-caution) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-caution-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-caution) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-caution-bg);
-  --segment-outline-color: oklch(from var(--color-caution) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-caution-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-caution) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-caution-contrast);
-      --segment-item-background-selected: var(--color-caution);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-caution);
-      --segment-item-color: oklch(from var(--color-caution) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-caution-contrast);
-      --segment-item-background-hover: oklch(from var(--color-caution) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-caution-hover);
-    }
-  }
-}
-.segment-description {
-  --segment-background: oklch(from var(--color-description) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-description-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-description) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-description-bg);
-  --segment-outline-color: oklch(from var(--color-description) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-description-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-description) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-description-contrast);
-      --segment-item-background-selected: var(--color-description);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-description);
-      --segment-item-color: oklch(from var(--color-description) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-description-contrast);
-      --segment-item-background-hover: oklch(from var(--color-description) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-description-hover);
-    }
-  }
-}
-.segment-disabled {
-  --segment-background: oklch(from var(--color-disabled) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-disabled-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-disabled) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-disabled-bg);
-  --segment-outline-color: oklch(from var(--color-disabled) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-disabled-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-disabled) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-disabled-contrast);
-      --segment-item-background-selected: var(--color-disabled);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-disabled);
-      --segment-item-color: oklch(from var(--color-disabled) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-disabled-contrast);
-      --segment-item-background-hover: oklch(from var(--color-disabled) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-disabled-hover);
-    }
-  }
-}
-.segment-error {
-  --segment-background: oklch(from var(--color-error) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-error-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-error) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-error-bg);
-  --segment-outline-color: oklch(from var(--color-error) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-error-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-error) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-error-contrast);
-      --segment-item-background-selected: var(--color-error);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-error);
-      --segment-item-color: oklch(from var(--color-error) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-error-contrast);
-      --segment-item-background-hover: oklch(from var(--color-error) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-error-hover);
-    }
-  }
-}
-.segment-highlight {
-  --segment-background: oklch(from var(--color-highlight) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-highlight-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-highlight) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-highlight-bg);
-  --segment-outline-color: oklch(from var(--color-highlight) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-highlight-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-highlight) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-highlight-contrast);
-      --segment-item-background-selected: var(--color-highlight);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-highlight);
-      --segment-item-color: oklch(from var(--color-highlight) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-highlight-contrast);
-      --segment-item-background-hover: oklch(from var(--color-highlight) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-highlight-hover);
-    }
-  }
-}
-.segment-info {
-  --segment-background: oklch(from var(--color-info) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-info-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-info) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-info-bg);
-  --segment-outline-color: oklch(from var(--color-info) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-info-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-info) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-info-contrast);
-      --segment-item-background-selected: var(--color-info);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-info);
-      --segment-item-color: oklch(from var(--color-info) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-info-contrast);
-      --segment-item-background-hover: oklch(from var(--color-info) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-info-hover);
-    }
-  }
-}
-.segment-ink {
-  --segment-background: oklch(from var(--color-ink) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-ink-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-ink) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-ink-bg);
-  --segment-outline-color: oklch(from var(--color-ink) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-ink-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-ink) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-ink-contrast);
-      --segment-item-background-selected: var(--color-ink);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-ink);
-      --segment-item-color: oklch(from var(--color-ink) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-ink-contrast);
-      --segment-item-background-hover: oklch(from var(--color-ink) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-ink-hover);
-    }
-  }
-}
-.segment-primary {
-  --segment-background: oklch(from var(--color-primary) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-primary-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-primary) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-primary-bg);
-  --segment-outline-color: oklch(from var(--color-primary) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-primary-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-primary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-primary-contrast);
-      --segment-item-background-selected: var(--color-primary);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-primary);
-      --segment-item-color: oklch(from var(--color-primary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-primary-contrast);
-      --segment-item-background-hover: oklch(from var(--color-primary) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-primary-hover);
-    }
-  }
-}
-.segment-secondary {
-  --segment-background: oklch(from var(--color-secondary) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-secondary-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-secondary) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-secondary-bg);
-  --segment-outline-color: oklch(from var(--color-secondary) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-secondary-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-secondary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-secondary-contrast);
-      --segment-item-background-selected: var(--color-secondary);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-secondary);
-      --segment-item-color: oklch(from var(--color-secondary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-secondary-contrast);
-      --segment-item-background-hover: oklch(from var(--color-secondary) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-secondary-hover);
-    }
-  }
-}
-.segment-success {
-  --segment-background: oklch(from var(--color-success) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-success-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-success) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-success-bg);
-  --segment-outline-color: oklch(from var(--color-success) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-success-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-success) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-success-contrast);
-      --segment-item-background-selected: var(--color-success);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-success);
-      --segment-item-color: oklch(from var(--color-success) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-success-contrast);
-      --segment-item-background-hover: oklch(from var(--color-success) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-success-hover);
-    }
-  }
-}
-.segment-tertiary {
-  --segment-background: oklch(from var(--color-tertiary) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-tertiary-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-tertiary) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-tertiary-bg);
-  --segment-outline-color: oklch(from var(--color-tertiary) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-tertiary-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-tertiary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-tertiary-contrast);
-      --segment-item-background-selected: var(--color-tertiary);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-tertiary);
-      --segment-item-color: oklch(from var(--color-tertiary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-tertiary-contrast);
-      --segment-item-background-hover: oklch(from var(--color-tertiary) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-tertiary-hover);
-    }
-  }
-}
-.segment-title {
-  --segment-background: oklch(from var(--color-title) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-title-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-title) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-title-bg);
-  --segment-outline-color: oklch(from var(--color-title) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-title-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-title) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-title-contrast);
-      --segment-item-background-selected: var(--color-title);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-title);
-      --segment-item-color: oklch(from var(--color-title) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-title-contrast);
-      --segment-item-background-hover: oklch(from var(--color-title) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-title-hover);
-    }
-  }
-}
-.segment-warning {
-  --segment-background: oklch(from var(--color-warning) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-background: var(--color-warning-bg-hover);
-  --segment-item-background-hover: oklch(from var(--color-warning) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-item-background-hover: var(--color-warning-bg);
-  --segment-outline-color: oklch(from var(--color-warning) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  --segment-outline-color: var(--color-warning-outline);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-warning) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color-selected: var(--color-warning-contrast);
-      --segment-item-background-selected: var(--color-warning);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-warning);
-      --segment-item-color: oklch(from var(--color-warning) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-color: var(--color-warning-contrast);
-      --segment-item-background-hover: oklch(from var(--color-warning) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-      --segment-item-background-hover: var(--color-warning-hover);
-    }
   }
 }
 .tag-caption {
@@ -30721,6 +31141,86 @@
     --flag-font-size: 14px;
   }
 }
+.pre-blue-200 {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-blue-200) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-blue-200) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-blue-200) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-blue-200) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    border: 1px solid oklch(from var(--color-blue-200) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-blue-200);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-blue-200) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-background: var(--color-blue-200);
+  }
+}
+.pre-green-500 {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-green-500) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-green-500) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-green-500) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-green-500) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    border: 1px solid oklch(from var(--color-green-500) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-green-500);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-green-500) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-background: var(--color-green-500);
+  }
+}
+.pre-indigo-500 {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-indigo-500) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-indigo-500) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-indigo-500) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-indigo-500) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    border: 1px solid oklch(from var(--color-indigo-500) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-indigo-500);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-indigo-500) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-background: var(--color-indigo-500);
+  }
+}
+.pre-red-500 {
+  &:where(:not(.pre-muted, .pre-solid, .pre-outline)) {
+    --pre-color: oklch(from var(--color-red-500) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-red-500) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  }
+  &:where(.pre-muted) {
+    --pre-color: oklch(from var(--color-red-500) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+    --pre-background: oklch(from var(--color-red-500) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+    border: 1px solid oklch(from var(--color-red-500) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+  }
+  &:where(.pre-outline) {
+    --pre-color: var(--color-red-500);
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+  &:where(.pre-solid) {
+    --pre-color: oklch(from var(--color-red-500) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+    --pre-background: var(--color-red-500);
+  }
+}
 .shell-ghost-blue-200 {
   --shell-border-color: transparent;
   --shell-border-color-hover: transparent;
@@ -30897,6 +31397,101 @@
   --rank-border-width: 1px;
   --rank-font-weight: normal;
   --rank-font-size: max(0.75rem, 12px);
+}
+.segment-\[\#04afba\] {
+  --segment-background: oklch(from #04afba var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-item-background-hover: oklch(from #04afba var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-outline-color: oklch(from #04afba clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from #04afba clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from #04afba clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-background-selected: #04afba;
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: #04afba;
+      --segment-item-color: oklch(from #04afba clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-background-hover: oklch(from #04afba calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+    }
+  }
+}
+.segment-\[\#90ced2\] {
+  --segment-background: oklch(from #90ced2 var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-item-background-hover: oklch(from #90ced2 var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-outline-color: oklch(from #90ced2 clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from #90ced2 clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from #90ced2 clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-background-selected: #90ced2;
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: #90ced2;
+      --segment-item-color: oklch(from #90ced2 clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-background-hover: oklch(from #90ced2 calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+    }
+  }
+}
+.segment-green-500 {
+  --segment-background: oklch(from var(--color-green-500) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-item-background-hover: oklch(from var(--color-green-500) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-outline-color: oklch(from var(--color-green-500) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-green-500) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-green-500) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-background-selected: var(--color-green-500);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-green-500);
+      --segment-item-color: oklch(from var(--color-green-500) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-background-hover: oklch(from var(--color-green-500) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+    }
+  }
+}
+.segment-red-200 {
+  --segment-background: oklch(from var(--color-red-200) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-item-background-hover: oklch(from var(--color-red-200) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-outline-color: oklch(from var(--color-red-200) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-red-200) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-red-200) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-background-selected: var(--color-red-200);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-red-200);
+      --segment-item-color: oklch(from var(--color-red-200) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-background-hover: oklch(from var(--color-red-200) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+    }
+  }
+}
+.segment-red-600 {
+  --segment-background: oklch(from var(--color-red-600) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
+  --segment-item-background-hover: oklch(from var(--color-red-600) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  --segment-outline-color: oklch(from var(--color-red-600) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  &:where(:not(.segment-dark)) {
+    --segment-item-border-color-selected: oklch(from var(--color-red-600) clamp(var(--light-threshold-bd-hover), l, var(--light-threshold-bd-hover) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  }
+  &:where(.segment-dark) {
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: oklch(from var(--color-red-600) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-background-selected: var(--color-red-600);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-red-600);
+      --segment-item-color: oklch(from var(--color-red-600) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+      --segment-item-background-hover: oklch(from var(--color-red-600) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
+    }
+  }
 }
 .shell-subtle-error {
   --shell-background-invalid: var(--color-error-bg-hover);
@@ -31160,86 +31755,6 @@
   --rank-border-width: 1px;
   --rank-font-weight: normal;
   --rank-font-size: max(0.75rem, 12px);
-}
-.segment-\[\#04afba\] {
-  --segment-background: oklch(from #04afba var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-item-background-hover: oklch(from #04afba var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-outline-color: oklch(from #04afba clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from #04afba clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-background-selected: #04afba;
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: #04afba;
-      --segment-item-color: oklch(from #04afba clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-background-hover: oklch(from #04afba calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-    }
-  }
-}
-.segment-\[\#90ced2\] {
-  --segment-background: oklch(from #90ced2 var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-item-background-hover: oklch(from #90ced2 var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-outline-color: oklch(from #90ced2 clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from #90ced2 clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-background-selected: #90ced2;
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: #90ced2;
-      --segment-item-color: oklch(from #90ced2 clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-background-hover: oklch(from #90ced2 calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-    }
-  }
-}
-.segment-green-500 {
-  --segment-background: oklch(from var(--color-green-500) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-item-background-hover: oklch(from var(--color-green-500) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-outline-color: oklch(from var(--color-green-500) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-green-500) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-background-selected: var(--color-green-500);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-green-500);
-      --segment-item-color: oklch(from var(--color-green-500) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-background-hover: oklch(from var(--color-green-500) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-    }
-  }
-}
-.segment-red-200 {
-  --segment-background: oklch(from var(--color-red-200) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-item-background-hover: oklch(from var(--color-red-200) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-outline-color: oklch(from var(--color-red-200) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-red-200) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-background-selected: var(--color-red-200);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-red-200);
-      --segment-item-color: oklch(from var(--color-red-200) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-background-hover: oklch(from var(--color-red-200) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-    }
-  }
-}
-.segment-red-600 {
-  --segment-background: oklch(from var(--color-red-600) var(--light-threshold-bg-hover) calc(var(--chorme-bg-hover) * var(--color-c-factor)) h / var(--opacity-bg-hover));
-  --segment-item-background-hover: oklch(from var(--color-red-600) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
-  --segment-outline-color: oklch(from var(--color-red-600) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
-  &:where(.segment-dark) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: oklch(from var(--color-red-600) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-background-selected: var(--color-red-600);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-red-600);
-      --segment-item-color: oklch(from var(--color-red-600) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
-      --segment-item-background-hover: oklch(from var(--color-red-600) calc(l + (1 - l) * 0.25) calc(c * var(--color-c-factor)) h);
-    }
-  }
 }
 .shell-ghost {
   --shell-border-color: transparent;
@@ -33440,6 +33955,20 @@
   --rank-font-weight: normal;
   --rank-font-size: max(0.75rem, 12px);
 }
+.segment-dark {
+  :where(&) {
+    --segment-item-border-color-selected: transparent;
+    &:where(.segment-inverted, .segment-flush) {
+      --segment-item-color-selected: var(--color-title-contrast);
+      --segment-item-background-selected: var(--color-title);
+    }
+    &:where(:not(.segment-inverted, .segment-flush)) {
+      --segment-background: var(--color-title);
+      --segment-item-color: var(--color-title-contrast);
+      --segment-item-background-hover: var(--color-title-hover);
+    }
+  }
+}
 .swatch-blue-600 {
   --swatch-color: var(--color-blue-600);
   --swatch-border-color: oklch(from var(--color-blue-600) clamp(var(--light-threshold-bd), l, var(--light-threshold-bd) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
@@ -33784,19 +34313,6 @@
   --rank-color: var(--color-warning-contrast);
   --rank-font-weight: normal;
   --rank-font-size: max(0.75rem, 12px);
-}
-.segment-dark {
-  :where(&) {
-    &:where(.segment-inverted, .segment-flush) {
-      --segment-item-color-selected: var(--color-title-contrast);
-      --segment-item-background-selected: var(--color-title);
-    }
-    &:where(:not(.segment-inverted, .segment-flush)) {
-      --segment-background: var(--color-title);
-      --segment-item-color: var(--color-title-contrast);
-      --segment-item-background-hover: var(--color-title-hover);
-    }
-  }
 }
 .shell-muted-blue-200 {
   --shell-border-color: oklch(from var(--color-blue-200) clamp(var(--light-threshold-bd), l, var(--light-threshold-bd) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
@@ -35056,6 +35572,66 @@
   --pagination-font-size: 1rem;
   --pagination-margin-x: 8px;
 }
+.pre-muted-\[\#ff6b6b\] {
+  --pre-color: oklch(from #ff6b6b clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --pre-background: oklch(from #ff6b6b var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  border: 1px solid oklch(from #ff6b6b var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+}
+.pre-muted-indigo-500 {
+  --pre-color: oklch(from var(--color-indigo-500) clamp(var(--light-threshold-fg)* var(--scheme-factor-2), l, var(--light-threshold-fg) * var(--scheme-factor-4)) calc(c * var(--color-c-factor)) h);
+  --pre-background: oklch(from var(--color-indigo-500) var(--light-threshold-bg) calc(var(--chorme-bg) * var(--color-c-factor)) h / var(--opacity-bg));
+  border: 1px solid oklch(from var(--color-indigo-500) var(--light-threshold-bd) calc(c * var(--color-c-factor)) h);
+}
+.pre-outline-\[\#ff6b6b\] {
+  --pre-color: #ff6b6b;
+  --pre-background: transparent;
+  border: 1px solid var(--pre-color);
+}
+.pre-outline-\[blue\] {
+  --pre-color: blue;
+  --pre-background: transparent;
+  border: 1px solid var(--pre-color);
+}
+.pre-outline-error {
+  --pre-color: var(--color-error);
+  --pre-background: transparent;
+  border: 1px solid var(--pre-color);
+}
+.pre-outline-indigo-500 {
+  --pre-color: var(--color-indigo-500);
+  --pre-background: transparent;
+  border: 1px solid var(--pre-color);
+}
+.pre-outline-info {
+  --pre-color: var(--color-info);
+  --pre-background: transparent;
+  border: 1px solid var(--pre-color);
+}
+.pre-outline-primary {
+  --pre-color: var(--color-primary);
+  --pre-background: transparent;
+  border: 1px solid var(--pre-color);
+}
+.pre-outline-success {
+  --pre-color: var(--color-success);
+  --pre-background: transparent;
+  border: 1px solid var(--pre-color);
+}
+.pre-solid-error {
+  --pre-color: oklch(from var(--color-error) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+  --pre-color: var(--color-error-contrast);
+  --pre-background: var(--color-error);
+}
+.pre-solid-primary {
+  --pre-color: oklch(from var(--color-primary) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+  --pre-color: var(--color-primary-contrast);
+  --pre-background: var(--color-primary);
+}
+.pre-solid-success {
+  --pre-color: oklch(from var(--color-success) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+  --pre-color: var(--color-success-contrast);
+  --pre-background: var(--color-success);
+}
 .rating-caption {
   --rating-item-color: oklch(from var(--color-caption-base) var(--light-threshold-bg-active) calc(var(--chorme-bg-active) * var(--color-c-factor)) h / var(--opacity-bg-active));
   --rating-item-color: var(--color-caption-bg-active);
@@ -36086,6 +36662,36 @@
   --: ;
   corner-shape: superellipse(-0.4);
 }
+.pre-muted {
+  :where(&) {
+    --pre-background: var(--color-title-bg);
+    border: 1px solid var(--color-title-bd);
+  }
+}
+.pre-outline {
+  :where(&) {
+    --pre-background: transparent;
+    border: 1px solid var(--pre-color);
+  }
+}
+.pre-solid {
+  :where(&) {
+    --pre-color: var(--color-title-contrast);
+    --pre-background: var(--color-title);
+  }
+}
+.pre-solid-\[\#ff0000\] {
+  --pre-color: oklch(from #ff0000 clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+  --pre-background: #ff0000;
+}
+.pre-solid-green-500 {
+  --pre-color: oklch(from var(--color-green-500) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+  --pre-background: var(--color-green-500);
+}
+.pre-solid-indigo-500 {
+  --pre-color: oklch(from var(--color-indigo-500) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
+  --pre-background: var(--color-indigo-500);
+}
 .progress-2xl {
   --progress-height: calc(var(--spacing) * 7);
   --progress-font-size: 0.875rem;
@@ -36867,10 +37473,10 @@
 .icon-check {
   --icon-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linejoin="round" fill="none" stroke="black" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>');
 }
-.icon-check-pill {
+.icon-check-circle {
   --icon-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linejoin="round" fill="none" stroke="black" stroke-width="2" stroke-linecap="round"><path d="M12 2 A10 10 0 1 1 12 22 A10 10 0 1 1 12 2 Z"/><polyline points="16 10 11 15 8 12"/></svg>');
 }
-.icon-check-pill-fill {
+.icon-check-circle-fill {
   --icon-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linejoin="round"><path fill-rule="evenodd" fill="black" d="M12 1 C5.93 1 1 5.93 1 12 s4.93 11 11 11 11-4.93 11-11 S18.07 1 12 1Z M 16 9 A 1 1 0 0 0 15.292969 9.2929688 L 11 13.585938 L 8.7070312 11.292969 A 1 1 0 0 0 7.2929688 11.292969 A 1 1 0 0 0 7.2929688 12.707031 L 10.292969 15.707031 A 1.0001 1.0001 0 0 0 11.707031 15.707031 L 16.707031 10.707031 A 1 1 0 0 0 16.707031 9.2929688 A 1 1 0 0 0 16 9 z " /></svg>');
 }
 .icon-chevron-down {
@@ -37327,7 +37933,7 @@
   --segment-border-radius: calc(var(--segment-height)/4);
 }
 .segment-rounded {
-  &:where(:not(.segment-4,.segment-5, .segment-6)) {
+  &:where(:not(.segment-4, .segment-5, .segment-6)) {
     --segment-border-radius: var(--default-border-radius);
   }
 }
@@ -38384,7 +38990,7 @@
     background-color: var(--color-title-bd);
   }
   code {
-    --code-color: var(--color-primary);
+    --code-color: currentColor;
     --code-background: var(--color-title-bg-hover);
     --code-padding-x: var(--spacing);
     --code-border-radius: var(--spacing);
@@ -38400,6 +39006,8 @@
     --pre-background: var(--color-title-bg);
     --pre-padding: var(--default-gap);
     --pre-border-radius: var(--default-border-radius);
+    --pre-color: currentColor;
+    color: var(--pre-color);
     font-size: var(--pre-font-size);
     background-color: var(--pre-background);
     padding: var(--pre-padding);

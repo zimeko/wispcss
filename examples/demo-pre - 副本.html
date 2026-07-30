@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Code / Pre - Beautify Demo</title>
+</head>
+
+<body>
+  <h1>Code / Pre Component</h1>
+  <p>Inline code highlighting with dynamic theme colors and <code>&lt;pre></code> code blocks.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li><code>&lt;code></code> gets basic styling (font, background, padding, radius) from preset.css. Add utility classes for themes.</li>
+      <li><code>&lt;pre></code> retains whitespace and line breaks. Pair with <code>&lt;code></code> for semantic code blocks: <code>&lt;pre>&lt;code></code>.</li>
+      <li>Variants: <code>code-plain</code> (no background), <code>code-muted</code> (subtle border), <code>code-outline</code> (solid border), <code>code-solid</code> (filled).</li>
+      <li>Dynamic colors: <code>code-*</code>, <code>code-muted-*</code>, <code>code-outline-*</code>, <code>code-solid-*</code> (e.g. <code>code-error</code>).</li>
+    </ul>
+  </div>
+
+  <h2 id="inline-code">Inline code</h2>
+  <div class="section">
+    <div>
+      <h3>Default <code>code</code> tag</h3>
+      <p>This is an inline code: <code>const x = 10;</code></p>
+    </div>
+    <div>
+      <h3>code-plain (no background)</h3>
+      <p><code class="code-plain">inline code without background</code></p>
+    </div>
+    <div>
+      <h3>code-muted (subtle border)</h3>
+      <p><code class="code-muted">muted border style</code></p>
+    </div>
+    <div>
+      <h3>code-outline (solid border)</h3>
+      <p><code class="code-outline">outline border style</code></p>
+    </div>
+    <div>
+      <h3>code-solid (filled)</h3>
+      <p><code class="code-solid">solid filled style</code></p>
+    </div>
+  </div>
+
+  <h2 id="theme-colors">Theme colors (default subtle variant)</h2>
+  <div class="section">
+    <div>
+      <h3>Primary / Secondary / Tertiary</h3>
+      <code class="code-primary">primary</code>
+      <code class="code-secondary">secondary</code>
+      <code class="code-tertiary">tertiary</code>
+    </div>
+    <div>
+      <h3>Success / Error / Info</h3>
+      <code class="code-success">success</code>
+      <code class="code-error">error</code>
+      <code class="code-info">info</code>
+    </div>
+    <div>
+      <h3>Highlight / Warning / Caution</h3>
+      <code class="code-highlight">highlight</code>
+      <code class="code-warning">warning</code>
+      <code class="code-caution">caution</code>
+    </div>
+    <div>
+      <h3>Ink / Title / Description / Caption / Disabled</h3>
+      <code class="code-ink">ink</code>
+      <code class="code-title">title</code>
+      <code class="code-description">description</code>
+      <code class="code-caption">caption</code>
+      <code class="code-disabled">disabled</code>
+    </div>
+  </div>
+
+  <h2 id="code-plus-variant-plus-color-combinations">Code + variant + color combinations</h2>
+  <div class="section">
+    <div>
+      <h3>code-muted + colors</h3>
+      <code class="code-muted code-muted-primary">primary</code>
+      <code class="code-muted-success">success</code>
+      <code class="code-muted-error">error</code>
+      <code class="code-muted-warning">warning</code>
+    </div>
+    <div>
+      <h3>code-outline + colors</h3>
+      <code class="code-outline-primary">primary</code>
+      <code class="code-outline-success">success</code>
+      <code class="code-outline-error">error</code>
+      <code class="code-outline-warning">warning</code>
+    </div>
+    <div>
+      <h3>code-solid + colors</h3>
+      <code class="code-solid-primary">primary</code>
+      <code class="code-solid-success">success</code>
+      <code class="code-solid-error">error</code>
+      <code class="code-solid-warning">warning</code>
+    </div>
+  </div>
+
+  <h2 id="custom-colors">Custom colors</h2>
+  <p>Multiple color formats are supported:</p>
+  <ul>
+    <li>1. Theme semantic colors, e.g. <code>*-error</code>, <code>*-error-hover</code></li>
+    <li>2. Tailwind built-in colors, e.g. <code>*-indigo-500</code></li>
+    <li>3. Raw color values, e.g. <code>*-[#ff0000]</code></li>
+    <li>4. CSS named colors, e.g. <code>*-[red]</code>, <code>*-[green]</code></li>
+  </ul>
+  <div class="section">
+    <div>
+      <h3>Custom colors (subtle)</h3>
+      <code class="code-indigo-500">indigo-500</code>
+      <code class="code-green-500">green-500</code>
+      <code class="code-red-500">red-500</code>
+    </div>
+    <div>
+      <h3>Custom colors (solid)</h3>
+      <code class="code-solid-indigo-500">indigo-500</code>
+      <code class="code-solid-green-500">green-500</code>
+    </div>
+    <div>
+      <h3>Custom colors (outline)</h3>
+      <code class="code-outline-[#ff6b6b]">[#ff6b6b]</code>
+      <code class="code-outline-[blue]">[blue]</code>
+    </div>
+  </div>
+
+  <h2 id="pre-blocks">Pre blocks</h2>
+  <div class="section">
+    <div>
+      <h3>Plain <code>pre</code> tag</h3>
+      <pre>
+function hello() {
+    console.log("Hello World");
+}
+      </pre>
+    </div>
+    <div>
+      <h3>Pre + code (recommended)</h3>
+      <pre><code>function hello() {
+  console.log("Hello World");
+}</code></pre>
+    </div>
+    <div>
+      <h3>Pre + code-plain</h3>
+      <pre><code class="code-plain">$ npm install beautify</code></pre>
+    </div>
+  </div>
+
+  <h2 id="summary">Summary</h2>
+  <div class="section">
+    <ul>
+      <li><code>&lt;code></code>: Inline code styling</li>
+      <li><code>&lt;pre></code>: Preformatted text (preserves whitespace)</li>
+      <li><code>&lt;pre>&lt;code></code>: Best practice for code blocks</li>
+      <li>Add utility classes for variants and theme colors</li>
+    </ul>
+  </div>
+
+  <p style="margin-top: 2rem;">For all <code>code</code> utilities, see <a class="link" href="./demo-code.html">demo-code.html</a>.</p>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

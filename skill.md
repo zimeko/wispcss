@@ -270,6 +270,7 @@ Inline icon action buttons (e.g. edit/delete/more at the end of a list row).
 | Gilt       | `src/gilt.css`       | Gradient text effect ("gilt" = gilded/gold-plated)     |
 | Kbd        | `src/kbd.css`        | Keyboard key style                                     |
 | Code       | `src/code.css`       | Inline code highlight                                  |
+| Pre        | `src/pre.css`        | Block highlight |
 | Blockquote | `src/blockquote.css` | Quote blocks — `quote` / `bar` / `card` layouts        |
 
 ---
@@ -399,7 +400,7 @@ Prefer combined utility classes over separate ones — they reduce CSS output si
 ❌ shell-subtle shell-primary
 ```
 
-This shorthand pattern applies to all form components (`input` / `select` / `shell`) and most display components (`badge` / `callout` / `buoy` / `rank` / `code` etc.).
+This shorthand pattern applies to all form components (`input` / `select` / `shell`) and most display components (`badge` / `callout` / `buoy` / `rank` / `code` / `pre` etc.).
 
 ### 3.4 Common UI Patterns
 
@@ -418,7 +419,7 @@ Check these demo files for complete real-world examples:
 1. **All classes require Tailwind v4 compilation** — do not use raw CSS files directly.
 2. **`<button>` and `<input type="submit/reset/button">`** auto-receive `btn` base styles from `preset.css`. No need to add `btn` explicitly — but variant classes (e.g. `btn-outline`) still need to be added.
 3. **`<input>` `<textarea>` `<select>`** auto-receive input base styles. Extra classes are modifiers only. Same applies to `<input type="file">` and `<input type="range">`.
-4. **`<code>` `<blockquote>` `<kbd>` `<progress>` `<meter>`** have base styles — classes are for variants only.
+4. **`<code>` `<pre>` `<blockquote>` `<kbd>` `<progress>` `<meter>`** have base styles — classes are for variants only.
 5. **Empty `<span class="badge"></span>`** auto-collapses to an 8px dot.
 6. **Dark mode**: add `dark` class to any ancestor, or rely on `prefers-color-scheme: dark`.
 7. **RTL**: set `dir="rtl"` — directional properties flip automatically.
