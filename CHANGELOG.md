@@ -2,18 +2,33 @@
 
 All changes to Beautify including new features, updates, and removals are documented here.
 
+## [v0.0.3] - 2026-08-03
+
+### Changes
+
+#### Added
+- Added the `tree` component. / 新增`tree`组件。
+- Added the `--default-size-check` variable to globally control the default size of radio and checkbox elements. / 新增`--default-size-check`变量，全局控制radio和checkbox的默认尺寸。
+
+#### Fixed
+- Fixed an issue where the `font-mono` font displayed incorrectly when rendering Chinese/Japanese text. / 修复`font-mono`字体在现实中文/日文时的问题。
+
+#### Edited
+- Changed the `disabled` color semantics to `placeholder`. / 将`disabled`颜色语义改成了`placeholder`。
+
+
 ## [v0.0.2] - 2026-07-30
 
 ### Changes
 
 #### Added
-- Added `pre.css` file and new utilities related to `pre` elements. 新增`pre.css`文件，并新增了与pre相关的utilities。
+- Added `pre.css` file and new utilities related to `pre` elements.  / 新增`pre.css`文件，并新增了与pre相关的utilities。
 
 #### Fixed
-- Modified the `segment` component to add a border to the `selected` item. 修改`segment`组件，对`selected`项添加边框。
-- Modified the `blockquote-quote` utility to remove the `:after` pseudo-element. 修改了`blockquote-quote`这个utility，删除`:after`伪元素。
-- Changed the default color of the `code` element to `currentColor`. 修改了`code`节点的默认颜色为`currentColor`。
-- Updated the default background color of the `skeleton` component. 修改了`skeleton`组件的默认背景色。
+- Modified the `segment` component to add a border to the `selected` item.  / 修改`segment`组件，对`selected`项添加边框。
+- Modified the `blockquote-quote` utility to remove the `:after` pseudo-element.  / 修改了`blockquote-quote`这个utility，删除`:after`伪元素。
+- Changed the default color of the `code` element to `currentColor`.  / 修改了`code`节点的默认颜色为`currentColor`。
+- Updated the default background color of the `skeleton` component.  / 修改了`skeleton`组件的默认背景色。
 
 ## [v0.0.1] - 2026-07-14
 

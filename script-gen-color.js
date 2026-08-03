@@ -1,7 +1,7 @@
 
 
 /**
- *  Last modified: 2026/07/16 14:04:43
+ *  Last modified: 2026/07/31 17:04:55
  */
 
 import fs from 'fs';
@@ -48,7 +48,7 @@ const getLightColors = function (color) {
   --color-${color}-bd-active: oklch(from var(--color-${color}) var(--light-threshold-bd-active) min(var(--chorme-bd-active),c ) h);
 `;
   let getAltColors = (color) => `
-  --color-${color}-base: oklch(from var(--color-title) calc(l * ${color === 'description' ? 2.5 : color === 'caption' ? 3.5 : color === 'disabled' ? 4.5 : 1}) c h);
+  --color-${color}-base: oklch(from var(--color-title) calc(l * ${color === 'description' ? 2.5 : color === 'caption' ? 3.5 : color === 'placeholder' ? 4.5 : 1}) c h);
   --color-${color}: var(--color-${color}-base);
   --color-${color}-outline: var(--color-title);
   --color-${color}-hover: oklch(from var(--color-title) calc(l + (1 - l) * 0.25) c h);
@@ -68,7 +68,7 @@ const getLightColors = function (color) {
   if (color === 'title') {
     result += getAltColors('description');
     result += getAltColors('caption');
-    result += getAltColors('disabled');
+    result += getAltColors('placeholder');
   }
   return result;
 }
@@ -90,7 +90,7 @@ const getDarkColors = function (color) {
   --color-${color}-bd-active: oklch(from var(--color-${color}) var(--light-threshold-bd-active) min(c ,0.16) h);
 `;
   let getAltColors = (color) => `
-  --color-${color}-base: oklch(from var(--color-title) calc(l * ${color === 'description' ? 0.85 : color === 'caption' ? 0.65 : color === 'disabled' ? 0.5 : 1}) c h);
+  --color-${color}-base: oklch(from var(--color-title) calc(l * ${color === 'description' ? 0.85 : color === 'caption' ? 0.65 : color === 'placeholder' ? 0.5 : 1}) c h);
   --color-${color}: var(--color-${color}-base);
   --color-${color}-hover: oklch(from var(--color-${color}) calc(l + (1 - l) * 0.25) c h);
   --color-${color}-active: oklch(from var(--color-${color}) calc(l * 0.9) c h);
@@ -101,7 +101,7 @@ const getDarkColors = function (color) {
   if (color === 'title') {
     result += getAltColors('description');
     result += getAltColors('caption');
-    result += getAltColors('disabled');
+    result += getAltColors('placeholder');
   }
   return result;
 }

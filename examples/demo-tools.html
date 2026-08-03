@@ -11,15 +11,22 @@
 
 <body>
   <h1>Tools Component</h1>
-  <p>Tool button group container. Basic structure: <code>.tools > *</code> — each child is a tool button. Supports risk levels, disabled state, arrow indicators, plain variant, and vertical layout.</p>
+  <p>Tool button group container. Basic structure: <code>.tools > *</code> — each child is a tool button. Supports risk
+    levels, disabled state, arrow indicators, plain variant, and vertical layout.</p>
+
+
 
   <h2>Notes</h2>
   <div class="section">
     <ul>
-      <li>Base: <code>.tools</code> (horizontal) or <code>.tools-v</code> (vertical). Children can be <code>&lt;span></code>, <code>&lt;a></code>, or <code>&lt;button></code>.</li>
-      <li>Risk levels via <code>data-risk</code>: <code>low</code>, <code>neutral</code>, <code>medium</code>, <code>high</code>, <code>extreme</code>.</li>
-      <li>Disabled: <code>data-disabled="true"</code>. Arrow: <code>data-more="true"</code>, expanded: <code>data-more="true" data-open="true"</code>.</li>
-      <li>Variant: <code>tools-plain</code> (no padding, text-only). Sizes: <code>tools-4</code> ~ <code>tools-15</code>.</li>
+      <li>Base: <code>.tools</code> (horizontal) or <code>.tools-v</code> (vertical). Children can be
+        <code>&lt;span></code>, <code>&lt;a></code>, or <code>&lt;button></code>.</li>
+      <li>Risk levels via <code>data-risk</code>: <code>low</code>, <code>neutral</code>, <code>medium</code>,
+        <code>high</code>, <code>extreme</code>.</li>
+      <li>Disabled: <code>data-disabled="true"</code>. Arrow: <code>data-more="true"</code>, expanded:
+        <code>data-more="true" data-open="true"</code>.</li>
+      <li>Variant: <code>tools-plain</code> (no padding, text-only). Sizes: <code>tools-4</code> ~
+        <code>tools-15</code>.</li>
     </ul>
   </div>
 
@@ -35,15 +42,18 @@
     </div>
     <div>
       <h3>Custom colors (currentColor)</h3>
-      <span class="tools"><span class="text-primary">Edit</span><span class="text-success">Copy</span><span class="text-red-500">Delete</span></span>
+      <span class="tools"><span class="text-primary">Edit</span><span class="text-success">Copy</span><span
+          class="text-red-500">Delete</span></span>
     </div>
     <div>
       <h3>With icons</h3>
-      <span class="tools"><span>&#9998;&#65039; Edit</span><span>&#128203; Copy</span><span>&#128465;&#65039; Delete</span></span>
+      <span class="tools"><span>&#9998;&#65039; Edit</span><span>&#128203; Copy</span><span>&#128465;&#65039;
+          Delete</span></span>
     </div>
     <div>
       <h3>Icon only</h3>
-      <span class="tools"><span><span class="icon icon-check"></span></span><span><span class="icon icon-plus"></span></span><span><span class="icon icon-close"></span></span></span>
+      <span class="tools"><span><span class="icon icon-check"></span></span><span><span
+            class="icon icon-plus"></span></span><span><span class="icon icon-close"></span></span></span>
     </div>
   </div>
 
@@ -59,7 +69,8 @@
     </div>
     <div>
       <h3>Vertical with risk + arrow</h3>
-      <span class="tools-v"><span>Edit</span><span data-risk="extreme">Delete</span><span data-more="true">More</span></span>
+      <span class="tools-v"><span>Edit</span><span data-risk="extreme">Delete</span><span
+          data-more="true">More</span></span>
     </div>
   </div>
 
@@ -67,11 +78,13 @@
   <div class="section">
     <div>
       <h3>Disabled (data-disabled="true")</h3>
-      <span class="tools"><span data-disabled="true">Edit</span><span data-disabled="true">Copy</span><span data-disabled="true">Delete</span></span>
+      <span class="tools"><span data-disabled="true">Edit</span><span data-disabled="true">Copy</span><span
+          data-disabled="true">Delete</span></span>
     </div>
     <div>
       <h3>Mixed (some disabled)</h3>
-      <span class="tools"><span>Edit</span><span>Copy</span><span data-disabled="true">Delete</span><span data-disabled="true">Export</span></span>
+      <span class="tools"><span>Edit</span><span>Copy</span><span data-disabled="true">Delete</span><span
+          data-disabled="true">Export</span></span>
     </div>
   </div>
 
@@ -88,7 +101,8 @@
     </div>
     <div>
       <h3>All extreme + disabled</h3>
-      <span class="tools"><span data-risk="extreme">Delete</span><span data-risk="extreme">Clear</span><span data-risk="extreme" data-disabled="true">Reset</span></span>
+      <span class="tools"><span data-risk="extreme">Delete</span><span data-risk="extreme">Clear</span><span
+          data-risk="extreme" data-disabled="true">Reset</span></span>
     </div>
   </div>
 
@@ -96,7 +110,8 @@
   <div class="section">
     <div>
       <h3>data-more="true" (collapsed arrow)</h3>
-      <span class="tools"><span>Edit</span><span data-more="true">More</span><span data-more="true">Actions</span></span>
+      <span class="tools"><span>Edit</span><span data-more="true">More</span><span
+          data-more="true">Actions</span></span>
     </div>
     <div>
       <h3>data-more="true" + data-open="true" (expanded)</h3>
@@ -104,7 +119,8 @@
     </div>
     <div>
       <h3>Risk + arrow combined</h3>
-      <span class="tools"><span data-risk="extreme" data-more="true">Delete</span><span data-risk="extreme" data-more="true" data-open="true">Clear</span></span>
+      <span class="tools"><span data-risk="extreme" data-more="true">Delete</span><span data-risk="extreme"
+          data-more="true" data-open="true">Clear</span></span>
     </div>
   </div>
 

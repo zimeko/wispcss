@@ -216,7 +216,7 @@ All three support pure-CSS tab switching via `<label><input type="radio"></label
 **Lamp (`src/lamp.css` / `examples/demo-lamp.html`)**
 - Direction: `lamp-top` `lamp-start` `lamp-end` (default: bottom)
 - Full width: `lamp-full`
-- Colors: `lamp-*` — supports `lamp-description` `lamp-caption` `lamp-disabled`
+- Colors: `lamp-*` — supports `lamp-description` `lamp-caption` `lamp-placeholder`
 - Size: `lamp-4` ~ `lamp-15`
 
 **Bookmark (`src/bookmark.css` / `examples/demo-bookmark.html`)**
@@ -256,6 +256,31 @@ Inline icon action buttons (e.g. edit/delete/more at the end of a list row).
 | Icon      | `src/icon.css`     | SVG icon via `mask-image`; colorable with `currentColor`                                         |
 | Skeleton  | `src/skeleton.css` | Loading placeholder — shimmer by default; `skeleton-pulse` for pulse variant                     |
 | Table     | `src/table.css`    | Table enhancements: striped rows, hover highlight, sticky columns, alignment                     |
+| Tree      | `src/tree.css`     | Hierarchical `ul/li` tree — `data-role=node/content/label/arrow/note/indent` slots, states, shapes, densities, indent modes, expand levels |
+
+**Tree (`src/tree.css` / `examples/demo-tree.html`)**
+
+```
+tree
+  └── ul > li
+        ├── div[data-role=node]
+        │     ├── span[data-role=indent]   # tree-indent-dedicated only
+        │     ├── label.check              # optional checkbox
+        │     ├── div[data-role=content]
+        │     │     └── span[data-role=label]
+        │     └── span[data-role=arrow]    # branch nodes only
+        └── div[data-role=note]            # optional description row
+```
+
+- Trees cannot be nested; structure must be `ul > li`. Every `data-role=node` should contain an embedded `data-role=arrow` child to keep indentation consistent
+- States: `tree-selected` (whole row) · `tree-active` (label only) · `tree-disabled` (node or root) · `tree-hoverable`
+- Shape: `tree-square` `tree-rounded` `tree-pill`
+- Density: `tree-tight` `tree-snug` `tree-compact` `tree-relaxed` `tree-loose`
+- Indent: `tree-indent-cascading` (default) · `tree-indent-dedicated` (requires `--tree-level` on each `li` + `span[data-role=indent]`)
+- Node style: `tree-btns` (button chips) · `tree-entries` (list style, fully expanded, check icon on selected)
+- Expand: `tree-expanded` (one branch) · `tree-expanded-all` (all) · `tree-expanded-1` ~ `tree-expanded-10` (depth presets)
+- Colors: `tree-*` (e.g. `tree-primary` `tree-success` `tree-warning`)
+- Feature: `tree-padded`
 
 ---
 
