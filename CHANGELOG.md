@@ -2,6 +2,10 @@
 
 All changes to WispCSS including new features, updates, and removals are documented here.
 
+## [v1.0.5] - 2026-11-02
+
+#### Fixed
+- Fix some known errors and redundant code.
 
 ## [v1.0.4] - 2026-10-28
 
@@ -47,7 +51,7 @@ All changes to WispCSS including new features, updates, and removals are documen
 
 #### Fixed
 - Modified the `segment` component to add a border to the `selected` item.  / 修改`segment`组件，对`selected`项添加边框。
-- Modified the `blockquote-quote` utility to remove the `:after` pseudo-element.  / 修改了`blockquote-quote`这个utility，删除`:after`伪元素。
+- Modified the `blockquote-quote` utility to remove the `::after` pseudo-element.  / 修改了`blockquote-quote`这个utility，删除`::after`伪元素。
 - Changed the default color of the `code` element to `currentColor`.  / 修改了`code`节点的默认颜色为`currentColor`。
 - Updated the default background color of the `skeleton` component.  / 修改了`skeleton`组件的默认背景色。
 

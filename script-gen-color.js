@@ -1,7 +1,7 @@
 
 
 /**
- *  Last modified: 2026/07/31 17:04:55
+ *  Last modified: 2026/11/02 18:29:09
  */
 
 import fs from 'fs';
@@ -38,14 +38,14 @@ const getLightColors = function (color) {
   --color-${color}-active: oklch(from var(--color-${color})  calc(l * 0.9) c h);
   --color-${color}-contrast: oklch(from var(--color-${color}) clamp(var(--light-min), (var(--light-threshold-contrast) - l) * 100, var(--light-max)) 0 0);
   --color-${color}-body: oklch(from var(--color-${color}) min(var(--light-threshold-body),l) c h);
-  --color-${color}-surface: oklch(from var(--color-${color}) var(--light-threshold-surface) min(var(--chorme-surface),c ) h);
+  --color-${color}-surface: oklch(from var(--color-${color}) var(--light-threshold-surface) min(var(--chroma-surface),c ) h);
   --color-${color}-fg:  oklch(from var(--color-${color}) min(var(--light-threshold-fg),l) c h);
-  --color-${color}-bg: oklch(from var(--color-${color}) var(--light-threshold-bg) min(var(--chorme-bg),c) h);
-  --color-${color}-bg-hover: oklch(from var(--color-${color}) var(--light-threshold-bg-hover) min(var(--chorme-bg-hover),c) h);
-  --color-${color}-bg-active:oklch(from var(--color-${color}) var(--light-threshold-bg-active) min(var(--chorme-bg-active),c) h);
-  --color-${color}-bd: oklch(from var(--color-${color}) var(--light-threshold-bd) min(var(--chorme-bd),c ) h);
-  --color-${color}-bd-hover: oklch(from var(--color-${color}) var(--light-threshold-bd-hover) min(var(--chorme-bd-hover),c ) h);
-  --color-${color}-bd-active: oklch(from var(--color-${color}) var(--light-threshold-bd-active) min(var(--chorme-bd-active),c ) h);
+  --color-${color}-bg: oklch(from var(--color-${color}) var(--light-threshold-bg) min(var(--chroma-bg),c) h);
+  --color-${color}-bg-hover: oklch(from var(--color-${color}) var(--light-threshold-bg-hover) min(var(--chroma-bg-hover),c) h);
+  --color-${color}-bg-active:oklch(from var(--color-${color}) var(--light-threshold-bg-active) min(var(--chroma-bg-active),c) h);
+  --color-${color}-bd: oklch(from var(--color-${color}) var(--light-threshold-bd) min(var(--chroma-bd),c ) h);
+  --color-${color}-bd-hover: oklch(from var(--color-${color}) var(--light-threshold-bd-hover) min(var(--chroma-bd-hover),c ) h);
+  --color-${color}-bd-active: oklch(from var(--color-${color}) var(--light-threshold-bd-active) min(var(--chroma-bd-active),c ) h);
 `;
   let getAltColors = (color) => `
   --color-${color}-base: oklch(from var(--color-title) calc(l * ${color === 'description' ? 2.5 : color === 'caption' ? 3.5 : color === 'placeholder' ? 4.5 : 1}) c h);
