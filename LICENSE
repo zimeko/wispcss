@@ -1,6 +1,6 @@
 # WispCSS License
 
-Copyright (c) 2026 DEVIVID.COM
+Copyright (c) 2026 ZIMEKO.COM
 
 This repository contains files under two different licenses:
 
@@ -8,13 +8,13 @@ This repository contains files under two different licenses:
 
 ## Commercial Software License Agreement (CSLA)
 
-**Applies to: All files in the `src/` directory**
+**Applies to: All files in the `src/` and `src-prefix` directory**
 
-The files in the `src/` directory are proprietary commercial software. All rights are reserved.
+The files in the `src/` and `src-prefix` directory are proprietary commercial software. All rights are reserved.
 
 ### Terms and Conditions
 
-1. **License Grant**: A paid license is required to use, copy, modify, or distribute any files from the `src/` directory in any project, whether personal, commercial, or otherwise.
+1. **License Grant**: A paid license is required to use, copy, modify, or distribute any files from the `src/` and `src-prefix` directory in any project, whether personal, commercial, or otherwise.
 
 2. **Restrictions**: Without a valid paid license, you may NOT:
    - Use the source files in any project

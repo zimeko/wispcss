@@ -1,15 +1,14 @@
 /**
- *  Last modified: 2026/11/02 11:05:00
+ *  Last modified: 2026/11/02 14:02:04
  *
- *  CSS 压缩脚本 - 将 dist 目录下的每个 CSS 文件压缩为同名 .min.css 文件
- *    dist/wispcss.css -> dist/wispcss.min.css
- *  *.min.css 不会被再次压缩，因此脚本可重复执行。
+ *  Minify every CSS file in `dist` into a sibling `.min.css` file
+ *  (dist/wispcss.css -> dist/wispcss.min.css). Existing `*.min.css` files are skipped,
+ *  so the script can be re-run safely.
  *
- *  使用 lightningcss（Tailwind v4 内部使用的同一个压缩器）。
- *  说明：clean-css(cleancss) 无法解析 Tailwind v4 产物的现代语法，
- *  在 tokenizer 阶段会直接抛异常，因此不再使用。
+ *  Uses lightningcss — the same minifier Tailwind v4 relies on. clean-css (cleancss) cannot
+ *  parse Tailwind v4 output and throws inside its tokenizer, so it is no longer used.
  *
- *  使用方式：node script-mini.js 或 npm run mini
+ *  Usage: node script-mini.js  (or: npm run mini)
  */
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'fs';
 import path from 'path';
@@ -34,7 +33,7 @@ const minifyCss = () => {
     process.exit(1);
   }
 
-  // 只处理 .css，跳过压缩产物 *.min.css
+  // Plain .css only; skip existing *.min.css
   const files = readdirSync(DIST_DIR, { withFileTypes: true })
     .filter((entry) => entry.isFile())
     .map((entry) => entry.name)
