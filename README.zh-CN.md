@@ -1,16 +1,16 @@
-# Beautify
+# WispCSS
 
 > [English](./README.md)
 
 基于 Tailwind CSS v4 编译器的纯 CSS 组件与工具库。注释全面，AI 友好支持。无需 JavaScript，即可为 HTML 原生节点提供样式美化，并附带全面的 utility class 用于 UI 布局。
 
-立即查看 **[100个组件演示](https://unpkg.com/@codady/beautify/examples/index.html)** →
+立即查看 **[100个组件演示](https://unpkg.com/wispcss/examples/index.html)** →
 
 ---
 
 ## 概述
 
-Beautify 作为 Web 项目的底层 CSS 层，位于 Tailwind CSS 之上、应用层样式之下，扮演基础设计系统的角色。它不是 Tailwind 的替代品，而是对 Tailwind 的补充，提供以下内容：
+WispCSS 作为 Web 项目的底层 CSS 层，位于 Tailwind CSS 之上、应用层样式之下，扮演基础设计系统的角色。它不是 Tailwind 的替代品，而是对 Tailwind 的补充，提供以下内容：
 
 - 预样式的 HTML 原生元素（输入框、按钮、表单、表格等）
 - UI 组件库（徽标、标签、面包屑、分页、步骤条、分割线等）
@@ -34,7 +34,7 @@ Beautify 作为 Web 项目的底层 CSS 层，位于 Tailwind CSS 之上、应�
 
 ## 目标用户
 
-只要项目中已集成 **Tailwind CSS**，即可直接使用 Beautify。
+只要项目中已集成 **Tailwind CSS**，即可直接使用 WispCSS。
 
 ---
 
@@ -62,14 +62,14 @@ Beautify 作为 Web 项目的底层 CSS 层，位于 Tailwind CSS 之上、应�
 
 ### 方式一：手动引入（推荐）
 
-这是推荐的方式。将购买后获得的 `src/` 目录放在项目内任意位置（如 `lib/beautify/src/`），纳入版本控制，并直接引入。文件始终在您的掌控之下，不会受 `npm install` 影响。
+这是推荐的方式。将购买后获得的 `src/` 目录放在项目内任意位置（如 `lib/wispcss/src/`），纳入版本控制，并直接引入。文件始终在您的掌控之下，不会受 `npm install` 影响。
 
 1. 将购买后获得的 `src/` 目录复制到项目中，例如：
 
 ```
 your-project/
 └── lib/
-    └── beautify/
+    └── wispcss/
         └── src/
             ├── index.css
             ├── button.css
@@ -80,14 +80,14 @@ your-project/
 
 ```css
 /* 示例: app.css */
-@import "./lib/beautify/src/index.css";
+@import "./lib/wispcss/src/index.css";
 ```
 
 3. 配置 Tailwind CSS：
 
 ```css
 @import "tailwindcss";
-@import "./lib/beautify/src/index.css";
+@import "./lib/wispcss/src/index.css";
 ```
 
 4. 运行 Tailwind CLI 进行编译：
@@ -98,37 +98,40 @@ npx @tailwindcss/cli -i app.css -o dist/output.css
 
 ### 方式二：通过 npm 安装
 
-npm 包默认**不包含** `src/` 源文件，因为它们属于商业软件（详见[版权与授权](#版权与授权)）。购买授权后，需要将获得的 `src/` 目录放入 `node_modules/@codady/beautify/src/`，才能使用下面的引入方式。
+npm 包默认**不包含** `src/` 源文件，因为它们属于商业软件（详见[版权与授权](#版权与授权)）。购买授权后，需要将获得的 `src/` 目录放入 `node_modules/@zimeko/wispcss/src/`，才能使用下面的引入方式。
 
 1. 安装依赖包：
 
 ```bash
-npm install @codady/beautify
+npm install @zimeko/wispcss
 ```
 
 2. 购买授权后，将获得的 `src/` 目录复制到：
 
 ```
-node_modules/@codady/beautify/src/
+node_modules/@zimeko/wispcss/src/
 ```
 
 3. 在项目的 CSS 入口文件中引入：
 
 ```css
 /* 引入全部组件 */
-@import "@codady/beautify";
+@import "@zimeko/wispcss";
+
+/* 仅核心：组件 + 工具类，不含 Tailwind 引入（需自行先引入 Tailwind） */
+@import "@zimeko/wispcss/core.css";
 
 /* 或仅引入需要的组件 */
-@import "@codady/beautify/color.css";
-@import "@codady/beautify/button.css";
-@import "@codady/beautify/input.css";
+@import "@zimeko/wispcss/color.css";
+@import "@zimeko/wispcss/button.css";
+@import "@zimeko/wispcss/input.css";
 ```
 
 4. 配置 Tailwind CSS：
 
 ```css
 @import "tailwindcss";
-@import "@codady/beautify";
+@import "@zimeko/wispcss";
 ```
 
 5. 运行 Tailwind CLI 进行编译：
@@ -137,13 +140,34 @@ node_modules/@codady/beautify/src/
 npx @tailwindcss/cli -i app.css -o dist/output.css
 ```
 
-> 注意：由于 `node_modules` 通常不纳入版本控制，且会在 `npm install` 时重新生成，因此每次重新安装依赖（例如 CI 流程或执行 `npm ci`）后，都需要重新将 `src/` 目录复制到 `node_modules/@codady/beautify/src/`。
+> 注意：由于 `node_modules` 通常不纳入版本控制，且会在 `npm install` 时重新生成，因此每次重新安装依赖（例如 CI 流程或执行 `npm ci`）后，都需要重新将 `src/` 目录复制到 `node_modules/@zimeko/wispcss/src/`。
+
+### 方式三：自行引入 Tailwind（`core.css`）
+
+方式一、方式二都引入 `index.css`，它本身只是一个入口文件：
+
+```css
+@import "tailwindcss";
+@import "./core.css";
+```
+
+`core.css` 包含整个库（组件、工具类、设计令牌），且**不引入 Tailwind**。如果你的项目已在其它地方引入 Tailwind CSS（框架预设、公共入口文件，或自定义的 `prefix(...)` / `@theme` 配置），请改为引入 `core.css`，避免 Tailwind 层被重复加载：
+
+```css
+/* 示例: app.css */
+@import "tailwindcss";                  /* 你自己的 Tailwind 配置，必须先引入 */
+@import "./lib/wispcss/src/core.css";   /* 仅 WispCSS 的组件与工具类 */
+```
+
+- **Tailwind 必须在前。** `core.css` 依赖 Tailwind v4 的 `@utility`、`@theme`、`--theme()`、`--spacing()`，无法单独编译。
+- **其余用法完全一致。** 类名与 tree-shaking 行为都不变，只是 Tailwind 的引入位置由你掌控。
+- **与前缀版兼容。** 若你的 Tailwind 入口使用 `prefix(tw)`，请搭配 `src-prefix/core.css`（见下文“使用前缀”）。
 
 ---
 
 ## 使用方法
 
-Beautify 的组件使用 Tailwind v4 的 `@utility` 指令，以 class name 的形式应用于 HTML。
+WispCSS 的组件使用 Tailwind v4 的 `@utility` 指令，以 class name 的形式应用于 HTML。
 
 ```html
 <!-- 按钮 -->
@@ -162,40 +186,133 @@ Beautify 的组件使用 Tailwind v4 的 `@utility` 指令，以 class name 的�
 
 ---
 
+## 使用前缀（`src-prefix/`）
+
+Tailwind CSS v4 支持为所有生成的工具类加前缀（`tw:btn-primary` 而不是 `btn-primary`）。WispCSS 随包提供了一份已加好前缀的源码副本 `src-prefix/`，可确保其类名不会与你自己的 Tailwind 类、其它版本的 WispCSS 或第三方 UI 库发生冲突。
+
+### `src-prefix/` 里有什么
+
+- 文件列表与 `src/` 完全一致，包含 `index.css`、`core.css` 与全部组件文件。
+- `src-prefix/index.css` 以带前缀的方式引入 Tailwind：
+
+```css
+@import "tailwindcss" prefix(tw);
+@import "./core.css";
+```
+
+- 所有 `@apply` 语句**以及**规则头中的静态类选择器都会加上前缀，因为 Tailwind v4 要求这两处都必须使用带前缀的类名：
+
+```css
+/* src/check.css */
+&:where(.check-subtle, .check-ghost) {
+  @apply transition-all-normal;
+}
+
+/* src-prefix/check.css */
+&:where(.tw\:check-subtle, .tw\:check-ghost) {
+  @apply tw:transition-all-normal;
+}
+```
+
+反斜杠是 CSS 中冒号的转义写法，因此 `.tw\:check-subtle` 对应 HTML 中的类名 `tw:check-subtle`。
+
+### 引入方式
+
+本地相对路径（源码已拷入项目）：
+
+```css
+/* Tailwind + 全部组件，前缀为 tw */
+@import "./lib/wispcss/src-prefix/index.css";
+
+/* 或：自己的 Tailwind 入口 + 前缀版组件 */
+@import "tailwindcss" prefix(tw);
+@import "./lib/wispcss/src-prefix/core.css";
+```
+
+npm 子路径（源码已拷入 `node_modules/@zimeko/wispcss/`），`.css` 后缀可省略：
+
+```css
+@import "@zimeko/wispcss/prefix";           /* = src-prefix/index.css  含 prefix(tw) */
+@import "@zimeko/wispcss/prefix/core.css";  /* = src-prefix/core.css   Tailwind 由你自己引入 */
+@import "@zimeko/wispcss/prefix/button";    /* = src-prefix/button.css 单个组件 */
+```
+
+完整子路径映射：
+
+| 子路径                               | 对应文件                     | 是否含 Tailwind 引入 |
+| ------------------------------------ | ---------------------------- | -------------------- |
+| `@zimeko/wispcss`                    | `src/index.css`              | 是                   |
+| `@zimeko/wispcss/core.css`           | `src/core.css`               | 否                   |
+| `@zimeko/wispcss/<component>.css`    | `src/<component>.css`        | 否                   |
+| `@zimeko/wispcss/prefix`             | `src-prefix/index.css`       | 是，且为 `prefix(tw)` |
+| `@zimeko/wispcss/prefix/core.css`    | `src-prefix/core.css`        | 否                   |
+| `@zimeko/wispcss/prefix/<component>` | `src-prefix/<component>.css` | 否                   |
+
+> `src-prefix/index.css` 中的前缀名取决于 `npm run prefix` 的生成结果（默认 `tw`）。若改引 `src-prefix/core.css`，你自己的 Tailwind 入口必须使用**相同**的前缀：`@import "tailwindcss" prefix(tw);`。
+
+```html
+<button class="tw:btn-primary">提交</button>
+<span class="tw:badge tw:badge-success">10</span>
+<input class="tw:input-subtle tw:input-8 tw:input-rounded" placeholder="请输入姓名" />
+```
+
+### 更换前缀并重新生成
+
+`src-prefix/` 是生成产物，请勿手工修改。生成脚本仅使用 Node.js 内置模块（Node 18+），无需额外依赖：
+
+```bash
+npm run prefix
+```
+
+脚本会询问前缀，回车后立即开始：
+
+```
+Enter Tailwind prefix (press Enter to use the default "tw"):
+```
+
+- 直接按 **回车** 使用默认的 `tw`。
+- 输入其它名称（如 `wisp`）则得到 `wisp:btn-primary`。
+
+随后脚本会删除并按 `src/` 重建 `src-prefix/`，同时改写入口导入、所有 `@apply` 语句和所有类选择器（包括 `:where()`、`:not()`、`:has()`、`:is()`，以及嵌套与跨行选择器）；注释、字符串、属性选择器（`[class*="..."]`）和声明值不会被改动。
+
+> 由于每次执行都会删除该目录，请始终在 `src/` 中修改后再重新生成。
+
+---
+
 ## 包含的组件
 
 本库提供 50 余个组件及工具类分组，包括但不限于：
 
-| 类别 | 组件                                                                                                                                                                                                                                                                                                 |
-| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 按钮 | `btn`（solid / outline / subtle / ghost / vivid / link 等变体）、`btns`（按钮组合布局）                                                                                                                                                                                                              |
-| 表单 | `input` / `textarea` / `select`（共用文本输入样式）、`field`（表单布局）、`shell`（输入框外壳）、`check`（复选框/单选框）、`switch`（开关）、`rating`（星级评分）、`otp`（一次性密码）、`validate`（校验提示）                                                                                       |
+| 类别 | 组件 |
+| ---- | ---- |
+| 按钮 | `btn`（solid / outline / subtle / ghost / vivid / link 等变体）、`btns`（按钮组合布局） |
+| 表单 | `input` / `textarea` / `select`（共用文本输入样式）、`field`（表单布局）、`shell`（输入框外壳）、`check`（复选框/单选框）、`switch`（开关）、`rating`（星级评分）、`otp`（一次性密码）、`validate`（校验提示） |
 | 展示 | `avatar`（头像）、`badge`（徽章）、`tag`（标签）、`segment`（药丸单选组）、`flag`（角标旗帜）、`buoy`（双段徽章）、`rank`（排名）、`stats`（统计数字）、`swatch`（色块）、`progress`（进度条）、`spinner`（加载器）、`poster`（图片封面）、`icon`（图标）、`skeleton`（骨架屏）、`table`（表格增强）、`tree`（树形组件） |
-| 导航 | `breadcrumb`（面包屑）、`pagination`（分页）、`step`（步骤条）、`dropmenu`（下拉菜单）、`droppanel`（下拉面板）、`lamp`（灯式指示 Tab）、`bookmark`（书签式 Tab）、`tools`（操作工具栏）                                                                                                             |
-| 排版 | `link`（链接）、`code`（行内代码）、`pre`（代码块高亮）、`blockquote`（引用块）、`kbd`（键盘按键）、`ellipsis`（文本省略）、`underline`（下划线）、`emphasis`（着重号）、`gilt`（渐变文字）                                                                                                                               |
-| 布局 | `divider`（分割线）、`spacer`（间隔填充）、`comment`（评论列表）、`entry`（列表条目容器）                                                                                                                                                                                                            |
-| 装饰 | `background`（纹理/渐变背景）、`blob`（有机形状）、`bubble`（带箭头气泡）、`callout`（提示框）、`alarm`（脉冲徽章）、`aura`（动态光晕边框）、`sketch`（手绘风格）、`shimmer`（流光效果）、`shadow`（阴影变量）                                                                                       |
-| 状态 | `status`（状态指示点）、`deform`（可变形 CSS 图标）、`empty`（空状态占位）                                                                                                                                                                                                                           |
-| 动画 | `animation`（关键帧动画工具类）、`transition`（过渡工具类）                                                                                                                                                                                                                                          |
-| 颜色 | `color`（基于 OKLCH 的设计令牌系统）、`theme`（主题切换工具类）                                                                                                                                                                                                                                      |
+| 导航 | `breadcrumb`（面包屑）、`pagination`（分页）、`step`（步骤条）、`dropmenu`（下拉菜单）、`droppanel`（下拉面板）、`lamp`（灯式指示 Tab）、`bookmark`（书签式 Tab）、`tools`（操作工具栏） |
+| 排版 | `link`（链接）、`code`（行内代码）、`pre`（代码块高亮）、`blockquote`（引用块）、`kbd`（键盘按键）、`ellipsis`（文本省略）、`underline`（下划线）、`emphasis`（着重号）、`gilt`（渐变文字） |
+| 布局 | `divider`（分割线）、`spacer`（间隔填充）、`comment`（评论列表）、`entry`（列表条目容器） |
+| 装饰 | `background`（纹理/渐变背景）、`blob`（有机形状）、`bubble`（带箭头气泡）、`callout`（提示框）、`alarm`（脉冲徽章）、`aura`（动态光晕边框）、`sketch`（手绘风格）、`shimmer`（流光效果）、`shadow`（阴影变量） |
+| 状态 | `status`（状态指示点）、`deform`（可变形 CSS 图标）、`empty`（空状态占位） |
+| 动画 | `animation`（关键帧动画工具类）、`transition`（过渡工具类） |
+| 颜色 | `color`（基于 OKLCH 的设计令牌系统）、`theme`（主题切换工具类） |
 
 ---
 
 ## 补充工具类
 
-Beautify 添加了 Tailwind CSS 默认未包含的 utility class：
+WispCSS 添加了 Tailwind CSS 默认未包含的 utility class：
 
 | 类名                 | 说明                                                                                 |
 | -------------------- | ------------------------------------------------------------------------------------ |
-| `inline-flex-center` | `display: inline-flex; align-items: center; justify-content: center;` 的简写         |
-| `flex-center`        | `display: flex; align-items: center; justify-content: center;` 的简写                |
+| `inline-flex-center` | `display: inline-flex; align-items: center; justify-content: center;` 的简写          |
+| `flex-center`        | `display: flex; align-items: center; justify-content: center;` 的简写                 |
 | `disabled`           | 应用禁用状态的不透明度和光标样式                                                     |
 | `inactive`           | 对非交互元素应用降低的不透明度                                                       |
 | `text-3xs`           | 8px 字号（`max(0.5rem, 8px)`）                                                       |
 | `text-2xs`           | 10px 字号（`max(0.625rem, 10px)`）                                                   |
 | `hidden-appearance`  | 在视觉上隐藏输入框，同时保持无障碍可访问性                                           |
 | `background-cover`   | `background-size: cover; background-position: center; background-repeat: no-repeat;` |
-| `rotate-reverse`     | 180 度旋转                                                                           |
+| `rotate-reverse`     | 180 度旋转                                                                          |
 | `rotate-cross`       | 45 度旋转（加号变叉号）                                                              |
 | `rotate-expand`      | 90 度旋转                                                                            |
 | `rotate-collapse`    | -90 度旋转                                                                           |
@@ -206,7 +323,7 @@ Beautify 添加了 Tailwind CSS 默认未包含的 utility class：
 
 ### 色彩系统
 
-Beautify 使用 **OKLCH** 色彩空间定义所有主题色。OKLCH 提供感知均匀的亮度，使框架能够根据亮度阈值自动调整浅色和深色模式下的文字对比度。色彩系统通过 CSS 自定义属性定义，并基于亮度阈值动态计算。
+WispCSS 使用 **OKLCH** 色彩空间定义所有主题色。OKLCH 提供感知均匀的亮度，使框架能够根据亮度阈值自动调整浅色和深色模式下的文字对比度。色彩系统通过 CSS 自定义属性定义，并基于亮度阈值动态计算。
 
 ### Tree-shaking
 
@@ -224,24 +341,28 @@ Beautify 使用 **OKLCH** 色彩空间定义所有主题色。OKLCH 提供感知
 
 ## 项目结构
 
-| 路径           | 说明                                            |
-| -------------- | ----------------------------------------------- |
-| `src/`         | 源代码 CSS 文件（含 `@utility` 指令的 `*.css`） |
-| `dist/`        | 编译产物（`beautify.css`、`beautify.min.css`）  |
-| `examples/`    | 所有组件的 HTML demo 文件                       |
-| `CHANGELOG.md` | 版本历史                                        |
-| `LICENSE`      | 授权信息                                        |
+| 路径               | 说明                                                                   |
+| ------------------ | ---------------------------------------------------------------------- |
+| `src/index.css`    | 入口文件：`@import "tailwindcss";` 后接 `core.css`                     |
+| `src/core.css`     | 仅含组件、工具类与设计令牌，供已自行引入 Tailwind 的项目使用            |
+| `src/`             | 源代码 CSS 文件（含 `@utility` 指令的 `*.css`）                         |
+| `src-prefix/`      | 与 `src/` 文件一致的前缀版（`tw:` 命名空间），由 `npm run prefix` 生成  |
+| `script-prefix.js` | 前缀生成脚本，对应 `npm run prefix`                                     |
+| `dist/`            | 编译产物（`wispcss.css`、`wispcss.min.css`）                            |
+| `examples/`        | 所有组件的 HTML demo 文件                                               |
+| `CHANGELOG.md`     | 版本历史                                                               |
+| `LICENSE`          | 授权信息                                                               |
 
 ---
 
 ## 链接
 
-- **GitHub**: [https://github.com/codady/beautify](https://github.com/codady/beautify)
-- **Gitee**: [https://gitee.com/codady/beautify](https://gitee.com/codady/beautify)
-- **在线 Demo**: [https://codady.github.io/beautify/](https://codady.github.io/beautify/)
-- **问题反馈**: [https://github.com/codady/beautify/issues](https://github.com/codady/beautify/issues)
-- **意见提交**: [https://www.devivid.com/feedback/beautify](https://www.devivid.com/feedback/beautify)
-- **客服邮箱**: devivid2026@outlook.com
+- **GitHub**: [https://github.com/zimeko/wispcss](https://github.com/zimeko/wispcss)
+- **Gitee**: [https://gitee.com/zimeko/wispcss](https://gitee.com/zimeko/wispcss)
+- **在线 Demo**: [https://zimeko.github.io/wispcss/](https://zimeko.github.io/wispcss/)
+- **问题反馈**: [https://github.com/zimeko/wispcss/issues](https://github.com/zimeko/wispcss/issues)
+- **意见提交**: [https://www.zimeko.com/feedback/wispcss](https://www.zimeko.com/feedback/wispcss)
+- **客服邮箱**: zimeko2026@outlook.com
 
 ---
 
@@ -251,7 +372,7 @@ Beautify 使用 **OKLCH** 色彩空间定义所有主题色。OKLCH 提供感知
 
 `src/` 目录下的文件为**商业软件**。在任何项目（包括个人和商业项目）中使用这些文件，均需购买授权。
 
-**购买价格**：29 美元，通过 [Lemon Squeezy](https://devivid.lemonsqueezy.com/checkout/buy/c9b1e630-10ff-490e-9f4f-b9d0bfbd8614) 支付。
+通过 [ZIMEKO](https://wispcss.zimeko.com) 购买授权。
 
 ### 其他文件
 

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="wispcss-css" rel="stylesheet" href="../dist/wispcss.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Actions - WispCSS Demo</title>
+  <style>
+    .box{
+            border:1px solid var(--color-title-bd);
+            border-radius:var(--default-border-radius);
+            padding:1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Actions Component</h1>
+  <p>Action bar for footer areas (card / dialog / modal) with start, center and end aligned groups.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Use <code>.actions</code> as the container; child groups use <code>.actions-start</code>, <code>.actions-center</code> and <code>.actions-end</code>.</li>
+      <li>Each group lays its content in a row with a consistent gap, so text, buttons, checkboxes and other inline content can be mixed freely.</li>
+      <li>An empty <code>.actions</code> bar is hidden automatically.</li>
+    </ul>
+  </div>
+
+  <h2 id="basic">Basic usage</h2>
+  <div class="section">
+    <div>
+      <h3>Default (start / center / end)</h3>
+      <div class="box">
+        <div class="actions">
+          <div class="actions-start">
+            <label class="check"><input type="checkbox" /> Check it</label>
+          </div>
+          <div class="actions-center">1/4</div>
+          <div class="actions-end">
+            <button>Cancel</button>
+            <button class="btn-primary">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="contents">Content types</h2>
+  <div class="section">
+    <div>
+      <h3>Text + buttons</h3>
+      <div class="box">
+        <div class="actions">
+          <div class="actions-start"><span class="text-caption">3 items selected</span></div>
+          <div class="actions-center"><span class="text-caption">Page 1 of 9</span></div>
+          <div class="actions-end">
+            <button>Cancel</button>
+            <button class="btn-primary">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Checkbox group</h3>
+      <div class="box">
+        <div class="actions">
+          <div class="actions-start">
+            <label class="check"><input type="checkbox" /> Select all</label>
+            <label class="check"><input type="checkbox" checked /> Auto save</label>
+          </div>
+          <div class="actions-end">
+            <button>Reset</button>
+            <button class="btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Switch + Ghost button </h3>
+      <div class="box">
+        <div class="actions">
+          <div class="actions-start">
+            <span>Enable notifications</span>
+            <label class="switch"><input type="checkbox" checked /></label>
+          </div>
+        
+          <div class="actions-end">
+            <button class="btn-ghost">Discard</button>
+            <button class="btn-primary">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <div>
+      <h3>Single-line ellipsis text</h3>
+      <div class="box">
+        <div class="actions">
+          <div class="actions-start">
+<div class="ellipsis">This is a two-line truncation demo. When text exceeds two lines, the rest is cut off and an ellipsis is shown. This keeps the layout tidy and is very useful for card summaries and article lists.</div>
+          </div>
+          <div class="actions-end">
+            <button class="btn-primary">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <div>
+      <h3>Two-line ellipsis text</h3>
+      <div class="box">
+        <div class="actions">
+          <div class="actions-start">
+<div class="ellipsis-2">This is a two-line truncation demo. When text exceeds two lines, the rest is cut off and an ellipsis is shown. This keeps the layout tidy and is very useful for card summaries and article lists.</div>
+          </div>
+          <div class="actions-end">
+            <button class="btn-primary">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Buttons at both ends</h3>
+      <div class="box">
+        <div class="actions">
+          <div class="actions-start">
+            <button>Back</button>
+          </div>
+          <div class="actions-end">
+            
+            <button class="btn-primary">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <div>
+      <h3>Buttons centered</h3>
+      <div class="box">
+        <div class="actions">
+          <div class="actions-center">
+            <button>Back</button>
+            <button class="btn-primary">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div>
+      <h3>Avatar + tool icons</h3>
+      <div class="box">
+        <div class="actions">
+          <div class="actions-start">
+            <span class="avatar avatar-circle avatar-6"><img src="https://unpkg.com/@codady/resource/image/earth01_sm.jpg" /></span>
+            <span>Shared with 2 people</span>
+          </div>
+          <div class="actions-end">
+            <span class="tools">
+              <span><span class="icon icon-check"></span></span>
+              <span><span class="icon icon-close"></span></span>
+            </span>
+            <button class="btn-primary">Invite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="empty">Empty state</h2>
+  <div class="section">
+    <div>
+      <h3>Empty actions bar is hidden</h3>
+      <div class="box">
+        <div class="actions"></div>
+        <p class="text-caption">The empty <code>.actions</code> div above renders no space.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

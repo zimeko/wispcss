@@ -1,15 +1,20 @@
 {
-  "name": "@codady/beautify",
-  "version": "0.0.3",
+  "name": "wispcss",
+  "version": "1.0.4",
   "publishConfig": {
     "access": "public"
   },
-  "author": "Devivid Development Team",
+  "author": "ZIMEKO Development Team",
   "license": "MIT",
-  "description": "Beautify, A pure CSS component and utility library built on the Tailwind CSS v4 compiler. Fully documented with inline comments, AI-friendly. It provides styled HTML native elements and a comprehensive set of utility classes for UI layout, without requiring any JavaScript.",
+  "description": "WispCSS, A pure CSS component and utility library built on the Tailwind CSS v4 compiler. Fully documented with inline comments, AI-friendly. It provides styled HTML native elements and a comprehensive set of utility classes for UI layout, without requiring any JavaScript.",
   "exports": {
+    "./package.json": "./package.json",
     ".": "./src/index.css",
-    "./*": "./src/*.css"
+    "./*": "./src/*.css",
+    "./*.css": "./src/*.css",
+    "./prefix": "./src-prefix/index.css",
+    "./prefix/*": "./src-prefix/*.css",
+    "./prefix/*.css": "./src-prefix/*.css"
   },
   "type": "module",
   "directories": {
@@ -26,14 +31,17 @@
     "README.zh-CN.md",
     "skill.md",
     "script-gen-color.js",
+    "script-prefix.js",
+    "script-mini.js",
     "LICENSE"
   ],
   "devDependencies": {
-    "clean-css-cli": "^5.6.3",
-    "terser": "^5.27.2"
+    "lightningcss": "^1.32.0"
   },
   "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/index.css -o ./dist/wispcss.css --watch",
     "gen-color": "node script-gen-color.js",
+    "prefix": "node script-prefix.js",
     "mini": "node script-mini.js",
     "pack": "node script-pack.js",
     "git": "node script-git.js",
@@ -42,12 +50,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/codady/beautify"
+    "url": "https://github.com/zimeko/wispcss"
   },
   "extraRepositories": [
     {
       "type": "git",
-      "url": "https://gitee.com/codady/beautify"
+      "url": "https://gitee.com/zimeko/wispcss"
     }
   ],
   "keywords": [
@@ -57,11 +65,10 @@
     "css3"
   ],
   "bugs": {
-    "url": "https://github.com/codady/beautify/issues"
+    "url": "https://github.com/zimeko/wispcss/issues"
   },
-  "homepage": "https://www.devivid.com",
+  "homepage": "https://www.zimeko.com",
   "dependencies": {
-    "@codady/normalize": "^0.0.7",
     "@tailwindcss/cli": "^4.3.0",
     "simple-git": "^3.27.0",
     "tailwindcss": "^4.3.2"

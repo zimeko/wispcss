@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link id="wispcss-css" rel="stylesheet" href="../dist/wispcss.css">
   <link rel="stylesheet" href="./demo-styles.css">
-  <title>Normalize - Beautify Demo</title>
+  <title>Normalize - WispCSS Demo</title>
 </head>
 
 <body>
   <h1>Normalize / Reset</h1>
-  <p>Baseline appearance of native HTML elements after Beautify normalize is applied.</p>
+  <p>Baseline appearance of native HTML elements after WispCSS normalize is applied.</p>
 
   <h2>Notes</h2>
   <div class="section">
@@ -64,7 +64,7 @@
       <h3>i (italic)</h3>
       <p><i>Italic text</i></p>
     </div>
-     <div>
+    <div>
       <h3>em (Auto-adapted for languages without italic tradition)</h3>
       <p><em>Emphasized text</em></p>
       <p lang="zh"><em>EM强调文本</em></p>
@@ -113,7 +113,7 @@ function hello() {
       <p><cite>The Elements of Style</cite> — a citation example.</p>
       <p lang="zh"><cite>《论语》</cite> — 子曰：学而时习之，不亦说乎。</p>
     </div>
-        <div>
+    <div>
       <h3>dfn (displays as bold for non-italic languages)</h3>
       <p><dfn>HTML</dfn> is the standard markup language for web documents.</p>
       <p lang="zh"><dfn>HTML</dfn> 是基本标签.</p>
@@ -144,17 +144,30 @@ function hello() {
   <h2 id="lists">Lists</h2>
   <div class="section">
     <div>
-      <h3>Unordered list (ul)</h3>
-      <ul>
+      <h3>Menu (menu)</h3>
+      <menu>
         <li>Item one
-          <ul>
+          <menu>
             <li>Nested item A</li>
             <li>Nested item B</li>
-          </ul>
+          </menu>
         </li>
         <li>Item two</li>
         <li>Item three</li>
-      </ul>
+      </menu>
+    </div>
+    <div>
+      <h3>Menu list (ul)</h3>
+      <menu>
+        <li>Item one
+          <menu>
+            <li>Nested item A</li>
+            <li>Nested item B</li>
+          </menu>
+        </li>
+        <li>Item two</li>
+        <li>Item three</li>
+      </menu>
     </div>
     <div>
       <h3>Ordered list (ol)</h3>

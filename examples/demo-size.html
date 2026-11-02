@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="wispcss-css" rel="stylesheet" href="../dist/wispcss.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Size - WispCSS Demo</title>
+  <style>
+    .box {
+      background: var(--color-primary);
+      color: var(--color-primary-contrast);
+      border-radius: var(--default-border-radius);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .outline-box {
+      height:200px;
+      border: 1px solid var(--color-title-bd);
+      border-radius: var(--default-border-radius);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Size Component</h1>
+  <p>Overflow-safe dynamic sizes, input-proportional sizes, and floating overlay sizes — supplementing Tailwind's width / height utilities.</p>
+
+  <h2 id="safe">Overflow-safe sizes</h2>
+  <p>Dynamic width / height capped at <code>100%</code> so the element never overflows its parent.</p>
+  <div class="section">
+    <div>
+      <h3>w-safe-* — dynamic width</h3>
+      <p>Fixed <code>w-safe-96</code>:</p>
+        <div class="box w-safe-96">w-safe-96</div>
+        <p>Fixed-in-length <code>w-safe-[40rem]</code>:</p>
+        <div class="box w-safe-[40rem]">w-safe-[40rem]</div>
+        <p>Narrow parent — capped at 100%:</p>
+        <div style="max-width:160px;"><div class="box w-safe-96" style="height:2rem;">capped</div></div>
+    </div>
+    <div>
+      <h3>h-safe-* — dynamic height</h3>
+      <div>
+          <p><code>h-safe-48</code>:</p>
+          <div class="box h-safe-48">h-safe-48</div>
+        </div>
+        <div>
+          <p><code>h-safe-[4rem]</code>:</p>
+          <div class="box h-safe-[4rem]">4rem</div>
+        </div>
+    </div>
+    <div>
+      <h3>size-safe-* — dynamic width + height</h3>
+      <div>
+          <p><code>size-safe-24</code>:</p>
+          <div class="box size-safe-24">24</div>
+        </div>
+        <div>
+          <p><code>size-safe-[20rem]</code>:</p>
+          <div class="box size-safe-[20rem]" style="height:6rem;">20rem</div>
+        </div>
+    </div>
+  </div>
+
+  <h2 id="input">Input-based sizes</h2>
+  <p>Dimensions derived from the default input metrics (<code>--default-width-input</code> / <code>--default-height-input</code>), capped at 100%.</p>
+  <div class="section">
+    <div>
+      <h3>w-input / w-input-* — width</h3>
+      <p><code>w-input</code> (default input width):</p>
+        <div class="box w-input" style="height:2rem;">w-input</div>
+        <p><code>w-input-2</code> (2x):</p>
+        <div class="box w-input-2" style="height:2rem;">w-input-2</div>
+        <p><code>w-input-3</code> (3x):</p>
+        <div class="box w-input-3" style="height:2rem;">w-input-3</div>
+    </div>
+    <div>
+      <h3>h-input / h-input-* — height</h3>
+      <div>
+          <p><code>h-input</code>:</p>
+          <div class="box h-input">h-input</div>
+        </div>
+        <div>
+          <p><code>h-input-2</code>:</p>
+          <div class="box h-input-2">h-input-2</div>
+        </div>
+    </div>
+  </div>
+
+  <h2 id="overlay">Overlay sizes</h2>
+  <p>Floating layer dimensions relative to the parent, keeping safe gaps.</p>
+  <div class="section">
+    <div>
+      <h3>w-overlay — full-width layer</h3>
+      <div class="outline-box flex-center">
+        <div class="box w-overlay" >w-overlay</div>
+      </div>
+    </div>
+    <div>
+      <h3>h-overlay — full-height layer</h3>
+      <div class="outline-box flex-center">
+        <div class="box h-overlay" style="width:8rem;">h-overlay</div>
+      </div>
+    </div>
+    <div>
+      <h3>size-overlay — full-width + full-height layer</h3>
+      <div class="outline-box flex-center">
+        <div class="box size-overlay">size-overlay</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="interactive">Interactive size switching</h2>
+  <p>Click a button to apply a size class to the child box. The current computed size is displayed below. In a narrow parent, any overflow is capped at <code>100%</code>.</p>
+  <div class="section">
+    <div class="outline-box flex-center">
+      <div id="interactive-box" class="box">child</div>
+    </div>
+    <button class="btn btn-primary" onclick="setBoxClass('w-safe-48');">w-safe-48</button>
+    <button class="btn btn-primary" onclick="setBoxClass('w-safe-96');">w-safe-96</button>
+    <button class="btn btn-primary" onclick="setBoxClass('w-safe-1000');">w-safe-1000</button>
+    <button class="btn btn-primary" onclick="setBoxClass('w-safe-[20rem]');">w-safe-[20rem]</button>
+    <button class="btn btn-primary" onclick="setBoxClass('w-input');">w-input</button>
+    <button class="btn btn-primary" onclick="setBoxClass('w-input-2');">w-input-2</button>
+    <button class="btn btn-primary" onclick="setBoxClass('w-overlay');">w-overlay</button>
+    <button class="btn btn-primary" onclick="setBoxClass('h-safe-10');">h-safe-10</button>
+    <button class="btn btn-primary" onclick="setBoxClass('h-safe-100');">h-safe-100</button>
+    <button class="btn btn-primary" onclick="setBoxClass('h-overlay');">h-overlay</button>
+    <button class="btn btn-primary" onclick="setBoxClass('size-safe-14');">size-safe-14</button>
+    <button class="btn btn-primary" onclick="setBoxClass('size-safe-100');">size-safe-100</button>
+    <button class="btn btn-primary" onclick="setBoxClass('size-overlay');">size-overlay</button>
+  </div>
+
+  <script>
+    const interactiveBox = document.getElementById('interactive-box');
+    const interactiveSize = document.getElementById('interactive-size');
+    function setBoxClass(cls) {
+      interactiveBox.className = 'box ' + cls;
+      const rect = interactiveBox.getBoundingClientRect();
+    }
+  </script>
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

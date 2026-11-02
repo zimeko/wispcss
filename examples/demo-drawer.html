@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="wispcss-css" rel="stylesheet" href="../dist/wispcss.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Drawer - WispCSS Demo</title>
+  <style>
+    .absolute-box {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      border: 1px solid var(--color-title-bd);
+      border-radius: var(--default-border-radius);
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Drawer Component</h1>
+ 
+  <p>Pure CSS drawer built with <code>.drawer</code> + <code>.drawer-wrapper</code> structure. Toggled by adding /
+    removing the <code>.drawer-open</code> class.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Base: <code>.drawer</code> (overlay) → <code>.drawer-wrapper</code> (card surface).</li>
+      <li><code>.drawer-open</code> and <code>.drawer-close</code> are mutually exclusive: add <code>.drawer-open</code>
+        to show, remove it and add <code>.drawer-close</code> to hide.</li>
+      <li><code>.drawer-backdrop</code> is optional — without it the drawer clicks through.</li>
+    </ul>
+    <p>Available child nodes of <code>.drawer</code>:</p>
+    <ul>
+      <li><code>.drawer-wrapper</code> — content wrapper (card surface, required)</li>
+      <li><code>.drawer-backdrop</code> — backdrop layer (optional; without it the drawer clicks through)</li>
+      <li><code>.drawer-tools</code> — tools bar, absolutely positioned top-end (optional)</li>
+      <li>
+        <code>.drawer-header</code> — header container (optional; auto-hidden when empty)
+        <ul>
+          <li><code>.drawer-title</code> — title, child of header (optional, ellipsis truncation)</li>
+        </ul>
+      </li>
+      <li>
+        <code>.drawer-body</code> — scrollable main area (required)
+        <ul>
+          <li><code>.drawer-content</code> — content container, child of body (inherits border radius)</li>
+        </ul>
+      </li>
+      <li>
+        <code>.drawer-footer</code> — bottom action area (optional)
+        <ul>
+          <li><code>.actions</code> — action bar with start / center / end groups</li>
+          <li><code>.btns.btns-flush</code> — flush edge-to-edge button group</li>
+        </ul>
+      </li>
+      <li><code>.drawer-note</code> — note text area at the bottom (optional)</li>
+    </ul>
+  </div>
+
+
+  <h2>Basic usage</h2>
+  <p>Complete structure with tools, title, body, footer and note.</p>
+  <div class="section">
+    <button class="btn btn-primary" onclick="openDrawer('cd-basic')">Open basic drawer</button>
+  </div>
+
+  <div id="cd-basic" class="drawer">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <span class="drawer-tools tools"><a href="##"><span class="icon icon-close"></span></a></span>
+      <div class="drawer-header">
+        <div class="drawer-title">Drawer Title</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Full drawer structure with header, body, footer and note.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end">
+          <button onclick="closeDrawer('cd-basic')">Cancel</button>
+          <button class="btn-primary">Confirm</button>
+        </div>
+      </div>
+      <div class="drawer-note">This is a note</div>
+    </div>
+  </div>
+
+  <h2>Positions</h2>
+  <p>4 positions are supported, the default is <code>drawer-end</code>. </p>
+  <div class="section">
+    <div>
+      <button class="btn btn-primary" onclick="openDrawer('cd-end')">end</button>
+      <button class="btn btn-primary" onclick="openDrawer('cd-top')">top</button>
+      <button class="btn btn-primary" onclick="openDrawer('cd-bottom')">bottom</button>
+      <button class="btn btn-primary" onclick="openDrawer('cd-start')">start</button>
+    </div>
+  </div>
+
+
+  <div id="cd-end" class="drawer drawer-end">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">end (default)</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Drawer sliding in from the end edge (default).</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button onclick="closeDrawer('cd-end')">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cd-top" class="drawer drawer-top">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">top</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Drawer sliding in from the top edge.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button onclick="closeDrawer('cd-top')">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cd-bottom" class="drawer drawer-bottom">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">bottom</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Drawer sliding in from the bottom edge.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button onclick="closeDrawer('cd-bottom')">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cd-start" class="drawer drawer-start">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">start</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Drawer sliding in from the start edge.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button onclick="closeDrawer('cd-start')">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <h2>Width</h2>
+  <ul>
+    <li><code>drawer-*</code> — any arbitrary width.</li>
+    <li><code>drawer-scale-*</code> — proportional sizes based on <code>--default-width-input</code>;
+      <code>drawer-scale</code> equals the default width of <code>&lt;input type="text"></code>.</li>
+    <li><code>drawer-full</code> — full width (keeping safe side gaps).</li>
+    <li>Without any width utility, the drawer width depends on its content.</li>
+  </ul>
+  <div class="section">
+    <div>
+      <button class="btn btn-primary" onclick="openDrawer('cd-w-100')">drawer-100</button>
+      <button class="btn btn-primary" onclick="openDrawer('cd-w-scale')">drawer-scale</button>
+      <button class="btn btn-primary" onclick="openDrawer('cd-w-scale-2')">drawer-scale-2</button>
+      <button class="btn btn-primary" onclick="openDrawer('cd-w-full')">drawer-full</button>
+    </div>
+  </div>
+
+
+
+  <div id="cd-w-100" class="drawer drawer-100">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">drawer-100</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Width = 100 spacing units (100 * 4px).</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button onclick="closeDrawer('cd-w-100')">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cd-w-scale" class="drawer drawer-scale">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">drawer-scale</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Width = <code>--default-width-input</code>.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button onclick="closeDrawer('cd-w-scale')">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cd-w-scale-2" class="drawer drawer-scale-2">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">drawer-scale-2</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Width = 2 × <code>--default-width-input</code>.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button onclick="closeDrawer('cd-w-scale-2')">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cd-w-full" class="drawer drawer-full">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">drawer-full</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Full horizontal width minus side gaps.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button onclick="closeDrawer('cd-w-full')">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+
+  <h2>Tools outside</h2>
+  <p>When the content fills the drawer, you may want to move the tools outside the wrapper.</p>
+  <div class="section">
+    <p><code>.drawer-tools-outside</code> places the tools bar outside / beside the wrapper.</p>
+    <button class="btn btn-primary" onclick="openDrawer('cd-tools-outside')">Open tools-outside drawer</button>
+  </div>
+
+  <div id="cd-tools-outside" class="drawer drawer-start  drawer-tools-outside">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <span class="drawer-tools tools"><a href="##"><span class="icon icon-close"></span></a></span>
+      <div class="drawer-header">
+        <div class="drawer-title">Tools outside</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Tools bar is placed outside the wrapper on the side.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button onclick="closeDrawer('cd-tools-outside')">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Drawer inside a container (Absolute)</h2>
+  <p><code>.drawer-absolute</code> confines the drawer inside a relative container. Close the drawer, then reopen it
+    from the button inside the box.</p>
+  <div class="section">
+    <div id="cd-absolute-box" class="absolute-box">
+      <div class="flex-center" style="height:100%;">
+        <button class="btn btn-primary" onclick="openDrawer('cd-absolute-inner')">Open absolute drawer</button>
+      </div>
+      <div id="cd-absolute-inner" class="drawer drawer-absolute">
+        <div class="drawer-backdrop"></div>
+        <div class="drawer-wrapper">
+          <div class="drawer-header">
+            <div class="drawer-title">Absolute drawer</div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-content">
+              <p>Drawer confined inside the relative container above.</p>
+            </div>
+          </div>
+          <div class="drawer-footer">
+            <div class="actions-end"><button class="btn-primary"
+                onclick="closeDrawer('cd-absolute-inner')">Close</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+ <h2>Full-size media</h2>
+  <p><code>drawer-media</code> displays a single media item (image, video or iframe). The <code>.drawer-body</code> padding becomes <code>0</code> so the media fills the drawer.</p>
+  <div class="section">
+    <button class="btn btn-primary" onclick="openDrawer('cd-img')">A picture</button>
+    <button class="btn btn-primary" onclick="openDrawer('cd-video')">A video</button>
+    <button class="btn btn-primary" onclick="openDrawer('cd-iframe')">A iframe</button>
+  </div>
+
+  <div id="cd-img" class="drawer drawer-tools-outside drawer-media">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <span class="drawer-tools tools"><a href="##"><span class="icon icon-close"></span></a></span>
+      <div class="drawer-header">A picture</div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <img src="https://unpkg.com/@codady/resource/image/earth01.jpg" class="w-safe-100" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cd-video" class="drawer drawer-tools-outside drawer-media">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <span class="drawer-tools tools"><a href="##"><span class="icon icon-close"></span></a></span>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <video controls poster="https://unpkg.com/@codady/resource/image/earth04_sm.jpg">
+            <source src="https://unpkg.com/@codady/resource/video/earth04.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="drawer-note">A note</div>
+    </div>
+  </div>
+
+  <div id="cd-iframe" class="drawer drawer-tools-outside drawer-media">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <span class="drawer-tools tools"><a href="##"><span class="icon icon-close"></span></a></span>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <iframe src="https://www.axui.cn" class="w-safe-200 h-safe-150"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <h2>Rounded corners</h2>
+  <p><code>.drawer-rounded</code> applies the corner radius to the visible edge of the wrapper.</p>
+  <div class="section">
+    <button class="btn btn-primary" onclick="openDrawer('cd-end-rounded')">end-rounded</button>
+    <button class="btn btn-primary" onclick="openDrawer('cd-start-rounded')">start-rounded</button>
+    <button class="btn btn-primary" onclick="openDrawer('cd-top-rounded')">top-rounded</button>
+    <button class="btn btn-primary" onclick="openDrawer('cd-bottom-rounded')">bottom-rounded</button>
+  </div>
+
+  <div id="cd-end-rounded" class="drawer drawer-rounded">
+    <div class="drawer-backdrop"></div>
+    <div
+      class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">end-rounded</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Rounded corners on the end-edge (left in LTR).</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button class="btn-primary" onclick="closeDrawer('cd-end-rounded')">OK</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cd-start-rounded" class="drawer drawer-start drawer-rounded">
+    <div class="drawer-backdrop"></div>
+    <div
+      class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">start-rounded</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Rounded corners on the start-edge (right in LTR).</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button class="btn-primary" onclick="closeDrawer('cd-start-rounded')">OK</button></div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id="cd-top-rounded" class="drawer drawer-top drawer-rounded">
+    <div class="drawer-backdrop"></div>
+    <div
+      class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">top-rounded</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Rounded corners on the top edge (bottom corners).</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button class="btn-primary" onclick="closeDrawer('cd-top-rounded')">OK</button></div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id="cd-bottom-rounded" class="drawer drawer-bottom drawer-rounded">
+    <div class="drawer-backdrop"></div>
+    <div
+      class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">bottom-rounded</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Rounded corners on the bottom edge (top corners).</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button class="btn-primary" onclick="closeDrawer('cd-bottom-rounded')">OK</button></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Footer with complete actions</h2>
+  <p>Full <code>.actions</code> bar with start / center / end groups inside <code>.drawer-footer</code>.</p>
+  <div class="section">
+
+    <button class="btn btn-primary" onclick="openDrawer('cd-actions')">Open actions-footer drawer</button>
+  </div>
+
+  <div id="cd-actions" class="drawer drawer-scale-2">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">Actions footer</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Full actions bar with start / center / end groups.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions">
+          <div class="actions-start"><span class="text-caption">3 items selected</span></div>
+          <div class="actions-center"><span class="text-caption">Page 1 of 9</span></div>
+          <div class="actions-end">
+            <button onclick="closeDrawer('cd-actions')">Cancel</button>
+            <button class="btn-primary">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Footer with .btns .btns-flush</h2>
+  <p>Use <code>.btns.btns-flush</code> inside <code>.drawer-footer</code> — the group fills the footer edge-to-edge (no
+    padding).</p>
+  <div class="section">
+    <button class="btn btn-primary" onclick="openDrawer('cd-btns-flush')">Open btns-flush drawer</button>
+  </div>
+
+  <div id="cd-btns-flush" class="drawer">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">Btns flush footer</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Footer using a flush button group.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <span class="btns btns-flush">
+          <button onclick="closeDrawer('cd-btns-flush')">Close</button>
+          <button>Cancel</button>
+          <button class="btn-primary">Confirm</button>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Simplified structure</h2>
+  <p><code>.drawer-title</code>, <code>.drawer-header</code>, <code>.drawer-tools</code>, <code>.drawer-footer</code>,
+    <code>.drawer-backdrop</code> and <code>.drawer-note</code> are all optional.</p>
+  <div class="section">
+    <button class="btn btn-primary" onclick="openDrawer('cd-no-title')">No drawer-title</button>
+    <button class="btn btn-primary" onclick="openDrawer('cd-no-header')">No drawer-header</button>
+    <button class="btn btn-primary" onclick="openDrawer('cd-no-tools')">No drawer-tools</button>
+    <button class="btn btn-primary" onclick="openDrawer('cd-no-footer')">No drawer-footer</button>
+    <button class="btn btn-primary" onclick="openDrawer('cd-no-backdrop')">No drawer-backdrop</button>
+  </div>
+
+  <!-- No drawer-title: empty header collapses automatically -->
+  <div id="cd-no-title" class="drawer">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header"></div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Drawer without <code>.drawer-title</code> — the empty header collapses.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button class="btn-primary" onclick="closeDrawer('cd-no-title')">OK</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No drawer-header -->
+  <div id="cd-no-header" class="drawer">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Drawer without <code>.drawer-header</code>.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button class="btn-primary" onclick="closeDrawer('cd-no-header')">OK</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No drawer-tools -->
+  <div id="cd-no-tools" class="drawer">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <div class="drawer-header">
+        <div class="drawer-title">No tools</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Drawer without <code>.drawer-tools</code>.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button class="btn-primary" onclick="closeDrawer('cd-no-tools')">OK</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No drawer-footer -->
+  <div id="cd-no-footer" class="drawer">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-wrapper">
+      <span class="drawer-tools tools"><a href="##"><span class="icon icon-close"></span></a></span>
+      <div class="drawer-header">
+        <div class="drawer-title">No footer</div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Drawer without <code>.drawer-footer</code>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No drawer-backdrop: click-through, non-modal -->
+  <div id="cd-no-backdrop" class="drawer">
+    <div class="drawer-wrapper">
+      <div class="drawer-body">
+        <div class="drawer-content">
+          <p>Drawer without <code>.drawer-backdrop</code> — surrounding content stays interactive.</p>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <div class="actions-end"><button class="btn-primary" onclick="closeDrawer('cd-no-backdrop')">OK</button></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    function openDrawer(id) {
+      const dlg = document.getElementById(id);
+      dlg.classList.remove('drawer-close');
+      dlg.classList.add('drawer-open');
+    }
+    function closeDrawer(id) {
+      const dlg = document.getElementById(id);
+      dlg.classList.remove('drawer-open');
+      dlg.classList.add('drawer-close');
+    }
+    // Close on backdrop click
+    document.querySelectorAll('.drawer').forEach(dlg => {
+      dlg.addEventListener('click', e => {
+        if (e.target === dlg.querySelector('.drawer-backdrop') || e.target === dlg.querySelector('.icon-close')) closeDrawer(dlg.id);
+      });
+    });
+  </script>
+  <script src="./demo-utils.js"></script>
+</body>
+
+</html>

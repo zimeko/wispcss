@@ -4,24 +4,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link id="wispcss-css" rel="stylesheet" href="../dist/wispcss.css">
   <link rel="stylesheet" href="./demo-styles.css">
-  <title>Tree - Beautify Demo</title>
+  <title>Tree - WispCSS Demo</title>
 </head>
 
 <body>
   <h1>Tree Component</h1>
-  <p>Hierarchical tree built on ul/li with states, shapes, densities, indent modes, node styles, checkboxes, notes, expand levels, and dynamic colors.</p>
+  <p>Hierarchical tree built on ul/li with states, shapes, densities, indent modes, node styles, grouping, checkboxes, notes, toggle expansion, and dynamic colors.</p>
 
   <h2>Notes</h2>
   <div class="section">
     <ul>
-      <li>Structure must be <code>ul > li</code>. Each row is <code>div[data-role="node"]</code> containing <code>div[data-role="content"] > span[data-role="label"]</code> and optionally <code>span[data-role="arrow"]</code>, <code>label.check</code>, <code>div[data-role="note"]</code>, <code>span[data-role="spacer"]</code>, <code>div[data-role="custom"]</code>.</li>
+      <li>Structure must be <code>ul > li</code>. Each row is <code>div[data-role="node"]</code> containing <code>div[data-role="content"] > span[data-role="label"]</code> and optionally <code>span[data-role="arrow"]</code>, <code>.check + input</code>, <code>div[data-role="note"]</code>, <code>span[data-role="spacer"]</code>, <code>div[data-role="custom"]</code>.</li>
+      <li>Child levels are wrapped by <code>div[data-role="children"] > ul</code> placed right after the node row. The top-level <code>ul</code> does <b>not</b> need a <code>data-role="children"</code> wrapper.</li>
       <li>Trees cannot be nested. Do not use <code>ul</code>/<code>li</code> inside non-list nodes.</li>
-      <li>Child levels are collapsed by default. Use <code>.tree-expanded</code> (one branch), <code>.tree-expanded-n</code> (up to level n), or <code>.tree-expanded-all</code> (all) to expand.</li>
+      <li>Every branch node requires a <code>span[data-role="arrow"]</code> to keep indentation consistent; the arrow content is hidden automatically for leaf nodes.</li>
+      <li>Child levels are collapsed by default. Use <code>.tree-expanded</code> (one branch), <code>.tree-expanded-n</code> (up to level n), or <code>.tree-expanded-all</code> (all) to expand, or a <code>&lt;input data-role="toggle" type="checkbox"></code> for interactive CSS-only toggling.</li>
+      <li>Grouping: use <code>div[data-role="group"]</code> as a non-selectable section label; its indentation aligns with its child nodes.</li>
       <li><code>.tree-selected</code> colors the whole row, <code>.tree-active</code> colors only the label, and <code>.tree-disabled</code> disables a row or the root.</li>
       <li>Edit mode replaces the label text with an <code>&lt;input></code> inside <code>span[data-role="label"]</code>.</li>
-      <li>The component is static; use JavaScript for click-to-expand/collapse behavior.</li>
     </ul>
   </div>
 
@@ -31,11 +33,14 @@
       <h3>Default (collapsed)</h3>
       <div class="tree">
         <ul>
-          <li><div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">C</span></div></div></li>
@@ -46,11 +51,14 @@
       <h3>Single branch expanded (<code>.tree-expanded</code> on node)</h3>
       <div class="tree">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">C</span></div></div></li>
@@ -61,25 +69,32 @@
       <h3>All expanded (<code>.tree-expanded-all</code>)</h3>
       <div class="tree tree-expanded-all">
         <ul>
-          <li><div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li>
             <div data-role="node"><div data-role="content"><span data-role="label">B</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">B-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">B-2</span></div></div></li>
-            </ul>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">B-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">B-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li>
             <div data-role="node"><div data-role="content"><span data-role="label">C</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">C-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">C-2</span></div></div></li>
-            </ul>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">C-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">C-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -91,11 +106,22 @@
           <h3>Level 1</h3>
           <div class="tree tree-expanded-1">
             <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-                <ul>
-                  <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-                  <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-                </ul>
+              <li>
+                <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+                <div data-role="children">
+                  <ul>
+                    <li>
+                      <div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+                      <div data-role="children">
+                        <ul>
+                          <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1</span></div></div></li>
+                          <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-2</span></div></div></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+                  </ul>
+                </div>
               </li>
               <li><div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div></li>
             </ul>
@@ -105,16 +131,30 @@
           <h3>Level 2</h3>
           <div class="tree tree-expanded-2">
             <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-                <ul>
-                  <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-                    <ul>
-                      <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1</span></div></div></li>
-                      <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-2</span></div></div></li>
-                    </ul>
-                  </li>
-                  <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-                </ul>
+              <li>
+                <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+                <div data-role="children">
+                  <ul>
+                    <li>
+                      <div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+                      <div data-role="children">
+                        <ul>
+                          <li>
+                            <div data-role="node"><div data-role="content"><span data-role="label">A-1-1</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+                            <div data-role="children">
+                              <ul>
+                                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1-1</span></div></div></li>
+                                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1-2</span></div></div></li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-2</span></div></div></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+                  </ul>
+                </div>
               </li>
               <li><div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div></li>
             </ul>
@@ -124,21 +164,38 @@
           <h3>Level 3</h3>
           <div class="tree tree-expanded-3">
             <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-                <ul>
-                  <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-                    <ul>
-                      <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+              <li>
+                <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+                <div data-role="children">
+                  <ul>
+                    <li>
+                      <div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+                      <div data-role="children">
                         <ul>
-                          <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1-1</span></div></div></li>
-                          <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1-2</span></div></div></li>
+                          <li>
+                            <div data-role="node"><div data-role="content"><span data-role="label">A-1-1</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+                            <div data-role="children">
+                              <ul>
+                                <li>
+                                  <div data-role="node"><div data-role="content"><span data-role="label">A-1-1-1</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+                                  <div data-role="children">
+                                    <ul>
+                                      <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1-1-1</span></div></div></li>
+                                      <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1-1-2</span></div></div></li>
+                                    </ul>
+                                  </div>
+                                </li>
+                                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1-2</span></div></div></li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-2</span></div></div></li>
                         </ul>
-                      </li>
-                      <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-2</span></div></div></li>
-                    </ul>
-                  </li>
-                  <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-                </ul>
+                      </div>
+                    </li>
+                    <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+                  </ul>
+                </div>
               </li>
               <li><div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div></li>
             </ul>
@@ -154,11 +211,14 @@
       <h3>Selected (<code>.tree-selected</code>) — colors the whole row</h3>
       <div class="tree">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node" class="tree-selected"><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">C</span></div></div></li>
@@ -169,11 +229,14 @@
       <h3>Active (<code>.tree-active</code>) — colors only the label</h3>
       <div class="tree">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node" class="tree-active"><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">C</span></div></div></li>
@@ -184,11 +247,14 @@
       <h3>Disabled (<code>.tree-disabled</code>) — single node or root</h3>
       <div class="tree">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node" class="tree-disabled"><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li><div data-role="node" class="tree-disabled"><div data-role="content"><span data-role="label">C</span></div></div></li>
@@ -199,11 +265,14 @@
       <h3>Hoverable (<code>.tree-hoverable</code>)</h3>
       <div class="tree tree-hoverable">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">C</span></div></div></li>
@@ -215,16 +284,64 @@
   <h2 id="features">Features</h2>
   <div class="section">
     <div>
+      <h3>Interactive toggle (<code>input[data-role="toggle"]</code>) — CSS-only expand/collapse</h3>
+      <div class="tree tree-hoverable">
+        <ul>
+          <li>
+            <label data-role="node">
+              <input data-role="toggle" type="checkbox" checked />
+              <div data-role="content"><span data-role="label">A</span></div>
+              <span data-role="arrow"><span class="icon icon-chevron-down"></span></span>
+            </label>
+            <div data-role="children">
+              <ul>
+                <li>
+                  <label data-role="node">
+                    <input data-role="toggle" type="checkbox" />
+                    <div data-role="content"><span data-role="label">A-1</span></div>
+                    <span data-role="arrow"><span class="icon icon-chevron-down"></span></span>
+                  </label>
+                  <div data-role="children">
+                    <ul>
+                      <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1</span></div></div></li>
+                      <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-2</span></div></div></li>
+                    </ul>
+                  </div>
+                </li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <label data-role="node">
+              <input data-role="toggle" type="checkbox" />
+              <div data-role="content"><span data-role="label">B</span></div>
+              <span data-role="arrow"><span class="icon icon-chevron-down"></span></span>
+            </label>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">B-1</span></div></div></li>
+              </ul>
+            </div>
+          </li>
+          <li><div data-role="node"><div data-role="content"><span data-role="label">C</span></div></div></li>
+        </ul>
+      </div>
+    </div>
+    <div>
       <h3>Edit mode — label replaced by <code>&lt;input></code></h3>
       <div class="tree">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">
-            <input value="A" />
-          </span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">
+              <input value="A" />
+            </span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">C</span></div></div></li>
@@ -232,14 +349,17 @@
       </div>
     </div>
     <div>
-      <h3>Checkbox integration (<code>label.check</code>)</h3>
+      <h3>Checkbox integration (<code>.check + input</code>)</h3>
       <div class="tree">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><label class="check"><input type="checkbox"/></label><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><label class="check"><input type="checkbox"/></label><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><label class="check"><input type="checkbox" checked /></label><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><label class="check"><input type="checkbox"/></label><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><label class="check"><input type="checkbox"/></label><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><label class="check"><input type="checkbox" checked /></label><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node"><label class="check"><input type="checkbox"/></label><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li><div data-role="node"><label class="check"><input type="checkbox"/></label><div data-role="content"><span data-role="label">C</span></div></div></li>
@@ -250,18 +370,21 @@
       <h3>Note nodes (<code>div[data-role="note"]</code>)</h3>
       <div class="tree">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+          <li>
+            <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
             <div data-role="note"><div data-role="content">This is apple</div></div>
-            <ul>
-              <li>
-                <div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div>
-                <div data-role="note"><div data-role="content">This is apple-1</div></div>
-              </li>
-              <li>
-                <div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div>
-                <div data-role="note"><div data-role="content">This is apple-2</div></div>
-              </li>
-            </ul>
+            <div data-role="children">
+              <ul>
+                <li>
+                  <div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div>
+                  <div data-role="note"><div data-role="content">This is apple-1</div></div>
+                </li>
+                <li>
+                  <div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div>
+                  <div data-role="note"><div data-role="content">This is apple-2</div></div>
+                </li>
+              </ul>
+            </div>
           </li>
           <li>
             <div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div>
@@ -278,22 +401,25 @@
       <h3>Complex content (avatar, badge, spacer)</h3>
       <div class="tree">
         <ul>
-          <li><div data-role="node" class="tree-expanded">
-            <span class="avatar avatar-circle avatar-6">
-              <img src="https://unpkg.com/@codady/resource/image/earth01_sm.jpg" />
-            </span>
-            <div data-role="content">
-              <span data-role="label">A</span>
-              <span class="badge badge-2xs">2</span>
-              <span data-role="spacer"></span>
-              <span class="text-caption">Apple</span>
+          <li>
+            <div data-role="node" class="tree-expanded">
+              <span class="avatar avatar-circle avatar-6">
+                <img src="https://unpkg.com/@codady/resource/image/earth01_sm.jpg" />
+              </span>
+              <div data-role="content">
+                <span data-role="label">A</span>
+                <span class="badge badge-2xs">2</span>
+                <span data-role="spacer"></span>
+                <span class="text-caption">Apple</span>
+              </div>
+              <span data-role="arrow"><span class="icon icon-chevron-down"></span></span>
             </div>
-            <span data-role="arrow"><span class="icon icon-chevron-down"></span></span>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
             </div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
           </li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">C</span></div></div></li>
@@ -302,28 +428,35 @@
     </div>
     <div>
       <h3>Arrow position (first child)</h3>
-      <p>All <code>data-role="node"</code> elements should have a built-in <code>data-role="arrow"</code> child element to ensure consistent indentation.</p>
+      <p>All <code>data-role="node"</code> elements should carry a <code>data-role="arrow"</code> child — even leaf nodes — to keep indentation consistent.</p>
       <div class="tree">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><span data-role="arrow"><span class="icon icon-chevron-down"></span></span><div data-role="content"><span data-role="label">A</span></div></div>
-            <ul>
-              <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><span data-role="arrow"><span class="icon icon-chevron-down"></span></span><div data-role="content"><span data-role="label">A</span></div></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li>
             <div data-role="node"><span data-role="arrow"><span class="icon icon-chevron-down"></span></span><div data-role="content"><span data-role="label">B</span></div></div>
-            <ul>
-              <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">B-1</span></div></div></li>
-              <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">B-2</span></div></div></li>
-            </ul>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">B-1</span></div></div></li>
+                <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">B-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li>
             <div data-role="node"><span data-role="arrow"><span class="icon icon-chevron-down"></span></span><div data-role="content"><span data-role="label">C</span></div></div>
-            <ul>
-              <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">C-1</span></div></div></li>
-              <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">C-2</span></div></div></li>
-            </ul>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">C-1</span></div></div></li>
+                <li><div data-role="node"><span data-role="arrow"></span><div data-role="content"><span data-role="label">C-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -332,14 +465,73 @@
       <h3>Padded (<code>.tree-padded</code>)</h3>
       <div class="tree tree-hoverable tree-padded" style="border:1px solid #ebebeb;border-radius:12px;">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">C</span></div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="group">Grouping</h2>
+  <p>The group's label indentation aligns with its child nodes. Groups use <code>div[data-role="group"]</code> as a non-selectable section header.</p>
+  <div class="section">
+    <div>
+      <h3>Progressive li padding indent</h3>
+      <div class="tree tree-hoverable tree-padded tree-expanded-all">
+        <ul>
+          <li>
+            <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div data-role="group"><div data-role="content">Group</div></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">C</span></div></div></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3>Dedicated indent</h3>
+      <p>Child nodes of a group must share the same <code>--tree-level</code> to keep indentation consistent.</p>
+      <div class="tree tree-hoverable tree-padded tree-indent-dedicated">
+        <ul>
+          <li style="--tree-level:0;">
+            <div data-role="node" class="tree-expanded"><span data-role="indent"></span><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li style="--tree-level:1;"><div data-role="node"><span data-role="indent"></span><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li style="--tree-level:1;"><div data-role="node"><span data-role="indent"></span><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
+          </li>
+          <li style="--tree-level:0;">
+            <div data-role="group"><span data-role="indent"></span><div data-role="content">Group</div></div>
+            <div data-role="children">
+              <ul>
+                <li style="--tree-level:0;"><div data-role="node"><span data-role="indent"></span><div data-role="content"><span data-role="label">B</span></div></div></li>
+                <li style="--tree-level:0;"><div data-role="node"><span data-role="indent"></span><div data-role="content"><span data-role="label">C</span></div></div></li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -391,7 +583,15 @@
       <h3>Tight (<code>.tree-tight</code>)</h3>
       <div class="tree tree-hoverable tree-tight tree-expanded-all">
         <ul>
-          <li><div data-role="node"><div data-role="content"><span data-role="label">A</span></div></div></li>
+          <li>
+            <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
+          </li>
           <li><div data-role="node" class="tree-active"><div data-role="content"><span data-role="label">B</span></div></div></li>
         </ul>
       </div>
@@ -400,7 +600,15 @@
       <h3>Snug (<code>.tree-snug</code>)</h3>
       <div class="tree tree-hoverable tree-snug tree-expanded-all">
         <ul>
-          <li><div data-role="node"><div data-role="content"><span data-role="label">A</span></div></div></li>
+          <li>
+            <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
+          </li>
           <li><div data-role="node" class="tree-active"><div data-role="content"><span data-role="label">B</span></div></div></li>
         </ul>
       </div>
@@ -409,7 +617,15 @@
       <h3>Compact (<code>.tree-compact</code>)</h3>
       <div class="tree tree-hoverable tree-compact tree-expanded-all">
         <ul>
-          <li><div data-role="node"><div data-role="content"><span data-role="label">A</span></div></div></li>
+          <li>
+            <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
+          </li>
           <li><div data-role="node" class="tree-active"><div data-role="content"><span data-role="label">B</span></div></div></li>
         </ul>
       </div>
@@ -418,7 +634,15 @@
       <h3>Relaxed (<code>.tree-relaxed</code>)</h3>
       <div class="tree tree-hoverable tree-relaxed tree-expanded-all">
         <ul>
-          <li><div data-role="node"><div data-role="content"><span data-role="label">A</span></div></div></li>
+          <li>
+            <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
+          </li>
           <li><div data-role="node" class="tree-active"><div data-role="content"><span data-role="label">B</span></div></div></li>
         </ul>
       </div>
@@ -427,12 +651,19 @@
       <h3>Loose (<code>.tree-loose</code>)</h3>
       <div class="tree tree-hoverable tree-loose tree-expanded-all">
         <ul>
-          <li><div data-role="node"><div data-role="content"><span data-role="label">A</span></div></div></li>
+          <li>
+            <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
+          </li>
           <li><div data-role="node" class="tree-active"><div data-role="content"><span data-role="label">B</span></div></div></li>
         </ul>
       </div>
     </div>
-    
   </div>
 
   <h2 id="indent">Indent modes</h2>
@@ -441,11 +672,14 @@
       <h3>Cascading (<code>.tree-indent-cascading</code>) — default</h3>
       <div class="tree tree-hoverable tree-indent-cascading tree-expanded-all">
         <ul>
-          <li><div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node" class="tree-selected"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node" class="tree-selected"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">B</span></div></div></li>
         </ul>
@@ -455,14 +689,18 @@
       <h3>Dedicated (<code>.tree-indent-dedicated</code>) — requires <code>--tree-level</code> and <code>span[data-role="indent"]</code></h3>
       <div class="tree tree-hoverable tree-indent-dedicated tree-expanded-all">
         <ul>
-          <li style="--tree-level:0"><div data-role="node"><span data-role="indent"></span><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+          <li style="--tree-level:0">
+            <div data-role="node"><span data-role="indent"></span><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
             <div data-role="note"><span data-role="indent"></span><div data-role="content">Apple note</div></div>
-            <ul>
-              <li style="--tree-level:1" ><div data-role="node"  class="tree-selected"><span data-role="indent"></span><div data-role="content"><span data-role="label">A-1</span></div></div>
-                <div data-role="note"><span data-role="indent"></span><div data-role="content">Apple-1 note</div></div>
-              </li>
-              <li style="--tree-level:1"><div data-role="node"><span data-role="indent"></span><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+            <div data-role="children">
+              <ul>
+                <li style="--tree-level:1">
+                  <div data-role="node" class="tree-selected"><span data-role="indent"></span><div data-role="content"><span data-role="label">A-1</span></div></div>
+                  <div data-role="note"><span data-role="indent"></span><div data-role="content">Apple-1 note</div></div>
+                </li>
+                <li style="--tree-level:1"><div data-role="node"><span data-role="indent"></span><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li style="--tree-level:0"><div data-role="node"><span data-role="indent"></span><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li style="--tree-level:0"><div data-role="node"><span data-role="indent"></span><div data-role="content"><span data-role="label">C</span></div></div></li>
@@ -475,13 +713,24 @@
   <div class="section">
     <div>
       <h3>Button style (<code>.tree-btns</code>)</h3>
-      <div class="tree tree-btns">
+      <div class="tree tree-btns tree-expanded-all">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">A</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li>
+                  <div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+                  <div data-role="children">
+                    <ul>
+                      <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-1</span></div></div></li>
+                      <li><div data-role="node"><div data-role="content"><span data-role="label">A-1-2</span></div></div></li>
+                    </ul>
+                  </div>
+                </li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node" class="tree-selected"><div data-role="content"><span data-role="label">B</span></div></div></li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">C</span></div></div></li>
@@ -492,14 +741,17 @@
       <h3>List style (<code>.tree-entries</code>) — fully expanded, check icon on selected</h3>
       <div class="tree tree-entries">
         <ul>
-          <li><div data-role="node"><div data-role="content">
-            <span data-role="label">A</span>
-            <div data-role="custom">This is a custom node</div>
-          </div></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node"><div data-role="content">
+              <span data-role="label">A</span>
+              <div data-role="custom">This is a custom node</div>
+            </div></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-1</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">A-2</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node" class="tree-selected"><div data-role="content">
             <span data-role="label">B</span>
@@ -578,22 +830,31 @@
       <h3>File explorer</h3>
       <div class="tree tree-hoverable tree-rounded">
         <ul>
-          <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">&#128193; src</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">&#128193; components</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-                <ul>
-                  <li><div data-role="node"><div data-role="content"><span data-role="label">&#128196; Button.tsx</span></div></div></li>
-                  <li><div data-role="node"><div data-role="content"><span data-role="label">&#128196; Tree.tsx</span></div></div></li>
-                </ul>
-              </li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">&#128196; index.ts</span></div></div></li>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">&#128196; utils.ts</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">&#128193; src</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li>
+                  <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">&#128193; components</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+                  <div data-role="children">
+                    <ul>
+                      <li><div data-role="node"><div data-role="content"><span data-role="label">&#128196; Button.tsx</span></div></div></li>
+                      <li><div data-role="node"><div data-role="content"><span data-role="label">&#128196; Tree.tsx</span></div></div></li>
+                    </ul>
+                  </div>
+                </li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">&#128196; index.ts</span></div></div></li>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">&#128196; utils.ts</span></div></div></li>
+              </ul>
+            </div>
           </li>
-          <li><div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">&#128193; public</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
-            <ul>
-              <li><div data-role="node"><div data-role="content"><span data-role="label">&#128196; index.html</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node" class="tree-expanded"><div data-role="content"><span data-role="label">&#128193; public</span></div><span data-role="arrow"><span class="icon icon-chevron-down"></span></span></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><div data-role="content"><span data-role="label">&#128196; index.html</span></div></div></li>
+              </ul>
+            </div>
           </li>
           <li><div data-role="node"><div data-role="content"><span data-role="label">&#128196; package.json</span></div></div></li>
         </ul>
@@ -603,18 +864,24 @@
       <h3>Permission / category selector with checkboxes</h3>
       <div class="tree tree-hoverable tree-expanded-all">
         <ul>
-          <li><div data-role="node"><label class="check"><input type="checkbox" checked /></label><div data-role="content"><span data-role="label">User management</span></div></div>
-            <ul>
-              <li><div data-role="node"><label class="check"><input type="checkbox" checked /></label><div data-role="content"><span data-role="label">View users</span></div></div></li>
-              <li><div data-role="node"><label class="check"><input type="checkbox" /></label><div data-role="content"><span data-role="label">Edit users</span></div></div></li>
-              <li><div data-role="node"><label class="check"><input type="checkbox" /></label><div data-role="content"><span data-role="label">Delete users</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node"><label class="check"><input type="checkbox" checked /></label><div data-role="content"><span data-role="label">User management</span></div></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><label class="check"><input type="checkbox" checked /></label><div data-role="content"><span data-role="label">View users</span></div></div></li>
+                <li><div data-role="node"><label class="check"><input type="checkbox" /></label><div data-role="content"><span data-role="label">Edit users</span></div></div></li>
+                <li><div data-role="node"><label class="check"><input type="checkbox" /></label><div data-role="content"><span data-role="label">Delete users</span></div></div></li>
+              </ul>
+            </div>
           </li>
-          <li><div data-role="node"><label class="check"><input type="checkbox" /></label><div data-role="content"><span data-role="label">Role management</span></div></div>
-            <ul>
-              <li><div data-role="node"><label class="check"><input type="checkbox" /></label><div data-role="content"><span data-role="label">View roles</span></div></div></li>
-              <li><div data-role="node"><label class="check"><input type="checkbox" /></label><div data-role="content"><span data-role="label">Assign roles</span></div></div></li>
-            </ul>
+          <li>
+            <div data-role="node"><label class="check"><input type="checkbox" /></label><div data-role="content"><span data-role="label">Role management</span></div></div>
+            <div data-role="children">
+              <ul>
+                <li><div data-role="node"><label class="check"><input type="checkbox" /></label><div data-role="content"><span data-role="label">View roles</span></div></div></li>
+                <li><div data-role="node"><label class="check"><input type="checkbox" /></label><div data-role="content"><span data-role="label">Assign roles</span></div></div></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -648,7 +915,7 @@
             <div data-role="custom">Data sharing and cookies</div>
           </div></div></li>
           <li><div data-role="node"><div data-role="content">
-            <span data-role="label"><b></b>Security</b></span>
+            <span data-role="label"><b>Security</b></span>
             <div data-role="custom">Password, 2FA, sessions</div>
           </div></div></li>
         </ul>

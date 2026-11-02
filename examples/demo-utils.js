@@ -9,8 +9,8 @@
 
   function initDemoToolbar(options = {}) {
     const {
-      cssId = 'beautify-css',
-      cssHref = '../dist/beautify.css',
+      cssId = 'wispcss-css',
+      cssHref = '../dist/wispcss.css',
       darkClass = 'dark',
       darkStorageKey = 'dark-mode-enabled',
       dirStorageKey = 'dir-enabled'

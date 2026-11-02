@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="wispcss-css" rel="stylesheet" href="../dist/wispcss.css">
+  <link rel="stylesheet" href="./demo-styles.css">
+  <title>Position - WispCSS Demo</title>
+  <style>
+    .wrapper{
+      position:relative;
+      height:200px;
+      border:1px solid var(--color-title-bd);
+      border-radius:var(--default-border-radius);
+      margin-bottom:1rem;
+    }
+    .wrapper-2{
+      position:relative;
+      height:200px;
+      border:1px solid var(--color-title-bd);
+      border-radius:var(--default-border-radius);
+      overflow:auto;
+    }
+     .wrapper-3{
+      position:relative;
+      height:200px;
+      width:200px;
+      border:1px solid var(--color-title-bd);
+      border-radius:var(--default-border-radius);
+      overflow:auto;
+    }
+    .box{
+      padding:6px 10px;
+      border-radius:inherit;
+      background:var(--color-primary);
+      color:var(--color-primary-contrast);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Position Component</h1>
+  <p>Fixed / absolute centering, corner anchoring, and sticky offsets using logical properties.</p>
+
+  <h2>Notes</h2>
+  <div class="section">
+    <ul>
+      <li>Corner anchors default to <code>0</code> offsets; combine with Tailwind spacing (e.g. <code>top-4</code>) to adjust.</li>
+      <li>Absolute positioning requires <code>position: relative</code> on the parent.</li>
+      <li>Sticky utilities require a scrollable container.</li>
+      <li>All classes use logical properties, so RTL is supported automatically.</li>
+    </ul>
+  </div>
+
+  <h2 id="interactive">Interactive fixed / absolute</h2>
+  <div class="section">
+    <p>Switch the target between <code>fixed</code> and <code>absolute</code> to see how it anchors to the viewport vs. the parent box.</p>
+    <div class="wrapper">
+      <span id="target" class="absolute-center-x box">
+        Target
+      </span>
+    </div>
+    <span class="btns">
+      <button data-pos="absolute-cover" class="btn">absolute-cover</button>
+      <button data-pos="absolute-cover-x" class="btn">absolute-cover-x</button>
+      <button data-pos="absolute-cover-y" class="btn">absolute-cover-y</button>
+      <button data-pos="absolute-center" class="btn">absolute-center</button>
+      <button data-pos="absolute-center-x" class="btn">center-x</button>
+      <button data-pos="absolute-top-start" class="btn">top-start</button>
+      <button data-pos="absolute-top-end" class="btn">top-end</button>
+      <button data-pos="absolute-bottom-start" class="btn">bottom-start</button>
+      <button data-pos="absolute-bottom-end" class="btn">bottom-end</button>
+    </span>
+    <p></p>
+    <span class="btns">
+      <button data-pos="fixed-cover" class="btn">fixed-cover</button>
+      <button data-pos="fixed-cover-x" class="btn">fixed-cover-x</button>
+      <button data-pos="fixed-cover-y" class="btn">fixed-cover-y</button>
+      <button data-pos="fixed-center" class="btn">fixed-center</button>
+      <button data-pos="fixed-center-x" class="btn">center-x</button>
+      <button data-pos="fixed-top-start" class="btn">top-start</button>
+      <button data-pos="fixed-top-end" class="btn">top-end</button>
+      <button data-pos="fixed-bottom-start" class="btn">bottom-start</button>
+      <button data-pos="fixed-bottom-end" class="btn">bottom-end</button>
+    </span>
+  </div>
+
+  <h2 id="cover">Cover</h2>
+  <div class="section">
+    <div>
+      <h3>absolute-cover — fills the parent</h3>
+      <div class="wrapper-3">
+        <div class="absolute-cover box" >absolute-cover</div>
+      </div>
+    </div>
+    <div>
+      <h3>absolute-cover-4 — cover with dynamic gap</h3>
+      <div class="wrapper-3">
+        <div class="absolute-cover-4 box">absolute-cover-4</div>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div>
+        <h3>absolute-cover-x</h3>
+        <div class="wrapper-3">
+          <div class="absolute-cover-x box">x</div>
+        </div>
+      </div>
+      <div>
+        <h3>absolute-cover-y</h3>
+        <div class="wrapper-3">
+          <div class="absolute-cover-y box">y</div>
+        </div>
+      </div>
+      <div>
+        <h3>absolute-cover-x-4</h3>
+        <div class="wrapper-3">
+          <div class="absolute-cover-x-4 box">x-4</div>
+        </div>
+      </div>
+    </div>
+    <p>The same <code>fixed-cover</code> / <code>fixed-cover-x</code> / <code>fixed-cover-y</code> variants fill the viewport instead of the parent.</p>
+  </div>
+
+  <h2 id="centering">Centering</h2>
+  <div class="section">
+    <div class="flex gap-4">
+      <div>
+        <h3>absolute-center</h3>
+        <div class="wrapper">
+          <div class="absolute-center box" >center</div>
+        </div>
+      </div>
+      <div>
+        <h3>absolute-center-x</h3>
+        <div class="wrapper">
+          <div class="absolute-center-x box">center-x</div>
+        </div>
+      </div>
+      <div>
+        <h3>absolute-center-y</h3>
+        <div class="wrapper">
+          <div class="absolute-center-y box">center-y</div>
+        </div>
+      </div>
+    </div>
+    <p>The same <code>fixed-*</code> variants anchor to the viewport instead of the parent.</p>
+  </div>
+
+  <h2 id="corners">Corner anchors</h2>
+  <div class="section">
+    <div class="wrapper">
+      <span class="absolute-top-start box">top-start</span>
+      <span class="absolute-top-end box">top-end</span>
+      <span class="absolute-bottom-start box">bottom-start</span>
+      <span class="absolute-bottom-end box">bottom-end</span>
+    </div>
+    <p>Fixed variants (<code>fixed-top-start</code> <code>fixed-top-end</code> <code>fixed-bottom-start</code> <code>fixed-bottom-end</code>) behave the same but stick to the viewport.</p>
+  </div>
+
+  <h2 id="sticky">Sticky</h2>
+  <div class="section">
+    <div class="flex gap-4">
+      <div>
+        <h3>sticky-top</h3>
+        <div class="wrapper-2">
+          <div class="sticky-top box">Header</div>
+          <div>Line 1<br>Line 2<br>Line 3<br>Line 4<br>Line 5<br>Line 6<br>Line 7<br>Line 8<br>Line 9<br>Line 10</div>
+        </div>
+      </div>
+      <div>
+        <h3>sticky-bottom</h3>
+        <div class="wrapper-2">
+          <div>Line 1<br>Line 2<br>Line 3<br>Line 4<br>Line 5<br>Line 6<br>Line 7<br>Line 8<br>Line 9<br>Line 10</div>
+          <div class="sticky-bottom box">Footer</div>
+        </div>
+      </div>
+      <div>
+        <h3>sticky-top-4 (offset)</h3>
+        <div class="wrapper-2">
+          <div class="sticky-top-4 box">Top-4</div>
+          <div>Line 1<br>Line 2<br>Line 3<br>Line 4<br>Line 5<br>Line 6<br>Line 7<br>Line 8<br>Line 9<br>Line 10</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const target = document.getElementById('target');
+    const btns = document.querySelectorAll('[data-pos]');
+    const groupClasses = ['absolute-cover','absolute-cover-x','absolute-cover-y','absolute-center','absolute-center-x', 'absolute-top-start', 'absolute-top-end', 'absolute-bottom-start', 'absolute-bottom-end', 'fixed-cover', 'fixed-cover-x', 'fixed-cover-y', 'fixed-center', 'fixed-center-x', 'fixed-top-start', 'fixed-top-end', 'fixed-bottom-start', 'fixed-bottom-end'];
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        groupClasses.forEach(c => target.classList.remove(c));
+        target.classList.add(btn.dataset.pos);
+        btns.forEach(b => b.classList.remove('btn-primary'));
+        btn.classList.add('btn-primary');
+      });
+    });
+  </script>
+</body>
+
+</html>

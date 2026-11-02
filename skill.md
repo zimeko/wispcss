@@ -1,14 +1,14 @@
-# Beautify – AI Reference Guide
+# WispCSS – AI Reference Guide
 
-> This guide tells AI how to read Beautify's source files and generate correct HTML using its utility classes — both standalone and in combination.
+> This guide tells AI how to read WispCSS's source files and generate correct HTML using its utility classes — both standalone and in combination.
 
 ---
 
-## 1. How to Learn Beautify
+## 1. How to Learn WispCSS
 
 Read files in this order:
 
-1. **`src/index.css`** — component registry: what components exist, their filenames, and load order
+1. **`src/core.css`** — component registry: what components exist, their filenames, and load order (`src/index.css` is the same registry with `@import "tailwindcss";` in front of it)
 2. **`src/[component].css`** — for each component:
    - Block comment at the top: full usage docs, supported features, combination rules
    - `@utility` declarations: all valid class names
@@ -16,6 +16,39 @@ Read files in this order:
    - `@example` tags: usage snippets
 3. **`examples/demo-[component].html`** — real-world HTML patterns and class combinations
 4. **`src/utilities.css`** — general-purpose layout, positioning, scroll, and safe-area helpers
+
+### Entry Files
+
+| File                   | Imports Tailwind?  | Use when                                                                                          |
+| ---------------------- | ------------------ | ------------------------------------------------------------------------------------------------- |
+| `src/index.css`        | Yes                | The project does not import Tailwind anywhere else — it is `@import "tailwindcss";` + `core.css`   |
+| `src/core.css`         | No                 | Tailwind is already imported elsewhere (framework preset, shared entry, custom `prefix()` / `@theme`) |
+| `src-prefix/index.css` | Yes, `prefix(tw)`  | Classes must be namespaced (`tw:btn-primary`) and WispCSS should bring Tailwind                    |
+| `src-prefix/core.css`  | No                 | Namespaced classes, but Tailwind with the **same** prefix is already imported elsewhere            |
+
+- `core.css` contains every component, utility and design token, but no Tailwind import.
+- `core.css` must be imported **after** Tailwind; it cannot be compiled alone because it relies on `@utility`, `@theme`, `--theme()` and `--spacing()`.
+- Class names, combination rules and tree-shaking are identical with either file — including both would duplicate the component layer.
+
+npm subpaths (only work when the source sits in `node_modules/@zimeko/wispcss/`; the `.css` extension is optional):
+
+| Specifier                            | File                            |
+| ------------------------------------ | ------------------------------- |
+| `@zimeko/wispcss`                    | `src/index.css`                 |
+| `@zimeko/wispcss/core.css`           | `src/core.css`                  |
+| `@zimeko/wispcss/<component>`        | `src/<component>.css`           |
+| `@zimeko/wispcss/prefix`             | `src-prefix/index.css`          |
+| `@zimeko/wispcss/prefix/core.css`    | `src-prefix/core.css`           |
+| `@zimeko/wispcss/prefix/<component>` | `src-prefix/<component>.css`    |
+
+```css
+/* Case A: the project has no Tailwind import yet */
+@import "./lib/wispcss/src/index.css";
+
+/* Case B: Tailwind is already imported somewhere else */
+@import "tailwindcss";
+@import "./lib/wispcss/src/core.css";
+```
 
 ---
 
@@ -242,37 +275,44 @@ Inline icon action buttons (e.g. edit/delete/more at the end of a list row).
 
 ### 2.5 Data Display
 
-| Component | File               | Description                                                                                      |
-| --------- | ------------------ | ------------------------------------------------------------------------------------------------ |
-| Tag       | `src/tag.css`      | Chip/label — like badge but no auto-dot behavior                                                 |
-| Flag      | `src/flag.css`     | Corner decorations (triangle, circle, ribbon, diamond) for promo/badges                          |
-| Buoy      | `src/buoy.css`     | Two-segment badge (label+value), like GitHub shields.io badges                                   |
-| Rank      | `src/rank.css`     | Numeric rank indicator                                                                           |
-| Stats     | `src/stats.css`    | Stat display block with `[data-role=main/label/tips]` slots                                      |
-| Progress  | `src/progress.css` | Progress bar — native `<progress>` or `[data-role=bar]` custom                                   |
-| Spinner   | `src/spinner.css`  | Loading spinner; variants: `spinner-gapped` / `spinner-broken`; size: `spinner-1` ~ `spinner-15` |
-| Swatch    | `src/swatch.css`   | Color chip — mimics `<input type="color">` appearance                                            |
-| Poster    | `src/poster.css`   | Image cover container — supports aspect ratios like `poster-16x9`, hover zoom/overlay            |
-| Icon      | `src/icon.css`     | SVG icon via `mask-image`; colorable with `currentColor`                                         |
-| Skeleton  | `src/skeleton.css` | Loading placeholder — shimmer by default; `skeleton-pulse` for pulse variant                     |
-| Table     | `src/table.css`    | Table enhancements: striped rows, hover highlight, sticky columns, alignment                     |
-| Tree      | `src/tree.css`     | Hierarchical `ul/li` tree — `data-role=node/content/label/arrow/note/indent` slots, states, shapes, densities, indent modes, expand levels |
+| Component | File               | Description                                                                                                                                                                       |
+| --------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tag       | `src/tag.css`      | Chip/label — like badge but no auto-dot behavior                                                                                                                                  |
+| Flag      | `src/flag.css`     | Corner decorations (triangle, circle, ribbon, diamond) for promo/badges                                                                                                           |
+| Buoy      | `src/buoy.css`     | Two-segment badge (label+value), like GitHub shields.io badges                                                                                                                    |
+| Rank      | `src/rank.css`     | Numeric rank indicator                                                                                                                                                            |
+| Stats     | `src/stats.css`    | Stat display block with `[data-role=main/label/tips]` slots                                                                                                                       |
+| Progress  | `src/progress.css` | Progress bar — native `<progress>` or `[data-role=bar]` custom                                                                                                                    |
+| Spinner   | `src/spinner.css`  | Loading spinner; variants: `spinner-gapped` / `spinner-broken`; size: `spinner-1` ~ `spinner-15`                                                                                  |
+| Swatch    | `src/swatch.css`   | Color chip — mimics `<input type="color">` appearance                                                                                                                             |
+| Poster    | `src/poster.css`   | Image cover container — supports aspect ratios like `poster-16x9`, hover zoom/overlay                                                                                             |
+| Icon      | `src/icon.css`     | SVG icon via `mask-image`; colorable with `currentColor`                                                                                                                          |
+| Skeleton  | `src/skeleton.css` | Loading placeholder — shimmer by default; `skeleton-pulse` for pulse variant                                                                                                      |
+| Table     | `src/table.css`    | Table enhancements: striped rows, hover highlight, sticky columns, alignment                                                                                                      |
+| Tree      | `src/tree.css`     | Hierarchical `ul/li` tree — `data-role=node/content/label/arrow/children/note/indent/group/toggle` slots, states, shapes, densities, indent modes, expand levels, CSS-only toggle |
 
 **Tree (`src/tree.css` / `examples/demo-tree.html`)**
 
 ```
 tree
   └── ul > li
-        ├── div[data-role=node]
+        ├── div[data-role=node]            # or label[data-role=node] when using toggle
         │     ├── span[data-role=indent]   # tree-indent-dedicated only
+        │     ├── input[data-role=toggle]  # optional CSS-only toggle (inside a <label>)
         │     ├── label.check              # optional checkbox
         │     ├── div[data-role=content]
         │     │     └── span[data-role=label]
-        │     └── span[data-role=arrow]    # branch nodes only
-        └── div[data-role=note]            # optional description row
+        │     └── span[data-role=arrow]    # branch nodes only (leaf arrows auto-hidden)
+        ├── div[data-role=note]            # optional description row
+        └── div[data-role=children]        # required wrapper for nested levels
+              └── ul > li ...              # recursive (top-level ul needs NO wrapper)
 ```
 
-- Trees cannot be nested; structure must be `ul > li`. Every `data-role=node` should contain an embedded `data-role=arrow` child to keep indentation consistent
+- Trees cannot be nested; structure must be `ul > li`. Nested child levels are wrapped by `div[data-role=children] > ul` placed right after the node row — the top-level `ul` does NOT need a `children` wrapper
+- Every `data-role=node` should carry a `data-role=arrow` child (even leaf nodes) to keep indentation consistent; the arrow content hides automatically for leaves
+- CSS-only interactivity: insert `<input type="checkbox" data-role="toggle">` and wrap it in a `<label>` — either as a standalone slot inside the node, or make the entire node a `<label data-role="node">` so the whole row toggles on click
+- Grouping: `div[data-role=group]` as a non-selectable section header; its label indentation aligns with child nodes (children share the same `--tree-level` in dedicated mode)
+- Expand/collapse animates smoothly via `grid-template-rows`
 - States: `tree-selected` (whole row) · `tree-active` (label only) · `tree-disabled` (node or root) · `tree-hoverable`
 - Shape: `tree-square` `tree-rounded` `tree-pill`
 - Density: `tree-tight` `tree-snug` `tree-compact` `tree-relaxed` `tree-loose`
@@ -295,19 +335,53 @@ tree
 | Gilt       | `src/gilt.css`       | Gradient text effect ("gilt" = gilded/gold-plated)     |
 | Kbd        | `src/kbd.css`        | Keyboard key style                                     |
 | Code       | `src/code.css`       | Inline code highlight                                  |
-| Pre        | `src/pre.css`        | Block highlight |
+| Pre        | `src/pre.css`        | Block highlight                                        |
 | Blockquote | `src/blockquote.css` | Quote blocks — `quote` / `bar` / `card` layouts        |
 
 ---
 
 ### 2.7 Layout
 
-| Component | File              | Structure                                                                                                       |
-| --------- | ----------------- | --------------------------------------------------------------------------------------------------------------- |
-| Divider   | `src/divider.css` | `<hr class="divider">` (h) / `divider-v` (v); supports label text, `dotted`/`dashed`/`slash` styles             |
-| Spacer    | `src/spacer.css`  | Flex fill / equal spacing                                                                                       |
-| Comment   | `src/comment.css` | `comments` → `comment` → `comment-start` + `comment-end` → `comment-header` + `comment-body` + `comment-footer` |
-| Entry     | `src/entry.css`   | List row: `entry` → `entry-body` → `entry-label`; supports hoverable/selected/checked states and line-clamp     |
+| Component | File               | Structure                                                                                                                |
+| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| Divider   | `src/divider.css`  | `<hr class="divider">` (h) / `divider-v` (v); supports label text, `dotted`/`dashed`/`slash` styles                      |
+| Spacer    | `src/spacer.css`   | Flex fill / equal spacing                                                                                                |
+| Comment   | `src/comment.css`  | `comments` → `comment` → `comment-start` + `comment-end` → `comment-header` + `comment-body` + `comment-footer`          |
+| Entry     | `src/entry.css`    | List row: `entry` → `entry-body` → `entry-label`; supports hoverable/selected/checked states and line-clamp              |
+| Position  | `src/position.css` | Fixed / absolute / sticky positioning — cover, centering, corner anchors, sticky offsets (logical properties, RTL-ready) |
+| Actions   | `src/actions.css`  | Footer action bar — `actions` container with `actions-start` / `actions-center` / `actions-end` aligned groups |
+
+**Position (`src/position.css` / `examples/demo-position.html`)**
+
+- Cover (stretch to fill viewport or parent):
+  - `fixed-cover` `fixed-cover-x` `fixed-cover-y` + dynamic gap variants `fixed-cover-*` `fixed-cover-x-*` `fixed-cover-y-*` (e.g. `fixed-cover-4`, `fixed-cover-[8px]`)
+  - `absolute-cover` `absolute-cover-x` `absolute-cover-y` + `absolute-cover-*` `absolute-cover-x-*` `absolute-cover-y-*` (requires `position: relative` on parent)
+- Centering (auto margins + fit-content):
+  - `fixed-center` / `fixed-center-x` / `fixed-center-y`
+  - `absolute-center` / `absolute-center-x` / `absolute-center-y`
+- Corner anchors:
+  - `fixed-top-start` `fixed-top-end` `fixed-bottom-start` `fixed-bottom-end`
+  - `absolute-top-start` `absolute-top-end` `absolute-bottom-start` `absolute-bottom-end`
+- Sticky (requires a scrollable container):
+  - `sticky-top` `sticky-bottom` `sticky-start` `sticky-end` (logical properties)
+  - Dynamic offsets: `sticky-top-4` `sticky-top-[8px]` `sticky-bottom-2` `sticky-start-4` `sticky-end-10` (`sticky-*-*`)
+
+**Actions (`src/actions.css` / `examples/demo-actions.html`)**
+
+- `actions` — footer action bar for card / dialog / modal bottom areas
+- Child groups (each lays items in a row with a consistent gap; mix text, buttons, checkboxes, switch, ellipsis text, avatars, icons freely):
+  - `actions-start` — left-aligned group
+  - `actions-center` — center-aligned group
+  - `actions-end` — right-aligned group
+- An empty `actions` bar is hidden automatically
+
+```html
+<div class="actions">
+  <div class="actions-start"><label class="check"><input type="checkbox" /> Check it</label></div>
+  <div class="actions-center">1/4</div>
+  <div class="actions-end"><button>Cancel</button><button class="btn-primary">Confirm</button></div>
+</div>
+```
 
 ---
 
@@ -342,7 +416,6 @@ tree
 | Category   | Classes                                                                                                 |
 | ---------- | ------------------------------------------------------------------------------------------------------- |
 | Flex       | `flex-center` `inline-flex-center` `flex-between` `flex-start` `flex-end` `flex-fluid` `flex-col-fluid` |
-| Position   | `absolute-cover` `fixed-cover` `absolute-center` `fixed-center` `object-cover`                          |
 | Scroll     | `scroll-y` `scroll-x` `overflow-touch`                                                                  |
 | State      | `disabled` `inactive`                                                                                   |
 | Hide       | `hidden-visibility` `hidden-opacity` `hidden-appearance`                                                |
@@ -350,12 +423,12 @@ tree
 | Safe area  | `pt-safe` `pb-safe` `px-safe` `py-safe` + margin variants                                               |
 | Transition | `duration-fastest` ~ `duration-slowest` · `transition-all-fastest` ~ `transition-all-slowest`           |
 | Icon       | `icon-mask`                                                                                             |
-
+| Other      | `object-cover` (image fill)                                                                             |
 ---
 
 ### 2.11 Preset, Normalize, Color & Theme
 
-**`normalize.css`** — replaces Tailwind's preflight; depends on `@codady/normalize`.
+**`normalize.css`** — replaces Tailwind's preflight; depends on `@zimeko/normalize`.
 
 **`preset.css`** — global base styles:
 - Resets for `a` `code` `pre` `kbd` `blockquote` `ul` `ol` `dl` `hr` etc.
@@ -453,6 +526,7 @@ Check these demo files for complete real-world examples:
 10. **`<select multiple>`**: `input-pill` does not apply. Control height with `--input-count` (row count) or `max-height`.
 11. **Shell floating placeholder**: requires all three conditions — `[data-role="placeholder"]` element + `<input placeholder=" ">` (one space) + `shell-10` or larger.
 12. **`*-pill` shape**: on rectangular components (button/badge/buoy/bookmark etc.), `*-pill` means `border-radius: infinity` (capsule shape) — not a circle. True circles only occur at 1:1 aspect ratio (e.g. `avatar-circle`).
+13. **Entry file**: import `src/index.css` when WispCSS should bring Tailwind, or `src/core.css` when Tailwind is already imported elsewhere (see *Entry Files* in Section 1). Use `src-prefix/index.css` / `src-prefix/core.css` when class names must be namespaced (`tw:btn-primary`, CSS selectors `.tw\:btn-primary`). Never mix entries — the component layer would be duplicated.
 
 ---
 
@@ -476,10 +550,10 @@ Some components use metaphorical names. Understanding them speeds up usage:
 
 If the `src/` directory is absent, the project has not been licensed for commercial use.
 
-`src/` is **commercial software** containing all Beautify component definitions, theme systems, and utility source files.
+`src/` is **commercial software** containing all WispCSS component definitions, theme systems, and utility source files.
 
-- **Purchase**: https://beautify.devivid.com
-- **Checkout**: https://devivid.lemonsqueezy.com/checkout/buy/c9b1e630-10ff-490e-9f4f-b9d0bfbd8614
+- **Purchase**: https://wispcss.zimeko.com
+- **Checkout**: https://zimeko.lemonsqueezy.com/checkout/buy/c9b1e630-10ff-490e-9f4f-b9d0bfbd8614
 - **Price**: $29
 
 ---
@@ -487,7 +561,8 @@ If the `src/` directory is absent, the project has not been licensed for commerc
 ## 7. Recommended Reading Order
 
 ```
-1. src/index.css               → component registry and file map
+1. src/core.css                → component registry and file map
+   (src/index.css = same registry + `@import "tailwindcss";`)
 2. src/preset.css              → global base styles and variables
 3. src/utilities.css           → general-purpose utility classes
 4. src/color.css               → color system
@@ -497,4 +572,4 @@ If the `src/` directory is absent, the project has not been licensed for commerc
 6. examples/index.html         → full component overview
 ```
 
-After reading the above, the AI can accurately generate Beautify HTML for any requirement.
+After reading the above, the AI can accurately generate WispCSS HTML for any requirement.

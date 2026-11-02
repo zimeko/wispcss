@@ -4,22 +4,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link id="beautify-css" rel="stylesheet" href="../dist/beautify.css">
+  <link id="wispcss-css" rel="stylesheet" href="../dist/wispcss.css">
   <link rel="stylesheet" href="./demo-styles.css">
-  <title>Preset - Beautify Demo</title>
+  <title>Preset - WispCSS Demo</title>
 </head>
 
 <body>
   <h1>Preset Styles</h1>
-  <p>HTML base element resets and theme tokens from <code>preset.css</code> (<code>@layer base</code>). No extra utility classes needed — these styles apply to native elements automatically.</p>
+  <p>HTML base element resets and theme tokens from <code>preset.css</code> (<code>@layer base</code>). No extra utility
+    classes needed — these styles apply to native elements automatically.</p>
 
   <h2>Notes</h2>
   <div class="section">
     <ul>
       <li>All styles live in <code>@layer base</code> and require no extra classes to activate.</li>
-      <li>Theme tokens define spacing (4px base), border-radius, shadows, transitions, direction factors (LTR/RTL), and light/dark scheme thresholds.</li>
-      <li>Custom scrollbar (8px, desktop only), focus-visible outline, and placeholder styling are globally applied.</li>
-      <li>Forms, inputs, selects, textareas get unified height (32px), border, hover/focus states, and disabled opacity.</li>
+      <li>Theme tokens define spacing (4px base), border-radius, shadows, transitions, direction factors (LTR/RTL), and
+        light/dark scheme thresholds.</li>
+      <li>Custom scrollbar (8px, desktop only), focus-visible outline, and placeholder styling are globally applied.
+      </li>
+      <li>Forms, inputs, selects, textareas get unified height (32px), border, hover/focus states, and disabled opacity.
+      </li>
     </ul>
   </div>
 
@@ -43,7 +47,7 @@
     </div>
     <div>
       <h3>Monospace & keyboard</h3>
-      <p>Inline code: <code>npm install beautify</code></p>
+      <p>Inline code: <code>npm install wispcss</code></p>
       <pre><code>function hello() {
   console.log("monospace");
 }</code></pre>
@@ -83,8 +87,17 @@
     </div>
     <div>
       <h3>Select</h3>
-      <p><select><option>Option 1</option><option>Option 2</option><option>Option 3</option></select></p>
-      <p><select multiple size="4"><option>Beijing</option><option>Shanghai</option><option>Guangzhou</option><option>Shenzhen</option></select></p>
+      <p><select>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select></p>
+      <p><select multiple size="4">
+          <option>Beijing</option>
+          <option>Shanghai</option>
+          <option>Guangzhou</option>
+          <option>Shenzhen</option>
+        </select></p>
     </div>
     <div>
       <h3>Button & file</h3>
@@ -114,7 +127,9 @@
       <h3>Readonly / Disabled</h3>
       <p><input type="text" value="Readonly" readonly /></p>
       <p><input type="text" value="Disabled" disabled /></p>
-      <p><select disabled><option>Disabled</option></select></p>
+      <p><select disabled>
+          <option>Disabled</option>
+        </select></p>
     </div>
   </div>
 
@@ -139,15 +154,37 @@
     <div>
       <h3>Unordered list</h3>
       <ul>
-        <li>Item one<ul><li>Nested item<ul><li>Deep nested</li></ul></li></ul></li>
+        <li>Item one<ul>
+            <li>Nested item<ul>
+                <li>Deep nested</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li>Item two</li>
         <li>Item three</li>
       </ul>
     </div>
     <div>
+      <h3>Menu (menu)</h3>
+      <menu>
+        <li>Item one
+          <menu>
+            <li>Nested item A</li>
+            <li>Nested item B</li>
+          </menu>
+        </li>
+        <li>Item two</li>
+        <li>Item three</li>
+      </menu>
+    </div>
+    <div>
       <h3>Ordered list</h3>
       <ol>
-        <li>First step<ol><li>Sub-step</li></ol></li>
+        <li>First step<ol>
+            <li>Sub-step</li>
+          </ol>
+        </li>
         <li>Second step</li>
         <li>Third step</li>
       </ol>
@@ -164,7 +201,10 @@
     <div>
       <h3>Reset list</h3>
       <p>Use <code>.reset-ul</code> / <code>.reset-dl</code> to restore default browser styling:</p>
-      <ul class="reset-ul"><li>No bullets</li><li>No indent</li></ul>
+      <ul class="reset-ul">
+        <li>No bullets</li>
+        <li>No indent</li>
+      </ul>
     </div>
   </div>
 
@@ -172,7 +212,9 @@
   <div class="section">
     <div>
       <h3>Blockquote</h3>
-      <blockquote><p>A blockquote with left accent border and subtle background.</p></blockquote>
+      <blockquote>
+        <p>A blockquote with left accent border and subtle background.</p>
+      </blockquote>
     </div>
     <div>
       <h3>Citation & emphasis</h3>
@@ -195,8 +237,14 @@
   <div class="section">
     <div>
       <h3>Fieldset & Legend</h3>
-      <fieldset><legend>Personal Info</legend>
-        <table><tr><td><label>Name:</label></td><td><input type="text" /></td></tr></table>
+      <fieldset>
+        <legend>Personal Info</legend>
+        <table>
+          <tr>
+            <td><label>Name:</label></td>
+            <td><input type="text" /></td>
+          </tr>
+        </table>
       </fieldset>
     </div>
     <div>
@@ -216,8 +264,12 @@
       <h3>Dialog</h3>
       <p><button onclick="document.getElementById('demo-dialog').showModal()">Open dialog</button></p>
       <dialog id="demo-dialog">
-        <div data-role="header"><div data-role="title">Dialog Title</div></div>
-        <div data-role="body"><p>Native dialog with fade-in animation and backdrop.</p></div>
+        <div data-role="header">
+          <div data-role="title">Dialog Title</div>
+        </div>
+        <div data-role="body">
+          <p>Native dialog with fade-in animation and backdrop.</p>
+        </div>
         <div data-role="footer"><button onclick="document.getElementById('demo-dialog').close()">Close</button></div>
       </dialog>
     </div>
@@ -227,12 +279,39 @@
   <div class="section">
     <div style="overflow-x: auto;">
       <table>
-        <thead><tr><th>#</th><th>City</th><th>Population</th><th>Type</th></tr></thead>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>City</th>
+            <th>Population</th>
+            <th>Type</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td>1</td><td>Beijing</td><td>21.8M</td><td>Capital</td></tr>
-          <tr><td>2</td><td>Shanghai</td><td>24.7M</td><td>Municipality</td></tr>
-          <tr><td>3</td><td>Guangzhou</td><td>18.7M</td><td>City</td></tr>
-          <tr><td>4</td><td>Shenzhen</td><td>17.6M</td><td>City</td></tr>
+          <tr>
+            <td>1</td>
+            <td>Beijing</td>
+            <td>21.8M</td>
+            <td>Capital</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Shanghai</td>
+            <td>24.7M</td>
+            <td>Municipality</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Guangzhou</td>
+            <td>18.7M</td>
+            <td>City</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Shenzhen</td>
+            <td>17.6M</td>
+            <td>City</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -241,9 +320,21 @@
   <h2 id="scrollbar">Scrollbar</h2>
   <div class="section">
     <div style="max-height: 120px; overflow-y: auto; padding: 8px; border: 1px solid #ddd; border-radius: 8px;">
-      <p>Line 1</p><p>Line 2</p><p>Line 3</p><p>Line 4</p><p>Line 5</p>
-      <p>Line 6</p><p>Line 7</p><p>Line 8</p><p>Line 9</p><p>Line 10</p>
-      <p>Line 11</p><p>Line 12</p><p>Line 13</p><p>Line 14</p><p>Line 15</p>
+      <p>Line 1</p>
+      <p>Line 2</p>
+      <p>Line 3</p>
+      <p>Line 4</p>
+      <p>Line 5</p>
+      <p>Line 6</p>
+      <p>Line 7</p>
+      <p>Line 8</p>
+      <p>Line 9</p>
+      <p>Line 10</p>
+      <p>Line 11</p>
+      <p>Line 12</p>
+      <p>Line 13</p>
+      <p>Line 14</p>
+      <p>Line 15</p>
     </div>
   </div>
 
